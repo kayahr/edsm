@@ -1,0 +1,36 @@
+{
+    "version": "0.1",
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/master/cspell.schema.json",
+    "enabledLanguageIds": [
+        "markdown",
+        "typescript"
+    ],
+    "ignorePaths": [
+        "node_modules",
+        "coverage",
+        "doc/api/**",
+        "data/**",
+        "src/sandbox/**",
+        "src/test/data/**",
+        "package-lock.json",
+        "git",
+        "lib",
+        "dist",
+        "*.log",
+        "*.tgz"
+    ],
+    "words": [
+        "Colonia",
+        "EDSM",
+        "kayahr",
+        "kaylib",
+        "Landable",
+        "Periapsis",
+        "powerplay",
+        "Reimer",
+        "Scoopable",
+        "terraforming",
+        "typedoc"
+    ],
+    "language": "en"
+}

@@ -1,0 +1,83 @@
+{
+    "$schema": "http://json.schemastore.org/package",
+    "name": "@kayahr/edsm",
+    "version": "1.0.0",
+    "description": "Parses data dumps from the Elite Dangerous Star Map (EDSM) and provides a service to communicate with the EDSM API",
+    "keywords": [
+        "elite dangerous",
+        "edsm",
+        "frontier"
+    ],
+    "license": "SEE LICENSE IN LICENSE.md",
+    "repository": "github:kayahr/edsm",
+    "publishConfig": {
+        "access": "public"
+    },
+    "author": {
+        "name": "Klaus Reimer",
+        "email": "k@ailis.de"
+    },
+    "scripts": {
+        "clean": "rimraf lib coverage doc/api",
+        "compile": "tsc",
+        "watch": "tsc -w",
+        "check": "jest",
+        "coverage": "jest --coverage",
+        "doc": "typedoc --excludeNotExported --excludePrivate --mode file --includes doc --out doc/api src/main ../../node_modules/**/*.d.ts",
+        "lint": "eslint --max-warnings 0 --ext .ts src",
+        "cspell": "cspell '**/*'",
+        "prepare": "npm run -s clean && npm run -s compile",
+        "test": "npm run -s cspell && npm run -s lint && npm run -s check"
+    },
+    "files": [
+        "lib/main/",
+        "src/main/"
+    ],
+    "main": "lib/main/index",
+    "funding": {
+        "url": "https://github.com/kayahr/edsm?sponsor=1"
+    },
+    "jest": {
+        "projects": [
+            {
+                "displayName": "node",
+                "testEnvironment": "jest-environment-node-single-context",
+                "testMatch": [
+                    "<rootDir>/lib/test/**/*.test.js"
+                ]
+            }
+        ],
+        "collectCoverageFrom": [
+            "<rootDir>/lib/main/**/*.js"
+        ]
+    },
+    "devDependencies": {
+        "@jest-runner/electron": "3.0.0",
+        "@kayahr/eslint-config": "1.2.0",
+        "@kayahr/jest-matchers": "1.0.0",
+        "@types/jest": "26.0.15",
+        "@types/node": "14.14.7",
+        "@typescript-eslint/eslint-plugin": "4.7.0",
+        "@typescript-eslint/parser": "4.7.0",
+        "ajv": "6.12.6",
+        "cspell": "4.1.5",
+        "electron": "10.1.5",
+        "eslint": "7.13.0",
+        "eslint-plugin-deprecation": "1.1.0",
+        "eslint-plugin-simple-import-sort": "5.0.3",
+        "isomorphic-fetch": "3.0.0",
+        "jest": "26.6.3",
+        "jest-environment-node-single-context": "26.2.0",
+        "jest-extended": "0.11.5",
+        "rimraf": "3.0.2",
+        "source-map-support": "0.5.19",
+        "steal": "2.2.4",
+        "ts-json-schema-generator": "0.78.0",
+        "typedoc": "0.19.2",
+        "typescript": "4.0.5"
+    },
+    "dependencies": {
+        "@kayahr/kaylib": "^1.0.0",
+        "tslib": "^2.0.2"
+    }
+}
