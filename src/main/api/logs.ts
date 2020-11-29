@@ -22,18 +22,18 @@ export interface FlightLogs {
 }
 
 export interface FlightLogFilter {
-    /** Use the systemName parameter to filter flight logs by system name. */
+    /** Filters flight logs by system name. */
     systemName?: string;
 
     /**
-     * If you only want to receive flight logs after a specific date & time, use this parameter.
-     * That parameter is inclusive. All dates must be UTC.
+     * Filters for flight logs after this date & time (inclusive). Must be specified in UTC in the format
+     * YYYY-MM-DD HH:MM:SS.
      */
     startDateTime?: string;
 
     /**
-     * If you only want to receive flight logs before a specific date & time, use this parameter.
-     * That parameter is inclusive. All dates must be UTC.
+     * Filters for flight logs before this date & time (inclusive). Must be specified in UTC in the format
+     * YYYY-MM-DD HH:MM:SS.
      */
     endDateTime?: string;
 

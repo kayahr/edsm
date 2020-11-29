@@ -45,6 +45,71 @@ There are also `streamSystemsJSON`, `streamPowerPlayJSON`, `streamCodexJSON` and
 
 If you don't want to stream the data and instead you want to read all data as an array, then use `readStationsJSON`, `readSystemsJSON`, `readPowerPlayJSON`, `readCodexJSON` and `readBodiesJSON` which simply asynchronously returns an array with the corresponding data. But expect heavy memory usage when doing this for the larger files.
 
+EDSM REST API
+-------------
+
+Asynchronous functions are provided for all EDSM API calls. Received HTTP and EDSM errors are automatically converted to exceptions (Promise rejects).
+
+### **[Status](https://www.edsm.net/en/api-status-v1)**
+
+#### **getEliteServerStatus()**
+
+Requests the Elite server status from EDSM.
+
+```typescript
+const status = await edsm.getEliteServerStatus();
+```
+
+### **[Commander](https://www.edsm.net/en/api-commander-v1)**
+
+#### **getCommanderRanks(commanderName, apiKey?)**
+
+Requests the ranks of the given commander. This only works when the commander has a public profile or when the API key of the commander is specified as second parameter.
+
+```typescript
+const ranks = await edsm.getCommanderRanks("Username");
+```
+
+#### **getCommanderCredits(commanderName, apiKey, period?)**
+
+Requests the credits statistics of the given commander. API key of the commander is required for this request. The optional third parameter defines the period for the returned statistics. It can be `7DAY`, `1MONTH`, `3MONTH` or `6MONTH`.
+
+```typescript
+const credits = await edsm.getCommanderCredits("Username", "SecretAPIKey");
+```
+
+#### **getCommanderInventory(commanderName, apiKey, type?)**
+
+Requests the inventory of the given commander. The API key of the commander is required for this request. The optional third parameter defines the type of the requested inventory. It defaults to `materials` and can also be `data` or `cargo`.
+
+```typescript
+const materials = await edsm.getCommanderInventory("Username", "SecretAPIKey", "materials");
+const data = await edsm.getCommanderInventory("Username", "SecretAPIKey", "data");
+const cargo = await edsm.getCommanderInventory("Username", "SecretAPIKey", "cargo");
+```
+
+### **[Logs](https://www.edsm.net/en/api-logs-v1)**
+
+#### **getFlightLogs(commanderName, apiKey, options?)**
+
+Requests the flight logs of the given commander. API key is required. The returned flight logs can be optionally filtered by the third options parameter which is an object with the following optional keys:
+
+Option        | Type   | Description
+--------------|--------|-------------------------------------
+systemName    | string | Filters flight logs by system name.
+startDateTime | string | Filters for flight logs after this date & time (inclusive). Must be specified in UTC in the format  YYYY-MM-DD HH:MM:SS.
+endDateTime   | string | Filters for flight logs before this date & time (inclusive). Must be specified in UTC in the format YYYY-MM-DD HH:MM:SS.
+showId        | number | Set to 1 if you want to get the EDSM internal id. Useful to handle duplicated name systems of the game.
+
+```typescript
+const flightLogs = await getFlightLogs("Username", "SecredtAPIKey", {
+    systemName: "Shinrarta Dezhra",
+    startDateTime: "2019-01-01 00:00:00",
+    endDateTime: "2020-12-31 23:59:59",
+    showId: 1
+});
+```
+
 Other utility functions
 -----------------------
 
@@ -55,6 +120,10 @@ Type-guard function which returns true when body is a planet, false when not.
 ### isStar(body)
 
 Type-guard function which returns true when body is a star, false when not.
+
+### toUTCString(date)
+
+Converts a JavaScript Date object to a UTC date string in the format required by various EDSM API functions. Converting in the other direction can simply be done with `date = new Date(utcDateString)`.
 
 [EDSM]: https://www.edsm.net/
 [fetch]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
