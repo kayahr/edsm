@@ -20,17 +20,28 @@
         "*.tgz"
     ],
     "words": [
+        "Berenices",
         "Colonia",
+        "Comae",
+        "Dezhra",
         "EDSM",
+        "EDSM's",
+        "gzipped",
+        "JSONL",
         "kayahr",
         "kaylib",
         "Landable",
+        "msgnum",
         "Periapsis",
         "powerplay",
+        "Raxxla",
+        "readline",
         "Reimer",
         "Scoopable",
+        "Shinrarta",
         "terraforming",
-        "typedoc"
+        "typedoc",
+        "xdescribe"
     ],
     "language": "en"
 }

@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { edsmBaseUrl } from "./constants";
+import { streamJSON } from "./util";
 
 /**
  * EDSM data about asteroid ring/belt.
@@ -111,22 +111,16 @@ export interface Planet extends BaseBody {
  */
 export type Body = Planet | Star;
 
+export type SystemStar = Omit<Star, "systemId" | "systemId64" | "systemName">;
+export type SystemPlanet = Omit<Planet, "systemId" | "systemId64" | "systemName">;
+
 /**
  * Body within a system (without system information because its already in the parent object)
  */
-export type SystemBody = Omit<Planet, "systemId" | "systemId64" | "systemName">
-    | Omit<Star, "systemId" | "systemId64" | "systemName">;
+export type SystemBody = SystemStar | SystemPlanet;
 
-/**
- * Response structure of the EDSM system bodies request.
- */
-export interface SystemBodies {
-    id: number;
-    id64: number;
-    name: string;
-    url: string;
-    bodies: SystemBody;
-}
+export function isPlanet(body: Body): body is Planet;
+export function isPlanet(body: SystemBody): body is SystemPlanet;
 
 /**
  * Checks if given body is a planet.
@@ -134,9 +128,12 @@ export interface SystemBodies {
  * @param body - The body to check.
  * @return True if body is a planet.
  */
-export function isPlanet(body: Body): body is Planet {
+export function isPlanet(body: Body | SystemBody): boolean {
     return body.type === "Planet";
 }
+
+export function isStar(body: Body): body is Star;
+export function isStar(body: SystemBody): body is SystemStar;
 
 /**
  * Checks if given body is a planet.
@@ -144,23 +141,36 @@ export function isPlanet(body: Body): body is Planet {
  * @param body - The body to check.
  * @return True if body is a star.
  */
-export function isStar(body: Body): body is Star {
+export function isStar(body: Body | SystemBody): boolean {
     return body.type === "Star";
 }
 
+/** List of EDSM bodies. */
+export type Bodies = Body[];
+
 /**
- * Returns the system bodies of the given star system.
+ * Streams bodies from the given JSON input to the given callback function. If you want all bodies in an array
+ * then use [[readBodiesJSON]] instead.
  *
- * @param systemName - The system name.
- * @param id         - Optional system ID if you seek for a duplicate system and want to force a specific ID.
- * @return The bodies found on EDSM. Null if system not found.
+ * @param input    - The JSON input as an async iterable.
+ * @param callback - The callback function to call for each body. If callback returns a promise then
+ *                   this function waits for the promise to be resolved before continuing with the bodies.
+ * @return Promise resolved when all bodies have been read or rejected when reading fails.
  */
-export async function getSystemBodies(systemName: string, ids?: { systemId?: number, systemId64?: number }):
-        Promise<SystemBodies | null> {
-    const json = await (await fetch(`${edsmBaseUrl}/api-system-v1/bodies`, {
-        method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ systemName, ...ids })
-    })).json() as Object;
-    return Object.keys(json).length === 0 ? null : json as SystemBodies;
+export function streamBodiesJSON(input: AsyncIterable<string>, callback: (body: Body) => Promise<void> | void):
+        Promise<void> {
+    return streamJSON(input, callback);
+}
+
+/**
+ * Reads all bodies from the given CSV input and returns them as an array. Use [[streamBodiesJSON]] if you want to
+ * stream the bodies to a callback function instead of getting a huge array.
+ *
+ * @param input - The JSON input as an async iterable.
+ * @return The bodies.
+ */
+export async function readBodiesJSON(input: AsyncIterable<string>): Promise<Bodies> {
+    const bodies: Bodies = [];
+    await streamBodiesJSON(input, body => void bodies.push(body));
+    return bodies;
 }
