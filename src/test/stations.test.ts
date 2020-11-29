@@ -1,6 +1,6 @@
 import "jest-extended";
 
-import ajv from "ajv";
+import * as ajv from "ajv";
 import * as path from "path";
 
 import { readStationsJSON, Stations, streamStationsJSON } from "../main/stations";
