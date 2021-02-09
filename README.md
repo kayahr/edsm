@@ -102,7 +102,7 @@ endDateTime   | string | Filters for flight logs before this date & time (inclus
 showId        | number | Set to 1 if you want to get the EDSM internal id. Useful to handle duplicated name systems of the game.
 
 ```typescript
-const flightLogs = await getFlightLogs("Username", "SecredtAPIKey", {
+const flightLogs = await getFlightLogs("Username", "SecretAPIKey", {
     systemName: "Shinrarta Dezhra",
     startDateTime: "2019-01-01 00:00:00",
     endDateTime: "2020-12-31 23:59:59",
