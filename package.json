@@ -83,6 +83,6 @@
     },
     "dependencies": {
         "@kayahr/kaylib": "^1.0.0",
-        "tslib": "^2.1.0"
+        "tslib": "^2.4.1"
     }
 }
