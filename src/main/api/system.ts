@@ -3,11 +3,10 @@
  * See LICENSE.md for licensing information.
  */
 
-import { NotFoundException } from "@kayahr/kaylib/lib/main/util/exception";
-
-import { SystemBody } from "../bodies";
-import { SystemStation } from "../stations";
-import { edsmBaseUrl, request } from "./common";
+import { type SystemBody } from "../bodies.js";
+import { type SystemStation } from "../stations.js";
+import { NotFoundException } from "../util/NotFoundException.js";
+import { edsmBaseUrl, request } from "./common.js";
 
 export interface IdParameters {
     /** The system ID if you seek for a duplicate system and want to force a specific ID. */
@@ -81,15 +80,15 @@ export interface SystemStationsMarket {
     sId: number;
     sName: string;
     url: string;
-    commodities: SystemStationsMarketCommodity[]
+    commodities: SystemStationsMarketCommodity[];
 }
 
 /**
  * Returns the system bodies of the given star system.
  *
  * @param systemName - The system name.
- * @param id         - Optional system ID if you seek for a duplicate system and want to force a specific ID.
- * @return The bodies found on EDSM.
+ * @param ids        - Optional system IDs if you seek for a duplicate system and want to force a specific ID.
+ * @returns The bodies found on EDSM.
  * @throws NotFoundException - When system was not found.
  */
 export async function getSystemBodies(systemName: string, ids?: { systemId?: number, systemId64?: number }):
@@ -110,7 +109,7 @@ export async function getSystemBodies(systemName: string, ids?: { systemId?: num
  *
  * @param systemName - The system name.
  * @param params     - Optional parameters.
- * @return The scan values.
+ * @returns The scan values.
  * @throws NotFoundException - When system was not found.
  */
 export async function getSystemEstimatedValue(systemName: string, params?: IdParameters):
@@ -131,7 +130,7 @@ export async function getSystemEstimatedValue(systemName: string, params?: IdPar
  *
  * @param systemName - The system name.
  * @param params     - Optional parameters.
- * @return The information about stations in a system.
+ * @returns The information about stations in a system.
  * @throws NotFoundException - When system was not found.
  */
 export async function getSystemStations(systemName: string, params?: IdParameters):
@@ -151,7 +150,7 @@ export async function getSystemStations(systemName: string, params?: IdParameter
  * Returns information about market in a station.
  *
  * @param marketId - The market ID.
- * @return The information about market in given station.
+ * @returns The information about market in given station.
  * @throws NotFoundException - When market was not found.
  */
 export async function getSystemStationsMarket(marketId: number): Promise<SystemStationsMarket>;
@@ -162,7 +161,7 @@ export async function getSystemStationsMarket(marketId: number): Promise<SystemS
  * @param systemName  - The system name.
  * @param stationName - The station name.
  * @param params      - Optional parameters.
- * @return The information about market in given station.
+ * @returns The information about market in given station.
  * @throws NotFoundException - When market was not found.
  */
 export async function getSystemStationsMarket(systemName: string, stationName: string, params?: IdParameters):

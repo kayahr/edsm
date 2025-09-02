@@ -3,10 +3,10 @@
  * See LICENSE.md for licensing information.
  */
 
-import { SystemBody } from "./bodies";
-import { Coordinates } from "./common";
-import { SystemStation } from "./stations";
-import { streamJSON } from "./util";
+import { type SystemBody } from "./bodies.js";
+import { type Coordinates } from "./common.js";
+import { type SystemStation } from "./stations.js";
+import { streamJSON } from "./util.js";
 
 export interface EstimatedCoordinates extends Coordinates {
     precision: number;
@@ -73,7 +73,7 @@ export type Systems = System[];
  * @param input    - The JSON input as an async iterable.
  * @param callback - The callback function to call for each system. If callback returns a promise then
  *                   this function waits for the promise to be resolved before continuing with the systems.
- * @return Promise resolved when all systems have been read or rejected when reading fails.
+ * @returns Promise resolved when all systems have been read or rejected when reading fails.
  */
 export function streamSystemsJSON(input: AsyncIterable<string>, callback: (system: System) => Promise<void> | void):
         Promise<void> {
@@ -85,7 +85,7 @@ export function streamSystemsJSON(input: AsyncIterable<string>, callback: (syste
  * stream the systems to a callback function instead of getting a huge array.
  *
  * @param input - The JSON input as an async iterable.
- * @return The systems.
+ * @returns The systems.
  */
 export async function readSystemsJSON(input: AsyncIterable<string>): Promise<Systems> {
     const systems: Systems = [];

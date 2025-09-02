@@ -3,14 +3,14 @@
  * See LICENSE.md for licensing information.
  */
 
-export * from "./api/commander";
-export * from "./api/common";
-export * from "./api/logs";
-export * from "./api/status";
-export * from "./api/system";
-export * from "./bodies";
-export * from "./codex";
-export * from "./common";
-export * from "./powerplay";
-export * from "./stations";
-export * from "./systems";
+export * from "./api/commander.js";
+export * from "./api/common.js";
+export * from "./api/logs.js";
+export * from "./api/status.js";
+export * from "./api/system.js";
+export * from "./bodies.js";
+export * from "./codex.js";
+export * from "./common.js";
+export * from "./powerplay.js";
+export * from "./stations.js";
+export * from "./systems.js";

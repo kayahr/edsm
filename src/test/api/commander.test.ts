@@ -1,14 +1,12 @@
-import "jest-extended";
-import "isomorphic-fetch";
+import { join } from "path";
+import { it } from "vitest";
 
-import * as path from "path";
+import { getCommanderCredits, getCommanderInventory, getCommanderRanks } from "../../main/api/commander.js";
+import { createValidator, describeWhenTestAPI, edsmAPIKey, testJSON } from "../util.js";
 
-import { getCommanderCredits, getCommanderInventory, getCommanderRanks } from "../../main/api/commander";
-import { createValidator, describeWhenTestAPI, edsmAPIKey, testJSON } from "../util";
-
-const baseDir = path.join(__dirname, "../../..");
+const baseDir = join(__dirname, "../../..");
 const sourceFiles = [
-    path.join(baseDir, "src/main/api/commander.ts")
+    join(baseDir, "src/main/api/commander.ts")
 ];
 
 describeWhenTestAPI("getCommanderRanks", () => {

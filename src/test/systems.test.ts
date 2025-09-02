@@ -1,21 +1,23 @@
-import "jest-extended";
+import "@kayahr/vitest-matchers";
 
-import * as ajv from "ajv";
-import * as path from "path";
+import { join } from "node:path";
 
-import { readSystemsJSON, streamSystemsJSON, Systems } from "../main/systems";
-import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util";
+import { type ValidateFunction } from "ajv";
+import { beforeAll, describe, expect, it } from "vitest";
 
-const baseDir = path.join(__dirname, "../..");
+import { readSystemsJSON, streamSystemsJSON, type Systems } from "../main/systems.js";
+import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
+
+const baseDir = join(__dirname, "../..");
 const sourceFiles = [
-    path.join(baseDir, "src/main/common.ts"),
-    path.join(baseDir, "src/main/bodies.ts"),
-    path.join(baseDir, "src/main/systems.ts"),
-    path.join(baseDir, "src/main/stations.ts")
+    join(baseDir, "src/main/common.ts"),
+    join(baseDir, "src/main/bodies.ts"),
+    join(baseDir, "src/main/systems.ts"),
+    join(baseDir, "src/main/stations.ts")
 ];
-const systemsWithoutCoordinatesFile = path.join(baseDir, "src/test/data/systemsWithoutCoordinates.json");
-const systemsWithCoordinatesFile = path.join(baseDir, "src/test/data/systemsWithCoordinates.json");
-const systemsPopulatedFile = path.join(baseDir, "src/test/data/systemsPopulated.json");
+const systemsWithoutCoordinatesFile = join(baseDir, "src/test/data/systemsWithoutCoordinates.json");
+const systemsWithCoordinatesFile = join(baseDir, "src/test/data/systemsWithCoordinates.json");
+const systemsPopulatedFile = join(baseDir, "src/test/data/systemsPopulated.json");
 
 // Use this to test against real data export stored in data directory:
 // const systemsWithoutCoordinatesFile = path.join(baseDir, "data/systemsWithoutCoordinates.json.gz");
@@ -23,7 +25,7 @@ const systemsPopulatedFile = path.join(baseDir, "src/test/data/systemsPopulated.
 // const systemsPopulatedFile = path.join(baseDir, "data/systemsPopulated.json.gz");
 
 describe("systems", () => {
-    let validator: ajv.ValidateFunction;
+    let validator: ValidateFunction;
     let systems: Systems;
 
     beforeAll(async () => {

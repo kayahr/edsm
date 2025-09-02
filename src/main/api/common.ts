@@ -3,11 +3,9 @@
  * See LICENSE.md for licensing information.
  */
 
-import { Exception } from "@kayahr/kaylib/lib/main/util/exception";
-
 export const edsmBaseUrl = "https://www.edsm.net";
 
-export class ServerException extends Exception {
+export class ServerException extends Error {
     public readonly status: number;
 
     public constructor(status: number, message: string) {
@@ -16,7 +14,7 @@ export class ServerException extends Exception {
     }
 }
 
-export class APIException extends Exception {
+export class APIException extends Error {
     public readonly status: number;
 
     public constructor(status: number, message: string) {
@@ -34,7 +32,7 @@ interface MessageResult {
  * Sends JSON request to the given URL with the given parameters and returns the response.
  *
  * @param params - Optional parameters.
- * @return The JSON result. Null when result was an empty object which for EDSM means "not found".
+ * @returns The JSON result. Null when result was an empty object which for EDSM means "not found".
  * @throws APIException - When request failed for some unknown reason.
  */
 export async function request<T>(url: string, params: object = {}): Promise<T | null> {

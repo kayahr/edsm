@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { streamJSON } from "./util";
+import { streamJSON } from "./util.js";
 
 export interface StationControllingFaction {
     id: number | null;
@@ -58,7 +58,7 @@ export type Stations = Station[];
  * @param input    - The JSON input as an async iterable.
  * @param callback - The callback function to call for each station. If callback returns a promise then
  *                   this function waits for the promise to be resolved before continuing with the stations.
- * @return Promise resolved when all stations have been read or rejected when reading fails.
+ * @returns Promise resolved when all stations have been read or rejected when reading fails.
  */
 export function streamStationsJSON(input: AsyncIterable<string>, callback: (station: Station) => Promise<void> | void):
         Promise<void> {
@@ -70,7 +70,7 @@ export function streamStationsJSON(input: AsyncIterable<string>, callback: (stat
  * stream the stations to a callback function instead of getting a huge array.
  *
  * @param input - The JSON input as an async iterable.
- * @return The stations.
+ * @returns The stations.
  */
 export async function readStationsJSON(input: AsyncIterable<string>): Promise<Stations> {
     const stations: Stations = [];

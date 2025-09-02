@@ -1,24 +1,26 @@
-import "jest-extended";
+import "@kayahr/vitest-matchers";
 
-import * as ajv from "ajv";
-import * as path from "path";
+import { join } from "node:path";
 
-import { PowerPlays, readPowerPlayJSON, streamPowerPlayJSON } from "../main/powerplay";
-import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util";
+import { type ValidateFunction } from "ajv";
+import { beforeAll, describe, expect, it } from "vitest";
 
-const baseDir = path.join(__dirname, "../..");
+import { type PowerPlays, readPowerPlayJSON, streamPowerPlayJSON } from "../main/powerplay.js";
+import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
+
+const baseDir = join(__dirname, "../..");
 const sourceFiles = [
-    path.join(baseDir, "src/main/common.ts"),
-    path.join(baseDir, "src/main/powerplay.ts")
+    join(baseDir, "src/main/common.ts"),
+    join(baseDir, "src/main/powerplay.ts")
 ];
-const powerPlayFile = path.join(baseDir, "src/test/data/powerPlay.json");
+const powerPlayFile = join(baseDir, "src/test/data/powerPlay.json");
 
 // Use this to test against real data export stored in data directory:
 // const powerPlayFile = path.join(baseDir, "data/powerPlay.json.gz");
 
 describe("powerplay", () => {
     let powerPlays: PowerPlays;
-    let validator: ajv.ValidateFunction;
+    let validator: ValidateFunction;
 
     beforeAll(async () => {
         powerPlays = await readJSON(powerPlayFile) as PowerPlays;

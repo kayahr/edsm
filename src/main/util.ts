@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { IllegalStateException } from "@kayahr/kaylib/lib/main/util/exception";
+import { IllegalStateException } from "./util/IllegalStateException.js";
 
 /**
  * Helper function to stream parsed JSON input to a callback function. The input must be a JSON file with an array
@@ -13,7 +13,7 @@ import { IllegalStateException } from "@kayahr/kaylib/lib/main/util/exception";
  * @param input    - The JSON input as an async iterable.
  * @param callback - The callback function to call for each parsed dataset. If callback returns a promise then this
  *                   function waits for the promise to be resolved before continuing with the next dataset.
- * @return Promise resolved when JSON input has been fully read. Rejected when reading fails.
+ * @returns Promise resolved when JSON input has been fully read. Rejected when reading fails.
  */
 export async function streamJSON<T>(input: AsyncIterable<string>, callback: (dataset: T) => Promise<void> | void):
         Promise<void> {
@@ -30,7 +30,7 @@ export async function streamJSON<T>(input: AsyncIterable<string>, callback: (dat
                 return;
             }
             if (line.endsWith(",")) {
-                line = line.substr(0, line.length - 1);
+                line = line.substring(0, line.length - 1);
             }
             const promise = callback(JSON.parse(line) as T);
             if (promise != null) {

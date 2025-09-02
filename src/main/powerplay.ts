@@ -3,8 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import { Coordinates } from "./common";
-import { streamJSON } from "./util";
+import { type Coordinates } from "./common.js";
+import { streamJSON } from "./util.js";
 
 /** Single EDSM power play information. */
 export interface PowerPlay {
@@ -31,7 +31,7 @@ export type PowerPlays = PowerPlay[];
  * @param callback - The callback function to call for each power play information. If callback returns a promise then
  *                   this function waits for the promise to be resolved before continuing with the power play
  *                   information.
- * @return Promise resolved when all power play information have been read or rejected when reading fails.
+ * @returns Promise resolved when all power play information have been read or rejected when reading fails.
  */
 export function streamPowerPlayJSON(input: AsyncIterable<string>,
         callback: (powerPlay: PowerPlay) => Promise<void> | void): Promise<void> {
@@ -44,7 +44,7 @@ export function streamPowerPlayJSON(input: AsyncIterable<string>,
  * a huge array.
  *
  * @param input - The JSON input as an async iterable.
- * @return The read power play information.
+ * @returns The read power play information.
  */
 export async function readPowerPlayJSON(input: AsyncIterable<string>): Promise<PowerPlays> {
     const powerPlays: PowerPlays = [];

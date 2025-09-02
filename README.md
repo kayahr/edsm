@@ -24,13 +24,13 @@ The nightly dumps of EDSM are always stored as gzipped JSON files where each dat
 The utility functions provided by this library to read the data files expect an async iterable as input. In Node.js or Electron such an input can be created with just a few lines of code. Here is an example which streams the `stations.json.gz` file into a callback function which simply prints the data to the console::
 
 ```typescript
-import * as fs from "fs";
-import * as readline from "readline";
-import * as zlib from "zlib";
+import { createReadStream} from "node:fs";
+import { createInterface } from "node:readline";
+import { createGunzip} from "node:zlib";
 import * as edsm from "@kayahr/edsm";
 
-const stream = fs.createReadStream("data/stations.json.gz").pipe(zlib.createGunzip());
-const reader = readline.createInterface({ input: stream });
+const stream = createReadStream("data/stations.json.gz").pipe(createGunzip());
+const reader = createInterface({ input: stream });
 
 await edsm.streamStationsJSON(reader, station => {
     console.log(station);

@@ -3,9 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import { NotFoundException } from "@kayahr/kaylib/lib/main/util/exception";
-
-import { request } from "./common";
+import { NotFoundException } from "../util/NotFoundException.js";
+import { request } from "./common.js";
 
 /**
  * Commander ranks returned by [[getCommanderRanks]].
@@ -18,7 +17,7 @@ export interface CommanderRanks {
         CQC: number;
         Federation: number;
         Empire: number;
-    },
+    };
     progress: {
         Combat: number;
         Trade: number;
@@ -26,7 +25,7 @@ export interface CommanderRanks {
         CQC: number;
         Federation: number;
         Empire: number;
-    }
+    };
     ranksVerbose: {
         Combat: string;
         Trade: string;
@@ -34,7 +33,7 @@ export interface CommanderRanks {
         CQC: string;
         Federation: string;
         Empire: string;
-    }
+    };
 }
 
 /** Credits period type */
@@ -45,10 +44,10 @@ export type CreditsPeriod = "7DAY" | "1MONTH" | "3MONTH" | "6MONTH";
  */
 export interface CommanderCredits {
     credits: Array<{
-        balance: number,
-        loan: 0,
-        date: string
-    }>,
+        balance: number;
+        loan: 0;
+        date: string;
+    }>;
     period?: CreditsPeriod;
 }
 
@@ -60,19 +59,19 @@ export type InventoryType = "materials" | "data" | "cargo";
  */
 export interface CommanderInventory {
     materials?: Array<{
-        type: string | number,
-        name: string,
-        qty: number
+        type: string | number;
+        name: string;
+        qty: number;
     }>;
     data?: Array<{
-        type: string | number,
-        name: string,
-        qty: number
+        type: string | number;
+        name: string;
+        qty: number;
     }>;
     cargo?: Array<{
-        type: string,
-        name: string,
-        qty: number
+        type: string;
+        name: string;
+        qty: number;
     }>;
 }
 
@@ -82,7 +81,7 @@ export interface CommanderInventory {
  * @param commanderName - The name of the commander as registered on EDSM.
  * @param apiKey        - The API key of the commander. If not provided, ranks will only be returned if the commander
  *                        has enabled his public profile.
- * @return The commander ranks.
+ * @returns The commander ranks.
  * @throws NotFoundException - When commander was not found or is not public
  */
 export async function getCommanderRanks(commanderName: string, apiKey?: string): Promise<CommanderRanks> {
@@ -98,7 +97,7 @@ export async function getCommanderRanks(commanderName: string, apiKey?: string):
  *
  * @param commanderName - The name of the commander as registered on EDSM.
  * @param apiKey        - The API key of the commander.
- * @return The commander credits.
+ * @returns The commander credits.
  */
 export async function getCommanderCredits(commanderName: string, apiKey: string, period?: CreditsPeriod):
         Promise<CommanderCredits> {
@@ -111,7 +110,7 @@ export async function getCommanderCredits(commanderName: string, apiKey: string,
  * @param commanderName - The name of the commander as registered on EDSM.
  * @param apiKey        - The API key of the commander.
  * @param type          - The inventory type. Defaults to "materials".
- * @return The commander inventory.
+ * @returns The commander inventory.
  */
 export async function getCommanderInventory(commanderName: string, apiKey: string, type?: InventoryType):
         Promise<CommanderInventory> {

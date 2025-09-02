@@ -1,7 +1,9 @@
-import "jest-extended";
+import "@kayahr/vitest-matchers";
 
-import * as edsm from "../main";
-import { streamJSON } from "../main/util";
+import { describe, expect, it } from "vitest";
+
+import * as edsm from "../main/index.js";
+import { streamJSON } from "../main/util.js";
 
 describe("index", () => {
     it("exports public stuff", () => {

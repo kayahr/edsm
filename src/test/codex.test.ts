@@ -1,22 +1,24 @@
-import "jest-extended";
+import "@kayahr/vitest-matchers";
 
-import * as ajv from "ajv";
-import * as path from "path";
+import { join } from "node:path";
 
-import { Codices, readCodexJSON, streamCodexJSON } from "../main/codex";
-import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util";
+import { type ValidateFunction } from "ajv";
+import { beforeAll, describe, expect, it } from "vitest";
 
-const baseDir = path.join(__dirname, "../..");
+import { type Codices, readCodexJSON, streamCodexJSON } from "../main/codex.js";
+import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
+
+const baseDir = join(__dirname, "../..");
 const sourceFiles = [
-    path.join(baseDir, "src/main/codex.ts")
+    join(baseDir, "src/main/codex.ts")
 ];
-const codexFile = path.join(baseDir, "src/test/data/codex.json");
+const codexFile = join(baseDir, "src/test/data/codex.json");
 
 // Use this to test against real data export stored in data directory (Actually doesn't work because of out-of-mem):
 // const codexFile = path.join(baseDir, "data/codex.json.gz");
 
 describe("codex", () => {
-    let validator: ajv.ValidateFunction;
+    let validator: ValidateFunction;
     let codices: Codices;
 
     beforeAll(async () => {

@@ -1,15 +1,16 @@
-import "jest-extended";
-import "isomorphic-fetch";
+import "@kayahr/vitest-matchers";
 
-import { NotFoundException } from "@kayahr/kaylib/lib/main/util/exception";
-import * as path from "path";
+import { join } from "node:path";
 
-import { getSystemBodies, getSystemEstimatedValue, getSystemStations } from "../../main/api/system";
-import { createValidator, describeWhenTestAPI, testJSON } from "../util";
+import { expect, it } from "vitest";
 
-const baseDir = path.join(__dirname, "../../..");
+import { getSystemBodies, getSystemEstimatedValue, getSystemStations } from "../../main/api/system.js";
+import { NotFoundException } from "../../main/util/NotFoundException.js";
+import { createValidator, describeWhenTestAPI, testJSON } from "../util.js";
+
+const baseDir = join(__dirname, "../../..");
 const sourceFiles = [
-    path.join(baseDir, "src/main/api/system.ts")
+    join(baseDir, "src/main/api/system.ts")
 ];
 
 describeWhenTestAPI("getSystemBodies", () => {
@@ -42,7 +43,7 @@ describeWhenTestAPI("getSystemBodies", () => {
     it("throws error when system not found", async () => {
         try {
             await getSystemBodies("Raxxla");
-            fail("Did not throw exception");
+            throw new Error("Did not throw exception");
         } catch (e) {
             expect(() => { throw e; }).toThrowWithMessage(NotFoundException, "System not found: Raxxla");
         }
@@ -79,7 +80,7 @@ describeWhenTestAPI("getSystemEstimatedValue", () => {
     it("throws error when system not found", async () => {
         try {
             await getSystemEstimatedValue("Raxxla");
-            fail("Did not throw exception");
+            throw new Error("Did not throw exception");
         } catch (e) {
             expect(() => { throw e; }).toThrowWithMessage(NotFoundException, "System not found: Raxxla");
         }
@@ -116,7 +117,7 @@ describeWhenTestAPI("getSystemStations", () => {
     it("throws error when system not found", async () => {
         try {
             await getSystemBodies("Raxxla");
-            fail("Did not throw exception");
+            throw new Error("Did not throw exception");
         } catch (e) {
             expect(() => { throw e; }).toThrowWithMessage(NotFoundException, "System not found: Raxxla");
         }

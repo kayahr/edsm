@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { streamJSON } from "./util";
+import { streamJSON } from "./util.js";
 
 /**
  * EDSM data about asteroid ring/belt.
@@ -126,7 +126,7 @@ export function isPlanet(body: SystemBody): body is SystemPlanet;
  * Checks if given body is a planet.
  *
  * @param body - The body to check.
- * @return True if body is a planet.
+ * @returns True if body is a planet.
  */
 export function isPlanet(body: Body | SystemBody): boolean {
     return body.type === "Planet";
@@ -139,7 +139,7 @@ export function isStar(body: SystemBody): body is SystemStar;
  * Checks if given body is a planet.
  *
  * @param body - The body to check.
- * @return True if body is a star.
+ * @returns True if body is a star.
  */
 export function isStar(body: Body | SystemBody): boolean {
     return body.type === "Star";
@@ -155,7 +155,7 @@ export type Bodies = Body[];
  * @param input    - The JSON input as an async iterable.
  * @param callback - The callback function to call for each body. If callback returns a promise then
  *                   this function waits for the promise to be resolved before continuing with the bodies.
- * @return Promise resolved when all bodies have been read or rejected when reading fails.
+ * @returns Promise resolved when all bodies have been read or rejected when reading fails.
  */
 export function streamBodiesJSON(input: AsyncIterable<string>, callback: (body: Body) => Promise<void> | void):
         Promise<void> {
@@ -167,7 +167,7 @@ export function streamBodiesJSON(input: AsyncIterable<string>, callback: (body: 
  * stream the bodies to a callback function instead of getting a huge array.
  *
  * @param input - The JSON input as an async iterable.
- * @return The bodies.
+ * @returns The bodies.
  */
 export async function readBodiesJSON(input: AsyncIterable<string>): Promise<Bodies> {
     const bodies: Bodies = [];

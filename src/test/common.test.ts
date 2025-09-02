@@ -1,4 +1,6 @@
-import * as edsm from "../main";
+import { describe, expect, it } from "vitest";
+
+import * as edsm from "../main/index.js";
 
 describe("toUTCString", () => {
     it("converts a date to an EDSM-compatible UTC string", () => {

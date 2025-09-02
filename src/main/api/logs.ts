@@ -3,8 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import { Coordinates } from "../common";
-import { request } from "./common";
+import { type Coordinates } from "../common.js";
+import { request } from "./common.js";
 
 export interface FlightLog {
     shipId: number | null;
@@ -47,7 +47,7 @@ export interface FlightLogFilter {
  * @param commanderName - The name of the commander as registered on EDSM.
  * @param apiKey        - The API key of the commander.
  * @param filter        - Optional filter properties.
- * @return The flight log entries.
+ * @returns The flight log entries.
  */
 export async function getFlightLogs(commanderName: string, apiKey: string, filter?: FlightLogFilter):
         Promise<FlightLogs> {
@@ -58,19 +58,19 @@ export async function getFlightLogs(commanderName: string, apiKey: string, filte
  * Commander position returned by [[getPosition]]
  */
 export interface CommanderPosition {
-    system: string | null,
+    system: string | null;
     systemId?: number;
     systemId64?: number;
-    firstDiscover: false | null,
-    date: string | null,
+    firstDiscover: false | null;
+    date: string | null;
     coordinates?: Coordinates;
-    isDocked?: boolean,
-    station?: string,
-    stationId?: number,
-    dateDocked?: string,
-    shipId?: number,
-    shipType?: string,
-    shipFuel: number | null,
+    isDocked?: boolean;
+    station?: string;
+    stationId?: number;
+    dateDocked?: string;
+    shipId?: number;
+    shipType?: string;
+    shipFuel: number | null;
     dateLastActivity?: string;
     url?: string;
 }
@@ -94,7 +94,7 @@ export interface PositionOptions {
  *
  * @param commanderName - The name of the commander as registered on EDSM.
  * @param options       - Options.
- * @return The last position.
+ * @returns The last position.
  */
 export async function getPosition(commanderName: string, options?: PositionOptions):
         Promise<CommanderPosition> {
@@ -174,7 +174,6 @@ export interface CommentsOptions {
  * @param apiKey        - The API key associated with the commander.
  * @param options       - Additional options.
  */
-export async function getComments(commanderName: string, apiKey: string, options?: CommentsOptions):
-        Promise<Comments> {
+export async function getComments(commanderName: string, apiKey: string, options?: CommentsOptions): Promise<Comments> {
     return await request("api-logs-v1/get-comments", { commanderName, apiKey, ...options }) as Comments;
 }

@@ -3,10 +3,10 @@
  * See LICENSE.md for licensing information.
  */
 
-import * as fs from "fs";
-import * as path from "path";
-import * as readline from "readline";
-import * as zlib from "zlib";
+import { createReadStream, statSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import { createInterface } from "node:readline";
+import { createGunzip } from "node:zlib";
 
 /*
  * This tool creates smaller subsets from the full EDSM data dump files located in the data directory and places
@@ -56,23 +56,23 @@ function createSignature(value: unknown, mapProperties: string[] = [], ignorePro
 }
 
 async function shortenJSON(file: string, mapProperties: string[] = [], ignoreProperties: string[] = []): Promise<void> {
-    const inFile = path.join(baseDir, "data", file + ".gz");
-    const outFile = path.join(baseDir, "src/test/data", file);
+    const inFile = join(baseDir, "data", file + ".gz");
+    const outFile = join(baseDir, "src/test/data", file);
 
-    const inTime = fs.statSync(inFile).mtime;
-    const outTime = fs.statSync(outFile).mtime;
+    const inTime = statSync(inFile).mtime;
+    const outTime = statSync(outFile).mtime;
     if (outTime > inTime) {
         console.log("Already up-to-date");
         return;
     }
 
-    const reader = readline.createInterface({ input: fs.createReadStream(inFile).pipe(zlib.createGunzip()) });
+    const reader = createInterface({ input: createReadStream(inFile).pipe(createGunzip()) });
     const seenSignatures = new Set<string>();
     const retainedLines: string[] = [];
     for await (let line of reader) {
         if (line !== "[" && line !== "]") {
             if (line.endsWith(",")) {
-                line = line.substr(0, line.length - 1);
+                line = line.substring(0, line.length - 1);
             }
             const json = JSON.parse(line) as Object;
             const signature = JSON.stringify(createSignature(json, mapProperties, ignoreProperties));
@@ -82,10 +82,10 @@ async function shortenJSON(file: string, mapProperties: string[] = [], ignorePro
             }
         }
     }
-    fs.writeFileSync(outFile, "[\n" + retainedLines.join(",\n") + "\n]\n");
+    writeFileSync(outFile, "[\n" + retainedLines.join(",\n") + "\n]\n");
 }
 
-const baseDir = path.join(__dirname, "../..");
+const baseDir = join(__dirname, "../..");
 
 void (async () => {
     console.log("Creating src/test/data/systemsPopulated.json");

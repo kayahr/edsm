@@ -1,10 +1,12 @@
-import "jest-extended";
+import "@kayahr/vitest-matchers";
 
-import * as ajv from "ajv";
-import * as path from "path";
+import path from "node:path";
 
-import { Bodies, isPlanet, isStar, readBodiesJSON, streamBodiesJSON } from "../main/bodies";
-import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util";
+import ajv from "ajv";
+import { beforeAll, describe, expect, it } from "vitest";
+
+import { type Bodies, isPlanet, isStar, readBodiesJSON, streamBodiesJSON } from "../main/bodies.js";
+import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
 
 const baseDir = path.join(__dirname, "../..");
 const sourceFiles = [

@@ -1,14 +1,13 @@
-import "jest-extended";
-import "isomorphic-fetch";
+import { join } from "node:path";
 
-import * as path from "path";
+import { it } from "vitest";
 
-import { getEliteServerStatus } from "../../main/api/status";
-import { createValidator, describeWhenTestAPI, testJSON } from "../util";
+import { getEliteServerStatus } from "../../main/api/status.js";
+import { createValidator, describeWhenTestAPI, testJSON } from "../util.js";
 
-const baseDir = path.join(__dirname, "../../..");
+const baseDir = join(__dirname, "../../..");
 const sourceFiles = [
-    path.join(baseDir, "src/main/api/status.ts")
+    join(baseDir, "src/main/api/status.ts")
 ];
 
 describeWhenTestAPI("getEliteServerStatus", () => {

@@ -13,7 +13,7 @@ export interface Coordinates {
  * Converts the given date to a UTC date string as expected by the EDSM REST API.
  *
  * @param date - The date to convert.
- * @return The date as an EDSM-compatible UTC date string.
+ * @returns The date as an EDSM-compatible UTC date string.
  */
 export function toUTCString(date: Date): string {
     const year = date.getUTCFullYear().toString().padStart(4, "0");
