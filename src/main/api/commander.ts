@@ -14,6 +14,8 @@ export interface CommanderRanks {
         Combat: number;
         Trade: number;
         Explore: number;
+        Soldier: number;
+        Exobiologist: number;
         CQC: number;
         Federation: number;
         Empire: number;
@@ -22,6 +24,8 @@ export interface CommanderRanks {
         Combat: number;
         Trade: number;
         Explore: number;
+        Soldier: number;
+        Exobiologist: number;
         CQC: number;
         Federation: number;
         Empire: number;
@@ -30,6 +34,8 @@ export interface CommanderRanks {
         Combat: string;
         Trade: string;
         Explore: string;
+        Soldier: string;
+        Exobiologist: string;
         CQC: string;
         Federation: string;
         Empire: string;
@@ -69,7 +75,7 @@ export interface CommanderInventory {
         qty: number;
     }>;
     cargo?: Array<{
-        type: string;
+        type: string | null;
         name: string;
         qty: number;
     }>;
