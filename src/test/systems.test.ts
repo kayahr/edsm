@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { type ValidateFunction } from "ajv";
 import { beforeAll, describe, expect, it } from "vitest";
 
-import { readSystemsJSON, streamSystemsJSON, type Systems } from "../main/systems.js";
+import { streamSystemsJSON, type Systems } from "../main/systems.js";
 import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
 
 const baseDir = join(__dirname, "../..");
@@ -24,7 +24,7 @@ describe("systems", () => {
 
     beforeAll(async () => {
         validator = await createValidator("system");
-        systems = await readJSON(systemsWithCoordinatesFile) as Systems;
+        systems = await readJSON(systemsPopulatedFile) as Systems;
     });
 
     describe("System", () => {
@@ -49,18 +49,12 @@ describe("systems", () => {
         });
         it("waits for async callback result", async () => {
             const list: Systems = [];
-            await expect(streamSystemsJSON(createReader(systemsWithCoordinatesFile), async system => {
+            await expect(streamSystemsJSON(createReader(systemsPopulatedFile), async system => {
                 testJSON(validator, system);
                 await sleep();
                 list.push(system);
             })).toResolve();
             expect(list).toEqual(systems);
-        });
-    });
-
-    describe("readSystemsJSON", () => {
-        it("reads systems from JSON stream", async () => {
-            expect(await readSystemsJSON(createReader(systemsWithCoordinatesFile))).toEqual(systems);
         });
     });
 });

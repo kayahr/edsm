@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { type ValidateFunction } from "ajv";
 import { beforeAll, describe, expect, it } from "vitest";
 
-import { type PowerPlays, readPowerPlayJSON, streamPowerPlayJSON } from "../main/powerplay.js";
+import { type PowerPlays, streamPowerPlayJSON } from "../main/powerplay.js";
 import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
 
 const baseDir = join(__dirname, "../..");
@@ -43,12 +43,6 @@ describe("powerplay", () => {
                 list.push(powerPlay);
             })).toResolve();
             expect(list).toEqual(powerPlays);
-        });
-    });
-
-    describe("readPowerPlayJSON", () => {
-        it("reads power play information from JSON stream", async () => {
-            expect(await readPowerPlayJSON(createReader(powerPlayFile))).toEqual(powerPlays);
         });
     });
 });

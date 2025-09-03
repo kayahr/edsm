@@ -7,7 +7,7 @@ import { streamJSON } from "./util.js";
 
 export interface StationControllingFaction {
     id: number | null;
-    name: string;
+    name: string | null;
 }
 
 export interface StationBody {
@@ -22,6 +22,26 @@ export interface StationUpdateTime {
     market: string | null;
     shipyard: string | null;
     outfitting: string | null;
+}
+
+export interface Outfitting {
+    id: string | null;
+    name: string;
+}
+
+export interface Commodity {
+    id: string | null;
+    name: string;
+    buyPrice: number;
+    stock: number;
+    sellPrice: number;
+    demand: number;
+    stockBracket: number;
+}
+
+export interface Ship {
+    id: number;
+    name: string;
 }
 
 export interface Station {
@@ -41,12 +61,16 @@ export interface Station {
     otherServices: string[];
     controllingFaction?: StationControllingFaction;
     updateTime: StationUpdateTime;
-    systemId: number;
-    systemId64: number;
-    systemName: string;
+    systemId?: number;
+    systemId64?: number | null;
+    systemName?: string;
+    commodities: Commodity[] | null;
+    ships: Ship[] | null;
+    outfitting: Outfitting[] | null;
 }
 
-export type SystemStation = Omit<Station, "systemId" | "systemId64" | "systemName">;
+/** Station data in system objects with less details. */
+export type SystemStation = Omit<Station, "systemId" | "systemId64" | "systemName" | "outfitting" | "ships" | "commodities">;
 
 /** List of EDSM stations. */
 export type Stations = Station[];
@@ -63,17 +87,4 @@ export type Stations = Station[];
 export function streamStationsJSON(input: AsyncIterable<string>, callback: (station: Station) => Promise<void> | void):
         Promise<void> {
     return streamJSON(input, callback);
-}
-
-/**
- * Reads all stations from the given CSV input and returns them as an array. Use [[streamStationsJSON]] if you want to
- * stream the stations to a callback function instead of getting a huge array.
- *
- * @param input - The JSON input as an async iterable.
- * @returns The stations.
- */
-export async function readStationsJSON(input: AsyncIterable<string>): Promise<Stations> {
-    const stations: Stations = [];
-    await streamStationsJSON(input, station => void stations.push(station));
-    return stations;
 }

@@ -11,7 +11,8 @@ export interface Codex {
     systemId64: number;
     systemName: string;
     region: string;
-    type: string | number;
+    type: string | null;
+    name: string | number;
     reportedOn: string;
 }
 
@@ -30,17 +31,4 @@ export type Codices = Codex[];
 export function streamCodexJSON(input: AsyncIterable<string>, callback: (codex: Codex) => Promise<void> | void):
         Promise<void> {
     return streamJSON(input, callback);
-}
-
-/**
- * Reads all codices from the given CSV input and returns them as an array. Use [[streamCodexJSON]] if you want to
- * stream the codices to a callback function instead of getting a huge array.
- *
- * @param input - The JSON input as an async iterable.
- * @returns The codices.
- */
-export async function readCodexJSON(input: AsyncIterable<string>): Promise<Codices> {
-    const codices: Codices = [];
-    await streamCodexJSON(input, codex => void codices.push(codex));
-    return codices;
 }

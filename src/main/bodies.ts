@@ -161,16 +161,3 @@ export function streamBodiesJSON(input: AsyncIterable<string>, callback: (body: 
         Promise<void> {
     return streamJSON(input, callback);
 }
-
-/**
- * Reads all bodies from the given CSV input and returns them as an array. Use [[streamBodiesJSON]] if you want to
- * stream the bodies to a callback function instead of getting a huge array.
- *
- * @param input - The JSON input as an async iterable.
- * @returns The bodies.
- */
-export async function readBodiesJSON(input: AsyncIterable<string>): Promise<Bodies> {
-    const bodies: Bodies = [];
-    await streamBodiesJSON(input, body => void bodies.push(body));
-    return bodies;
-}

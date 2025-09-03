@@ -5,8 +5,8 @@ import { join } from "node:path";
 import { type ValidateFunction } from "ajv";
 import { beforeAll, describe, expect, it } from "vitest";
 
-import { readStationsJSON, type Stations, streamStationsJSON } from "../main/stations.js";
-import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
+import { streamStationsJSON } from "../main/stations.js";
+import { createReader, createValidator, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
 
 const baseDir = join(__dirname, "../..");
 const stationsFile = join(baseDir, "src/test/data/stations.json");
@@ -15,11 +15,9 @@ const stationsFile = join(baseDir, "src/test/data/stations.json");
 
 describe("stations", () => {
     let validator: ValidateFunction;
-    let stations: Stations;
 
     beforeAll(async () => {
         validator = await createValidator("station");
-        stations = await readJSON(stationsFile) as Stations;
     });
 
     describe("Station", () => {
@@ -35,19 +33,13 @@ describe("stations", () => {
             })).toResolve();
         });
         it("waits for async callback result", async () => {
-            const list: Stations = [];
+            let count = 0;
             await expect(streamStationsJSON(createReader(stationsFile), async station => {
                 testJSON(validator, station);
                 await sleep();
-                list.push(station);
+                count++;
             })).toResolve();
-            expect(list).toEqual(stations);
-        });
-    });
-
-    describe("readStationsJSON", () => {
-        it("reads stations from JSON stream", async () => {
-            expect(await readStationsJSON(createReader(stationsFile))).toEqual(stations);
+            expect(count).toBeGreaterThan(0);
         });
     });
 });

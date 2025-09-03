@@ -79,16 +79,3 @@ export function streamSystemsJSON(input: AsyncIterable<string>, callback: (syste
         Promise<void> {
     return streamJSON(input, callback);
 }
-
-/**
- * Reads all systems from the given CSV input and returns them as an array. Use [[streamSystemsJSON]] if you want to
- * stream the systems to a callback function instead of getting a huge array.
- *
- * @param input - The JSON input as an async iterable.
- * @returns The systems.
- */
-export async function readSystemsJSON(input: AsyncIterable<string>): Promise<Systems> {
-    const systems: Systems = [];
-    await streamSystemsJSON(input, system => void systems.push(system));
-    return systems;
-}

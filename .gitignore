@@ -4,4 +4,4 @@
 /node_modules/
 sandbox/
 /*.tgz
-/data/
+/src/test/data/build/*.json.gz

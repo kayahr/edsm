@@ -1,4 +1,4 @@
 [
-    {"systemId":4345,"systemId64":3932277478106,"systemName":"Shinrarta Dezhra","region":"Inner Orion Spur","type":"K Type","reportedOn":"2018-11-01 01:20:29"},
-    {"systemId":9626725,"systemId64":1184840454858,"systemName":"Synuefe NL-N c23-4","region":"Inner Orion Spur","type":32010,"reportedOn":"2019-01-09 12:57:12"}
+    {"systemId":3381284,"systemId64":250425133419,"systemName":"IC 1396 Sector RU-F d11-7","region":"Inner Orion Spur","type":"codex_ent_earth_likes","name":"Earth-Like Planet","reportedOn":"2018-12-11 17:07:55"},
+    {"systemId":9626725,"systemId64":1184840454858,"systemName":"Synuefe NL-N c23-4","region":"Inner Orion Spur","type":null,"name":32010,"reportedOn":"2019-01-09 12:57:12"}
 ]

@@ -1,3 +1,4 @@
 [
-    {"power":"Edmund Mahon","powerState":"Exploited","id":6016,"id64":670954759633,"name":"Savaroju","coords":{"x":14.84375,"y":77.09375,"z":101.96875},"allegiance":"Independent","government":"Corporate","state":"None","date":"2020-10-16 10:07:32"}
+    {"power":"Edmund Mahon","powerState":"Unoccupied","id":1213,"id64":3549547202915,"name":"Lekagh","coords":{"x":55.40625,"y":51.125,"z":-103.4375},"allegiance":"Federation","government":"Democracy","state":"None","date":"2025-08-02 05:04:36"},
+    {"power":"Edmund Mahon","powerState":"Unoccupied","id":201839,"id64":7230342566626,"name":"Col 285 Sector IY-H c10-26","coords":{"x":-191.09375,"y":-2,"z":80.75},"allegiance":null,"government":null,"state":null,"date":"2025-08-17 15:22:11"}
 ]

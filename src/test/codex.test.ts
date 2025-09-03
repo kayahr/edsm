@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { type ValidateFunction } from "ajv";
 import { beforeAll, describe, expect, it } from "vitest";
 
-import { type Codices, readCodexJSON, streamCodexJSON } from "../main/codex.js";
+import { type Codices, streamCodexJSON } from "../main/codex.js";
 import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
 
 const baseDir = join(__dirname, "../..");
@@ -43,12 +43,6 @@ describe("codex", () => {
                 list.push(codex);
             })).toResolve();
             expect(list).toEqual(codices);
-        });
-    });
-
-    describe("readCodicesJSON", () => {
-        it("reads codices from JSON stream", async () => {
-            expect(await readCodexJSON(createReader(codexFile))).toEqual(codices);
         });
     });
 });

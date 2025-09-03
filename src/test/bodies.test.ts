@@ -5,7 +5,7 @@ import { join } from "node:path";
 import type { ValidateFunction } from "ajv";
 import { beforeAll, describe, expect, it } from "vitest";
 
-import { type Bodies, isPlanet, isStar, readBodiesJSON, streamBodiesJSON } from "../main/bodies.js";
+import { type Bodies, isPlanet, isStar, streamBodiesJSON } from "../main/bodies.js";
 import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
 
 const baseDir = join(__dirname, "../..");
@@ -58,12 +58,6 @@ describe("bodies", () => {
                 list.push(body);
             })).toResolve();
             expect(list).toEqual(bodies);
-        });
-    });
-
-    describe("readBodiesJSON", () => {
-        it("reads bodies from JSON stream", async () => {
-            expect(await readBodiesJSON(createReader(bodiesFile))).toEqual(bodies);
         });
     });
 });

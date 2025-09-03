@@ -43,8 +43,6 @@ Note that the callback can be asynchronous as well. If it returns a promise then
 
 There are also `streamSystemsJSON`, `streamPowerPlayJSON`, `streamCodexJSON` and `streamBodiesJSON` functions for the other data files.
 
-If you don't want to stream the data and instead you want to read all data as an array, then use `readStationsJSON`, `readSystemsJSON`, `readPowerPlayJSON`, `readCodexJSON` and `readBodiesJSON` which simply asynchronously returns an array with the corresponding data. But expect heavy memory usage when doing this for the larger files.
-
 EDSM REST API
 -------------
 
@@ -145,4 +143,3 @@ JSON Schemas
 
 [EDSM]: https://www.edsm.net/
 [fetch]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-[isomorphic-fetch]: https://www.npmjs.com/package/isomorphic-fetch

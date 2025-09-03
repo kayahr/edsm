@@ -8,15 +8,15 @@ import { streamJSON } from "./util.js";
 
 /** Single EDSM power play information. */
 export interface PowerPlay {
+    power: string;
+    powerState: string;
     id: number;
     id64: number;
     name: string;
     coords: Coordinates;
-    power: string;
-    powerState: string;
-    allegiance: string;
-    government: string;
-    state: string;
+    allegiance: string | null;
+    government: string | null;
+    state: string | null;
     date: string;
 }
 
@@ -36,18 +36,4 @@ export type PowerPlays = PowerPlay[];
 export function streamPowerPlayJSON(input: AsyncIterable<string>,
         callback: (powerPlay: PowerPlay) => Promise<void> | void): Promise<void> {
     return streamJSON(input, callback);
-}
-
-/**
- * Reads all power play information from the given CSV input and returns them as an array. Use
- * [[streamPowerPlayJSON]] if you want to stream the power play information to a callback function instead of getting
- * a huge array.
- *
- * @param input - The JSON input as an async iterable.
- * @returns The read power play information.
- */
-export async function readPowerPlayJSON(input: AsyncIterable<string>): Promise<PowerPlays> {
-    const powerPlays: PowerPlays = [];
-    await streamPowerPlayJSON(input, powerPlay => void powerPlays.push(powerPlay));
-    return powerPlays;
 }

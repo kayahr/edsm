@@ -21,11 +21,6 @@ describe("index", () => {
         expect(edsm.getSystemStationsMarket).toBeInstanceOf(Function);
         expect(edsm.isPlanet).toBeInstanceOf(Function);
         expect(edsm.isStar).toBeInstanceOf(Function);
-        expect(edsm.readBodiesJSON).toBeInstanceOf(Function);
-        expect(edsm.readCodexJSON).toBeInstanceOf(Function);
-        expect(edsm.readPowerPlayJSON).toBeInstanceOf(Function);
-        expect(edsm.readStationsJSON).toBeInstanceOf(Function);
-        expect(edsm.readSystemsJSON).toBeInstanceOf(Function);
         expect(edsm.streamBodiesJSON).toBeInstanceOf(Function);
         expect(edsm.streamCodexJSON).toBeInstanceOf(Function);
         expect(edsm.streamPowerPlayJSON).toBeInstanceOf(Function);
