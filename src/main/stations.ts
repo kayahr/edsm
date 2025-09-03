@@ -27,7 +27,7 @@ export interface StationUpdateTime {
 export interface Station {
     id: number;
     marketId: number | null;
-    type: string;
+    type: string | null;
     name: string;
     body?: StationBody;
     distanceToArrival: number | null;
