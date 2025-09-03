@@ -1,4 +1,5 @@
-import { createReadStream, readFileSync } from "node:fs";
+import { createReadStream } from "node:fs";
+import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { createInterface, type Interface } from "node:readline";
 import { createGunzip } from "node:zlib";
@@ -11,8 +12,8 @@ const baseDir = join(__dirname, "../..");
 export const edsmAPIKey = process.env["EDSM_API_KEY"] ?? "";
 export const describeWhenTestAPI = (description: string, func: () => void): unknown => describe.skipIf(edsmAPIKey === "")(description, func);
 
-export function createValidator(schemaName: string): ValidateFunction {
-    const schemaJSON = JSON.parse(readFileSync(join(baseDir, `lib/${schemaName}.schema.json`), "utf-8")) as object;
+export async function createValidator(schemaName: string): Promise<ValidateFunction> {
+    const schemaJSON = JSON.parse(await readFile(join(baseDir, `lib/${schemaName}.schema.json`), "utf-8")) as object;
     return new Ajv({ allErrors: true, allowUnionTypes: true }).compile(schemaJSON);
 }
 
@@ -27,8 +28,8 @@ export function testJSON(validate: ValidateFunction, json: unknown): void {
     }
 }
 
-export function testJSONFile(validate: ValidateFunction, jsonFile: string): void {
-    testJSON(validate, JSON.parse(readFileSync(jsonFile).toString()));
+export async function testJSONFile(validate: ValidateFunction, jsonFile: string): Promise<void> {
+    testJSON(validate, JSON.parse(await readFile(jsonFile, "utf-8")));
 }
 
 function createStream(jsonFile: string): NodeJS.ReadableStream {

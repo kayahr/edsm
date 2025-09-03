@@ -1,10 +1,16 @@
-import { it } from "vitest";
+import type { ValidateFunction } from "ajv";
+import { beforeAll, it } from "vitest";
 
 import { getCommanderCredits, getCommanderInventory, getCommanderRanks } from "../../main/api/commander.js";
 import { createValidator, describeWhenTestAPI, edsmAPIKey, testJSON } from "../util.js";
 
 describeWhenTestAPI("getCommanderRanks", () => {
-    const validator = createValidator("commander-ranks");
+    let validator: ValidateFunction;
+
+    beforeAll(async () => {
+        validator = await createValidator("commander-ranks");
+    });
+
     it("returns commander ranks (without API key) which matches the schema", async () => {
         const result = await getCommanderRanks("Kayahr");
         testJSON(validator, result);
@@ -16,7 +22,12 @@ describeWhenTestAPI("getCommanderRanks", () => {
 });
 
 describeWhenTestAPI("getCommanderCredits", () => {
-    const validator = createValidator("commander-credits");
+    let validator: ValidateFunction;
+
+    beforeAll(async () => {
+        validator = await createValidator("commander-credits");
+    });
+
     it("returns commander credits which matches the schema", async () => {
         const result = await getCommanderCredits("Kayahr", edsmAPIKey);
         testJSON(validator, result);
@@ -28,7 +39,12 @@ describeWhenTestAPI("getCommanderCredits", () => {
 });
 
 describeWhenTestAPI("getCommanderInventory", () => {
-    const validator = createValidator("commander-inventory");
+    let validator: ValidateFunction;
+
+    beforeAll(async () => {
+        validator = await createValidator("commander-inventory");
+    });
+
     it("returns commander materials which matches the schema", async () => {
         const result = await getCommanderInventory("Kayahr", edsmAPIKey);
         testJSON(validator, result);

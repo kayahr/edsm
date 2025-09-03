@@ -20,7 +20,7 @@ describe("powerplay", () => {
 
     beforeAll(async () => {
         powerPlays = await readJSON(powerPlayFile) as PowerPlays;
-        validator = createValidator("powerplay");
+        validator = await createValidator("powerplay");
     });
 
     describe("PowerPlay", () => {

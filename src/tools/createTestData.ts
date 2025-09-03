@@ -3,7 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import { createReadStream, statSync, writeFileSync } from "node:fs";
+import { createReadStream } from "node:fs";
+import { stat, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { createInterface } from "node:readline";
 import { createGunzip } from "node:zlib";
@@ -59,8 +60,8 @@ async function shortenJSON(file: string, mapProperties: string[] = [], ignorePro
     const inFile = join(baseDir, "data", file + ".gz");
     const outFile = join(baseDir, "src/test/data", file);
 
-    const inTime = statSync(inFile).mtime;
-    const outTime = statSync(outFile).mtime;
+    const inTime = (await stat(inFile)).mtime;
+    const outTime = (await stat(outFile)).mtime;
     if (outTime > inTime) {
         console.log("Already up-to-date");
         return;
@@ -82,7 +83,7 @@ async function shortenJSON(file: string, mapProperties: string[] = [], ignorePro
             }
         }
     }
-    writeFileSync(outFile, "[\n" + retainedLines.join(",\n") + "\n]\n");
+    await writeFile(outFile, "[\n" + retainedLines.join(",\n") + "\n]\n");
 }
 
 const baseDir = join(__dirname, "../..");

@@ -23,7 +23,7 @@ describe("systems", () => {
     let systems: Systems;
 
     beforeAll(async () => {
-        validator = createValidator("system");
+        validator = await createValidator("system");
         systems = await readJSON(systemsWithCoordinatesFile) as Systems;
     });
 

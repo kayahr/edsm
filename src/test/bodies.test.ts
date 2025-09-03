@@ -2,7 +2,7 @@ import "@kayahr/vitest-matchers";
 
 import path from "node:path";
 
-import ajv from "ajv";
+import type { ValidateFunction } from "ajv";
 import { beforeAll, describe, expect, it } from "vitest";
 
 import { type Bodies, isPlanet, isStar, readBodiesJSON, streamBodiesJSON } from "../main/bodies.js";
@@ -14,11 +14,11 @@ const bodiesFile = path.join(baseDir, "src/test/data/bodies7days.json");
 // const bodiesFile = path.join(baseDir, "data/bodies7days.json.gz");
 
 describe("bodies", () => {
-    let validator: ajv.ValidateFunction;
+    let validator: ValidateFunction;
     let bodies: Bodies;
 
     beforeAll(async () => {
-        validator = createValidator("body");
+        validator = await createValidator("body");
         bodies = await readJSON(bodiesFile) as Bodies;
     });
 

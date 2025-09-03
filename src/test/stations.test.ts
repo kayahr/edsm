@@ -18,7 +18,7 @@ describe("stations", () => {
     let stations: Stations;
 
     beforeAll(async () => {
-        validator = createValidator("station");
+        validator = await createValidator("station");
         stations = await readJSON(stationsFile) as Stations;
     });
 

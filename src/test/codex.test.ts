@@ -19,7 +19,7 @@ describe("codex", () => {
     let codices: Codices;
 
     beforeAll(async () => {
-        validator = createValidator("codex");
+        validator = await createValidator("codex");
         codices = await readJSON(codexFile) as Codices;
     });
 

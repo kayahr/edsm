@@ -1,13 +1,19 @@
 import "@kayahr/vitest-matchers";
 
-import { expect, it } from "vitest";
+import type { ValidateFunction } from "ajv";
+import { beforeAll, expect, it } from "vitest";
 
 import { getSystemBodies, getSystemEstimatedValue, getSystemStations } from "../../main/api/system.js";
 import { NotFoundException } from "../../main/util/NotFoundException.js";
 import { createValidator, describeWhenTestAPI, testJSON } from "../util.js";
 
 describeWhenTestAPI("getSystemBodies", () => {
-    const validator = createValidator("system-bodies");
+    let validator: ValidateFunction;
+
+    beforeAll(async () => {
+        validator = await createValidator("system-bodies");
+    });
+
     it("returns bodies for single system which matches the schema", async () => {
         const result = await getSystemBodies("Colonia");
         expect(result.id).toBe(3384966);
@@ -44,7 +50,12 @@ describeWhenTestAPI("getSystemBodies", () => {
 });
 
 describeWhenTestAPI("getSystemEstimatedValue", () => {
-    const validator = createValidator("system-estimated-value");
+    let validator: ValidateFunction;
+
+    beforeAll(async () => {
+        validator = await createValidator("system-estimated-value");
+    });
+
     it("returns system estimated value for single system which matches the schema", async () => {
         const result = await getSystemEstimatedValue("Sol");
         expect(result.id).toBe(27);
@@ -81,7 +92,12 @@ describeWhenTestAPI("getSystemEstimatedValue", () => {
 });
 
 describeWhenTestAPI("getSystemStations", () => {
-    const validator = createValidator("system-stations");
+    let validator: ValidateFunction;
+
+    beforeAll(async () => {
+        validator = await createValidator("system-stations");
+    });
+
     it("returns stations for single system which matches the schema", async () => {
         const result = await getSystemStations("Shinrarta Dezhra");
         expect(result.id).toBe(4345);
