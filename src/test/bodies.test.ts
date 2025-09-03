@@ -9,9 +9,6 @@ import { type Bodies, isPlanet, isStar, readBodiesJSON, streamBodiesJSON } from 
 import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
 
 const baseDir = path.join(__dirname, "../..");
-const sourceFiles = [
-    path.join(baseDir, "src/main/bodies.ts")
-];
 const bodiesFile = path.join(baseDir, "src/test/data/bodies7days.json");
 // Use this to test against real data export stored in data directory (Actually doesn't work because of out-of-mem):
 // const bodiesFile = path.join(baseDir, "data/bodies7days.json.gz");
@@ -21,7 +18,7 @@ describe("bodies", () => {
     let bodies: Bodies;
 
     beforeAll(async () => {
-        validator = createValidator("body", "Body", sourceFiles);
+        validator = createValidator("body");
         bodies = await readJSON(bodiesFile) as Bodies;
     });
 

@@ -9,9 +9,6 @@ import { readStationsJSON, type Stations, streamStationsJSON } from "../main/sta
 import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
 
 const baseDir = join(__dirname, "../..");
-const sourceFiles = [
-    join(baseDir, "src/main/systems.ts")
-];
 const stationsFile = join(baseDir, "src/test/data/stations.json");
 // Use this to test against real data export stored in data directory:
 // const stationsFile = path.join(baseDir, "data/stations.json.gz");
@@ -21,7 +18,7 @@ describe("stations", () => {
     let stations: Stations;
 
     beforeAll(async () => {
-        validator = createValidator("station", "Station", sourceFiles);
+        validator = createValidator("station");
         stations = await readJSON(stationsFile) as Stations;
     });
 

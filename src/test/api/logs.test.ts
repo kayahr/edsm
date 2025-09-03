@@ -1,17 +1,10 @@
-import { join } from "node:path";
-
 import { it } from "vitest";
 
 import { getFlightLogs, getPosition } from "../../main/api/logs.js";
 import { createValidator, describeWhenTestAPI, edsmAPIKey, testJSON } from "../util.js";
 
-const baseDir = join(__dirname, "../../..");
-const sourceFiles = [
-    join(baseDir, "src/main/api/logs.ts")
-];
-
 describeWhenTestAPI("getFlightLogs", () => {
-    const validator = createValidator("flightLogs", "FlightLogs", sourceFiles);
+    const validator = createValidator("flight-logs");
     it("returns flight logs (without ID) which matches the schema", async () => {
         const result = await getFlightLogs("Kayahr", edsmAPIKey);
         testJSON(validator, result);
@@ -23,7 +16,7 @@ describeWhenTestAPI("getFlightLogs", () => {
 });
 
 describeWhenTestAPI("getPosition", () => {
-    const validator = createValidator("commanderPosition", "CommanderPosition", sourceFiles);
+    const validator = createValidator("commander-position");
     it("returns last position (without ID and coords) which matches the schema", async () => {
         const result = await getPosition("Kayahr");
         testJSON(validator, result);

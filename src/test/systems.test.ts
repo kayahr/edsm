@@ -9,12 +9,6 @@ import { readSystemsJSON, streamSystemsJSON, type Systems } from "../main/system
 import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
 
 const baseDir = join(__dirname, "../..");
-const sourceFiles = [
-    join(baseDir, "src/main/common.ts"),
-    join(baseDir, "src/main/bodies.ts"),
-    join(baseDir, "src/main/systems.ts"),
-    join(baseDir, "src/main/stations.ts")
-];
 const systemsWithoutCoordinatesFile = join(baseDir, "src/test/data/systemsWithoutCoordinates.json");
 const systemsWithCoordinatesFile = join(baseDir, "src/test/data/systemsWithCoordinates.json");
 const systemsPopulatedFile = join(baseDir, "src/test/data/systemsPopulated.json");
@@ -29,7 +23,7 @@ describe("systems", () => {
     let systems: Systems;
 
     beforeAll(async () => {
-        validator = createValidator("system", "System", sourceFiles);
+        validator = createValidator("system");
         systems = await readJSON(systemsWithCoordinatesFile) as Systems;
     });
 

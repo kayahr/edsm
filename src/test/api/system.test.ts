@@ -1,20 +1,13 @@
 import "@kayahr/vitest-matchers";
 
-import { join } from "node:path";
-
 import { expect, it } from "vitest";
 
 import { getSystemBodies, getSystemEstimatedValue, getSystemStations } from "../../main/api/system.js";
 import { NotFoundException } from "../../main/util/NotFoundException.js";
 import { createValidator, describeWhenTestAPI, testJSON } from "../util.js";
 
-const baseDir = join(__dirname, "../../..");
-const sourceFiles = [
-    join(baseDir, "src/main/api/system.ts")
-];
-
 describeWhenTestAPI("getSystemBodies", () => {
-    const validator = createValidator("systemBodies", "SystemBodies", sourceFiles);
+    const validator = createValidator("system-bodies");
     it("returns bodies for single system which matches the schema", async () => {
         const result = await getSystemBodies("Colonia");
         expect(result.id).toBe(3384966);
@@ -51,7 +44,7 @@ describeWhenTestAPI("getSystemBodies", () => {
 });
 
 describeWhenTestAPI("getSystemEstimatedValue", () => {
-    const validator = createValidator("systemEstimatedValue", "SystemEstimatedValue", sourceFiles);
+    const validator = createValidator("system-estimated-value");
     it("returns system estimated value for single system which matches the schema", async () => {
         const result = await getSystemEstimatedValue("Sol");
         expect(result.id).toBe(27);
@@ -88,7 +81,7 @@ describeWhenTestAPI("getSystemEstimatedValue", () => {
 });
 
 describeWhenTestAPI("getSystemStations", () => {
-    const validator = createValidator("systemStations", "SystemStations", sourceFiles);
+    const validator = createValidator("system-stations");
     it("returns stations for single system which matches the schema", async () => {
         const result = await getSystemStations("Shinrarta Dezhra");
         expect(result.id).toBe(4345);

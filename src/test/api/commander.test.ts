@@ -1,16 +1,10 @@
-import { join } from "path";
 import { it } from "vitest";
 
 import { getCommanderCredits, getCommanderInventory, getCommanderRanks } from "../../main/api/commander.js";
 import { createValidator, describeWhenTestAPI, edsmAPIKey, testJSON } from "../util.js";
 
-const baseDir = join(__dirname, "../../..");
-const sourceFiles = [
-    join(baseDir, "src/main/api/commander.ts")
-];
-
 describeWhenTestAPI("getCommanderRanks", () => {
-    const validator = createValidator("commanderRanks", "CommanderRanks", sourceFiles);
+    const validator = createValidator("commander-ranks");
     it("returns commander ranks (without API key) which matches the schema", async () => {
         const result = await getCommanderRanks("Kayahr");
         testJSON(validator, result);
@@ -22,7 +16,7 @@ describeWhenTestAPI("getCommanderRanks", () => {
 });
 
 describeWhenTestAPI("getCommanderCredits", () => {
-    const validator = createValidator("commanderCredits", "CommanderCredits", sourceFiles);
+    const validator = createValidator("commander-credits");
     it("returns commander credits which matches the schema", async () => {
         const result = await getCommanderCredits("Kayahr", edsmAPIKey);
         testJSON(validator, result);
@@ -34,7 +28,7 @@ describeWhenTestAPI("getCommanderCredits", () => {
 });
 
 describeWhenTestAPI("getCommanderInventory", () => {
-    const validator = createValidator("commanderInventory", "CommanderInventory", sourceFiles);
+    const validator = createValidator("commander-inventory");
     it("returns commander materials which matches the schema", async () => {
         const result = await getCommanderInventory("Kayahr", edsmAPIKey);
         testJSON(validator, result);

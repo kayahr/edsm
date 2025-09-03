@@ -9,10 +9,6 @@ import { type PowerPlays, readPowerPlayJSON, streamPowerPlayJSON } from "../main
 import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
 
 const baseDir = join(__dirname, "../..");
-const sourceFiles = [
-    join(baseDir, "src/main/common.ts"),
-    join(baseDir, "src/main/powerplay.ts")
-];
 const powerPlayFile = join(baseDir, "src/test/data/powerPlay.json");
 
 // Use this to test against real data export stored in data directory:
@@ -24,7 +20,7 @@ describe("powerplay", () => {
 
     beforeAll(async () => {
         powerPlays = await readJSON(powerPlayFile) as PowerPlays;
-        validator = createValidator("powerPlay", "PowerPlay", sourceFiles);
+        validator = createValidator("powerplay");
     });
 
     describe("PowerPlay", () => {

@@ -1,9 +1,9 @@
 EDSM
 ====
 
-This library provides typescript types and utility functions for the Elite Dangerous Star Map ([EDSM]) API. It is primarily intended for Node.js and Electron applications to read EDSM data files and work with the EDSM REST API but it also works in a web browser.
+This library provides typescript types, JSON schemas and utility functions for the Elite Dangerous Star Map ([EDSM]) API. It is primarily intended for Node.js and Electron applications to read EDSM data files and work with the EDSM REST API but it also works in a web browser.
 
-Communication with the REST API is done with the standard [fetch] command which works out-of-the-box in a browser or in Electron. But for Node.js you have to install a polyfill like [isomorphic-fetch].
+Communication with the REST API is done with the standard [fetch] command which works out-of-the-box in a browser, modern Node.js or in Electron.
 
 Usage
 -----
@@ -124,6 +124,24 @@ Type-guard function which returns true when body is a star, false when not.
 ### toUTCString(date)
 
 Converts a JavaScript Date object to a UTC date string in the format required by various EDSM API functions. Converting in the other direction can simply be done with `date = new Date(utcDateString)`.
+
+JSON Schemas
+------------
+
+* [body.schema.json](https://kayahr.github.io/edsm/schemas/body.schema.json)
+* [codex.schema.json](https://kayahr.github.io/edsm/schemas/codex.schema.json)
+* [commander-credits.schema.json](https://kayahr.github.io/edsm/schemas/commander-credits.schema.json)
+* [commander-inventory.schema.json](https://kayahr.github.io/edsm/schemas/commander-inventory.schema.json)
+* [commander-position.schema.json](https://kayahr.github.io/edsm/schemas/commander-position.schema.json)
+* [commander-ranks.schema.json](https://kayahr.github.io/edsm/schemas/commander-ranks.schema.json)
+* [elite-server-status.schema.json](https://kayahr.github.io/edsm/schemas/elite-server-status.schema.json)
+* [flight-logs.schema.json](https://kayahr.github.io/edsm/schemas/flight-logs.schema.json)
+* [powerplay.schema.json](https://kayahr.github.io/edsm/schemas/powerplay.schema.json)
+* [station.schema.json](https://kayahr.github.io/edsm/schemas/station.schema.json)
+* [system-bodies.schema.json](https://kayahr.github.io/edsm/schemas/system-bodies.schema.json)
+* [system-estimated-value.schema.json](https://kayahr.github.io/edsm/schemas/system-estimated-value.schema.json)
+* [system.schema.json](https://kayahr.github.io/edsm/schemas/system.schema.json)
+* [system-stations.schema.json](https://kayahr.github.io/edsm/schemas/system-stations.schema.json)
 
 [EDSM]: https://www.edsm.net/
 [fetch]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
