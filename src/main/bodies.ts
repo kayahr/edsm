@@ -63,7 +63,7 @@ export interface BaseBody {
     orbitalEccentricity: number | null;
     orbitalInclination: number | null;
     argOfPeriapsis: number | null;
-    rotationalPeriod: number;
+    rotationalPeriod: number | null;
     rotationalPeriodTidallyLocked: boolean;
     axialTilt: number | null;
     rings?: Asteroids[];
@@ -77,8 +77,8 @@ export interface BaseBody {
  */
 export interface Star extends BaseBody {
     type: "Star";
-    isMainStar: boolean;
-    isScoopable: boolean;
+    isMainStar?: boolean;
+    isScoopable?: boolean;
     age: number;
     spectralClass: string | null;
     luminosity: string | null;
