@@ -11,7 +11,7 @@ import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileL
 const baseDir = join(__dirname, "../..");
 const stationsFile = join(baseDir, "src/test/data/stations.json");
 // Use this to test against real data export stored in data directory:
-// const stationsFile = path.join(baseDir, "data/stations.json.gz");
+// const stationsFile = join(baseDir, "data/stations.json.gz");
 
 describe("stations", () => {
     let validator: ValidateFunction;

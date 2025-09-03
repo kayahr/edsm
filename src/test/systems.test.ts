@@ -14,9 +14,9 @@ const systemsWithCoordinatesFile = join(baseDir, "src/test/data/systemsWithCoord
 const systemsPopulatedFile = join(baseDir, "src/test/data/systemsPopulated.json");
 
 // Use this to test against real data export stored in data directory:
-// const systemsWithoutCoordinatesFile = path.join(baseDir, "data/systemsWithoutCoordinates.json.gz");
-// const systemsWithCoordinatesFile = path.join(baseDir, "data/systemsWithCoordinates7days.json.gz");
-// const systemsPopulatedFile = path.join(baseDir, "data/systemsPopulated.json.gz");
+// const systemsWithoutCoordinatesFile = join(baseDir, "data/systemsWithoutCoordinates.json.gz");
+// const systemsWithCoordinatesFile = join(baseDir, "data/systemsWithCoordinates7days.json.gz");
+// const systemsPopulatedFile = join(baseDir, "data/systemsPopulated.json.gz");
 
 describe("systems", () => {
     let validator: ValidateFunction;

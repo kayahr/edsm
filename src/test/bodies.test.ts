@@ -1,6 +1,6 @@
 import "@kayahr/vitest-matchers";
 
-import path from "node:path";
+import { join } from "node:path";
 
 import type { ValidateFunction } from "ajv";
 import { beforeAll, describe, expect, it } from "vitest";
@@ -8,10 +8,10 @@ import { beforeAll, describe, expect, it } from "vitest";
 import { type Bodies, isPlanet, isStar, readBodiesJSON, streamBodiesJSON } from "../main/bodies.js";
 import { createReader, createValidator, readJSON, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
 
-const baseDir = path.join(__dirname, "../..");
-const bodiesFile = path.join(baseDir, "src/test/data/bodies7days.json");
+const baseDir = join(__dirname, "../..");
+const bodiesFile = join(baseDir, "src/test/data/bodies7days.json");
 // Use this to test against real data export stored in data directory (Actually doesn't work because of out-of-mem):
-// const bodiesFile = path.join(baseDir, "data/bodies7days.json.gz");
+// const bodiesFile = join(baseDir, "data/bodies7days.json.gz");
 
 describe("bodies", () => {
     let validator: ValidateFunction;

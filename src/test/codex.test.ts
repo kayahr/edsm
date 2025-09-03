@@ -12,7 +12,7 @@ const baseDir = join(__dirname, "../..");
 const codexFile = join(baseDir, "src/test/data/codex.json");
 
 // Use this to test against real data export stored in data directory (Actually doesn't work because of out-of-mem):
-// const codexFile = path.join(baseDir, "data/codex.json.gz");
+// const codexFile = join(baseDir, "data/codex.json.gz");
 
 describe("codex", () => {
     let validator: ValidateFunction;

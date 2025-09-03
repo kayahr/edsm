@@ -12,7 +12,7 @@ const baseDir = join(__dirname, "../..");
 const powerPlayFile = join(baseDir, "src/test/data/powerPlay.json");
 
 // Use this to test against real data export stored in data directory:
-// const powerPlayFile = path.join(baseDir, "data/powerPlay.json.gz");
+// const powerPlayFile = join(baseDir, "data/powerPlay.json.gz");
 
 describe("powerplay", () => {
     let powerPlays: PowerPlays;
