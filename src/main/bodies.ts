@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { streamJSON } from "./util.js";
+import { parseJSONArray } from "./util.js";
 
 /**
  * EDSM data about asteroid ring/belt.
@@ -149,15 +149,11 @@ export function isStar(body: Body | SystemBody): boolean {
 export type Bodies = Body[];
 
 /**
- * Streams bodies from the given JSON input to the given callback function. If you want all bodies in an array
- * then use [[readBodiesJSON]] instead.
+ * Parses bodies from the given JSON stream.
  *
- * @param input    - The JSON input as an async iterable.
- * @param callback - The callback function to call for each body. If callback returns a promise then
- *                   this function waits for the promise to be resolved before continuing with the bodies.
- * @returns Promise resolved when all bodies have been read or rejected when reading fails.
+ * @param stream - The JSON input stream.
+ * @returns Stream of bodies.
  */
-export function streamBodiesJSON(input: AsyncIterable<string>, callback: (body: Body) => Promise<void> | void):
-        Promise<void> {
-    return streamJSON(input, callback);
+export function parseBodiesJSON(stream: AsyncIterable<Uint8Array>): AsyncIterable<Body> {
+    return parseJSONArray(stream);
 }

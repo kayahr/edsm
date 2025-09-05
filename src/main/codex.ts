@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { streamJSON } from "./util.js";
+import { parseJSONArray } from "./util.js";
 
 /** Single EDSM codex. */
 export interface Codex {
@@ -20,15 +20,11 @@ export interface Codex {
 export type Codices = Codex[];
 
 /**
- * Streams codices from the given JSON input to the given callback function. If you want all codices in an array
- * then use [[readCodexJSON]] instead.
+ * Parses codices from the given JSON stream.
  *
- * @param input    - The JSON input as an async iterable.
- * @param callback - The callback function to call for each codex. If callback returns a promise then
- *                   this function waits for the promise to be resolved before continuing with the codices.
- * @returns Promise resolved when all codices have been read or rejected when reading fails.
+ * @param stream - The JSON input stream.
+ * @returns Stream of codices.
  */
-export function streamCodexJSON(input: AsyncIterable<string>, callback: (codex: Codex) => Promise<void> | void):
-        Promise<void> {
-    return streamJSON(input, callback);
+export function parseCodexJSON(stream: AsyncIterable<Uint8Array>): AsyncIterable<Codex> {
+    return parseJSONArray(stream);
 }

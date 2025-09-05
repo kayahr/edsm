@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { streamJSON } from "./util.js";
+import { parseJSONArray } from "./util.js";
 
 export interface StationControllingFaction {
     id: number | null;
@@ -76,15 +76,11 @@ export type SystemStation = Omit<Station, "systemId" | "systemId64" | "systemNam
 export type Stations = Station[];
 
 /**
- * Streams stations from the given JSON input to the given callback function. If you want all stations in an array
- * then use [[readStationsJSON]] instead.
+ * Parses stations from the given JSON stream.
  *
- * @param input    - The JSON input as an async iterable.
- * @param callback - The callback function to call for each station. If callback returns a promise then
- *                   this function waits for the promise to be resolved before continuing with the stations.
- * @returns Promise resolved when all stations have been read or rejected when reading fails.
+ * @param stream - The JSON input stream.
+ * @returns Stream of stations.
  */
-export function streamStationsJSON(input: AsyncIterable<string>, callback: (station: Station) => Promise<void> | void):
-        Promise<void> {
-    return streamJSON(input, callback);
+export function parseStationsJSON(stream: AsyncIterable<Uint8Array>): AsyncIterable<Station> {
+    return parseJSONArray(stream);
 }

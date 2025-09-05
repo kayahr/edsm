@@ -1,17 +1,16 @@
 import "@kayahr/vitest-matchers";
 
+import { createReadStream } from "node:fs";
 import { join } from "node:path";
 
 import { type ValidateFunction } from "ajv";
-import { beforeAll, describe, expect, it } from "vitest";
+import { beforeAll, describe, it } from "vitest";
 
-import { streamStationsJSON } from "../main/stations.js";
-import { createReader, createValidator, sleep, testJSON, testJSONFileLineByLine } from "./util.js";
+import { parseStationsJSON } from "../main/stations.js";
+import { createValidator, testJSON } from "./util.js";
 
 const baseDir = join(__dirname, "../..");
 const stationsFile = join(baseDir, "src/test/data/stations.json");
-// Use this to test against real data export stored in data directory:
-// const stationsFile = join(baseDir, "data/stations.json.gz");
 
 describe("stations", () => {
     let validator: ValidateFunction;
@@ -20,26 +19,11 @@ describe("stations", () => {
         validator = await createValidator("station");
     });
 
-    describe("Station", () => {
-        it("matches actual JSON", async () => {
-            await testJSONFileLineByLine(validator, stationsFile);
-        });
-    });
-
-    describe("streamStationsJSON", () => {
+    describe("parseStationsJSON", () => {
         it("reads stations from JSON stream", async () => {
-            await expect(streamStationsJSON(createReader(stationsFile), station => {
-                testJSON(validator, station);
-            })).toResolve();
-        });
-        it("waits for async callback result", async () => {
-            let count = 0;
-            await expect(streamStationsJSON(createReader(stationsFile), async station => {
-                testJSON(validator, station);
-                await sleep();
-                count++;
-            })).toResolve();
-            expect(count).toBeGreaterThan(0);
+            for await (const body of parseStationsJSON(createReadStream(stationsFile))) {
+                testJSON(validator, body);
+            }
         });
     });
 });

@@ -4,7 +4,7 @@
  */
 
 import { type Coordinates } from "./common.js";
-import { streamJSON } from "./util.js";
+import { parseJSONArray } from "./util.js";
 
 /** Single EDSM power play information. */
 export interface PowerPlay {
@@ -24,16 +24,11 @@ export interface PowerPlay {
 export type PowerPlays = PowerPlay[];
 
 /**
- * Streams power play information from the given JSON input to the given callback function. If you want all power
- * play information in an array then use [[readPowerPlayJSON]] instead.
+ * Parses power play information from the given JSON stream.
  *
- * @param input    - The JSON input as an async iterable.
- * @param callback - The callback function to call for each power play information. If callback returns a promise then
- *                   this function waits for the promise to be resolved before continuing with the power play
- *                   information.
- * @returns Promise resolved when all power play information have been read or rejected when reading fails.
+ * @param stream - The JSON input stream.
+ * @returns Stream of power play information.
  */
-export function streamPowerPlayJSON(input: AsyncIterable<string>,
-        callback: (powerPlay: PowerPlay) => Promise<void> | void): Promise<void> {
-    return streamJSON(input, callback);
+export function parsePowerPlayJSON(stream: AsyncIterable<Uint8Array>): AsyncIterable<PowerPlay> {
+    return parseJSONArray(stream);
 }

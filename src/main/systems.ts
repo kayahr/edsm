@@ -6,7 +6,7 @@
 import { type SystemBody } from "./bodies.js";
 import { type Coordinates } from "./common.js";
 import { type SystemStation } from "./stations.js";
-import { streamJSON } from "./util.js";
+import { parseJSONArray } from "./util.js";
 
 export interface EstimatedCoordinates extends Coordinates {
     precision: number;
@@ -67,15 +67,11 @@ export interface System {
 export type Systems = System[];
 
 /**
- * Streams systems from the given JSON input to the given callback function. If you want all systems in an array
- * then use [[readSystemsJSON]] instead.
+ * Parses systems from the given JSON stream.
  *
- * @param input    - The JSON input as an async iterable.
- * @param callback - The callback function to call for each system. If callback returns a promise then
- *                   this function waits for the promise to be resolved before continuing with the systems.
- * @returns Promise resolved when all systems have been read or rejected when reading fails.
+ * @param stream - The JSON input stream.
+ * @returns Stream of systems.
  */
-export function streamSystemsJSON(input: AsyncIterable<string>, callback: (system: System) => Promise<void> | void):
-        Promise<void> {
-    return streamJSON(input, callback);
+export function parseSystemsJSON(stream: AsyncIterable<Uint8Array>): AsyncIterable<System> {
+    return parseJSONArray(stream);
 }
