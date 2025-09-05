@@ -4,7 +4,7 @@
  */
 
 import { type SystemBody } from "./bodies.js";
-import { type Coordinates } from "./common.js";
+import { type Coordinates, type Id64 } from "./common.js";
 import { type SystemStation } from "./stations.js";
 import { parseJSONArray } from "./util.js";
 
@@ -47,7 +47,7 @@ export interface Faction {
 export interface System {
     name: string;
     id: number;
-    id64: number | null;
+    id64: Id64 | null;
     date: string;
     coords?: Coordinates;
     estimatedCoordinates?: EstimatedCoordinates;

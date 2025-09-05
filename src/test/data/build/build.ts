@@ -4,6 +4,8 @@ import { join } from "node:path";
 import { createInterface, type Interface } from "node:readline";
 import { createGunzip } from "node:zlib";
 
+import { jsonReviver } from "../../../main/util.js";
+
 const files = [
     "bodies7days.json.gz",
     "codex.json.gz",
@@ -42,7 +44,7 @@ export function isUnique(value: unknown, seen: Set<string>, seenKeysSet: Map<str
         return addSignature(path, "null", seen);
     }
     const typeOf = typeof value;
-    if (typeOf === "string" || typeOf === "number" || typeOf === "boolean") {
+    if (typeOf === "string" || typeOf === "number" || typeOf === "boolean" || typeOf === "bigint") {
         return addSignature(path, typeOf, seen);
     }
     if (value instanceof Array) {
@@ -107,7 +109,7 @@ for (const file of files) {
         if (line.endsWith(",")) {
             line = line.substring(0, line.length - 1);
         }
-        const json = JSON.parse(line) as object;
+        const json = JSON.parse(line, jsonReviver) as object;
         numEntries++;
         if (isUnique(json, seen, seenKeys, optionalKeys)) {
             lines.push(line);
@@ -116,12 +118,3 @@ for (const file of files) {
     console.log("Unique entries:", lines.length, "of", numEntries);
     await writeFile(destFile, `[\n${lines.join(",\n")}\n]\n`);
 }
-
-// const seen = new Set<string>();
-
-// function isNewStructure(entry: unknown): boolean {
-//     const s = structuralSignature(entry as Json);
-//     if (seen.has(s)) return false;
-//     seen.add(s);
-//     return true;
-// }

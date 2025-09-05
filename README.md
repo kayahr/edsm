@@ -118,6 +118,15 @@ Type-guard function which returns true when body is a star, false when not.
 
 Converts a JavaScript Date object to a UTC date string in the format required by various EDSM API functions. Converting in the other direction can simply be done with `date = new Date(utcDateString)`.
 
+
+64 bit number handling
+----------------------
+
+Some EDSM JSON properties (`id64`, `systemId64`) are 64 bit integers. But the JavaScript `number` type can only handle integers up to 53 bit. So when a number exceeds this range then it is interpreted as a large floating point number which looses precision, which is very bad for IDs. To fix this problem this library uses a special JSON reviver when parsing the journal logs to convert numbers, which are too large for JavaScript, into the `BigInt` type. So the value type of an ID-like property like `id64` for example can either be `number` or `BigInt`, depending on how many bits the number actually needs. The typescript typings use an `ID` type for these properties to express that.
+
+`BigInt` values cannot be serialized. So when you need to serialize the parsed JSON again, then it is recommended to use the [json-with-bigint] library, which automatically handles this and writes the correct 64 bit numbers into the JSON output.
+
+
 JSON Schemas
 ------------
 
@@ -138,3 +147,4 @@ JSON Schemas
 
 [EDSM]: https://www.edsm.net/
 [fetch]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+[json-with-bigint]: https://www.npmjs.com/package/json-with-bigint

@@ -4,6 +4,7 @@
  */
 
 import { type SystemBody } from "../bodies.js";
+import type { Id64 } from "../common.js";
 import { type SystemStation } from "../stations.js";
 import { NotFoundException } from "../util/NotFoundException.js";
 import { edsmBaseUrl, request } from "./common.js";
@@ -13,7 +14,7 @@ export interface IdParameters {
     systemId?: number;
 
     /** The system ID64 if you seek for a duplicate system and want to force a specific ID. */
-    systemId64?: number;
+    systemId64?: Id64;
 }
 
 export interface BodyScanValue {
@@ -28,7 +29,7 @@ export interface BodyScanValue {
  */
 export interface SystemBodies {
     id: number;
-    id64: number;
+    id64: Id64;
     name: string;
     url: string;
     bodies: SystemBody[];
@@ -40,7 +41,7 @@ export interface SystemBodies {
  */
 export interface SystemEstimatedValue {
     id: number;
-    id64: number;
+    id64: Id64;
     name: string;
     url: string;
     estimatedValue: number;
@@ -53,7 +54,7 @@ export interface SystemEstimatedValue {
  */
 export interface SystemStations {
     id: number;
-    id64: number;
+    id64: Id64;
     name: string;
     url: string;
     stations: SystemStation[];
@@ -74,7 +75,7 @@ export interface SystemStationsMarketCommodity {
  */
 export interface SystemStationsMarket {
     id: number;
-    id64: number;
+    id64: Id64;
     name: string;
     marketId: number;
     sId: number;
@@ -91,8 +92,7 @@ export interface SystemStationsMarket {
  * @returns The bodies found on EDSM.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemBodies(systemName: string, ids?: { systemId?: number, systemId64?: number }):
-        Promise<SystemBodies> {
+export async function getSystemBodies(systemName: string, ids?: { systemId?: number, systemId64?: Id64 }): Promise<SystemBodies> {
     const json = await (await fetch(`${edsmBaseUrl}/api-system-v1/bodies`, {
         method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -112,8 +112,7 @@ export async function getSystemBodies(systemName: string, ids?: { systemId?: num
  * @returns The scan values.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemEstimatedValue(systemName: string, params?: IdParameters):
-        Promise<SystemEstimatedValue> {
+export async function getSystemEstimatedValue(systemName: string, params?: IdParameters): Promise<SystemEstimatedValue> {
     const json = await (await fetch(`${edsmBaseUrl}/api-system-v1/estimated-value`, {
         method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -133,8 +132,7 @@ export async function getSystemEstimatedValue(systemName: string, params?: IdPar
  * @returns The information about stations in a system.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemStations(systemName: string, params?: IdParameters):
-        Promise<SystemStations> {
+export async function getSystemStations(systemName: string, params?: IdParameters): Promise<SystemStations> {
     const json = await (await fetch(`${edsmBaseUrl}/api-system-v1/stations`, {
         method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -164,11 +162,10 @@ export async function getSystemStationsMarket(marketId: number): Promise<SystemS
  * @returns The information about market in given station.
  * @throws NotFoundException - When market was not found.
  */
-export async function getSystemStationsMarket(systemName: string, stationName: string, params?: IdParameters):
-    Promise<SystemStationsMarket>;
+export async function getSystemStationsMarket(systemName: string, stationName: string, params?: IdParameters): Promise<SystemStationsMarket>;
 
-export async function getSystemStationsMarket(marketIdOrSystemName: number | string, stationName?: string,
-        params?: IdParameters): Promise<SystemStationsMarket> {
+export async function getSystemStationsMarket(marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
+        Promise<SystemStationsMarket> {
     if (stationName == null) {
         const marketId = marketIdOrSystemName;
         const market = await request<SystemStationsMarket>("api-system-v1/stations/market", { marketId });

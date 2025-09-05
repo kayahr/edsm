@@ -3,12 +3,13 @@
  * See LICENSE.md for licensing information.
  */
 
+import type { Id64 } from "./common.js";
 import { parseJSONArray } from "./util.js";
 
 /** Single EDSM codex. */
 export interface Codex {
     systemId: number;
-    systemId64: number;
+    systemId64: Id64;
     systemName: string;
     region: string;
     type: string | null;

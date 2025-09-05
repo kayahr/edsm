@@ -3,14 +3,14 @@
  * See LICENSE.md for licensing information.
  */
 
-import { type Coordinates } from "../common.js";
+import { type Coordinates, type Id64 } from "../common.js";
 import { request } from "./common.js";
 
 export interface FlightLog {
     shipId: number | null;
     system: string;
     systemId?: number;
-    systemId64?: number;
+    systemId64?: Id64;
     firstDiscover: boolean;
     date: string;
 }
@@ -60,7 +60,7 @@ export async function getFlightLogs(commanderName: string, apiKey: string, filte
 export interface CommanderPosition {
     system: string | null;
     systemId?: number;
-    systemId64?: number;
+    systemId64?: Id64;
     firstDiscover: false | null;
     date: string | null;
     coordinates?: Coordinates;
@@ -107,7 +107,7 @@ export interface SetCommentOptions {
     systemId?: number;
 
     /** This parameter (or the other one) is used to bypass duplicate system names. */
-    systemId64?: number;
+    systemId64?: Id64;
 }
 
 /** Response type of [[setComment]] */
@@ -125,10 +125,9 @@ export interface CommentResponse {
  * @param comment       - The comment to set. Empty string to remove.
  * @param options       - Additional option.
  */
-export async function setComment(commanderName: string, apiKey: string, systemName: string, comment: string,
-        options?: SetCommentOptions): Promise<CommentResponse> {
-    return await request("api-logs-v1/set-comment", { commanderName, apiKey, systemName, comment, ...options }) as
-        CommentResponse;
+export async function setComment(commanderName: string, apiKey: string, systemName: string, comment: string, options?: SetCommentOptions):
+        Promise<CommentResponse> {
+    return await request("api-logs-v1/set-comment", { commanderName, apiKey, systemName, comment, ...options }) as CommentResponse;
 }
 
 /**
@@ -139,10 +138,8 @@ export async function setComment(commanderName: string, apiKey: string, systemNa
  * @param systemName    - The system name for which to return the comment.
  * @param options       - Additional option.
  */
-export async function getComment(commanderName: string, apiKey: string, systemName: string,
-        options?: SetCommentOptions): Promise<CommentResponse> {
-    return await request("api-logs-v1/get-comment", { commanderName, apiKey, systemName, ...options }) as
-        CommentResponse;
+export async function getComment(commanderName: string, apiKey: string, systemName: string, options?: SetCommentOptions): Promise<CommentResponse> {
+    return await request("api-logs-v1/get-comment", { commanderName, apiKey, systemName, ...options }) as CommentResponse;
 }
 
 /** Result type of [[getComments]]. */

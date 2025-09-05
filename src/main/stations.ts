@@ -3,6 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
+import type { Id64 } from "./common.js";
 import { parseJSONArray } from "./util.js";
 
 export interface StationControllingFaction {
@@ -62,7 +63,7 @@ export interface Station {
     controllingFaction?: StationControllingFaction;
     updateTime: StationUpdateTime;
     systemId?: number;
-    systemId64?: number | null;
+    systemId64?: Id64 | null;
     systemName?: string;
     commodities: Commodity[] | null;
     ships: Ship[] | null;

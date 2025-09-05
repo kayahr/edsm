@@ -3,6 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
+import type { Id64 } from "./common.js";
 import { parseJSONArray } from "./util.js";
 
 /**
@@ -42,10 +43,10 @@ export interface AtmosphereComposition {
  */
 export interface BaseBody {
     id: number;
-    id64: number | null;
+    id64: Id64 | null;
     bodyId: number | null;
     systemId: number;
-    systemId64: number;
+    systemId64: Id64;
     systemName: string;
     name: string;
     discovery?: {

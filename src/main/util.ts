@@ -55,7 +55,27 @@ export async function *parseJSONArray<T>(stream: AsyncIterable<Uint8Array>): Asy
             if (line.endsWith(",")) {
                 line = line.substring(0, line.length - 1);
             }
-            yield JSON.parse(line);
+            yield JSON.parse(line, jsonReviver);
         }
     }
+}
+
+/**
+ * JSON reviver function which converts numbers of ID properties (property names ending with 'ID' or 'Address') to bigint if needed.
+ *
+ * @param key     - The JSON property key.
+ * @param value   - The parsed JSON property value.
+ * @param context - The reviver context containing the raw JSON source string.
+ * @returns The already parsed JSON property value if suitable or the raw source converted into a bigint.
+ */
+export function jsonReviver(key: string, value: unknown, context?: { source: string }): unknown {
+    if (context != null && typeof value === "number" && (value > Number.MAX_SAFE_INTEGER || value < Number.MIN_SAFE_INTEGER)) {
+        const source = context.source;
+        if (key === "id64" || key === "systemId64") {
+            return BigInt(source);
+        } else if (String(value) !== source && /^[-+]?\d+$/.test(source)) {
+            throw new IllegalStateException(`Value of property '${key}' looks like a bigint (${source}) but was parsed as an imprecise number (${value})`);
+        }
+    }
+    return value;
 }

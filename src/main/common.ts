@@ -9,6 +9,9 @@ export interface Coordinates {
     z: number;
 }
 
+/** A 64 bit ID. Can be a `number` if ID does not need more then 53 bit. Must be `bigint` if ID needs more than 53 bit. */
+export type Id64 = number | bigint;
+
 /**
  * Converts the given date to a UTC date string as expected by the EDSM REST API.
  *

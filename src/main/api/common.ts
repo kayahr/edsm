@@ -3,6 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
+import { JSONStringify } from "json-with-bigint";
+
 export const edsmBaseUrl = "https://www.edsm.net";
 
 export class ServerException extends Error {
@@ -39,7 +41,7 @@ export async function request<T>(url: string, params: object = {}): Promise<T | 
     const result = await fetch(`${edsmBaseUrl}/${url}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(params)
+        body: JSONStringify(params)
     });
     if (result.status !== 200) {
         throw new ServerException(result.status, result.statusText);

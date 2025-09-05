@@ -71,5 +71,8 @@
         "typedoc-github-theme": "0.3.1",
         "typescript": "5.9.2",
         "vitest": "3.2.4"
+    },
+    "dependencies": {
+        "json-with-bigint": "^3.4.4"
     }
 }

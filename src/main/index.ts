@@ -22,7 +22,7 @@ export {
     type Star, type SystemBody, type SystemPlanet, type SystemStar
 } from "./bodies.js";
 export { type Codex, type Codices, parseCodexJSON } from "./codex.js";
-export { type Coordinates, toUTCString } from "./common.js";
+export { type Coordinates, type Id64, toUTCString } from "./common.js";
 export { parsePowerPlayJSON, type PowerPlay, type PowerPlays } from "./powerplay.js";
 export {
     type Commodity, type Outfitting, parseStationsJSON, type Ship, type Station, type StationBody, type StationControllingFaction, type Stations,

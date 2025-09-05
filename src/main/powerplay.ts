@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { type Coordinates } from "./common.js";
+import { type Coordinates, type Id64 } from "./common.js";
 import { parseJSONArray } from "./util.js";
 
 /** Single EDSM power play information. */
@@ -11,7 +11,7 @@ export interface PowerPlay {
     power: string;
     powerState: string;
     id: number;
-    id64: number;
+    id64: Id64;
     name: string;
     coords: Coordinates;
     allegiance: string | null;

@@ -21,7 +21,7 @@ import {
     type Star, type SystemBody, type SystemPlanet, type SystemStar
 } from "../main/bodies.js";
 import { type Codex, type Codices, parseCodexJSON } from "../main/codex.js";
-import { type Coordinates, toUTCString } from "../main/common.js";
+import { type Coordinates, type Id64, toUTCString } from "../main/common.js";
 import * as exports from "../main/index.js";
 import { parsePowerPlayJSON, type PowerPlay, type PowerPlays } from "../main/powerplay.js";
 import {
@@ -117,5 +117,6 @@ describe("index", () => {
         ((): System => (({} as exports.System)))();
         ((): Systems => (({} as exports.Systems)))();
         ((): TrendState => (({} as exports.TrendState)))();
+        ((): Id64 => (({} as exports.Id64)))();
     });
 });
