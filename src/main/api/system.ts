@@ -7,7 +7,7 @@ import { type SystemBody } from "../bodies.js";
 import type { Id64 } from "../common.js";
 import { type Commodity, type Outfitting, type Ship, type SystemStation } from "../stations.js";
 import { NotFoundException } from "../util.js";
-import { edsmBaseUrl, request } from "./common.js";
+import { request } from "./common.js";
 
 export interface IdParameters {
     /** The system ID if you seek for a duplicate system and want to force a specific ID. */
@@ -111,55 +111,43 @@ export interface StationOutfitting {
  * @throws NotFoundException - When system was not found.
  */
 export async function getSystemBodies(systemName: string, ids?: { systemId?: number, systemId64?: Id64 }): Promise<SystemBodies> {
-    const json = await (await fetch(`${edsmBaseUrl}/api-system-v1/bodies`, {
-        method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ systemName, ...ids })
-    })).json() as Object;
-    if (Object.keys(json).length === 0) {
+    const response = await request<SystemBodies>("api-system-v1/bodies", { systemName, ...ids });
+    if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
     }
-    return json as SystemBodies;
+    return response;
 }
 
 /**
  * Returns the estimated scan values of a system.
  *
  * @param systemName - The system name.
- * @param params     - Optional parameters.
+ * @param ids        - Optional parameters.
  * @returns The scan values.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemEstimatedValue(systemName: string, params?: IdParameters): Promise<SystemEstimatedValue> {
-    const json = await (await fetch(`${edsmBaseUrl}/api-system-v1/estimated-value`, {
-        method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ systemName, ...params })
-    })).json() as Object;
-    if (Object.keys(json).length === 0) {
+export async function getSystemEstimatedValue(systemName: string, ids?: IdParameters): Promise<SystemEstimatedValue> {
+    const response = await request<SystemEstimatedValue>("api-system-v1/estimated-value", { systemName, ...ids });
+    if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
     }
-    return json as SystemEstimatedValue;
+    return response;
 }
 
 /**
  * Returns information about stations in a system.
  *
  * @param systemName - The system name.
- * @param params     - Optional parameters.
+ * @param ids        - Optional parameters.
  * @returns The information about stations in a system.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemStations(systemName: string, params?: IdParameters): Promise<SystemStations> {
-    const json = await (await fetch(`${edsmBaseUrl}/api-system-v1/stations`, {
-        method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ systemName, ...params })
-    })).json() as Object;
-    if (Object.keys(json).length === 0) {
+export async function getSystemStations(systemName: string, ids?: IdParameters): Promise<SystemStations> {
+    const response = await request<SystemStations>("api-system-v1/stations", { systemName, ...ids });
+    if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
     }
-    return json as SystemStations;
+    return response;
 }
 
 async function getStationDetails<T>(detail: string, marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
