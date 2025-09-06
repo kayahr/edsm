@@ -9,13 +9,14 @@ export {
 } from "./api/commander.js";
 export { APIException, ServerException } from "./api/common.js";
 export {
-    type CommanderPosition, type CommentResponse, type Comments, type CommentsOptions, type FlightLog, type FlightLogFilter, type FlightLogs, getComment,
-    getComments, getFlightLogs, getPosition, type PositionOptions, setComment, type SetCommentOptions
+    type CommanderPosition, type CommanderPositionOptions, type FlightLog, type FlightLogFilter, type FlightLogs, getCommanderPosition, getFlightLogs,
+    getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemComments,
+    type SystemCommentsOptions
 } from "./api/logs.js";
 export { type EliteServerStatus, type EliteServerStatusType, getEliteServerStatus } from "./api/status.js";
 export {
-    type BodyScanValue, getSystemBodies, getSystemEstimatedValue, getSystemStations, getSystemStationsMarket, type IdParameters, type SystemBodies,
-    type SystemEstimatedValue, type SystemStations, type SystemStationsMarket, type SystemStationsMarketCommodity
+    type BodyScanValue, getSystemBodies, getSystemEstimatedValue, getSystemMarket, getSystemShipyard, getSystemStations, type IdParameters, type SystemBodies,
+    type SystemEstimatedValue, type SystemMarket, type SystemShipyard, type SystemStations
 } from "./api/system.js";
 export {
     type Asteroids, type AtmosphereComposition, type Bodies, type Body, isPlanet, isStar, type Materials, parseBodiesJSON, type Planet, type SolidComposition,

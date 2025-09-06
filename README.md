@@ -1,6 +1,8 @@
 EDSM
 ====
 
+[GitHub] | [NPM] | [API Doc]
+
 This library provides typescript types, JSON schemas and utility functions for the Elite Dangerous Star Map ([EDSM]) API. It is primarily intended for Node.js and Electron applications to read EDSM data files and work with the EDSM REST API but it also works in a web browser.
 
 Communication with the REST API is done with the standard [fetch] command which works out-of-the-box in a browser, modern Node.js or in Electron.
@@ -43,65 +45,34 @@ EDSM REST API
 
 Asynchronous functions are provided for all EDSM API calls. Received HTTP and EDSM errors are automatically converted to exceptions (Promise rejects).
 
-### **[Status](https://www.edsm.net/en/api-status-v1)**
-
-#### **getEliteServerStatus()**
-
-Requests the Elite server status from EDSM.
+Here is an example listing the available ships in the shipyard of Jameson Memorial:
 
 ```typescript
-const status = await edsm.getEliteServerStatus();
+import { getSystemShipyard } from "@kayahr/edsm";
+
+const shipyard = await getSystemShipyard("Shinrarta Dezhra", "Jameson Memorial");
+for (const ship of shipyard.ships) {
+    console.log(ship.id, ship.name);
+}
 ```
 
-### **[Commander](https://www.edsm.net/en/api-commander-v1)**
+Here is a list of all available API functions linked to their API documentation:
 
-#### **getCommanderRanks(commanderName, apiKey?)**
+* [getEliteServerStatus]
+* [getCommanderRanks]
+* [getCommanderCredits]
+* [getCommanderInventory]
+* [getCommanderPosition]
+* [getFlightLogs]
+* [setSystemComment]
+* [getSystemComment]
+* [getSystemComments]
+* [getSystemBodies]
+* [getSystemEstimatedValue]
+* [getSystemStations]
+* [getSystemMarket]
+* [getSystemShipyard]
 
-Requests the ranks of the given commander. This only works when the commander has a public profile or when the API key of the commander is specified as second parameter.
-
-```typescript
-const ranks = await edsm.getCommanderRanks("Username");
-```
-
-#### **getCommanderCredits(commanderName, apiKey, period?)**
-
-Requests the credits statistics of the given commander. API key of the commander is required for this request. The optional third parameter defines the period for the returned statistics. It can be `7DAY`, `1MONTH`, `3MONTH` or `6MONTH`.
-
-```typescript
-const credits = await edsm.getCommanderCredits("Username", "SecretAPIKey");
-```
-
-#### **getCommanderInventory(commanderName, apiKey, type?)**
-
-Requests the inventory of the given commander. The API key of the commander is required for this request. The optional third parameter defines the type of the requested inventory. It defaults to `materials` and can also be `data` or `cargo`.
-
-```typescript
-const materials = await edsm.getCommanderInventory("Username", "SecretAPIKey", "materials");
-const data = await edsm.getCommanderInventory("Username", "SecretAPIKey", "data");
-const cargo = await edsm.getCommanderInventory("Username", "SecretAPIKey", "cargo");
-```
-
-### **[Logs](https://www.edsm.net/en/api-logs-v1)**
-
-#### **getFlightLogs(commanderName, apiKey, options?)**
-
-Requests the flight logs of the given commander. API key is required. The returned flight logs can be optionally filtered by the third options parameter which is an object with the following optional keys:
-
-Option        | Type   | Description
---------------|--------|-------------------------------------
-systemName    | string | Filters flight logs by system name.
-startDateTime | string | Filters for flight logs after this date & time (inclusive). Must be specified in UTC in the format  YYYY-MM-DD HH:MM:SS.
-endDateTime   | string | Filters for flight logs before this date & time (inclusive). Must be specified in UTC in the format YYYY-MM-DD HH:MM:SS.
-showId        | number | Set to 1 if you want to get the EDSM internal id. Useful to handle duplicated name systems of the game.
-
-```typescript
-const flightLogs = await getFlightLogs("Username", "SecretAPIKey", {
-    systemName: "Shinrarta Dezhra",
-    startDateTime: "2019-01-01 00:00:00",
-    endDateTime: "2020-12-31 23:59:59",
-    showId: 1
-});
-```
 
 Other utility functions
 -----------------------
@@ -145,7 +116,25 @@ JSON Schemas
 * [system.schema.json](https://kayahr.github.io/edsm/schemas/system.schema.json)
 * [system-stations.schema.json](https://kayahr.github.io/edsm/schemas/system-stations.schema.json)
 * [system-stations-market.schema.json](https://kayahr.github.io/edsm/schemas/system-stations-market.schema.json)
+* [system-stations-shipyard.schema.json](https://kayahr.github.io/edsm/schemas/system-stations-shipyard.schema.json)
 
+[API Doc]: https://kayahr.github.io/edsm/
+[GitHub]: https://github.com/kayahr/edsm
+[NPM]: https://www.npmjs.com/package/@kayahr/edsm
 [EDSM]: https://www.edsm.net/
 [fetch]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 [json-with-bigint]: https://www.npmjs.com/package/json-with-bigint
+[getEliteServerStatus]: https://kayahr.github.io/edsm/functions/getEliteServerStatus.html
+[getCommanderRanks]: https://kayahr.github.io/edsm/functions/getCommanderRanks.html
+[getCommanderCredits]: https://kayahr.github.io/edsm/functions/getCommanderCredits.html
+[getCommanderInventory]: https://kayahr.github.io/edsm/functions/getCommanderInventory.html
+[getCommanderPosition]: https://kayahr.github.io/edsm/functions/getCommanderPosition.html
+[getFlightLogs]: https://kayahr.github.io/edsm/functions/getFlightLogs.html
+[setSystemComment]: https://kayahr.github.io/edsm/functions/setSystemComment.html
+[getSystemComment]: https://kayahr.github.io/edsm/functions/getSystemComment.html
+[getSystemComments]: https://kayahr.github.io/edsm/functions/getSystemComments.html
+[getSystemBodies]: https://kayahr.github.io/edsm/functions/getSystemBodies.html
+[getSystemEstimatedValue]: https://kayahr.github.io/edsm/functions/getSystemEstimatedValue.html
+[getSystemStations]: https://kayahr.github.io/edsm/functions/getSystemStations.html
+[getSystemMarket]: https://kayahr.github.io/edsm/functions/getSystemMarket.html
+[getSystemShipyard]: https://kayahr.github.io/edsm/functions/getSystemShipyard.html

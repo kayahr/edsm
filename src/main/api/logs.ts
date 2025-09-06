@@ -75,7 +75,7 @@ export interface CommanderPosition {
     url?: string;
 }
 
-export interface PositionOptions {
+export interface CommanderPositionOptions {
     /**
      * If not provided, information will only be returned if the commander has enabled his public profile, and share
      * logs or map.
@@ -96,13 +96,12 @@ export interface PositionOptions {
  * @param options       - Options.
  * @returns The last position.
  */
-export async function getPosition(commanderName: string, options?: PositionOptions):
-        Promise<CommanderPosition> {
+export async function getCommanderPosition(commanderName: string, options?: CommanderPositionOptions): Promise<CommanderPosition> {
     return await request("api-logs-v1/get-position", { commanderName, ...options }) as CommanderPosition;
 }
 
 /** Options for [[setComment]] function. */
-export interface SetCommentOptions {
+export interface SystemCommentOptions {
     /** This parameter (or the other one) is used to bypass duplicate system names. */
     systemId?: number;
 
@@ -110,8 +109,8 @@ export interface SetCommentOptions {
     systemId64?: Id64;
 }
 
-/** Response type of [[setComment]] */
-export interface CommentResponse {
+/** Response type of {@link setSystemComment} */
+export interface SystemCommentResponse {
     comment: string | null;
     lastUpdate: string | null;
 }
@@ -125,9 +124,9 @@ export interface CommentResponse {
  * @param comment       - The comment to set. Empty string to remove.
  * @param options       - Additional option.
  */
-export async function setComment(commanderName: string, apiKey: string, systemName: string, comment: string, options?: SetCommentOptions):
-        Promise<CommentResponse> {
-    return await request("api-logs-v1/set-comment", { commanderName, apiKey, systemName, comment, ...options }) as CommentResponse;
+export async function setSystemComment(commanderName: string, apiKey: string, systemName: string, comment: string, options?: SystemCommentOptions):
+        Promise<SystemCommentResponse> {
+    return await request("api-logs-v1/set-comment", { commanderName, apiKey, systemName, comment, ...options }) as SystemCommentResponse;
 }
 
 /**
@@ -138,12 +137,13 @@ export async function setComment(commanderName: string, apiKey: string, systemNa
  * @param systemName    - The system name for which to return the comment.
  * @param options       - Additional option.
  */
-export async function getComment(commanderName: string, apiKey: string, systemName: string, options?: SetCommentOptions): Promise<CommentResponse> {
-    return await request("api-logs-v1/get-comment", { commanderName, apiKey, systemName, ...options }) as CommentResponse;
+export async function getSystemComment(commanderName: string, apiKey: string, systemName: string, options?: SystemCommentOptions):
+        Promise<SystemCommentResponse> {
+    return await request("api-logs-v1/get-comment", { commanderName, apiKey, systemName, ...options }) as SystemCommentResponse;
 }
 
 /** Result type of [[getComments]]. */
-export interface Comments {
+export interface SystemComments {
     comments: Array<{
         system: string;
         systemId?: number;
@@ -153,7 +153,7 @@ export interface Comments {
 }
 
 /** Options for [[getComments]]. */
-export interface CommentsOptions {
+export interface SystemCommentsOptions {
     /**
      * If you only want to receive comments updated after a specific date & time, use this parameter.
      * That parameter is inclusive. All dates must be UTC.
@@ -171,6 +171,6 @@ export interface CommentsOptions {
  * @param apiKey        - The API key associated with the commander.
  * @param options       - Additional options.
  */
-export async function getComments(commanderName: string, apiKey: string, options?: CommentsOptions): Promise<Comments> {
-    return await request("api-logs-v1/get-comments", { commanderName, apiKey, ...options }) as Comments;
+export async function getSystemComments(commanderName: string, apiKey: string, options?: SystemCommentsOptions): Promise<SystemComments> {
+    return await request("api-logs-v1/get-comments", { commanderName, apiKey, ...options }) as SystemComments;
 }

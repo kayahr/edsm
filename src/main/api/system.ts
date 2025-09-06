@@ -5,7 +5,7 @@
 
 import { type SystemBody } from "../bodies.js";
 import type { Id64 } from "../common.js";
-import { type SystemStation } from "../stations.js";
+import { type Commodity, type Ship, type SystemStation } from "../stations.js";
 import { NotFoundException } from "../util.js";
 import { edsmBaseUrl, request } from "./common.js";
 
@@ -60,20 +60,10 @@ export interface SystemStations {
     stations: SystemStation[];
 }
 
-export interface SystemStationsMarketCommodity {
-    id: string;
-    name: string;
-    buyPrice: number;
-    stock: number;
-    sellPrice: number;
-    demand: number;
-    stockBracket: number;
-}
-
 /**
  * Response structure of the EDSM system stations market request.
  */
-export interface SystemStationsMarket {
+export interface SystemMarket {
     id: number;
     id64: Id64;
     name: string;
@@ -81,7 +71,21 @@ export interface SystemStationsMarket {
     sId: number;
     sName: string;
     url: string;
-    commodities: SystemStationsMarketCommodity[];
+    commodities: Commodity[];
+}
+
+/**
+ * Response structure of the EDSM system stations shipyard request.
+ */
+export interface SystemShipyard {
+    id: number;
+    id64: Id64;
+    name: string;
+    marketId: number;
+    sId: number;
+    sName: string;
+    url: string;
+    ships: Ship[];
 }
 
 /**
@@ -151,7 +155,7 @@ export async function getSystemStations(systemName: string, params?: IdParameter
  * @returns The information about market in given station.
  * @throws NotFoundException - When market was not found.
  */
-export async function getSystemStationsMarket(marketId: number): Promise<SystemStationsMarket>;
+export async function getSystemMarket(marketId: number): Promise<SystemMarket>;
 
 /**
  * Returns information about market in a station.
@@ -162,23 +166,63 @@ export async function getSystemStationsMarket(marketId: number): Promise<SystemS
  * @returns The information about market in given station.
  * @throws NotFoundException - When market was not found.
  */
-export async function getSystemStationsMarket(systemName: string, stationName: string, params?: IdParameters): Promise<SystemStationsMarket>;
+export async function getSystemMarket(systemName: string, stationName: string, params?: IdParameters): Promise<SystemMarket>;
 
-export async function getSystemStationsMarket(marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
-        Promise<SystemStationsMarket> {
+export async function getSystemMarket(marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
+        Promise<SystemMarket> {
     if (stationName == null) {
         const marketId = marketIdOrSystemName;
-        const market = await request<SystemStationsMarket>("api-system-v1/stations/market", { marketId });
+        const market = await request<SystemMarket>("api-system-v1/stations/market", { marketId });
         if (market == null) {
             throw new NotFoundException("Market not found: " + marketId);
         }
         return market;
     } else {
         const systemName = marketIdOrSystemName;
-        const market = await request<SystemStationsMarket>("api-system-v1/stations/market",
+        const market = await request<SystemMarket>("api-system-v1/stations/market",
             { systemName, stationName, ...params });
         if (market == null) {
             throw new NotFoundException(`Market for '${stationName}' in '${systemName}' not found`);
+        }
+        return market;
+    }
+}
+
+/**
+ * Returns information about shipyard in a station.
+ *
+ * @param marketId - The market ID.
+ * @returns The information about shipyard in given station.
+ * @throws NotFoundException - When shipyard was not found.
+ */
+export async function getSystemShipyard(marketId: number): Promise<SystemShipyard>;
+
+/**
+ * Returns information about shipyard in a station.
+ *
+ * @param systemName  - The system name.
+ * @param stationName - The station name.
+ * @param params      - Optional parameters.
+ * @returns The information about shipyard in given station.
+ * @throws NotFoundException - When shipyard was not found.
+ */
+export async function getSystemShipyard(systemName: string, stationName: string, params?: IdParameters): Promise<SystemShipyard>;
+
+export async function getSystemShipyard(marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
+        Promise<SystemShipyard> {
+    if (stationName == null) {
+        const marketId = marketIdOrSystemName;
+        const market = await request<SystemShipyard>("api-system-v1/stations/shipyard", { marketId });
+        if (market == null) {
+            throw new NotFoundException("Shipyard not found: " + marketId);
+        }
+        return market;
+    } else {
+        const systemName = marketIdOrSystemName;
+        const market = await request<SystemShipyard>("api-system-v1/stations/shipyard",
+            { systemName, stationName, ...params });
+        if (market == null) {
+            throw new NotFoundException(`Shipyard for '${stationName}' in '${systemName}' not found`);
         }
         return market;
     }

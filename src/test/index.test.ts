@@ -8,13 +8,14 @@ import {
 } from "../main/api/commander.js";
 import { APIException, ServerException } from "../main/api/common.js";
 import {
-    type CommanderPosition, type CommentResponse, type Comments, type CommentsOptions, type FlightLog, type FlightLogFilter, type FlightLogs, getComment,
-    getComments, getFlightLogs, getPosition, type PositionOptions, setComment, type SetCommentOptions
+    type CommanderPosition, type CommanderPositionOptions, type FlightLog, type FlightLogFilter, type FlightLogs, getCommanderPosition, getFlightLogs,
+    getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemComments,
+    type SystemCommentsOptions
 } from "../main/api/logs.js";
 import { type EliteServerStatus, type EliteServerStatusType, getEliteServerStatus } from "../main/api/status.js";
 import {
-    type BodyScanValue, getSystemBodies, getSystemEstimatedValue, getSystemStations, getSystemStationsMarket, type IdParameters, type SystemBodies,
-    type SystemEstimatedValue, type SystemStations, type SystemStationsMarket, type SystemStationsMarketCommodity
+    type BodyScanValue, getSystemBodies, getSystemEstimatedValue, getSystemMarket, getSystemShipyard, getSystemStations, type IdParameters, type SystemBodies,
+    type SystemEstimatedValue, type SystemMarket, type SystemShipyard, type SystemStations
 } from "../main/api/system.js";
 import {
     type Asteroids, type AtmosphereComposition, type Bodies, type Body, isPlanet, isStar, type Materials, parseBodiesJSON, type Planet, type SolidComposition,
@@ -45,18 +46,19 @@ describe("index", () => {
             ServerException,
             NotFoundException,
             IllegalStateException,
-            getComment,
-            getComments,
+            getSystemComment,
+            getSystemComments,
             getFlightLogs,
-            getPosition,
-            setComment,
+            getCommanderPosition,
+            setSystemComment,
             isStar,
             isPlanet,
             getEliteServerStatus,
             getSystemBodies,
             getSystemEstimatedValue,
             getSystemStations,
-            getSystemStationsMarket,
+            getSystemMarket,
+            getSystemShipyard,
             parseBodiesJSON,
             parseCodexJSON,
             toUTCString,
@@ -72,14 +74,14 @@ describe("index", () => {
         ((): CreditsPeriod => (({} as exports.CreditsPeriod)))();
         ((): InventoryType => (({} as exports.InventoryType)))();
         ((): CommanderPosition => (({} as exports.CommanderPosition)))();
-        ((): CommentResponse => (({} as exports.CommentResponse)))();
-        ((): Comments => (({} as exports.Comments)))();
-        ((): CommentsOptions => (({} as exports.CommentsOptions)))();
+        ((): SystemCommentResponse => (({} as exports.SystemCommentResponse)))();
+        ((): SystemComments => (({} as exports.SystemComments)))();
+        ((): SystemCommentsOptions => (({} as exports.SystemCommentsOptions)))();
         ((): FlightLog => (({} as exports.FlightLog)))();
         ((): FlightLogFilter => (({} as exports.FlightLogFilter)))();
         ((): FlightLogs => (({} as exports.FlightLogs)))();
-        ((): PositionOptions => (({} as exports.PositionOptions)))();
-        ((): SetCommentOptions => (({} as exports.SetCommentOptions)))();
+        ((): CommanderPositionOptions => (({} as exports.CommanderPositionOptions)))();
+        ((): SystemCommentOptions => (({} as exports.SystemCommentOptions)))();
         ((): EliteServerStatus => (({} as exports.EliteServerStatus)))();
         ((): EliteServerStatusType => (({} as exports.EliteServerStatusType)))();
         ((): BodyScanValue => (({} as exports.BodyScanValue)))();
@@ -87,8 +89,9 @@ describe("index", () => {
         ((): SystemBodies => (({} as exports.SystemBodies)))();
         ((): SystemEstimatedValue => (({} as exports.SystemEstimatedValue)))();
         ((): SystemStations => (({} as exports.SystemStations)))();
-        ((): SystemStationsMarket => (({} as exports.SystemStationsMarket)))();
-        ((): SystemStationsMarketCommodity => (({} as exports.SystemStationsMarketCommodity)))();
+        ((): SystemMarket => (({} as exports.SystemMarket)))();
+        ((): SystemShipyard => (({} as exports.SystemShipyard)))();
+        ((): Commodity => (({} as exports.Commodity)))();
         ((): Asteroids => (({} as exports.Asteroids)))();
         ((): AtmosphereComposition => (({} as exports.AtmosphereComposition)))();
         ((): Bodies => (({} as exports.Bodies)))();

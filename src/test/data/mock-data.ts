@@ -8463,3 +8463,183 @@ export const jamesonMemorialMarket = {
         }
     ]
 };
+
+export const jamesonMemorialShipyard = {
+    id: 4345,
+    id64: 3932277478106,
+    name: "Shinrarta Dezhra",
+    marketId: 128666762,
+    sId: 65,
+    sName: "Jameson Memorial",
+    url: "https://www.edsm.net/en/system/stations/id/4345/name/Shinrarta+Dezhra/details/facility/shipyard/idS/65/nameS/Jameson+Memorial",
+    ships: [
+        {
+            id: 128049249,
+            name: "Sidewinder"
+        },
+        {
+            id: 128049255,
+            name: "Eagle"
+        },
+        {
+            id: 128049261,
+            name: "Hauler"
+        },
+        {
+            id: 128049267,
+            name: "Adder"
+        },
+        {
+            id: 128049273,
+            name: "Viper Mk III"
+        },
+        {
+            id: 128049279,
+            name: "Cobra Mk III"
+        },
+        {
+            id: 128049285,
+            name: "Type-6 Transporter"
+        },
+        {
+            id: 128049291,
+            name: "Dolphin"
+        },
+        {
+            id: 128049297,
+            name: "Type-7 Transporter"
+        },
+        {
+            id: 128049303,
+            name: "Asp Explorer"
+        },
+        {
+            id: 128049309,
+            name: "Vulture"
+        },
+        {
+            id: 128049315,
+            name: "Imperial Clipper"
+        },
+        {
+            id: 128049321,
+            name: "Federal Dropship"
+        },
+        {
+            id: 128049327,
+            name: "Orca"
+        },
+        {
+            id: 128049333,
+            name: "Type-9 Heavy"
+        },
+        {
+            id: 128049339,
+            name: "Python"
+        },
+        {
+            id: 128049345,
+            name: "Beluga Liner"
+        },
+        {
+            id: 128049351,
+            name: "Fer-de-Lance"
+        },
+        {
+            id: 128049363,
+            name: "Anaconda"
+        },
+        {
+            id: 128049369,
+            name: "Federal Corvette"
+        },
+        {
+            id: 128049375,
+            name: "Imperial Cutter"
+        },
+        {
+            id: 128671217,
+            name: "Diamondback Scout"
+        },
+        {
+            id: 128671223,
+            name: "Imperial Courier"
+        },
+        {
+            id: 128671831,
+            name: "Diamondback Explorer"
+        },
+        {
+            id: 128672138,
+            name: "Imperial Eagle"
+        },
+        {
+            id: 128672145,
+            name: "Federal Assault Ship"
+        },
+        {
+            id: 128672152,
+            name: "Federal Gunship"
+        },
+        {
+            id: 128672255,
+            name: "Viper Mk IV"
+        },
+        {
+            id: 128672269,
+            name: "Keelback"
+        },
+        {
+            id: 128672276,
+            name: "Asp Scout"
+        },
+        {
+            id: 128785619,
+            name: "Type-10 Defender"
+        },
+        {
+            id: 128816567,
+            name: "Krait Mk II"
+        },
+        {
+            id: 128816574,
+            name: "Alliance Chieftain"
+        },
+        {
+            id: 128816581,
+            name: "Alliance Crusader"
+        },
+        {
+            id: 128816588,
+            name: "Alliance Challenger"
+        },
+        {
+            id: 128839281,
+            name: "Krait Phantom"
+        },
+        {
+            id: 128915979,
+            name: "Mamba"
+        },
+        {
+            id: 129030464,
+            name: "Python Mk II"
+        },
+        {
+            id: 129030534,
+            name: "Type-8 Transporter"
+        },
+        {
+            id: 129030680,
+            name: "Mandalay"
+        },
+        {
+            id: 129031230,
+            name: "Cobra Mk V"
+        },
+        {
+            id: 129031320,
+            name: "Corsair"
+        }
+    ]
+};

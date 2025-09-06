@@ -3,7 +3,7 @@ import "@kayahr/vitest-matchers";
 import type { ValidateFunction } from "ajv";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
-import { getSystemBodies, getSystemEstimatedValue, getSystemStations, getSystemStationsMarket } from "../../main/api/system.js";
+import { getSystemBodies, getSystemEstimatedValue, getSystemMarket, getSystemShipyard, getSystemStations } from "../../main/api/system.js";
 import { ServerException } from "../../main/index.js";
 import { NotFoundException } from "../../main/util.js";
 import { createValidator, testJSON } from "../util.js";
@@ -139,33 +139,59 @@ describe("commander", () => {
         });
     });
 
-    describe("getSystemStationsMarket", () => {
+    describe("getSystemMarket", () => {
         let validator: ValidateFunction;
         beforeAll(async () => {
-            validator = await createValidator("system-stations-market");
+            validator = await createValidator("system-market");
         });
         it("returns market data for station referenced by name", async () => {
-            const result = await getSystemStationsMarket("Shinrarta Dezhra", "Jameson Memorial");
+            const result = await getSystemMarket("Shinrarta Dezhra", "Jameson Memorial");
             testJSON(validator, result);
             expect(result.sName === "Jameson Memorial");
             expect(result.commodities.length > 0);
         });
         it("returns market data for station referenced by id", async () => {
-            const result = await getSystemStationsMarket(128666762);
+            const result = await getSystemMarket(128666762);
             testJSON(validator, result);
             expect(result.sName === "Jameson Memorial");
             expect(result.commodities.length > 0);
         });
         it("throws error when market id not found", async () => {
-            await expect(getSystemStationsMarket(1234567890)).rejects.toThrowWithMessage(NotFoundException, "Market not found: 1234567890");
+            await expect(getSystemMarket(1234567890)).rejects.toThrowWithMessage(NotFoundException, "Market not found: 1234567890");
         });
         it("throws error when station name not found", async () => {
-            await expect(getSystemStationsMarket("Shinrarta Dezhra", "Jameson")).rejects
+            await expect(getSystemMarket("Shinrarta Dezhra", "Jameson")).rejects
                 .toThrowWithMessage(NotFoundException, "Market for 'Jameson' in 'Shinrarta Dezhra' not found");
         });
         it("throws server error when market id is negative", async () => {
-            await expect(getSystemStationsMarket(-1)).rejects
+            await expect(getSystemMarket(-1)).rejects
                 .toThrowWithMessage(ServerException, "Internal Server Error");
+        });
+    });
+
+    describe("getSystemShipyard", () => {
+        let validator: ValidateFunction;
+        beforeAll(async () => {
+            validator = await createValidator("system-shipyard");
+        });
+        it("returns market data for station referenced by name", async () => {
+            const result = await getSystemShipyard("Shinrarta Dezhra", "Jameson Memorial");
+            testJSON(validator, result);
+            expect(result.sName === "Jameson Memorial");
+            expect(result.ships.length > 0);
+        });
+        it("returns market data for station referenced by id", async () => {
+            const result = await getSystemShipyard(128666762);
+            testJSON(validator, result);
+            expect(result.sName === "Jameson Memorial");
+            expect(result.ships.length > 0);
+        });
+        it("throws error when market id not found", async () => {
+            await expect(getSystemShipyard(1234567890)).rejects.toThrowWithMessage(NotFoundException, "Shipyard not found: 1234567890");
+        });
+        it("throws error when station name not found", async () => {
+            await expect(getSystemShipyard("Shinrarta Dezhra", "Jameson")).rejects
+                .toThrowWithMessage(NotFoundException, "Shipyard for 'Jameson' in 'Shinrarta Dezhra' not found");
         });
     });
 });
