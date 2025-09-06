@@ -6,7 +6,7 @@
 import { type SystemBody } from "../bodies.js";
 import type { Id64 } from "../common.js";
 import { type SystemStation } from "../stations.js";
-import { NotFoundException } from "../util/NotFoundException.js";
+import { NotFoundException } from "../util.js";
 import { edsmBaseUrl, request } from "./common.js";
 
 export interface IdParameters {

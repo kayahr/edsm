@@ -144,6 +144,7 @@ JSON Schemas
 * [system-estimated-value.schema.json](https://kayahr.github.io/edsm/schemas/system-estimated-value.schema.json)
 * [system.schema.json](https://kayahr.github.io/edsm/schemas/system.schema.json)
 * [system-stations.schema.json](https://kayahr.github.io/edsm/schemas/system-stations.schema.json)
+* [system-stations-market.schema.json](https://kayahr.github.io/edsm/schemas/system-stations-market.schema.json)
 
 [EDSM]: https://www.edsm.net/
 [fetch]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API

@@ -3,12 +3,11 @@ import { join } from "node:path";
 
 import { Ajv, type ValidateFunction } from "ajv";
 import { JSONStringify } from "json-with-bigint";
-import { describe } from "vitest";
 
 const baseDir = join(__dirname, "../..");
 
 export const edsmAPIKey = process.env["EDSM_API_KEY"] ?? "";
-export const describeWhenTestAPI = (description: string, func: () => void): unknown => describe.skipIf(edsmAPIKey === "")(description, func);
+export const edsmUser = process.env["EDSM_USER"] ?? "";
 
 export async function createValidator(schemaName: string): Promise<ValidateFunction> {
     const schemaJSON = JSON.parse(await readFile(join(baseDir, `lib/${schemaName}.schema.json`), "utf-8")) as object;

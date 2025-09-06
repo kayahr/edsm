@@ -31,6 +31,8 @@ import {
 import {
     type ControllingFaction, type EstimatedCoordinates, type Faction, parseSystemsJSON, type State, type System, type Systems, type TrendState
 } from "../main/systems.js";
+import { IllegalStateException } from "../main/util.js";
+import { NotFoundException } from "../main/util.js";
 
 describe("index", () => {
     it("exports relevant types and functions and nothing more", () => {
@@ -41,6 +43,8 @@ describe("index", () => {
             getCommanderRanks,
             APIException,
             ServerException,
+            NotFoundException,
+            IllegalStateException,
             getComment,
             getComments,
             getFlightLogs,

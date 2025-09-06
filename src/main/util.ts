@@ -3,7 +3,25 @@
  * See LICENSE.md for licensing information.
  */
 
-import { IllegalStateException } from "./util/IllegalStateException.js";
+/**
+ * Base class for all exceptions. Automatically corrects its prototype and name.
+ */
+export abstract class Exception extends Error {
+    /**
+     * Creates a new exception.
+     *
+     * @param message - The exception message.
+     * @param options - Optional error options.
+     */
+    public constructor(message: string, options?: ErrorOptions) {
+        super(message, options);
+        this.name = this.constructor.name;
+        Object.setPrototypeOf(this, this.constructor.prototype as Function);
+    }
+}
+
+export class IllegalStateException extends Exception {}
+export class NotFoundException extends Error {}
 
 /**
  * Helper function to iterate over the lines of a data stream.

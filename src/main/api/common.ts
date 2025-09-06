@@ -5,9 +5,11 @@
 
 import { JSONStringify } from "json-with-bigint";
 
+import { Exception } from "../util.js";
+
 export const edsmBaseUrl = "https://www.edsm.net";
 
-export class ServerException extends Error {
+export class ServerException extends Exception {
     public readonly status: number;
 
     public constructor(status: number, message: string) {
@@ -16,7 +18,7 @@ export class ServerException extends Error {
     }
 }
 
-export class APIException extends Error {
+export class APIException extends Exception {
     public readonly status: number;
 
     public constructor(status: number, message: string) {

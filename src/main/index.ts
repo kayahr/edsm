@@ -31,3 +31,4 @@ export {
 export {
     type ControllingFaction, type EstimatedCoordinates, type Faction, parseSystemsJSON, type State, type System, type Systems, type TrendState
 } from "./systems.js";
+export { IllegalStateException, NotFoundException } from "./util.js";

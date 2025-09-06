@@ -3,7 +3,6 @@
  * See LICENSE.md for licensing information.
  */
 
-import { NotFoundException } from "../util/NotFoundException.js";
 import { request } from "./common.js";
 
 /**
@@ -51,7 +50,7 @@ export type CreditsPeriod = "7DAY" | "1MONTH" | "3MONTH" | "6MONTH";
 export interface CommanderCredits {
     credits: Array<{
         balance: number;
-        loan: 0;
+        loan: number;
         date: string;
     }>;
     period?: CreditsPeriod;
@@ -88,14 +87,9 @@ export interface CommanderInventory {
  * @param apiKey        - The API key of the commander. If not provided, ranks will only be returned if the commander
  *                        has enabled his public profile.
  * @returns The commander ranks.
- * @throws NotFoundException - When commander was not found or is not public
  */
 export async function getCommanderRanks(commanderName: string, apiKey?: string): Promise<CommanderRanks> {
-    const ranks = await request<CommanderRanks>("api-commander-v1/get-ranks", { commanderName, apiKey });
-    if (ranks == null) {
-        throw new NotFoundException("Commander not found or not public: " + commanderName);
-    }
-    return ranks;
+    return await request<CommanderRanks>("api-commander-v1/get-ranks", { commanderName, apiKey }) as CommanderRanks;
 }
 
 /**

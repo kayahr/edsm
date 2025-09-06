@@ -1,18 +1,26 @@
 import type { ValidateFunction } from "ajv";
-import { beforeAll, it } from "vitest";
+import { afterAll, beforeAll, describe, it } from "vitest";
 
 import { getEliteServerStatus } from "../../main/api/status.js";
-import { createValidator, describeWhenTestAPI, testJSON } from "../util.js";
+import { createValidator, testJSON } from "../util.js";
+import { edsmMock } from "./mock.js";
 
-describeWhenTestAPI("getEliteServerStatus", () => {
+describe("status", () => {
     let validator: ValidateFunction;
 
     beforeAll(async () => {
+        edsmMock.start();
         validator = await createValidator("elite-server-status");
     });
 
-    it("returns elite server status which matches the schema", async () => {
-        const result = await getEliteServerStatus();
-        testJSON(validator, result);
+    afterAll(() => {
+        edsmMock.stop();
+    });
+
+    describe("getEliteServerStatus", () => {
+        it("returns elite server status which matches the schema", async () => {
+            const result = await getEliteServerStatus();
+            testJSON(validator, result);
+        });
     });
 });

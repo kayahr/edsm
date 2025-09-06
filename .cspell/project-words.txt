@@ -1,11 +1,14 @@
 Berenices
 Colonia
 Comae
+Defence
 Dezhra
 edsm
 kayahr
 Landable
+Lyncis
 msgnum
+Murphey
 Periapsis
 powerplay
 Raxxla
@@ -13,3 +16,4 @@ Reimer
 Scoopable
 Shinrarta
 terraforming
+Xeno
