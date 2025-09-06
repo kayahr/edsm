@@ -12,7 +12,7 @@ import { NotFoundException } from "../../main/util.js";
 import { createValidator, testJSON } from "../util.js";
 import { edsmMock } from "./mock.js";
 
-describe("commander", () => {
+describe("system", () => {
     beforeAll(() => {
         edsmMock.start();
     });

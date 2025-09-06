@@ -5,7 +5,7 @@ import { getCommanderPosition, getFlightLogs, getSystemComment, getSystemComment
 import { createValidator, testJSON } from "../util.js";
 import { edsmAPIKey, edsmMock, edsmUser } from "./mock.js";
 
-describe("commander", () => {
+describe("logs", () => {
     beforeAll(() => {
         edsmMock.start();
     });

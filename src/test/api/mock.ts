@@ -2,13 +2,18 @@ import type { CallLog, RouteMatcher, RouteResponse, UserRouteConfig } from "fetc
 import fetchMock from "fetch-mock";
 import { JSONParse, JSONStringify } from "json-with-bigint";
 
+import type { CreditsPeriod, InventoryType } from "../../main/api/commander.js";
 import { edsmBaseUrl } from "../../main/api/common.js";
+import type { EDSMEvent, EventResponse } from "../../main/api/journal.js";
 import type { SystemFactionsResponse } from "../../main/api/system.js";
-import type { SystemRequestOptions, SystemResponse } from "../../main/api/systems.js";
-import type { CreditsPeriod, InventoryType } from "../../main/index.js";
+import type {
+    CubeSystemsRequestOptions, SphereSystemsRequestOptions, SystemRequestFlags, SystemRequestOptions, SystemResponse, SystemsRequestOptions
+} from "../../main/api/systems.js";
+import type { Coordinates } from "../../main/common.js";
 import {
     berenices1, berenices2, colonia, jamesonMemorialMarket, jamesonMemorialOutfitting, jamesonMemorialShipyard,
-    shinrartaDezhraFactions, shinrartaDezhraStations, shinrartaDezhraTraffic
+    shinrartaDezhraFactions, shinrartaDezhraStations, shinrartaDezhraSystem, shinrartaDezhraTraffic,
+    solSystem
 } from "../data/mock-data.js";
 
 /**
@@ -39,6 +44,11 @@ export class EDSMMock {
             this.#mockRequest("api-system-v1/traffic", "POST", this.#getSystemTraffic);
             this.#mockRequest("api-system-v1/deaths", "POST", this.#getSystemDeaths);
             this.#mockRequest("api-v1/system", "POST", this.#getSystem);
+            this.#mockRequest("api-v1/systems", "POST", this.#getSystems);
+            this.#mockRequest("api-v1/sphere-systems", "POST", this.#getSphereSystems);
+            this.#mockRequest("api-v1/cube-systems", "POST", this.#getCubeSystems);
+            this.#mockRequest("api-journal-v1/discard", "POST", this.#getDiscardEvents);
+            this.#mockRequest("api-journal-v1", "POST", this.#sendEvents);
         }
     }
 
@@ -560,42 +570,8 @@ export class EDSMMock {
         return this.#createJSONResponse(200, result);
     }
 
-    #getSystem(callLog: CallLog): RouteResponse {
-        const { systemName, systemId, systemId64, showCoordinates, showId, showPermit, showInformation, showPrimaryStar }
-            = this.#readJSONBody<SystemRequestOptions & { systemName: string }>(callLog);
-        let result: null | SystemResponse;
-        if (systemName === "Shinrarta Dezhra" || systemId == 4345 || systemId64 == 3932277478106) {
-            result = {
-                name: "Shinrarta Dezhra",
-                id: 4345,
-                id64: 3932277478106,
-                coords: { x: 55.71875, y: 17.59375, z: 27.15625 },
-                coordsLocked: true,
-                requirePermit: true,
-                permitName: "Founders World",
-                information: {
-                    allegiance: "Pilots Federation",
-                    government: "Democracy",
-                    faction: "Pilots' Federation Local Branch",
-                    factionState: "None",
-                    population: 85287324,
-                    security: "High",
-                    economy: "High Tech",
-                    secondEconomy: "Industrial",
-                    reserve: "Common"
-                },
-                primaryStar: {
-                    type: "K (Yellow-Orange) Star",
-                    name: "Shinrarta Dezhra",
-                    isScoopable: true
-                }
-            };
-        } else {
-            result = null;
-        }
-        if (result == null) {
-            return this.#createJSONResponse(200, {});
-        }
+    #filterSystem(system: SystemResponse, { showCoordinates, showId, showPermit, showInformation, showPrimaryStar }: SystemRequestFlags): SystemResponse {
+        const result = JSONParse(JSONStringify(system)) as SystemResponse;
         if (showCoordinates !== 1) {
             delete result.coords;
             delete result.coordsLocked;
@@ -613,6 +589,63 @@ export class EDSMMock {
         if (showId !== 1) {
             delete result.id;
             delete result.id64;
+        }
+        return result;
+    }
+
+    #getSystem(callLog: CallLog): RouteResponse {
+        const { systemName, systemId, systemId64, ...flags } = this.#readJSONBody<SystemRequestOptions & { systemName: string }>(callLog);
+        let result: null | SystemResponse;
+        if (systemName === "Shinrarta Dezhra" || systemId == 4345 || systemId64 == 3932277478106) {
+            result = shinrartaDezhraSystem;
+        } else {
+            result = null;
+        }
+        if (result == null) {
+            return this.#createJSONResponse(200, {});
+        }
+        return this.#createJSONResponse(200, this.#filterSystem(result, flags));
+    }
+
+    #getSystems(callLog: CallLog): RouteResponse {
+        const { systemName, ...flags } = this.#readJSONBody<SystemsRequestOptions>(callLog);
+        const result = [ shinrartaDezhraSystem, solSystem ].filter(system => {
+            if (systemName == null) {
+                return true;
+            } else if (typeof systemName === "string") {
+                return system.name.startsWith(systemName);
+            } else {
+                return systemName.includes(system.name);
+            }
+        }).map(system => this.#filterSystem(system, flags));
+        return this.#createJSONResponse(200, result);
+    }
+
+    #getSphereSystems(callLog: CallLog): RouteResponse {
+        const { ...flags } = this.#readJSONBody<SphereSystemsRequestOptions & { systemNameOrCoords: string | Coordinates }>(callLog);
+        // Not filtering anything yet, just returning systems
+        const result = [ shinrartaDezhraSystem, solSystem ].map(system => this.#filterSystem(system, flags));
+        return this.#createJSONResponse(200, result);
+    }
+
+    #getCubeSystems(callLog: CallLog): RouteResponse {
+        const { ...flags } = this.#readJSONBody<CubeSystemsRequestOptions & { systemNameOrCoords: string | Coordinates }>(callLog);
+        // Not filtering anything yet, just returning systems
+        const result = [ shinrartaDezhraSystem, solSystem ].map(system => this.#filterSystem(system, flags));
+        return this.#createJSONResponse(200, result);
+    }
+
+    #getDiscardEvents(callLog: CallLog): RouteResponse {
+        return this.#createJSONResponse(200, [ "AfmuRepairs", "ApproachBody" ]);
+    }
+
+    #sendEvents(callLog: CallLog): RouteResponse {
+        const { message } = this.#readJSONBody<{ message: EDSMEvent | EDSMEvent[] }>(callLog);
+        const result: EventResponse = { events: [] };
+        if (!(message instanceof Array)) {
+            result.events.push({ msgnum: 100, msg: "OK" });
+        } else {
+            message.forEach(m => result.events.push({ msgnum: 100, msg: "OK" }));
         }
         return this.#createJSONResponse(200, result);
     }

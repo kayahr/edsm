@@ -2,6 +2,7 @@ import type {
     StationMarketResponse, StationOutfittingResponse, StationShipyardResponse, SystemBodiesResponse, SystemFactionsResponse, SystemStationsResponse,
     SystemTrafficResponse
 } from "../../main/api/system.js";
+import type { SystemResponse } from "../../main/index.js";
 
 export const colonia: SystemBodiesResponse = {
     id: 3384966,
@@ -5881,5 +5882,61 @@ export const shinrartaDezhraTraffic: SystemTrafficResponse = {
         "Python Mk II": 2,
         Sidewinder: 5,
         "Type-8 Transporter": 7
+    }
+};
+
+export const shinrartaDezhraSystem: SystemResponse = {
+    name: "Shinrarta Dezhra",
+    id: 4345,
+    id64: 3932277478106,
+    coords: { x: 55.71875, y: 17.59375, z: 27.15625 },
+    coordsLocked: true,
+    requirePermit: true,
+    permitName: "Founders World",
+    information: {
+        allegiance: "Pilots Federation",
+        government: "Democracy",
+        faction: "Pilots' Federation Local Branch",
+        factionState: "None",
+        population: 85287324,
+        security: "High",
+        economy: "High Tech",
+        secondEconomy: "Industrial",
+        reserve: "Common"
+    },
+    primaryStar: {
+        type: "K (Yellow-Orange) Star",
+        name: "Shinrarta Dezhra",
+        isScoopable: true
+    }
+};
+
+export const solSystem: SystemResponse = {
+    name: "Sol",
+    id: 27,
+    id64: 10477373803,
+    coords: {
+        x: 0,
+        y: 0,
+        z: 0
+    },
+    coordsLocked: true,
+    requirePermit: true,
+    permitName: "Sol",
+    information: {
+        allegiance: "Federation",
+        government: "Democracy",
+        faction: "Mother Gaia",
+        factionState: "Expansion",
+        population: 18320926115,
+        security: "High",
+        economy: "Refinery",
+        secondEconomy: "Service",
+        reserve: "Common"
+    },
+    primaryStar: {
+        type: "G (White-Yellow) Star",
+        name: "Sol",
+        isScoopable: true
     }
 };

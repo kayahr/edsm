@@ -11,7 +11,7 @@ import { request } from "./common.js";
  */
 export interface EventResponse {
     /** Responses for each sent event. */
-    events: {
+    events: Array<{
         /**
          * 100 means the event was accepted. Every other code means the event was rejected for some reason.
          * See https://www.edsm.net/en/api-journal-v1 for details.
@@ -26,7 +26,7 @@ export interface EventResponse {
 
         /** EDSM system ID. */
         systemId?: number;
-    };
+    }>;
 }
 
 /**
@@ -72,5 +72,5 @@ export async function sendEvents(commanderName: string, apiKey: string, fromSoft
  * @returns The list of event names to be discarded.
  */
 export async function getDiscardEvents(): Promise<string[]> {
-    return await request<string[]>("api-journal-v1/discard") ?? [];
+    return await request("api-journal-v1/discard") as string[];
 }

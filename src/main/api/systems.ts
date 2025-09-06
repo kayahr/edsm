@@ -178,8 +178,7 @@ export interface SphereSystemsRequestOptions extends SystemRequestFlags, SystemI
  */
 export async function getSphereSystems(systemNameOrCoords: string | Coordinates, options?: SphereSystemsRequestOptions): Promise<SystemResponse[]> {
     const center = typeof systemNameOrCoords === "string" ? { systemName: systemNameOrCoords } : systemNameOrCoords;
-    const system = await request<SystemResponse[]>("api-v1/sphere-systems", { ...center, ...options });
-    return system ?? [];
+    return await request("api-v1/sphere-systems", { ...center, ...options }) as SystemResponse[];
 }
 
 /**
@@ -199,6 +198,5 @@ export interface CubeSystemsRequestOptions extends SystemRequestFlags, SystemIdR
  */
 export async function getCubeSystems(systemNameOrCoords: string | Coordinates, options?: CubeSystemsRequestOptions): Promise<SystemResponse[]> {
     const center = typeof systemNameOrCoords === "string" ? { systemName: systemNameOrCoords } : systemNameOrCoords;
-    const system = await request<SystemResponse[]>("api-v1/cube-systems", { ...center, ...options });
-    return system ?? [];
+    return await request("api-v1/cube-systems", { ...center, ...options }) as SystemResponse[];
 }
