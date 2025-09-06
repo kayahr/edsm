@@ -163,7 +163,7 @@ describe("commander", () => {
         });
         it("throws error when station name not found", async () => {
             await expect(getStationMarket("Shinrarta Dezhra", "Jameson")).rejects
-                .toThrowWithMessage(NotFoundException, "Market for 'Jameson' in 'Shinrarta Dezhra' not found");
+                .toThrowWithMessage(NotFoundException, "Station 'Jameson' in 'Shinrarta Dezhra' not found");
         });
         it("throws server error when market id is negative", async () => {
             await expect(getStationMarket(-1)).rejects
@@ -189,11 +189,11 @@ describe("commander", () => {
             expect(result.ships.length > 0);
         });
         it("throws error when market id not found", async () => {
-            await expect(getStationShipyard(1234567890)).rejects.toThrowWithMessage(NotFoundException, "Shipyard not found: 1234567890");
+            await expect(getStationShipyard(1234567890)).rejects.toThrowWithMessage(NotFoundException, "Market not found: 1234567890");
         });
         it("throws error when station name not found", async () => {
             await expect(getStationShipyard("Shinrarta Dezhra", "Jameson")).rejects
-                .toThrowWithMessage(NotFoundException, "Shipyard for 'Jameson' in 'Shinrarta Dezhra' not found");
+                .toThrowWithMessage(NotFoundException, "Station 'Jameson' in 'Shinrarta Dezhra' not found");
         });
     });
 

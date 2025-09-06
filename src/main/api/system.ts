@@ -162,6 +162,26 @@ export async function getSystemStations(systemName: string, params?: IdParameter
     return json as SystemStations;
 }
 
+async function getStationDetails<T>(detail: string, marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
+        Promise<T> {
+    const url = `api-system-v1/stations/${detail}`;
+    if (stationName == null) {
+        const marketId = marketIdOrSystemName;
+        const data = await request<T>(url, { marketId });
+        if (data == null) {
+            throw new NotFoundException("Market not found: " + marketId);
+        }
+        return data;
+    } else {
+        const systemName = marketIdOrSystemName;
+        const data = await request<T>(url, { systemName, stationName, ...params });
+        if (data == null) {
+            throw new NotFoundException(`Station '${stationName}' in '${systemName}' not found`);
+        }
+        return data;
+    }
+}
+
 /**
  * Returns information about market in a station.
  *
@@ -184,22 +204,7 @@ export async function getStationMarket(systemName: string, stationName: string, 
 
 export async function getStationMarket(marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
         Promise<StationMarket> {
-    if (stationName == null) {
-        const marketId = marketIdOrSystemName;
-        const market = await request<StationMarket>("api-system-v1/stations/market", { marketId });
-        if (market == null) {
-            throw new NotFoundException("Market not found: " + marketId);
-        }
-        return market;
-    } else {
-        const systemName = marketIdOrSystemName;
-        const market = await request<StationMarket>("api-system-v1/stations/market",
-            { systemName, stationName, ...params });
-        if (market == null) {
-            throw new NotFoundException(`Market for '${stationName}' in '${systemName}' not found`);
-        }
-        return market;
-    }
+    return getStationDetails<StationMarket>("market", marketIdOrSystemName, stationName, params);
 }
 
 /**
@@ -224,22 +229,7 @@ export async function getStationShipyard(systemName: string, stationName: string
 
 export async function getStationShipyard(marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
         Promise<StationShipyard> {
-    if (stationName == null) {
-        const marketId = marketIdOrSystemName;
-        const market = await request<StationShipyard>("api-system-v1/stations/shipyard", { marketId });
-        if (market == null) {
-            throw new NotFoundException("Shipyard not found: " + marketId);
-        }
-        return market;
-    } else {
-        const systemName = marketIdOrSystemName;
-        const market = await request<StationShipyard>("api-system-v1/stations/shipyard",
-            { systemName, stationName, ...params });
-        if (market == null) {
-            throw new NotFoundException(`Shipyard for '${stationName}' in '${systemName}' not found`);
-        }
-        return market;
-    }
+    return getStationDetails<StationShipyard>("shipyard", marketIdOrSystemName, stationName, params);
 }
 
 /**
@@ -264,20 +254,5 @@ export async function getStationOutfitting(systemName: string, stationName: stri
 
 export async function getStationOutfitting(marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
         Promise<StationOutfitting> {
-    if (stationName == null) {
-        const marketId = marketIdOrSystemName;
-        const market = await request<StationOutfitting>("api-system-v1/stations/outfitting", { marketId });
-        if (market == null) {
-            throw new NotFoundException("Market not found: " + marketId);
-        }
-        return market;
-    } else {
-        const systemName = marketIdOrSystemName;
-        const market = await request<StationOutfitting>("api-system-v1/stations/outfitting",
-            { systemName, stationName, ...params });
-        if (market == null) {
-            throw new NotFoundException(`Station '${stationName}' in '${systemName}' not found`);
-        }
-        return market;
-    }
+    return getStationDetails<StationOutfitting>("outfitting", marketIdOrSystemName, stationName, params);
 }
