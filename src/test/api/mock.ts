@@ -6,7 +6,8 @@ import { edsmBaseUrl } from "../../main/api/common.js";
 import type { SystemFactions } from "../../main/api/system.js";
 import type { CreditsPeriod, InventoryType } from "../../main/index.js";
 import {
-    berenices1, berenices2, colonia, jamesonMemorialMarket, jamesonMemorialOutfitting, jamesonMemorialShipyard, shinrartaDezhraFactions, shinrartaDezhraStations
+    berenices1, berenices2, colonia, jamesonMemorialMarket, jamesonMemorialOutfitting, jamesonMemorialShipyard,
+    shinrartaDezhraFactions, shinrartaDezhraStations, shinrartaDezhraTraffic
 } from "../data/mock-data.js";
 
 /**
@@ -34,6 +35,7 @@ export class EDSMMock {
             this.#mockRequest("api-system-v1/stations/outfitting", "POST", this.#getSystemStationsOutfitting);
             this.#mockRequest("api-system-v1/stations", "POST", this.#getSystemStations);
             this.#mockRequest("api-system-v1/factions", "POST", this.#getSystemFactions);
+            this.#mockRequest("api-system-v1/traffic", "POST", this.#getSystemTraffic);
         }
     }
 
@@ -513,6 +515,20 @@ export class EDSMMock {
                 delete faction.recoveringStatesHistory;
                 delete faction.stateHistory;
             });
+        }
+        return this.#createJSONResponse(200, result);
+    }
+
+    #getSystemTraffic(callLog: CallLog): RouteResponse {
+        const { systemName, systemId64, systemId } = this.#readJSONBody<{ systemName: string, systemId64?: number, systemId?: number }>(callLog);
+        let result;
+        if (systemName === "Shinrarta Dezhra" || systemId == 4345 || systemId64 == 3932277478106) {
+            result = shinrartaDezhraTraffic;
+        } else {
+            result = null;
+        }
+        if (result == null) {
+            return this.#createJSONResponse(200, {});
         }
         return this.#createJSONResponse(200, result);
     }

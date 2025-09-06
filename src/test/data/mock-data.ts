@@ -1,6 +1,6 @@
-import type { SystemFactions } from "../../main/api/system.js";
+import type { StationMarket, StationOutfitting, StationShipyard, SystemBodies, SystemFactions, SystemStations, SystemTraffic } from "../../main/api/system.js";
 
-export const colonia = {
+export const colonia: SystemBodies = {
     id: 3384966,
     id64: 3238296097059,
     name: "Colonia",
@@ -1794,7 +1794,7 @@ export const colonia = {
     ]
 };
 
-export const berenices1 = {
+export const berenices1: SystemBodies = {
     id: 5410650,
     id64: 84054348506,
     name: "24 Comae Berenices",
@@ -4670,7 +4670,7 @@ export const berenices1 = {
     ]
 };
 
-export const berenices2 = {
+export const berenices2: SystemBodies = {
     id: 53494504,
     id64: 1323435196,
     name: "24 Comae Berenices",
@@ -5584,7 +5584,7 @@ export const berenices2 = {
     ]
 };
 
-export const shinrartaDezhraStations = {
+export const shinrartaDezhraStations: SystemStations = {
     id: 4345,
     id64: 3932277478106,
     name: "Shinrarta Dezhra",
@@ -5670,7 +5670,7 @@ export const shinrartaDezhraStations = {
     ]
 };
 
-export const jamesonMemorialMarket = {
+export const jamesonMemorialMarket: StationMarket = {
     id: 4345,
     id64: 3932277478106,
     name: "Shinrarta Dezhra",
@@ -5700,7 +5700,7 @@ export const jamesonMemorialMarket = {
     ]
 };
 
-export const jamesonMemorialShipyard = {
+export const jamesonMemorialShipyard: StationShipyard = {
     id: 4345,
     id64: 3932277478106,
     name: "Shinrarta Dezhra",
@@ -5720,7 +5720,7 @@ export const jamesonMemorialShipyard = {
     ]
 };
 
-export const jamesonMemorialOutfitting = {
+export const jamesonMemorialOutfitting: StationOutfitting = {
     id: 4345,
     id64: 3932277478106,
     name: "Shinrarta Dezhra",
@@ -5836,4 +5836,47 @@ export const shinrartaDezhraFactions: SystemFactions = {
             lastUpdate: 1757160605
         }
     ]
+};
+
+export const shinrartaDezhraTraffic: SystemTraffic = {
+    id: 4345,
+    id64: 3932277478106,
+    name: "Shinrarta Dezhra",
+    url: "https://www.edsm.net/en/system/id/4345/name/Shinrarta+Dezhra",
+    discovery: {
+        commander: "Wu Ye",
+        date: "2014-11-22 13:39:56"
+    },
+    traffic: {
+        total: 31157,
+        week: 891,
+        day: 169
+    },
+    breakdown: {
+        Anaconda: 16,
+        "Asp Explorer": 4,
+        "Asp Scout": 1,
+        "Beluga Liner": 1,
+        "Cobra Mk III": 2,
+        "Cobra Mk IV": 1,
+        "Cobra Mk V": 12,
+        Corsair: 11,
+        "Diamondback Explorer": 7,
+        "Diamondback Scout": 1,
+        Dolphin: 1,
+        "Federal Corvette": 3,
+        "Federal Dropship": 1,
+        "Fer-de-Lance": 1,
+        Hauler: 1,
+        "Imperial Cutter": 4,
+        Keelback: 1,
+        "Krait Mk II": 8,
+        "Krait Phantom": 2,
+        Mandalay: 65,
+        "Panther Clipper Mk II": 7,
+        Python: 1,
+        "Python Mk II": 2,
+        Sidewinder: 5,
+        "Type-8 Transporter": 7
+    }
 };

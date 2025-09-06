@@ -4,7 +4,8 @@ import type { ValidateFunction } from "ajv";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 import {
-    getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemEstimatedValue, getSystemFactions, getSystemStations
+    getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemEstimatedValue, getSystemFactions, getSystemStations,
+    getSystemTraffic
 } from "../../main/api/system.js";
 import { ServerException } from "../../main/index.js";
 import { NotFoundException } from "../../main/util.js";
@@ -269,6 +270,37 @@ describe("commander", () => {
         });
         it("throws error when system not found", async () => {
             await expect(getSystemFactions("Raxxla")).rejects.toThrowWithMessage(NotFoundException, "System not found: Raxxla");
+        });
+    });
+
+    describe("getSystemTraffic", () => {
+        let validator: ValidateFunction;
+
+        beforeAll(async () => {
+            validator = await createValidator("system-traffic");
+        });
+
+        it("returns factions for single system without history which matches the schema", async () => {
+            const result = await getSystemTraffic("Shinrarta Dezhra");
+            expect(result.id).toBe(4345);
+            expect(result.id64).toBe(3932277478106);
+            expect(result.name).toBe("Shinrarta Dezhra");
+            expect(result.url).toBe("https://www.edsm.net/en/system/id/4345/name/Shinrarta+Dezhra");
+            expect(result.breakdown).toBeDefined();
+            testJSON(validator, result);
+        });
+        it("returns factions for correct system by ID", async () => {
+            const result = await getSystemTraffic("Doesn't matter", { systemId: 4345 });
+            expect(result.name).toBe("Shinrarta Dezhra");
+            testJSON(validator, result);
+        });
+        it("returns factions for correct system by ID64", async () => {
+            const result = await getSystemTraffic("Doesn't matter", { systemId64: 3932277478106 });
+            expect(result.name).toBe("Shinrarta Dezhra");
+            testJSON(validator, result);
+        });
+        it("throws error when system not found", async () => {
+            await expect(getSystemTraffic("Raxxla")).rejects.toThrowWithMessage(NotFoundException, "System not found: Raxxla");
         });
     });
 });

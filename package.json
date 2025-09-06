@@ -34,6 +34,7 @@
         "build:schema:system-estimated-value": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t SystemEstimatedValue -o lib/system-estimated-value.schema.json",
         "build:schema:system-stations": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t SystemStations -o lib/system-stations.schema.json",
         "build:schema:system-factions": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t SystemFactions -o lib/system-factions.schema.json",
+        "build:schema:system-traffic": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t SystemTraffic -o lib/system-traffic.schema.json",
         "build:schema:station-market": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t StationMarket -o lib/station-market.schema.json",
         "build:schema:station-shipyard": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t StationShipyard -o lib/station-shipyard.schema.json",
         "build:schema:station-outfitting": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t StationOutfitting -o lib/station-outfitting.schema.json",

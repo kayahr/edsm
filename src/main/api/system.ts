@@ -301,3 +301,39 @@ export async function getSystemFactions(systemName: string, options?: SystemFact
     }
     return response;
 }
+
+/**
+ * Response structure of the EDSM system traffic request.
+ */
+export interface SystemTraffic {
+    id: number;
+    id64: Id64;
+    name: string;
+    url: string;
+    discovery: {
+        commander: string;
+        date: string;
+    };
+    traffic: {
+        total: number;
+        week: number;
+        day: number;
+    };
+    breakdown: Record<string, number>;
+}
+
+/**
+ * Returns information about traffic in a system.
+ *
+ * @param systemName - The system name.
+ * @param ids        - Optional parameters.
+ * @returns The information about traffic in a system.
+ * @throws NotFoundException - When system was not found.
+ */
+export async function getSystemTraffic(systemName: string, ids?: IdParameters): Promise<SystemTraffic> {
+    const response = await request<SystemTraffic>("api-system-v1/traffic", { systemName, ...ids });
+    if (response == null) {
+        throw new NotFoundException("System not found: " + systemName);
+    }
+    return response;
+}
