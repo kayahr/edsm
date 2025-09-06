@@ -14,10 +14,10 @@ import {
 } from "../main/api/logs.js";
 import { type EliteServerStatus, type EliteServerStatusType, getEliteServerStatus } from "../main/api/status.js";
 import {
-    type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemEstimatedValue, getSystemFactions,
-    getSystemStations, getSystemTraffic, type IdParameters, type ShortSystemFaction, type StationMarket, type StationOutfitting, type StationShipyard,
-    type SystemBodies, type SystemEstimatedValue, type SystemFaction, type SystemFactions, type SystemFactionsOptions, type SystemStations,
-    type SystemTraffic
+    type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemDeaths, getSystemEstimatedValue,
+    getSystemFactions, getSystemStations, getSystemTraffic, type IdParameters, type ShortSystemFaction, type StationMarket, type StationOutfitting,
+    type StationShipyard, type SystemBodies, type SystemDeaths, type SystemEstimatedValue, type SystemFaction, type SystemFactions, type SystemFactionsOptions,
+    type SystemStations, type SystemTraffic
 } from "../main/api/system.js";
 import {
     type Asteroids, type AtmosphereComposition, type Bodies, type Body, isPlanet, isStar, type Materials, parseBodiesJSON, type Planet, type SolidComposition,
@@ -58,6 +58,7 @@ describe("index", () => {
             getEliteServerStatus,
             getSystemBodies,
             getSystemFactions,
+            getSystemDeaths,
             getSystemTraffic,
             getSystemEstimatedValue,
             getSystemStations,
@@ -92,6 +93,7 @@ describe("index", () => {
         ((): BodyScanValue => (({} as exports.BodyScanValue)))();
         ((): IdParameters => (({} as exports.IdParameters)))();
         ((): SystemBodies => (({} as exports.SystemBodies)))();
+        ((): SystemDeaths => (({} as exports.SystemDeaths)))();
         ((): SystemFactions => (({} as exports.SystemFactions)))();
         ((): SystemTraffic => (({} as exports.SystemTraffic)))();
         ((): SystemFactionsOptions => (({} as exports.SystemFactionsOptions)))();

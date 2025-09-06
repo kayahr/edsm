@@ -337,3 +337,34 @@ export async function getSystemTraffic(systemName: string, ids?: IdParameters): 
     }
     return response;
 }
+
+/**
+ * Response structure of the EDSM system deaths request.
+ */
+export interface SystemDeaths {
+    id: number;
+    id64: Id64;
+    name: string;
+    url: string;
+    deaths: {
+        total: number;
+        week: number;
+        day: number;
+    };
+}
+
+/**
+ * Returns information about deaths in a system.
+ *
+ * @param systemName - The system name.
+ * @param ids        - Optional parameters.
+ * @returns The information about deaths in a system.
+ * @throws NotFoundException - When system was not found.
+ */
+export async function getSystemDeaths(systemName: string, ids?: IdParameters): Promise<SystemDeaths> {
+    const response = await request<SystemDeaths>("api-system-v1/deaths", { systemName, ...ids });
+    if (response == null) {
+        throw new NotFoundException("System not found: " + systemName);
+    }
+    return response;
+}

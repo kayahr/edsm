@@ -36,6 +36,7 @@ export class EDSMMock {
             this.#mockRequest("api-system-v1/stations", "POST", this.#getSystemStations);
             this.#mockRequest("api-system-v1/factions", "POST", this.#getSystemFactions);
             this.#mockRequest("api-system-v1/traffic", "POST", this.#getSystemTraffic);
+            this.#mockRequest("api-system-v1/deaths", "POST", this.#getSystemDeaths);
         }
     }
 
@@ -524,6 +525,30 @@ export class EDSMMock {
         let result;
         if (systemName === "Shinrarta Dezhra" || systemId == 4345 || systemId64 == 3932277478106) {
             result = shinrartaDezhraTraffic;
+        } else {
+            result = null;
+        }
+        if (result == null) {
+            return this.#createJSONResponse(200, {});
+        }
+        return this.#createJSONResponse(200, result);
+    }
+
+    #getSystemDeaths(callLog: CallLog): RouteResponse {
+        const { systemName, systemId64, systemId } = this.#readJSONBody<{ systemName: string, systemId64?: number, systemId?: number }>(callLog);
+        let result;
+        if (systemName === "Shinrarta Dezhra" || systemId == 4345 || systemId64 == 3932277478106) {
+            result = {
+                id: 4345,
+                id64: 3932277478106,
+                name: "Shinrarta Dezhra",
+                url: "https://www.edsm.net/en/system/id/4345/name/Shinrarta+Dezhra",
+                deaths: {
+                    total: 8178,
+                    week: 22,
+                    day: 1
+                }
+            };
         } else {
             result = null;
         }
