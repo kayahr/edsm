@@ -68,12 +68,13 @@ export async function *parseJSONArray<T>(stream: AsyncIterable<Uint8Array>): Asy
             }
         } else {
             if (line === "]") {
-                return;
+                inData = false;
+            } else {
+                if (line.endsWith(",")) {
+                    line = line.substring(0, line.length - 1);
+                }
+                yield JSON.parse(line, jsonReviver);
             }
-            if (line.endsWith(",")) {
-                line = line.substring(0, line.length - 1);
-            }
-            yield JSON.parse(line, jsonReviver);
         }
     }
 }
