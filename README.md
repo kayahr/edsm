@@ -76,6 +76,10 @@ Here is a list of all available API functions linked to their API documentation:
 * [getStationMarket]
 * [getStationShipyard]
 * [getStationOutfitting]
+* [getSystem]
+* [getSystems]
+* [getSphereSystems]
+* [getCubeSystems]
 
 
 Other utility functions
@@ -120,6 +124,7 @@ JSON Schemas
 * [system.schema.json](https://kayahr.github.io/edsm/schemas/system.schema.json)
 * [system-stations.schema.json](https://kayahr.github.io/edsm/schemas/system-stations.schema.json)
 * [system-factions.schema.json](https://kayahr.github.io/edsm/schemas/system-factions.schema.json)
+* [system-response.schema.json](https://kayahr.github.io/edsm/schemas/system-response.schema.json)
 * [station-market.schema.json](https://kayahr.github.io/edsm/schemas/station-market.schema.json)
 * [station-shipyard.schema.json](https://kayahr.github.io/edsm/schemas/station-shipyard.schema.json)
 * [station-outfitting.schema.json](https://kayahr.github.io/edsm/schemas/station-outfitting.schema.json)
@@ -148,3 +153,7 @@ JSON Schemas
 [getSystemFactions]: https://kayahr.github.io/edsm/functions/getSystemFactions.html
 [getSystemTraffic]: https://kayahr.github.io/edsm/functions/getSystemTraffic.html
 [getSystemDeaths]: https://kayahr.github.io/edsm/functions/getSystemDeaths.html
+[getSystem]: https://kayahr.github.io/edsm/functions/getSystem.html
+[getSystems]: https://kayahr.github.io/edsm/functions/getSystems.html
+[getSphereSystems]: https://kayahr.github.io/edsm/functions/getSphereSystems.html
+[getCubeSystems]: https://kayahr.github.io/edsm/functions/getCubeSystems.html

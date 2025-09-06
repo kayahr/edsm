@@ -16,4 +16,5 @@ Reimer
 Scoopable
 Shinrarta
 terraforming
+trilaterated
 Xeno

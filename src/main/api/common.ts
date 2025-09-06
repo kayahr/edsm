@@ -5,9 +5,21 @@
 
 import { JSONStringify } from "json-with-bigint";
 
+import type { Id64 } from "../common.js";
 import { Exception } from "../util.js";
 
 export const edsmBaseUrl = "https://www.edsm.net";
+
+/**
+ * Request options for referencing a system via EDSM or Frontier ID instead of name. Needed when system name is not unique.
+ */
+export interface SystemIdRequestOptions {
+    /** The system ID if you seek for a duplicate system and want to force a specific ID. */
+    systemId?: number;
+
+    /** The system ID64 if you seek for a duplicate system and want to force a specific ID. */
+    systemId64?: Id64;
+}
 
 export class ServerException extends Exception {
     public readonly status: number;
@@ -40,6 +52,7 @@ interface MessageResult {
  * @throws APIException - When request failed for some unknown reason.
  */
 export async function request<T>(url: string, params: object = {}): Promise<T | null> {
+    console.log(params);
     const result = await fetch(`${edsmBaseUrl}/${url}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

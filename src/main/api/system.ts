@@ -7,15 +7,7 @@ import { type SystemBody } from "../bodies.js";
 import type { Id64 } from "../common.js";
 import { type Commodity, type Outfitting, type Ship, type SystemStation } from "../stations.js";
 import { NotFoundException } from "../util.js";
-import { request } from "./common.js";
-
-export interface IdParameters {
-    /** The system ID if you seek for a duplicate system and want to force a specific ID. */
-    systemId?: number;
-
-    /** The system ID64 if you seek for a duplicate system and want to force a specific ID. */
-    systemId64?: Id64;
-}
+import { request, type SystemIdRequestOptions } from "./common.js";
 
 export interface BodyScanValue {
     bodyId: number;
@@ -126,7 +118,7 @@ export async function getSystemBodies(systemName: string, ids?: { systemId?: num
  * @returns The scan values.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemEstimatedValue(systemName: string, ids?: IdParameters): Promise<SystemEstimatedValue> {
+export async function getSystemEstimatedValue(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemEstimatedValue> {
     const response = await request<SystemEstimatedValue>("api-system-v1/estimated-value", { systemName, ...ids });
     if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
@@ -142,7 +134,7 @@ export async function getSystemEstimatedValue(systemName: string, ids?: IdParame
  * @returns The information about stations in a system.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemStations(systemName: string, ids?: IdParameters): Promise<SystemStations> {
+export async function getSystemStations(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemStations> {
     const response = await request<SystemStations>("api-system-v1/stations", { systemName, ...ids });
     if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
@@ -150,7 +142,7 @@ export async function getSystemStations(systemName: string, ids?: IdParameters):
     return response;
 }
 
-async function getStationDetails<T>(detail: string, marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
+async function getStationDetails<T>(detail: string, marketIdOrSystemName: number | string, stationName?: string, params?: SystemIdRequestOptions):
         Promise<T> {
     const url = `api-system-v1/stations/${detail}`;
     if (stationName == null) {
@@ -188,9 +180,9 @@ export async function getStationMarket(marketId: number): Promise<StationMarket>
  * @returns The information about market in given station.
  * @throws NotFoundException - When market was not found.
  */
-export async function getStationMarket(systemName: string, stationName: string, params?: IdParameters): Promise<StationMarket>;
+export async function getStationMarket(systemName: string, stationName: string, params?: SystemIdRequestOptions): Promise<StationMarket>;
 
-export async function getStationMarket(marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
+export async function getStationMarket(marketIdOrSystemName: number | string, stationName?: string, params?: SystemIdRequestOptions):
         Promise<StationMarket> {
     return getStationDetails<StationMarket>("market", marketIdOrSystemName, stationName, params);
 }
@@ -213,9 +205,9 @@ export async function getStationShipyard(marketId: number): Promise<StationShipy
  * @returns The information about shipyard in given station.
  * @throws NotFoundException - When shipyard was not found.
  */
-export async function getStationShipyard(systemName: string, stationName: string, params?: IdParameters): Promise<StationShipyard>;
+export async function getStationShipyard(systemName: string, stationName: string, params?: SystemIdRequestOptions): Promise<StationShipyard>;
 
-export async function getStationShipyard(marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
+export async function getStationShipyard(marketIdOrSystemName: number | string, stationName?: string, params?: SystemIdRequestOptions):
         Promise<StationShipyard> {
     return getStationDetails<StationShipyard>("shipyard", marketIdOrSystemName, stationName, params);
 }
@@ -238,14 +230,14 @@ export async function getStationOutfitting(marketId: number): Promise<StationOut
  * @returns The information about outfitting in given station.
  * @throws NotFoundException - When station was not found.
  */
-export async function getStationOutfitting(systemName: string, stationName: string, params?: IdParameters): Promise<StationOutfitting>;
+export async function getStationOutfitting(systemName: string, stationName: string, params?: SystemIdRequestOptions): Promise<StationOutfitting>;
 
-export async function getStationOutfitting(marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
+export async function getStationOutfitting(marketIdOrSystemName: number | string, stationName?: string, params?: SystemIdRequestOptions):
         Promise<StationOutfitting> {
     return getStationDetails<StationOutfitting>("outfitting", marketIdOrSystemName, stationName, params);
 }
 
-export interface SystemFactionsOptions extends IdParameters {
+export interface SystemFactionsOptions extends SystemIdRequestOptions {
     /** Set to 1 to get the factions history under the requested system. */
     showHistory?: number;
 }
@@ -330,7 +322,7 @@ export interface SystemTraffic {
  * @returns The information about traffic in a system.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemTraffic(systemName: string, ids?: IdParameters): Promise<SystemTraffic> {
+export async function getSystemTraffic(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemTraffic> {
     const response = await request<SystemTraffic>("api-system-v1/traffic", { systemName, ...ids });
     if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
@@ -361,7 +353,7 @@ export interface SystemDeaths {
  * @returns The information about deaths in a system.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemDeaths(systemName: string, ids?: IdParameters): Promise<SystemDeaths> {
+export async function getSystemDeaths(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemDeaths> {
     const response = await request<SystemDeaths>("api-system-v1/deaths", { systemName, ...ids });
     if (response == null) {
         throw new NotFoundException("System not found: " + systemName);

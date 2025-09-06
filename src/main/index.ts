@@ -7,7 +7,7 @@ export {
     type CommanderCredits, type CommanderInventory, type CommanderRanks, type CreditsPeriod, getCommanderCredits, getCommanderInventory, getCommanderRanks,
     type InventoryType
 } from "./api/commander.js";
-export { APIException, ServerException } from "./api/common.js";
+export { APIException, ServerException, type SystemIdRequestOptions } from "./api/common.js";
 export {
     type CommanderPosition, type CommanderPositionOptions, type FlightLog, type FlightLogFilter, type FlightLogs, getCommanderPosition, getFlightLogs,
     getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemComments,
@@ -16,10 +16,14 @@ export {
 export { type EliteServerStatus, type EliteServerStatusType, getEliteServerStatus } from "./api/status.js";
 export {
     type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemDeaths, getSystemEstimatedValue,
-    getSystemFactions, getSystemStations, getSystemTraffic, type IdParameters, type ShortSystemFaction, type StationMarket, type StationOutfitting,
+    getSystemFactions, getSystemStations, getSystemTraffic, type ShortSystemFaction, type StationMarket, type StationOutfitting,
     type StationShipyard, type SystemBodies, type SystemDeaths, type SystemEstimatedValue, type SystemFaction, type SystemFactions, type SystemFactionsOptions,
     type SystemStations, type SystemTraffic
 } from "./api/system.js";
+export {
+    type CubeSystemsRequestOptions, getCubeSystems, getSphereSystems, getSystem, getSystems, type SphereSystemsRequestOptions, type SystemRequestFlags,
+    type SystemRequestOptions, type SystemResponse, type SystemsRequestOptions
+} from "./api/systems.js";
 export {
     type Asteroids, type AtmosphereComposition, type Bodies, type Body, isPlanet, isStar, type Materials, parseBodiesJSON, type Planet, type SolidComposition,
     type Star, type SystemBody, type SystemPlanet, type SystemStar

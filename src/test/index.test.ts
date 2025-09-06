@@ -6,7 +6,7 @@ import {
     type CommanderCredits, type CommanderInventory, type CommanderRanks, type CreditsPeriod, getCommanderCredits, getCommanderInventory, getCommanderRanks,
     type InventoryType
 } from "../main/api/commander.js";
-import { APIException, ServerException } from "../main/api/common.js";
+import { APIException, ServerException, type SystemIdRequestOptions } from "../main/api/common.js";
 import {
     type CommanderPosition, type CommanderPositionOptions, type FlightLog, type FlightLogFilter, type FlightLogs, getCommanderPosition, getFlightLogs,
     getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemComments,
@@ -15,10 +15,14 @@ import {
 import { type EliteServerStatus, type EliteServerStatusType, getEliteServerStatus } from "../main/api/status.js";
 import {
     type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemDeaths, getSystemEstimatedValue,
-    getSystemFactions, getSystemStations, getSystemTraffic, type IdParameters, type ShortSystemFaction, type StationMarket, type StationOutfitting,
+    getSystemFactions, getSystemStations, getSystemTraffic, type ShortSystemFaction, type StationMarket, type StationOutfitting,
     type StationShipyard, type SystemBodies, type SystemDeaths, type SystemEstimatedValue, type SystemFaction, type SystemFactions, type SystemFactionsOptions,
     type SystemStations, type SystemTraffic
 } from "../main/api/system.js";
+import {
+    type CubeSystemsRequestOptions, getCubeSystems, getSphereSystems, getSystem, getSystems, type SphereSystemsRequestOptions, type SystemRequestFlags,
+    type SystemRequestOptions, type SystemResponse, type SystemsRequestOptions
+} from "../main/api/systems.js";
 import {
     type Asteroids, type AtmosphereComposition, type Bodies, type Body, isPlanet, isStar, type Materials, parseBodiesJSON, type Planet, type SolidComposition,
     type Star, type SystemBody, type SystemPlanet, type SystemStar
@@ -48,6 +52,10 @@ describe("index", () => {
             ServerException,
             NotFoundException,
             IllegalStateException,
+            getSystem,
+            getSystems,
+            getSphereSystems,
+            getCubeSystems,
             getSystemComment,
             getSystemComments,
             getFlightLogs,
@@ -91,7 +99,7 @@ describe("index", () => {
         ((): EliteServerStatus => (({} as exports.EliteServerStatus)))();
         ((): EliteServerStatusType => (({} as exports.EliteServerStatusType)))();
         ((): BodyScanValue => (({} as exports.BodyScanValue)))();
-        ((): IdParameters => (({} as exports.IdParameters)))();
+        ((): SystemIdRequestOptions => (({} as exports.SystemIdRequestOptions)))();
         ((): SystemBodies => (({} as exports.SystemBodies)))();
         ((): SystemDeaths => (({} as exports.SystemDeaths)))();
         ((): SystemFactions => (({} as exports.SystemFactions)))();
@@ -138,5 +146,11 @@ describe("index", () => {
         ((): Systems => (({} as exports.Systems)))();
         ((): TrendState => (({} as exports.TrendState)))();
         ((): Id64 => (({} as exports.Id64)))();
+        ((): SystemRequestOptions => (({} as exports.SystemRequestOptions)))();
+        ((): SystemResponse => (({} as exports.SystemResponse)))();
+        ((): SystemRequestFlags => (({} as exports.SystemRequestFlags)))();
+        ((): SystemsRequestOptions => (({} as exports.SystemsRequestOptions)))();
+        ((): SphereSystemsRequestOptions => (({} as exports.SphereSystemsRequestOptions)))();
+        ((): CubeSystemsRequestOptions => (({} as exports.CubeSystemsRequestOptions)))();
     });
 });

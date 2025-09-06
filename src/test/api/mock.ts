@@ -4,6 +4,7 @@ import { JSONParse, JSONStringify } from "json-with-bigint";
 
 import { edsmBaseUrl } from "../../main/api/common.js";
 import type { SystemFactions } from "../../main/api/system.js";
+import type { SystemRequestOptions, SystemResponse } from "../../main/api/systems.js";
 import type { CreditsPeriod, InventoryType } from "../../main/index.js";
 import {
     berenices1, berenices2, colonia, jamesonMemorialMarket, jamesonMemorialOutfitting, jamesonMemorialShipyard,
@@ -37,6 +38,7 @@ export class EDSMMock {
             this.#mockRequest("api-system-v1/factions", "POST", this.#getSystemFactions);
             this.#mockRequest("api-system-v1/traffic", "POST", this.#getSystemTraffic);
             this.#mockRequest("api-system-v1/deaths", "POST", this.#getSystemDeaths);
+            this.#mockRequest("api-v1/system", "POST", this.#getSystem);
         }
     }
 
@@ -554,6 +556,63 @@ export class EDSMMock {
         }
         if (result == null) {
             return this.#createJSONResponse(200, {});
+        }
+        return this.#createJSONResponse(200, result);
+    }
+
+    #getSystem(callLog: CallLog): RouteResponse {
+        const { systemName, systemId, systemId64, showCoordinates, showId, showPermit, showInformation, showPrimaryStar }
+            = this.#readJSONBody<SystemRequestOptions & { systemName: string }>(callLog);
+        let result: null | SystemResponse;
+        if (systemName === "Shinrarta Dezhra" || systemId == 4345 || systemId64 == 3932277478106) {
+            result = {
+                name: "Shinrarta Dezhra",
+                id: 4345,
+                id64: 3932277478106,
+                coords: { x: 55.71875, y: 17.59375, z: 27.15625 },
+                coordsLocked: true,
+                requirePermit: true,
+                permitName: "Founders World",
+                information: {
+                    allegiance: "Pilots Federation",
+                    government: "Democracy",
+                    faction: "Pilots' Federation Local Branch",
+                    factionState: "None",
+                    population: 85287324,
+                    security: "High",
+                    economy: "High Tech",
+                    secondEconomy: "Industrial",
+                    reserve: "Common"
+                },
+                primaryStar: {
+                    type: "K (Yellow-Orange) Star",
+                    name: "Shinrarta Dezhra",
+                    isScoopable: true
+                }
+            };
+        } else {
+            result = null;
+        }
+        if (result == null) {
+            return this.#createJSONResponse(200, {});
+        }
+        if (showCoordinates !== 1) {
+            delete result.coords;
+            delete result.coordsLocked;
+        }
+        if (showPermit !== 1) {
+            delete result.permitName;
+            delete result.requirePermit;
+        }
+        if (showInformation !== 1) {
+            delete result.information;
+        }
+        if (showPrimaryStar !== 1) {
+            delete result.primaryStar;
+        }
+        if (showId !== 1) {
+            delete result.id;
+            delete result.id64;
         }
         return this.#createJSONResponse(200, result);
     }
