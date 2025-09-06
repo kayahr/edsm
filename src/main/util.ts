@@ -6,7 +6,7 @@
 /**
  * Base class for all exceptions. Automatically corrects its prototype and name.
  */
-export abstract class Exception extends Error {
+export abstract class EDSMException extends Error {
     /**
      * Creates a new exception.
      *
@@ -20,8 +20,11 @@ export abstract class Exception extends Error {
     }
 }
 
-export class IllegalStateException extends Exception {}
-export class NotFoundException extends Error {}
+/** Thrown when state is illegal. */
+export class IllegalStateException extends EDSMException {}
+
+/** Thrown when some resource was not found. */
+export class NotFoundException extends EDSMException {}
 
 /**
  * Helper function to iterate over the lines of a data stream.

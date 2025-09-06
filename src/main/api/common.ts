@@ -6,7 +6,7 @@
 import { JSONStringify } from "json-with-bigint";
 
 import type { Id64 } from "../common.js";
-import { Exception } from "../util.js";
+import { EDSMException } from "../util.js";
 
 export const edsmBaseUrl = "https://dev.edsm.net";
 
@@ -21,7 +21,7 @@ export interface SystemIdRequestOptions {
     systemId64?: Id64;
 }
 
-export class ServerException extends Exception {
+export class ServerException extends EDSMException {
     public readonly status: number;
 
     public constructor(status: number, message: string) {
@@ -30,7 +30,7 @@ export class ServerException extends Exception {
     }
 }
 
-export class APIException extends Exception {
+export class APIException extends EDSMException {
     public readonly status: number;
 
     public constructor(status: number, message: string) {
