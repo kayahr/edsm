@@ -8,6 +8,7 @@ export {
     type InventoryType
 } from "./api/commander.js";
 export { APIException, ServerException, type SystemIdRequestOptions } from "./api/common.js";
+export { type EDSMEvent, type EventResponse, getDiscardEvents, sendEvents } from "./api/journal.js";
 export {
     type CommanderPosition, type CommanderPositionOptions, type FlightLog, type FlightLogFilter, type FlightLogs, getCommanderPosition, getFlightLogs,
     getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemComments,

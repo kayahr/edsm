@@ -157,3 +157,5 @@ JSON Schemas
 [getSystems]: https://kayahr.github.io/edsm/functions/getSystems.html
 [getSphereSystems]: https://kayahr.github.io/edsm/functions/getSphereSystems.html
 [getCubeSystems]: https://kayahr.github.io/edsm/functions/getCubeSystems.html
+[getDiscardEvents]: https://kayahr.github.io/edsm/functions/getDiscardEvents.html
+[sendEvents]: https://kayahr.github.io/edsm/functions/sendEvents.html

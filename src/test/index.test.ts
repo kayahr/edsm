@@ -7,6 +7,7 @@ import {
     type InventoryType
 } from "../main/api/commander.js";
 import { APIException, ServerException, type SystemIdRequestOptions } from "../main/api/common.js";
+import { type EDSMEvent, type EventResponse, getDiscardEvents, sendEvents } from "../main/api/journal.js";
 import {
     type CommanderPosition, type CommanderPositionOptions, type FlightLog, type FlightLogFilter, type FlightLogs, getCommanderPosition, getFlightLogs,
     getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemComments,
@@ -59,6 +60,8 @@ describe("index", () => {
             getSystemComment,
             getSystemComments,
             getFlightLogs,
+            getDiscardEvents,
+            sendEvents,
             getCommanderPosition,
             setSystemComment,
             isStar,
@@ -152,5 +155,7 @@ describe("index", () => {
         ((): SystemsRequestOptions => (({} as exports.SystemsRequestOptions)))();
         ((): SphereSystemsRequestOptions => (({} as exports.SphereSystemsRequestOptions)))();
         ((): CubeSystemsRequestOptions => (({} as exports.CubeSystemsRequestOptions)))();
+        ((): EDSMEvent => (({} as exports.EDSMEvent)))();
+        ((): EventResponse => (({} as exports.EventResponse)))();
     });
 });
