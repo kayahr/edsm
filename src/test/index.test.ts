@@ -14,8 +14,9 @@ import {
 } from "../main/api/logs.js";
 import { type EliteServerStatus, type EliteServerStatusType, getEliteServerStatus } from "../main/api/status.js";
 import {
-    type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemEstimatedValue, getSystemStations,
-    type IdParameters, type StationMarket, type StationOutfitting, type StationShipyard, type SystemBodies, type SystemEstimatedValue, type SystemStations
+    type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemEstimatedValue, getSystemFactions,
+    getSystemStations, type IdParameters, type ShortSystemFaction, type StationMarket, type StationOutfitting, type StationShipyard,
+    type SystemBodies, type SystemEstimatedValue, type SystemFaction, type SystemFactions, type SystemFactionsOptions, type SystemStations
 } from "../main/api/system.js";
 import {
     type Asteroids, type AtmosphereComposition, type Bodies, type Body, isPlanet, isStar, type Materials, parseBodiesJSON, type Planet, type SolidComposition,
@@ -55,6 +56,7 @@ describe("index", () => {
             isPlanet,
             getEliteServerStatus,
             getSystemBodies,
+            getSystemFactions,
             getSystemEstimatedValue,
             getSystemStations,
             getStationMarket,
@@ -88,6 +90,10 @@ describe("index", () => {
         ((): BodyScanValue => (({} as exports.BodyScanValue)))();
         ((): IdParameters => (({} as exports.IdParameters)))();
         ((): SystemBodies => (({} as exports.SystemBodies)))();
+        ((): SystemFactions => (({} as exports.SystemFactions)))();
+        ((): SystemFactionsOptions => (({} as exports.SystemFactionsOptions)))();
+        ((): SystemFaction => (({} as exports.SystemFaction)))();
+        ((): ShortSystemFaction => (({} as exports.ShortSystemFaction)))();
         ((): SystemEstimatedValue => (({} as exports.SystemEstimatedValue)))();
         ((): SystemStations => (({} as exports.SystemStations)))();
         ((): StationMarket => (({} as exports.StationMarket)))();

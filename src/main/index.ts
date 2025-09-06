@@ -15,9 +15,9 @@ export {
 } from "./api/logs.js";
 export { type EliteServerStatus, type EliteServerStatusType, getEliteServerStatus } from "./api/status.js";
 export {
-    type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemEstimatedValue, getSystemStations,
-    type IdParameters, type StationMarket, type StationOutfitting,
-    type StationShipyard, type SystemBodies, type SystemEstimatedValue, type SystemStations
+    type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemEstimatedValue, getSystemFactions,
+    getSystemStations, type IdParameters, type ShortSystemFaction, type StationMarket, type StationOutfitting, type StationShipyard,
+    type SystemBodies, type SystemEstimatedValue, type SystemFaction, type SystemFactions, type SystemFactionsOptions, type SystemStations
 } from "./api/system.js";
 export {
     type Asteroids, type AtmosphereComposition, type Bodies, type Body, isPlanet, isStar, type Materials, parseBodiesJSON, type Planet, type SolidComposition,

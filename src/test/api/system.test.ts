@@ -4,7 +4,7 @@ import type { ValidateFunction } from "ajv";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 import {
-    getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemEstimatedValue, getSystemStations
+    getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemEstimatedValue, getSystemFactions, getSystemStations
 } from "../../main/api/system.js";
 import { ServerException } from "../../main/index.js";
 import { NotFoundException } from "../../main/util.js";
@@ -176,13 +176,13 @@ describe("commander", () => {
         beforeAll(async () => {
             validator = await createValidator("station-shipyard");
         });
-        it("returns market data for station referenced by name", async () => {
+        it("returns shipyard data for station referenced by name", async () => {
             const result = await getStationShipyard("Shinrarta Dezhra", "Jameson Memorial");
             testJSON(validator, result);
             expect(result.sName === "Jameson Memorial");
             expect(result.ships.length > 0);
         });
-        it("returns market data for station referenced by id", async () => {
+        it("returns shipyard data for station referenced by id", async () => {
             const result = await getStationShipyard(128666762);
             testJSON(validator, result);
             expect(result.sName === "Jameson Memorial");
@@ -202,13 +202,13 @@ describe("commander", () => {
         beforeAll(async () => {
             validator = await createValidator("station-outfitting");
         });
-        it("returns market data for station referenced by name", async () => {
+        it("returns outfitting data for station referenced by name", async () => {
             const result = await getStationOutfitting("Shinrarta Dezhra", "Jameson Memorial");
             testJSON(validator, result);
             expect(result.sName === "Jameson Memorial");
             expect(result.outfitting.length > 0);
         });
-        it("returns market data for station referenced by id", async () => {
+        it("returns outfitting data for station referenced by id", async () => {
             const result = await getStationOutfitting(128666762);
             testJSON(validator, result);
             expect(result.sName === "Jameson Memorial");
@@ -220,6 +220,55 @@ describe("commander", () => {
         it("throws error when station name not found", async () => {
             await expect(getStationOutfitting("Shinrarta Dezhra", "Jameson")).rejects
                 .toThrowWithMessage(NotFoundException, "Station 'Jameson' in 'Shinrarta Dezhra' not found");
+        });
+    });
+
+    describe("getSystemFactions", () => {
+        let validator: ValidateFunction;
+
+        beforeAll(async () => {
+            validator = await createValidator("system-factions");
+        });
+
+        it("returns factions for single system without history which matches the schema", async () => {
+            const result = await getSystemFactions("Shinrarta Dezhra");
+            expect(result.id).toBe(4345);
+            expect(result.id64).toBe(3932277478106);
+            expect(result.name).toBe("Shinrarta Dezhra");
+            expect(result.url).toBe("https://www.edsm.net/en/system/id/4345/name/Shinrarta+Dezhra");
+            expect(result.factions.length).toBeGreaterThan(0);
+            expect(result.factions[0].activeStatesHistory).toBeUndefined();
+            expect(result.factions[0].happinessHistory).toBeUndefined();
+            expect(result.factions[0].influenceHistory).toBeUndefined();
+            expect(result.factions[0].pendingStatesHistory).toBeUndefined();
+            expect(result.factions[0].stateHistory).toBeUndefined();
+            expect(result.factions[0].recoveringStatesHistory).toBeUndefined();
+            testJSON(validator, result);
+        });
+        it("returns factions for single system with history which matches the schema", async () => {
+            const result = await getSystemFactions("Shinrarta Dezhra", { showHistory: 1 });
+            expect(result.name).toBe("Shinrarta Dezhra");
+            expect(result.factions.length).toBeGreaterThan(0);
+            expect(result.factions[0].activeStatesHistory).toBeDefined();
+            expect(result.factions[0].happinessHistory).toBeDefined();
+            expect(result.factions[0].influenceHistory).toBeDefined();
+            expect(result.factions[0].pendingStatesHistory).toBeDefined();
+            expect(result.factions[0].stateHistory).toBeDefined();
+            expect(result.factions[0].recoveringStatesHistory).toBeDefined();
+            testJSON(validator, result);
+        });
+        it("returns factions for correct system by ID", async () => {
+            const result = await getSystemFactions("Doesn't matter", { systemId: 4345 });
+            expect(result.name).toBe("Shinrarta Dezhra");
+            testJSON(validator, result);
+        });
+        it("returns factions for correct system by ID64", async () => {
+            const result = await getSystemFactions("Doesn't matter", { systemId64: 3932277478106 });
+            expect(result.name).toBe("Shinrarta Dezhra");
+            testJSON(validator, result);
+        });
+        it("throws error when system not found", async () => {
+            await expect(getSystemFactions("Raxxla")).rejects.toThrowWithMessage(NotFoundException, "System not found: Raxxla");
         });
     });
 });

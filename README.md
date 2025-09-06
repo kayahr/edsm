@@ -70,6 +70,7 @@ Here is a list of all available API functions linked to their API documentation:
 * [getSystemBodies]
 * [getSystemEstimatedValue]
 * [getSystemStations]
+* [getSystemFactions]
 * [getStationMarket]
 * [getStationShipyard]
 * [getStationOutfitting]
@@ -116,6 +117,7 @@ JSON Schemas
 * [system-estimated-value.schema.json](https://kayahr.github.io/edsm/schemas/system-estimated-value.schema.json)
 * [system.schema.json](https://kayahr.github.io/edsm/schemas/system.schema.json)
 * [system-stations.schema.json](https://kayahr.github.io/edsm/schemas/system-stations.schema.json)
+* [system-factions.schema.json](https://kayahr.github.io/edsm/schemas/system-factions.schema.json)
 * [station-market.schema.json](https://kayahr.github.io/edsm/schemas/station-market.schema.json)
 * [station-shipyard.schema.json](https://kayahr.github.io/edsm/schemas/station-shipyard.schema.json)
 * [station-outfitting.schema.json](https://kayahr.github.io/edsm/schemas/station-outfitting.schema.json)
@@ -141,3 +143,4 @@ JSON Schemas
 [getStationMarket]: https://kayahr.github.io/edsm/functions/getStationMarket.html
 [getStationShipyard]: https://kayahr.github.io/edsm/functions/getStationShipyard.html
 [getStationOutfitting]: https://kayahr.github.io/edsm/functions/getStationOutfitting.html
+[getSystemFactions]: https://kayahr.github.io/edsm/functions/getSystemFactions.html

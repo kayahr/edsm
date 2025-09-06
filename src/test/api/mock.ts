@@ -1,11 +1,12 @@
 import type { CallLog, RouteMatcher, RouteResponse, UserRouteConfig } from "fetch-mock";
 import fetchMock from "fetch-mock";
-import { JSONStringify } from "json-with-bigint";
+import { JSONParse, JSONStringify } from "json-with-bigint";
 
 import { edsmBaseUrl } from "../../main/api/common.js";
+import type { SystemFactions } from "../../main/api/system.js";
 import type { CreditsPeriod, InventoryType } from "../../main/index.js";
 import {
-    berenices1, berenices2, colonia, jamesonMemorialMarket, jamesonMemorialOutfitting, jamesonMemorialShipyard, shinrartaDezhraStations
+    berenices1, berenices2, colonia, jamesonMemorialMarket, jamesonMemorialOutfitting, jamesonMemorialShipyard, shinrartaDezhraFactions, shinrartaDezhraStations
 } from "../data/mock-data.js";
 
 /**
@@ -32,6 +33,7 @@ export class EDSMMock {
             this.#mockRequest("api-system-v1/stations/shipyard", "POST", this.#getSystemStationsShipyard);
             this.#mockRequest("api-system-v1/stations/outfitting", "POST", this.#getSystemStationsOutfitting);
             this.#mockRequest("api-system-v1/stations", "POST", this.#getSystemStations);
+            this.#mockRequest("api-system-v1/factions", "POST", this.#getSystemFactions);
         }
     }
 
@@ -485,6 +487,32 @@ export class EDSMMock {
         }
         if (result == null) {
             return this.#createJSONResponse(200, {});
+        }
+        return this.#createJSONResponse(200, result);
+    }
+
+    #getSystemFactions(callLog: CallLog): RouteResponse {
+        const { systemName, systemId64, systemId, showHistory }
+            = this.#readJSONBody<{ systemName: string, systemId64?: number, systemId?: number, showHistory?: number }>(callLog);
+        let result;
+        if (systemName === "Shinrarta Dezhra" || systemId == 4345 || systemId64 == 3932277478106) {
+            result = shinrartaDezhraFactions;
+        } else {
+            result = null;
+        }
+        if (result == null) {
+            return this.#createJSONResponse(200, {});
+        }
+        if (showHistory !== 1) {
+            result = JSONParse(JSONStringify(result)) as SystemFactions;
+            result.factions.forEach(faction => {
+                delete faction.activeStatesHistory;
+                delete faction.happinessHistory;
+                delete faction.influenceHistory;
+                delete faction.pendingStatesHistory;
+                delete faction.recoveringStatesHistory;
+                delete faction.stateHistory;
+            });
         }
         return this.#createJSONResponse(200, result);
     }

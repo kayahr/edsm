@@ -244,3 +244,60 @@ export async function getStationOutfitting(marketIdOrSystemName: number | string
         Promise<StationOutfitting> {
     return getStationDetails<StationOutfitting>("outfitting", marketIdOrSystemName, stationName, params);
 }
+
+export interface SystemFactionsOptions extends IdParameters {
+    /** Set to 1 to get the factions history under the requested system. */
+    showHistory?: number;
+}
+
+export interface ShortSystemFaction {
+    id: number;
+    name: string;
+    allegiance: string;
+    government: string;
+}
+
+export interface SystemFaction extends ShortSystemFaction {
+    influence: number;
+    influenceHistory?: Record<string, number>;
+    state: string;
+    stateHistory?: Record<string, string>;
+    activeStates: Array<{ state: string }>;
+    activeStatesHistory?: Record<string, Array<{ state: string }>>;
+    recoveringStates: Array<{ state: string, trend: number }>;
+    recoveringStatesHistory?: Record<string, Array<{ state: string, trend: number }>>;
+    pendingStates: Array<{ state: string, trend: number }>;
+    pendingStatesHistory?: Record<string, Array<{ state: string, trend: number }>>;
+    happiness: string;
+    happinessHistory?: Record<string, string>;
+    isPlayer: boolean;
+    lastUpdate: number;
+}
+
+/**
+ * Response structure of the EDSM system factions request.
+ */
+export interface SystemFactions {
+    id: number;
+    id64: Id64;
+    name: string;
+    url: string;
+    controllingFaction?: ShortSystemFaction;
+    factions: SystemFaction[];
+}
+
+/**
+ * Returns information about factions in a system.
+ *
+ * @param systemName - The system name.
+ * @param options    - Optional parameters.
+ * @returns The information about stations in a system.
+ * @throws NotFoundException - When system was not found.
+ */
+export async function getSystemFactions(systemName: string, options?: SystemFactionsOptions): Promise<SystemFactions> {
+    const response = await request<SystemFactions>("api-system-v1/factions", { systemName, ...options });
+    if (response == null) {
+        throw new NotFoundException("System not found: " + systemName);
+    }
+    return response;
+}
