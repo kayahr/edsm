@@ -251,17 +251,17 @@ export interface ShortSystemFaction {
 
 export interface SystemFaction extends ShortSystemFaction {
     influence: number;
-    influenceHistory?: Record<string, number>;
+    influenceHistory?: Record<string, number> | [];
     state: string;
-    stateHistory?: Record<string, string>;
+    stateHistory?: Record<string, string> | [];
     activeStates: Array<{ state: string }>;
-    activeStatesHistory?: Record<string, Array<{ state: string }>>;
+    activeStatesHistory?: Record<string, Array<{ state: string }>> | [];
     recoveringStates: Array<{ state: string, trend: number }>;
-    recoveringStatesHistory?: Record<string, Array<{ state: string, trend: number }>>;
+    recoveringStatesHistory?: Record<string, Array<{ state: string, trend: number }>> | [];
     pendingStates: Array<{ state: string, trend: number }>;
-    pendingStatesHistory?: Record<string, Array<{ state: string, trend: number }>>;
+    pendingStatesHistory?: Record<string, Array<{ state: string, trend: number }>> | [];
     happiness: string;
-    happinessHistory?: Record<string, string>;
+    happinessHistory?: Record<string, string> | [];
     isPlayer: boolean;
     lastUpdate: number;
 }

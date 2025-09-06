@@ -8,7 +8,7 @@ import { JSONStringify } from "json-with-bigint";
 import type { Id64 } from "../common.js";
 import { EDSMException } from "../util.js";
 
-export const edsmBaseUrl = "https://dev.edsm.net";
+export const edsmBaseUrl = "https://www.edsm.net";
 
 /**
  * Request options for referencing a system via EDSM or Frontier ID instead of name. Needed when system name is not unique.
