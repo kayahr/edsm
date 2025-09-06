@@ -48,9 +48,9 @@ Asynchronous functions are provided for all EDSM API calls. Received HTTP and ED
 Here is an example listing the available ships in the shipyard of Jameson Memorial:
 
 ```typescript
-import { getSystemShipyard } from "@kayahr/edsm";
+import { getStationShipyard } from "@kayahr/edsm";
 
-const shipyard = await getSystemShipyard("Shinrarta Dezhra", "Jameson Memorial");
+const shipyard = await getStationShipyard("Shinrarta Dezhra", "Jameson Memorial");
 for (const ship of shipyard.ships) {
     console.log(ship.id, ship.name);
 }
@@ -70,9 +70,9 @@ Here is a list of all available API functions linked to their API documentation:
 * [getSystemBodies]
 * [getSystemEstimatedValue]
 * [getSystemStations]
-* [getSystemMarket]
-* [getSystemShipyard]
-* [getSystemOutfitting]
+* [getStationMarket]
+* [getStationShipyard]
+* [getStationOutfitting]
 
 
 Other utility functions
@@ -116,8 +116,9 @@ JSON Schemas
 * [system-estimated-value.schema.json](https://kayahr.github.io/edsm/schemas/system-estimated-value.schema.json)
 * [system.schema.json](https://kayahr.github.io/edsm/schemas/system.schema.json)
 * [system-stations.schema.json](https://kayahr.github.io/edsm/schemas/system-stations.schema.json)
-* [system-stations-market.schema.json](https://kayahr.github.io/edsm/schemas/system-stations-market.schema.json)
-* [system-stations-shipyard.schema.json](https://kayahr.github.io/edsm/schemas/system-stations-shipyard.schema.json)
+* [station-market.schema.json](https://kayahr.github.io/edsm/schemas/station-market.schema.json)
+* [station-shipyard.schema.json](https://kayahr.github.io/edsm/schemas/station-shipyard.schema.json)
+* [station-outfitting.schema.json](https://kayahr.github.io/edsm/schemas/station-outfitting.schema.json)
 
 [API Doc]: https://kayahr.github.io/edsm/
 [GitHub]: https://github.com/kayahr/edsm
@@ -137,6 +138,6 @@ JSON Schemas
 [getSystemBodies]: https://kayahr.github.io/edsm/functions/getSystemBodies.html
 [getSystemEstimatedValue]: https://kayahr.github.io/edsm/functions/getSystemEstimatedValue.html
 [getSystemStations]: https://kayahr.github.io/edsm/functions/getSystemStations.html
-[getSystemMarket]: https://kayahr.github.io/edsm/functions/getSystemMarket.html
-[getSystemShipyard]: https://kayahr.github.io/edsm/functions/getSystemShipyard.html
-[getSystemOutfitting]: https://kayahr.github.io/edsm/functions/getSystemOutfitting.html
+[getStationMarket]: https://kayahr.github.io/edsm/functions/getStationMarket.html
+[getStationShipyard]: https://kayahr.github.io/edsm/functions/getStationShipyard.html
+[getStationOutfitting]: https://kayahr.github.io/edsm/functions/getStationOutfitting.html

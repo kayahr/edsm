@@ -14,8 +14,8 @@ import {
 } from "../main/api/logs.js";
 import { type EliteServerStatus, type EliteServerStatusType, getEliteServerStatus } from "../main/api/status.js";
 import {
-    type BodyScanValue, getSystemBodies, getSystemEstimatedValue, getSystemMarket, getSystemOutfitting, getSystemShipyard, getSystemStations,
-    type IdParameters, type SystemBodies, type SystemEstimatedValue, type SystemMarket, type SystemOutfitting, type SystemShipyard, type SystemStations
+    type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemEstimatedValue, getSystemStations,
+    type IdParameters, type StationMarket, type StationOutfitting, type StationShipyard, type SystemBodies, type SystemEstimatedValue, type SystemStations
 } from "../main/api/system.js";
 import {
     type Asteroids, type AtmosphereComposition, type Bodies, type Body, isPlanet, isStar, type Materials, parseBodiesJSON, type Planet, type SolidComposition,
@@ -57,9 +57,9 @@ describe("index", () => {
             getSystemBodies,
             getSystemEstimatedValue,
             getSystemStations,
-            getSystemMarket,
-            getSystemShipyard,
-            getSystemOutfitting,
+            getStationMarket,
+            getStationShipyard,
+            getStationOutfitting,
             parseBodiesJSON,
             parseCodexJSON,
             toUTCString,
@@ -90,9 +90,9 @@ describe("index", () => {
         ((): SystemBodies => (({} as exports.SystemBodies)))();
         ((): SystemEstimatedValue => (({} as exports.SystemEstimatedValue)))();
         ((): SystemStations => (({} as exports.SystemStations)))();
-        ((): SystemMarket => (({} as exports.SystemMarket)))();
-        ((): SystemShipyard => (({} as exports.SystemShipyard)))();
-        ((): SystemOutfitting => (({} as exports.SystemOutfitting)))();
+        ((): StationMarket => (({} as exports.StationMarket)))();
+        ((): StationShipyard => (({} as exports.StationShipyard)))();
+        ((): StationOutfitting => (({} as exports.StationOutfitting)))();
         ((): Commodity => (({} as exports.Commodity)))();
         ((): Asteroids => (({} as exports.Asteroids)))();
         ((): AtmosphereComposition => (({} as exports.AtmosphereComposition)))();
