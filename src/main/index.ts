@@ -4,22 +4,22 @@
  */
 
 export {
-    type CommanderCredits, type CommanderInventory, type CommanderRanks, type CreditsPeriod, getCommanderCredits, getCommanderInventory, getCommanderRanks,
-    type InventoryType
+    type CommanderCreditsResponse, type CommanderInventoryResponse, type CommanderRanksResponse, type CreditsPeriod, getCommanderCredits, getCommanderInventory,
+    getCommanderRanks, type InventoryType
 } from "./api/commander.js";
 export { APIException, ServerException, type SystemIdRequestOptions } from "./api/common.js";
 export { type EDSMEvent, type EventResponse, getDiscardEvents, sendEvents } from "./api/journal.js";
 export {
-    type CommanderPosition, type CommanderPositionOptions, type FlightLog, type FlightLogFilter, type FlightLogs, getCommanderPosition, getFlightLogs,
-    getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemComments,
-    type SystemCommentsOptions
+type CommanderPositionOptions, type CommanderPositionResponse, type FlightLog, type FlightLogFilter, type FlightLogsResponse, getCommanderPosition,
+    getFlightLogs, getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemCommentsOptions,
+    type SystemCommentsResponse
 } from "./api/logs.js";
-export { type EliteServerStatus, type EliteServerStatusType, getEliteServerStatus } from "./api/status.js";
+export { type EliteServerStatusResponse, type EliteServerStatusType, getEliteServerStatus } from "./api/status.js";
 export {
     type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemDeaths, getSystemEstimatedValue,
-    getSystemFactions, getSystemStations, getSystemTraffic, type ShortSystemFaction, type StationMarket, type StationOutfitting,
-    type StationShipyard, type SystemBodies, type SystemDeaths, type SystemEstimatedValue, type SystemFaction, type SystemFactions, type SystemFactionsOptions,
-    type SystemStations, type SystemTraffic
+    getSystemFactions, getSystemStations, getSystemTraffic, type ShortSystemFaction, type StationMarketResponse, type StationOutfittingResponse,
+    type StationShipyardResponse, type SystemBodiesResponse, type SystemDeathsResponse, type SystemEstimatedValueResponse, type SystemFaction,
+    type SystemFactionsOptions, type SystemFactionsResponse, type SystemStationsResponse, type SystemTrafficResponse
 } from "./api/system.js";
 export {
     type CubeSystemsRequestOptions, getCubeSystems, getSphereSystems, getSystem, getSystems, type SphereSystemsRequestOptions, type SystemRequestFlags,

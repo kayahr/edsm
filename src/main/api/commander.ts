@@ -8,7 +8,7 @@ import { request } from "./common.js";
 /**
  * Commander ranks returned by [[getCommanderRanks]].
  */
-export interface CommanderRanks {
+export interface CommanderRanksResponse {
     ranks: {
         Combat: number;
         Trade: number;
@@ -47,7 +47,7 @@ export type CreditsPeriod = "7DAY" | "1MONTH" | "3MONTH" | "6MONTH";
 /**
  * Commander credits information returned by [[getCommanderCredits]].
  */
-export interface CommanderCredits {
+export interface CommanderCreditsResponse {
     credits: Array<{
         balance: number;
         loan: number;
@@ -62,7 +62,7 @@ export type InventoryType = "materials" | "data" | "cargo";
 /**
  * Commander inventory information returned by [[getCommandInventory]].
  */
-export interface CommanderInventory {
+export interface CommanderInventoryResponse {
     materials?: Array<{
         type: string | number;
         name: string;
@@ -88,8 +88,8 @@ export interface CommanderInventory {
  *                        has enabled his public profile.
  * @returns The commander ranks.
  */
-export async function getCommanderRanks(commanderName: string, apiKey?: string): Promise<CommanderRanks> {
-    return await request<CommanderRanks>("api-commander-v1/get-ranks", { commanderName, apiKey }) as CommanderRanks;
+export async function getCommanderRanks(commanderName: string, apiKey?: string): Promise<CommanderRanksResponse> {
+    return await request<CommanderRanksResponse>("api-commander-v1/get-ranks", { commanderName, apiKey }) as CommanderRanksResponse;
 }
 
 /**
@@ -99,8 +99,8 @@ export async function getCommanderRanks(commanderName: string, apiKey?: string):
  * @param apiKey        - The API key of the commander.
  * @returns The commander credits.
  */
-export async function getCommanderCredits(commanderName: string, apiKey: string, period?: CreditsPeriod): Promise<CommanderCredits> {
-    return await request("api-commander-v1/get-credits", { commanderName, apiKey, period }) as CommanderCredits;
+export async function getCommanderCredits(commanderName: string, apiKey: string, period?: CreditsPeriod): Promise<CommanderCreditsResponse> {
+    return await request("api-commander-v1/get-credits", { commanderName, apiKey, period }) as CommanderCreditsResponse;
 }
 
 /**
@@ -111,6 +111,6 @@ export async function getCommanderCredits(commanderName: string, apiKey: string,
  * @param type          - The inventory type. Defaults to "materials".
  * @returns The commander inventory.
  */
-export async function getCommanderInventory(commanderName: string, apiKey: string, type?: InventoryType): Promise<CommanderInventory> {
-    return await request("api-commander-v1/get-materials", { commanderName, apiKey, type }) as CommanderInventory;
+export async function getCommanderInventory(commanderName: string, apiKey: string, type?: InventoryType): Promise<CommanderInventoryResponse> {
+    return await request("api-commander-v1/get-materials", { commanderName, apiKey, type }) as CommanderInventoryResponse;
 }

@@ -19,7 +19,7 @@ export interface BodyScanValue {
 /**
  * Response structure of the EDSM system bodies request.
  */
-export interface SystemBodies {
+export interface SystemBodiesResponse {
     id: number;
     id64: Id64;
     name: string;
@@ -31,7 +31,7 @@ export interface SystemBodies {
 /**
  * Response structure of the EDSM system estimated value request.
  */
-export interface SystemEstimatedValue {
+export interface SystemEstimatedValueResponse {
     id: number;
     id64: Id64;
     name: string;
@@ -44,7 +44,7 @@ export interface SystemEstimatedValue {
 /**
  * Response structure of the EDSM system stations request.
  */
-export interface SystemStations {
+export interface SystemStationsResponse {
     id: number;
     id64: Id64;
     name: string;
@@ -55,7 +55,7 @@ export interface SystemStations {
 /**
  * Response structure of the EDSM system stations market request.
  */
-export interface StationMarket {
+export interface StationMarketResponse {
     id: number;
     id64: Id64;
     name: string;
@@ -69,7 +69,7 @@ export interface StationMarket {
 /**
  * Response structure of the EDSM system stations shipyard request.
  */
-export interface StationShipyard {
+export interface StationShipyardResponse {
     id: number;
     id64: Id64;
     name: string;
@@ -83,7 +83,7 @@ export interface StationShipyard {
 /**
  * Response structure of the EDSM system stations outfitting request.
  */
-export interface StationOutfitting {
+export interface StationOutfittingResponse {
     id: number;
     id64: Id64;
     name: string;
@@ -102,8 +102,8 @@ export interface StationOutfitting {
  * @returns The bodies found on EDSM.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemBodies(systemName: string, ids?: { systemId?: number, systemId64?: Id64 }): Promise<SystemBodies> {
-    const response = await request<SystemBodies>("api-system-v1/bodies", { systemName, ...ids });
+export async function getSystemBodies(systemName: string, ids?: { systemId?: number, systemId64?: Id64 }): Promise<SystemBodiesResponse> {
+    const response = await request<SystemBodiesResponse>("api-system-v1/bodies", { systemName, ...ids });
     if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
     }
@@ -118,8 +118,8 @@ export async function getSystemBodies(systemName: string, ids?: { systemId?: num
  * @returns The scan values.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemEstimatedValue(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemEstimatedValue> {
-    const response = await request<SystemEstimatedValue>("api-system-v1/estimated-value", { systemName, ...ids });
+export async function getSystemEstimatedValue(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemEstimatedValueResponse> {
+    const response = await request<SystemEstimatedValueResponse>("api-system-v1/estimated-value", { systemName, ...ids });
     if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
     }
@@ -134,8 +134,8 @@ export async function getSystemEstimatedValue(systemName: string, ids?: SystemId
  * @returns The information about stations in a system.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemStations(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemStations> {
-    const response = await request<SystemStations>("api-system-v1/stations", { systemName, ...ids });
+export async function getSystemStations(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemStationsResponse> {
+    const response = await request<SystemStationsResponse>("api-system-v1/stations", { systemName, ...ids });
     if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
     }
@@ -169,7 +169,7 @@ async function getStationDetails<T>(detail: string, marketIdOrSystemName: number
  * @returns The information about market in given station.
  * @throws NotFoundException - When market was not found.
  */
-export async function getStationMarket(marketId: number): Promise<StationMarket>;
+export async function getStationMarket(marketId: number): Promise<StationMarketResponse>;
 
 /**
  * Returns information about market in a station.
@@ -180,11 +180,11 @@ export async function getStationMarket(marketId: number): Promise<StationMarket>
  * @returns The information about market in given station.
  * @throws NotFoundException - When market was not found.
  */
-export async function getStationMarket(systemName: string, stationName: string, params?: SystemIdRequestOptions): Promise<StationMarket>;
+export async function getStationMarket(systemName: string, stationName: string, params?: SystemIdRequestOptions): Promise<StationMarketResponse>;
 
 export async function getStationMarket(marketIdOrSystemName: number | string, stationName?: string, params?: SystemIdRequestOptions):
-        Promise<StationMarket> {
-    return getStationDetails<StationMarket>("market", marketIdOrSystemName, stationName, params);
+        Promise<StationMarketResponse> {
+    return getStationDetails<StationMarketResponse>("market", marketIdOrSystemName, stationName, params);
 }
 
 /**
@@ -194,7 +194,7 @@ export async function getStationMarket(marketIdOrSystemName: number | string, st
  * @returns The information about shipyard in given station.
  * @throws NotFoundException - When shipyard was not found.
  */
-export async function getStationShipyard(marketId: number): Promise<StationShipyard>;
+export async function getStationShipyard(marketId: number): Promise<StationShipyardResponse>;
 
 /**
  * Returns information about shipyard in a station.
@@ -205,11 +205,11 @@ export async function getStationShipyard(marketId: number): Promise<StationShipy
  * @returns The information about shipyard in given station.
  * @throws NotFoundException - When shipyard was not found.
  */
-export async function getStationShipyard(systemName: string, stationName: string, params?: SystemIdRequestOptions): Promise<StationShipyard>;
+export async function getStationShipyard(systemName: string, stationName: string, params?: SystemIdRequestOptions): Promise<StationShipyardResponse>;
 
 export async function getStationShipyard(marketIdOrSystemName: number | string, stationName?: string, params?: SystemIdRequestOptions):
-        Promise<StationShipyard> {
-    return getStationDetails<StationShipyard>("shipyard", marketIdOrSystemName, stationName, params);
+        Promise<StationShipyardResponse> {
+    return getStationDetails<StationShipyardResponse>("shipyard", marketIdOrSystemName, stationName, params);
 }
 
 /**
@@ -219,7 +219,7 @@ export async function getStationShipyard(marketIdOrSystemName: number | string, 
  * @returns The information about outfitting in given station.
  * @throws NotFoundException - When station was not found.
  */
-export async function getStationOutfitting(marketId: number): Promise<StationOutfitting>;
+export async function getStationOutfitting(marketId: number): Promise<StationOutfittingResponse>;
 
 /**
  * Returns information about outfitting in a station.
@@ -230,11 +230,11 @@ export async function getStationOutfitting(marketId: number): Promise<StationOut
  * @returns The information about outfitting in given station.
  * @throws NotFoundException - When station was not found.
  */
-export async function getStationOutfitting(systemName: string, stationName: string, params?: SystemIdRequestOptions): Promise<StationOutfitting>;
+export async function getStationOutfitting(systemName: string, stationName: string, params?: SystemIdRequestOptions): Promise<StationOutfittingResponse>;
 
 export async function getStationOutfitting(marketIdOrSystemName: number | string, stationName?: string, params?: SystemIdRequestOptions):
-        Promise<StationOutfitting> {
-    return getStationDetails<StationOutfitting>("outfitting", marketIdOrSystemName, stationName, params);
+        Promise<StationOutfittingResponse> {
+    return getStationDetails<StationOutfittingResponse>("outfitting", marketIdOrSystemName, stationName, params);
 }
 
 export interface SystemFactionsOptions extends SystemIdRequestOptions {
@@ -269,7 +269,7 @@ export interface SystemFaction extends ShortSystemFaction {
 /**
  * Response structure of the EDSM system factions request.
  */
-export interface SystemFactions {
+export interface SystemFactionsResponse {
     id: number;
     id64: Id64;
     name: string;
@@ -286,8 +286,8 @@ export interface SystemFactions {
  * @returns The information about stations in a system.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemFactions(systemName: string, options?: SystemFactionsOptions): Promise<SystemFactions> {
-    const response = await request<SystemFactions>("api-system-v1/factions", { systemName, ...options });
+export async function getSystemFactions(systemName: string, options?: SystemFactionsOptions): Promise<SystemFactionsResponse> {
+    const response = await request<SystemFactionsResponse>("api-system-v1/factions", { systemName, ...options });
     if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
     }
@@ -297,7 +297,7 @@ export async function getSystemFactions(systemName: string, options?: SystemFact
 /**
  * Response structure of the EDSM system traffic request.
  */
-export interface SystemTraffic {
+export interface SystemTrafficResponse {
     id: number;
     id64: Id64;
     name: string;
@@ -322,8 +322,8 @@ export interface SystemTraffic {
  * @returns The information about traffic in a system.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemTraffic(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemTraffic> {
-    const response = await request<SystemTraffic>("api-system-v1/traffic", { systemName, ...ids });
+export async function getSystemTraffic(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemTrafficResponse> {
+    const response = await request<SystemTrafficResponse>("api-system-v1/traffic", { systemName, ...ids });
     if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
     }
@@ -333,7 +333,7 @@ export async function getSystemTraffic(systemName: string, ids?: SystemIdRequest
 /**
  * Response structure of the EDSM system deaths request.
  */
-export interface SystemDeaths {
+export interface SystemDeathsResponse {
     id: number;
     id64: Id64;
     name: string;
@@ -353,8 +353,8 @@ export interface SystemDeaths {
  * @returns The information about deaths in a system.
  * @throws NotFoundException - When system was not found.
  */
-export async function getSystemDeaths(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemDeaths> {
-    const response = await request<SystemDeaths>("api-system-v1/deaths", { systemName, ...ids });
+export async function getSystemDeaths(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemDeathsResponse> {
+    const response = await request<SystemDeathsResponse>("api-system-v1/deaths", { systemName, ...ids });
     if (response == null) {
         throw new NotFoundException("System not found: " + systemName);
     }

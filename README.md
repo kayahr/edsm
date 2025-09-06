@@ -109,25 +109,32 @@ Some EDSM JSON properties (`id64`, `systemId64`) are 64 bit integers. But the Ja
 JSON Schemas
 ------------
 
+### Dumps
+
 * [body.schema.json](https://kayahr.github.io/edsm/schemas/body.schema.json)
 * [codex.schema.json](https://kayahr.github.io/edsm/schemas/codex.schema.json)
-* [commander-credits.schema.json](https://kayahr.github.io/edsm/schemas/commander-credits.schema.json)
-* [commander-inventory.schema.json](https://kayahr.github.io/edsm/schemas/commander-inventory.schema.json)
-* [commander-position.schema.json](https://kayahr.github.io/edsm/schemas/commander-position.schema.json)
-* [commander-ranks.schema.json](https://kayahr.github.io/edsm/schemas/commander-ranks.schema.json)
-* [elite-server-status.schema.json](https://kayahr.github.io/edsm/schemas/elite-server-status.schema.json)
-* [flight-logs.schema.json](https://kayahr.github.io/edsm/schemas/flight-logs.schema.json)
 * [powerplay.schema.json](https://kayahr.github.io/edsm/schemas/powerplay.schema.json)
-* [station.schema.json](https://kayahr.github.io/edsm/schemas/station.schema.json)
-* [system-bodies.schema.json](https://kayahr.github.io/edsm/schemas/system-bodies.schema.json)
-* [system-estimated-value.schema.json](https://kayahr.github.io/edsm/schemas/system-estimated-value.schema.json)
-* [system.schema.json](https://kayahr.github.io/edsm/schemas/system.schema.json)
-* [system-stations.schema.json](https://kayahr.github.io/edsm/schemas/system-stations.schema.json)
-* [system-factions.schema.json](https://kayahr.github.io/edsm/schemas/system-factions.schema.json)
-* [system-response.schema.json](https://kayahr.github.io/edsm/schemas/system-response.schema.json)
-* [station-market.schema.json](https://kayahr.github.io/edsm/schemas/station-market.schema.json)
-* [station-shipyard.schema.json](https://kayahr.github.io/edsm/schemas/station-shipyard.schema.json)
-* [station-outfitting.schema.json](https://kayahr.github.io/edsm/schemas/station-outfitting.schema.json)
+* [station.schema.json](https://kayahr.github.io/edsm/schemas/.schema.json)
+* [system.schema.json](https://kayahr.github.io/edsm/schemas/.schema.json)
+
+### API
+
+* [commander-credits-response.schema.json](https://kayahr.github.io/edsm/schemas/commander-credits-response.schema.json)
+* [commander-inventory-response.schema.json](https://kayahr.github.io/edsm/schemas/commander-inventory-response.schema.json)
+* [commander-position-response.schema.json](https://kayahr.github.io/edsm/schemas/commander-position-response.schema.json)
+* [commander-ranks-response.schema.json](https://kayahr.github.io/edsm/schemas/commander-ranks-response.schema.json)
+* [elite-server-status-response.schema.json](https://kayahr.github.io/edsm/schemas/elite-server-status-response.schema.json)
+* [flight-logs-response.schema.json](https://kayahr.github.io/edsm/schemas/flight-logs-response.schema.json)
+* [station-market-response.schema.json](https://kayahr.github.io/edsm/schemas/station-market-response.schema.json)
+* [station-outfitting-response.schema.json](https://kayahr.github.io/edsm/schemas/station-outfitting-response.schema.json)
+* [station-shipyard-response.schema.json](https://kayahr.github.io/edsm/schemas/station-shipyard-response.schema.json)
+* [system-bodies-response.schema.json](https://kayahr.github.io/edsm/schemas/system-bodies-response.schema.json)
+* [system-deaths-response.schema.json](https://kayahr.github.io/edsm/schemas/system-deaths-response.schema.json)
+* [system-estimated-value-response.schema.json](https://kayahr.github.io/edsm/schemas/system-estimated-value-response.schema.json)
+* [system-factions-response.schema.json](https://kayahr.github.io/edsm/schemas/system-factions-response.schema.json)
+* [system-response.schema.json](https://kayahr.github.io/edsm/schemas/system-response.schema.schema.json)
+* [system-stations-response.schema.json](https://kayahr.github.io/edsm/schemas/system-stations-response.schema.json)
+* [system-traffic-response.schema.json](https://kayahr.github.io/edsm/schemas/system-traffic-response.schema.json)
 
 [API Doc]: https://kayahr.github.io/edsm/
 [GitHub]: https://github.com/kayahr/edsm

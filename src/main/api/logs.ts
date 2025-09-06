@@ -15,7 +15,7 @@ export interface FlightLog {
     date: string;
 }
 
-export interface FlightLogs {
+export interface FlightLogsResponse {
     startDateTime: string;
     endDateTime: string;
     logs: FlightLog[];
@@ -49,15 +49,14 @@ export interface FlightLogFilter {
  * @param filter        - Optional filter properties.
  * @returns The flight log entries.
  */
-export async function getFlightLogs(commanderName: string, apiKey: string, filter?: FlightLogFilter):
-        Promise<FlightLogs> {
-    return await request("api-logs-v1/get-logs", { commanderName, apiKey, ...filter }) as FlightLogs;
+export async function getFlightLogs(commanderName: string, apiKey: string, filter?: FlightLogFilter): Promise<FlightLogsResponse> {
+    return await request("api-logs-v1/get-logs", { commanderName, apiKey, ...filter }) as FlightLogsResponse;
 }
 
 /**
  * Commander position returned by [[getPosition]]
  */
-export interface CommanderPosition {
+export interface CommanderPositionResponse {
     system: string | null;
     systemId?: number;
     systemId64?: Id64;
@@ -96,8 +95,8 @@ export interface CommanderPositionOptions {
  * @param options       - Options.
  * @returns The last position.
  */
-export async function getCommanderPosition(commanderName: string, options?: CommanderPositionOptions): Promise<CommanderPosition> {
-    return await request("api-logs-v1/get-position", { commanderName, ...options }) as CommanderPosition;
+export async function getCommanderPosition(commanderName: string, options?: CommanderPositionOptions): Promise<CommanderPositionResponse> {
+    return await request("api-logs-v1/get-position", { commanderName, ...options }) as CommanderPositionResponse;
 }
 
 /** Options for [[setComment]] function. */
@@ -143,7 +142,7 @@ export async function getSystemComment(commanderName: string, apiKey: string, sy
 }
 
 /** Result type of [[getComments]]. */
-export interface SystemComments {
+export interface SystemCommentsResponse {
     comments: Array<{
         system: string;
         systemId?: number;
@@ -171,6 +170,6 @@ export interface SystemCommentsOptions {
  * @param apiKey        - The API key associated with the commander.
  * @param options       - Additional options.
  */
-export async function getSystemComments(commanderName: string, apiKey: string, options?: SystemCommentsOptions): Promise<SystemComments> {
-    return await request("api-logs-v1/get-comments", { commanderName, apiKey, ...options }) as SystemComments;
+export async function getSystemComments(commanderName: string, apiKey: string, options?: SystemCommentsOptions): Promise<SystemCommentsResponse> {
+    return await request("api-logs-v1/get-comments", { commanderName, apiKey, ...options }) as SystemCommentsResponse;
 }

@@ -10,7 +10,7 @@ describe("status", () => {
 
     beforeAll(async () => {
         edsmMock.start();
-        validator = await createValidator("elite-server-status");
+        validator = await createValidator("elite-server-status-response");
     });
 
     afterAll(() => {

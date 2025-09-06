@@ -18,7 +18,7 @@ describe("commander", () => {
         let validator: ValidateFunction;
 
         beforeAll(async () => {
-            validator = await createValidator("flight-logs");
+            validator = await createValidator("flight-logs-response");
         });
 
         it("returns flight logs (without ID) which matches the schema", async () => {
@@ -35,7 +35,7 @@ describe("commander", () => {
         let validator: ValidateFunction;
 
         beforeAll(async () => {
-            validator = await createValidator("commander-position");
+            validator = await createValidator("commander-position-response");
         });
 
         it("returns last position (without ID and coords) which matches the schema", async () => {

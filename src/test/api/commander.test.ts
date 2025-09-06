@@ -20,7 +20,7 @@ describe("commander", () => {
     describe("getCommanderRanks", () => {
         let validator: ValidateFunction;
         beforeAll(async () => {
-            validator = await createValidator("commander-ranks");
+            validator = await createValidator("commander-ranks-response");
         });
         it("returns commander ranks (without API key) which matches the schema", async () => {
             const result = await getCommanderRanks(edsmUser);
@@ -38,7 +38,7 @@ describe("commander", () => {
     describe("getCommanderCredits", () => {
         let validator: ValidateFunction;
         beforeAll(async () => {
-            validator = await createValidator("commander-credits");
+            validator = await createValidator("commander-credits-response");
         });
         it("returns commander credits which matches the schema", async () => {
             const result = await getCommanderCredits(edsmUser, edsmAPIKey);
@@ -70,7 +70,7 @@ describe("commander", () => {
         let validator: ValidateFunction;
 
         beforeAll(async () => {
-            validator = await createValidator("commander-inventory");
+            validator = await createValidator("commander-inventory-response");
         });
 
         it("returns commander materials which matches the schema", async () => {

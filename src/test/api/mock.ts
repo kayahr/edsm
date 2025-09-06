@@ -3,7 +3,7 @@ import fetchMock from "fetch-mock";
 import { JSONParse, JSONStringify } from "json-with-bigint";
 
 import { edsmBaseUrl } from "../../main/api/common.js";
-import type { SystemFactions } from "../../main/api/system.js";
+import type { SystemFactionsResponse } from "../../main/api/system.js";
 import type { SystemRequestOptions, SystemResponse } from "../../main/api/systems.js";
 import type { CreditsPeriod, InventoryType } from "../../main/index.js";
 import {
@@ -509,7 +509,7 @@ export class EDSMMock {
             return this.#createJSONResponse(200, {});
         }
         if (showHistory !== 1) {
-            result = JSONParse(JSONStringify(result)) as SystemFactions;
+            result = JSONParse(JSONStringify(result)) as SystemFactionsResponse;
             result.factions.forEach(faction => {
                 delete faction.activeStatesHistory;
                 delete faction.happinessHistory;

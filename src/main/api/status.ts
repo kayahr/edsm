@@ -7,7 +7,7 @@ import { request } from "./common.js";
 
 export type EliteServerStatusType = "success" | "warning" | "danger";
 
-export interface EliteServerStatus {
+export interface EliteServerStatusResponse {
     lastUpdate: string;
     type: EliteServerStatusType;
     message: string;
@@ -19,6 +19,6 @@ export interface EliteServerStatus {
  *
  * @returns The elite server status.
  */
-export async function getEliteServerStatus(): Promise<EliteServerStatus> {
-    return await request("api-status-v1/elite-server") as EliteServerStatus;
+export async function getEliteServerStatus(): Promise<EliteServerStatusResponse> {
+    return await request("api-status-v1/elite-server") as EliteServerStatusResponse;
 }

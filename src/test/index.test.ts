@@ -3,22 +3,22 @@ import "@kayahr/vitest-matchers";
 import { describe, expect, it } from "vitest";
 
 import {
-    type CommanderCredits, type CommanderInventory, type CommanderRanks, type CreditsPeriod, getCommanderCredits, getCommanderInventory, getCommanderRanks,
-    type InventoryType
+    type CommanderCreditsResponse, type CommanderInventoryResponse, type CommanderRanksResponse, type CreditsPeriod, getCommanderCredits, getCommanderInventory,
+    getCommanderRanks, type InventoryType
 } from "../main/api/commander.js";
 import { APIException, ServerException, type SystemIdRequestOptions } from "../main/api/common.js";
 import { type EDSMEvent, type EventResponse, getDiscardEvents, sendEvents } from "../main/api/journal.js";
 import {
-    type CommanderPosition, type CommanderPositionOptions, type FlightLog, type FlightLogFilter, type FlightLogs, getCommanderPosition, getFlightLogs,
-    getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemComments,
-    type SystemCommentsOptions
+    type CommanderPositionOptions, type CommanderPositionResponse, type FlightLog, type FlightLogFilter, type FlightLogsResponse, getCommanderPosition,
+    getFlightLogs, getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemCommentsOptions,
+    type SystemCommentsResponse
 } from "../main/api/logs.js";
-import { type EliteServerStatus, type EliteServerStatusType, getEliteServerStatus } from "../main/api/status.js";
+import { type EliteServerStatusResponse, type EliteServerStatusType, getEliteServerStatus } from "../main/api/status.js";
 import {
     type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemDeaths, getSystemEstimatedValue,
-    getSystemFactions, getSystemStations, getSystemTraffic, type ShortSystemFaction, type StationMarket, type StationOutfitting,
-    type StationShipyard, type SystemBodies, type SystemDeaths, type SystemEstimatedValue, type SystemFaction, type SystemFactions, type SystemFactionsOptions,
-    type SystemStations, type SystemTraffic
+    getSystemFactions, getSystemStations, getSystemTraffic, type ShortSystemFaction, type StationMarketResponse, type StationOutfittingResponse,
+    type StationShipyardResponse, type SystemBodiesResponse, type SystemDeathsResponse, type SystemEstimatedValueResponse, type SystemFaction,
+    type SystemFactionsOptions, type SystemFactionsResponse, type SystemStationsResponse, type SystemTrafficResponse
 } from "../main/api/system.js";
 import {
     type CubeSystemsRequestOptions, getCubeSystems, getSphereSystems, getSystem, getSystems, type SphereSystemsRequestOptions, type SystemRequestFlags,
@@ -85,36 +85,36 @@ describe("index", () => {
         });
 
         // Interfaces and types can only be checked by TypeScript
-        ((): CommanderCredits => (({} as exports.CommanderCredits)))();
-        ((): CommanderInventory => (({} as exports.CommanderInventory)))();
-        ((): CommanderRanks => (({} as exports.CommanderRanks)))();
+        ((): CommanderCreditsResponse => (({} as exports.CommanderCreditsResponse)))();
+        ((): CommanderInventoryResponse => (({} as exports.CommanderInventoryResponse)))();
+        ((): CommanderRanksResponse => (({} as exports.CommanderRanksResponse)))();
         ((): CreditsPeriod => (({} as exports.CreditsPeriod)))();
         ((): InventoryType => (({} as exports.InventoryType)))();
-        ((): CommanderPosition => (({} as exports.CommanderPosition)))();
+        ((): CommanderPositionResponse => (({} as exports.CommanderPositionResponse)))();
         ((): SystemCommentResponse => (({} as exports.SystemCommentResponse)))();
-        ((): SystemComments => (({} as exports.SystemComments)))();
+        ((): SystemCommentsResponse => (({} as exports.SystemCommentsResponse)))();
         ((): SystemCommentsOptions => (({} as exports.SystemCommentsOptions)))();
         ((): FlightLog => (({} as exports.FlightLog)))();
         ((): FlightLogFilter => (({} as exports.FlightLogFilter)))();
-        ((): FlightLogs => (({} as exports.FlightLogs)))();
+        ((): FlightLogsResponse => (({} as exports.FlightLogsResponse)))();
         ((): CommanderPositionOptions => (({} as exports.CommanderPositionOptions)))();
         ((): SystemCommentOptions => (({} as exports.SystemCommentOptions)))();
-        ((): EliteServerStatus => (({} as exports.EliteServerStatus)))();
+        ((): EliteServerStatusResponse => (({} as exports.EliteServerStatusResponse)))();
         ((): EliteServerStatusType => (({} as exports.EliteServerStatusType)))();
         ((): BodyScanValue => (({} as exports.BodyScanValue)))();
         ((): SystemIdRequestOptions => (({} as exports.SystemIdRequestOptions)))();
-        ((): SystemBodies => (({} as exports.SystemBodies)))();
-        ((): SystemDeaths => (({} as exports.SystemDeaths)))();
-        ((): SystemFactions => (({} as exports.SystemFactions)))();
-        ((): SystemTraffic => (({} as exports.SystemTraffic)))();
+        ((): SystemBodiesResponse => (({} as exports.SystemBodiesResponse)))();
+        ((): SystemDeathsResponse => (({} as exports.SystemDeathsResponse)))();
+        ((): SystemFactionsResponse => (({} as exports.SystemFactionsResponse)))();
+        ((): SystemTrafficResponse => (({} as exports.SystemTrafficResponse)))();
         ((): SystemFactionsOptions => (({} as exports.SystemFactionsOptions)))();
         ((): SystemFaction => (({} as exports.SystemFaction)))();
         ((): ShortSystemFaction => (({} as exports.ShortSystemFaction)))();
-        ((): SystemEstimatedValue => (({} as exports.SystemEstimatedValue)))();
-        ((): SystemStations => (({} as exports.SystemStations)))();
-        ((): StationMarket => (({} as exports.StationMarket)))();
-        ((): StationShipyard => (({} as exports.StationShipyard)))();
-        ((): StationOutfitting => (({} as exports.StationOutfitting)))();
+        ((): SystemEstimatedValueResponse => (({} as exports.SystemEstimatedValueResponse)))();
+        ((): SystemStationsResponse => (({} as exports.SystemStationsResponse)))();
+        ((): StationMarketResponse => (({} as exports.StationMarketResponse)))();
+        ((): StationShipyardResponse => (({} as exports.StationShipyardResponse)))();
+        ((): StationOutfittingResponse => (({} as exports.StationOutfittingResponse)))();
         ((): Commodity => (({} as exports.Commodity)))();
         ((): Asteroids => (({} as exports.Asteroids)))();
         ((): AtmosphereComposition => (({} as exports.AtmosphereComposition)))();

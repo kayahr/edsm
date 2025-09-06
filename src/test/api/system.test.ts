@@ -25,7 +25,7 @@ describe("commander", () => {
         let validator: ValidateFunction;
 
         beforeAll(async () => {
-            validator = await createValidator("system-bodies");
+            validator = await createValidator("system-bodies-response");
         });
 
         it("returns bodies for single system which matches the schema", async () => {
@@ -67,7 +67,7 @@ describe("commander", () => {
         let validator: ValidateFunction;
 
         beforeAll(async () => {
-            validator = await createValidator("system-estimated-value");
+            validator = await createValidator("system-estimated-value-response");
         });
 
         it("returns system estimated value for single system which matches the schema", async () => {
@@ -109,7 +109,7 @@ describe("commander", () => {
         let validator: ValidateFunction;
 
         beforeAll(async () => {
-            validator = await createValidator("system-stations");
+            validator = await createValidator("system-stations-response");
         });
 
         it("returns stations for single system which matches the schema", async () => {
@@ -145,7 +145,7 @@ describe("commander", () => {
     describe("getStationMarket", () => {
         let validator: ValidateFunction;
         beforeAll(async () => {
-            validator = await createValidator("station-market");
+            validator = await createValidator("station-market-response");
         });
         it("returns market data for station referenced by name", async () => {
             const result = await getStationMarket("Shinrarta Dezhra", "Jameson Memorial");
@@ -175,7 +175,7 @@ describe("commander", () => {
     describe("getStationShipyard", () => {
         let validator: ValidateFunction;
         beforeAll(async () => {
-            validator = await createValidator("station-shipyard");
+            validator = await createValidator("station-shipyard-response");
         });
         it("returns shipyard data for station referenced by name", async () => {
             const result = await getStationShipyard("Shinrarta Dezhra", "Jameson Memorial");
@@ -201,7 +201,7 @@ describe("commander", () => {
     describe("getStationOutfitting", () => {
         let validator: ValidateFunction;
         beforeAll(async () => {
-            validator = await createValidator("station-outfitting");
+            validator = await createValidator("station-outfitting-response");
         });
         it("returns outfitting data for station referenced by name", async () => {
             const result = await getStationOutfitting("Shinrarta Dezhra", "Jameson Memorial");
@@ -228,7 +228,7 @@ describe("commander", () => {
         let validator: ValidateFunction;
 
         beforeAll(async () => {
-            validator = await createValidator("system-factions");
+            validator = await createValidator("system-factions-response");
         });
 
         it("returns factions for single system without history which matches the schema", async () => {
@@ -277,7 +277,7 @@ describe("commander", () => {
         let validator: ValidateFunction;
 
         beforeAll(async () => {
-            validator = await createValidator("system-traffic");
+            validator = await createValidator("system-traffic-response");
         });
 
         it("returns traffic for single system without history which matches the schema", async () => {
@@ -308,7 +308,7 @@ describe("commander", () => {
         let validator: ValidateFunction;
 
         beforeAll(async () => {
-            validator = await createValidator("system-deaths");
+            validator = await createValidator("system-deaths-response");
         });
 
         it("returns deaths for single system without history which matches the schema", async () => {

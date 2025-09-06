@@ -1,6 +1,9 @@
-import type { StationMarket, StationOutfitting, StationShipyard, SystemBodies, SystemFactions, SystemStations, SystemTraffic } from "../../main/api/system.js";
+import type {
+    StationMarketResponse, StationOutfittingResponse, StationShipyardResponse, SystemBodiesResponse, SystemFactionsResponse, SystemStationsResponse,
+    SystemTrafficResponse
+} from "../../main/api/system.js";
 
-export const colonia: SystemBodies = {
+export const colonia: SystemBodiesResponse = {
     id: 3384966,
     id64: 3238296097059,
     name: "Colonia",
@@ -1794,7 +1797,7 @@ export const colonia: SystemBodies = {
     ]
 };
 
-export const berenices1: SystemBodies = {
+export const berenices1: SystemBodiesResponse = {
     id: 5410650,
     id64: 84054348506,
     name: "24 Comae Berenices",
@@ -4670,7 +4673,7 @@ export const berenices1: SystemBodies = {
     ]
 };
 
-export const berenices2: SystemBodies = {
+export const berenices2: SystemBodiesResponse = {
     id: 53494504,
     id64: 1323435196,
     name: "24 Comae Berenices",
@@ -5584,7 +5587,7 @@ export const berenices2: SystemBodies = {
     ]
 };
 
-export const shinrartaDezhraStations: SystemStations = {
+export const shinrartaDezhraStations: SystemStationsResponse = {
     id: 4345,
     id64: 3932277478106,
     name: "Shinrarta Dezhra",
@@ -5670,7 +5673,7 @@ export const shinrartaDezhraStations: SystemStations = {
     ]
 };
 
-export const jamesonMemorialMarket: StationMarket = {
+export const jamesonMemorialMarket: StationMarketResponse = {
     id: 4345,
     id64: 3932277478106,
     name: "Shinrarta Dezhra",
@@ -5700,7 +5703,7 @@ export const jamesonMemorialMarket: StationMarket = {
     ]
 };
 
-export const jamesonMemorialShipyard: StationShipyard = {
+export const jamesonMemorialShipyard: StationShipyardResponse = {
     id: 4345,
     id64: 3932277478106,
     name: "Shinrarta Dezhra",
@@ -5720,7 +5723,7 @@ export const jamesonMemorialShipyard: StationShipyard = {
     ]
 };
 
-export const jamesonMemorialOutfitting: StationOutfitting = {
+export const jamesonMemorialOutfitting: StationOutfittingResponse = {
     id: 4345,
     id64: 3932277478106,
     name: "Shinrarta Dezhra",
@@ -5744,7 +5747,7 @@ export const jamesonMemorialOutfitting: StationOutfitting = {
     ]
 };
 
-export const shinrartaDezhraFactions: SystemFactions = {
+export const shinrartaDezhraFactions: SystemFactionsResponse = {
     id: 4345,
     id64: 3932277478106,
     name: "Shinrarta Dezhra",
@@ -5838,7 +5841,7 @@ export const shinrartaDezhraFactions: SystemFactions = {
     ]
 };
 
-export const shinrartaDezhraTraffic: SystemTraffic = {
+export const shinrartaDezhraTraffic: SystemTrafficResponse = {
     id: 4345,
     id64: 3932277478106,
     name: "Shinrarta Dezhra",
