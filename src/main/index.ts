@@ -11,7 +11,7 @@ export { APIException, ServerException, type SystemIdRequestOptions } from "./ap
 export { type EDSMEvent, type EventResponse, getDiscardEvents, sendEvents } from "./api/journal.js";
 export {
 type CommanderPositionOptions, type CommanderPositionResponse, type FlightLog, type FlightLogFilter, type FlightLogsResponse, getCommanderPosition,
-    getFlightLogs, getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemCommentsOptions,
+    getFlightLogs, getSystemComment, getSystemComments, setSystemComment, type SystemCommentResponse, type SystemCommentsOptions,
     type SystemCommentsResponse
 } from "./api/logs.js";
 export { type EliteServerStatusResponse, type EliteServerStatusType, getEliteServerStatus } from "./api/status.js";

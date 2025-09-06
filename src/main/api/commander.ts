@@ -6,7 +6,7 @@
 import { request } from "./common.js";
 
 /**
- * Commander ranks returned by [[getCommanderRanks]].
+ * Commander ranks response returned by {@link getCommanderRanks} request.
  */
 export interface CommanderRanksResponse {
     ranks: {
@@ -45,7 +45,7 @@ export interface CommanderRanksResponse {
 export type CreditsPeriod = "7DAY" | "1MONTH" | "3MONTH" | "6MONTH";
 
 /**
- * Commander credits information returned by [[getCommanderCredits]].
+ * Commander credits response returned by {@link getCommanderCredits} request.
  */
 export interface CommanderCreditsResponse {
     credits: Array<{
@@ -60,7 +60,7 @@ export interface CommanderCreditsResponse {
 export type InventoryType = "materials" | "data" | "cargo";
 
 /**
- * Commander inventory information returned by [[getCommandInventory]].
+ * Commander inventory response returned by {@link getCommanderInventory} request.
  */
 export interface CommanderInventoryResponse {
     materials?: Array<{

@@ -10,7 +10,7 @@ import { APIException, ServerException, type SystemIdRequestOptions } from "../m
 import { type EDSMEvent, type EventResponse, getDiscardEvents, sendEvents } from "../main/api/journal.js";
 import {
     type CommanderPositionOptions, type CommanderPositionResponse, type FlightLog, type FlightLogFilter, type FlightLogsResponse, getCommanderPosition,
-    getFlightLogs, getSystemComment, getSystemComments, setSystemComment, type SystemCommentOptions, type SystemCommentResponse, type SystemCommentsOptions,
+    getFlightLogs, getSystemComment, getSystemComments, setSystemComment, type SystemCommentResponse, type SystemCommentsOptions,
     type SystemCommentsResponse
 } from "../main/api/logs.js";
 import { type EliteServerStatusResponse, type EliteServerStatusType, getEliteServerStatus } from "../main/api/status.js";
@@ -98,7 +98,6 @@ describe("index", () => {
         ((): FlightLogFilter => (({} as exports.FlightLogFilter)))();
         ((): FlightLogsResponse => (({} as exports.FlightLogsResponse)))();
         ((): CommanderPositionOptions => (({} as exports.CommanderPositionOptions)))();
-        ((): SystemCommentOptions => (({} as exports.SystemCommentOptions)))();
         ((): EliteServerStatusResponse => (({} as exports.EliteServerStatusResponse)))();
         ((): EliteServerStatusType => (({} as exports.EliteServerStatusType)))();
         ((): BodyScanValue => (({} as exports.BodyScanValue)))();

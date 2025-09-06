@@ -4,7 +4,7 @@
  */
 
 import { type Coordinates, type Id64 } from "../common.js";
-import { request } from "./common.js";
+import { request, type SystemIdRequestOptions } from "./common.js";
 
 export interface FlightLog {
     shipId: number | null;
@@ -54,7 +54,7 @@ export async function getFlightLogs(commanderName: string, apiKey: string, filte
 }
 
 /**
- * Commander position returned by [[getPosition]]
+ * Commander position response returned by {@link getCommanderPosition} request.
  */
 export interface CommanderPositionResponse {
     system: string | null;
@@ -99,15 +99,6 @@ export async function getCommanderPosition(commanderName: string, options?: Comm
     return await request("api-logs-v1/get-position", { commanderName, ...options }) as CommanderPositionResponse;
 }
 
-/** Options for [[setComment]] function. */
-export interface SystemCommentOptions {
-    /** This parameter (or the other one) is used to bypass duplicate system names. */
-    systemId?: number;
-
-    /** This parameter (or the other one) is used to bypass duplicate system names. */
-    systemId64?: Id64;
-}
-
 /** Response type of {@link setSystemComment} */
 export interface SystemCommentResponse {
     comment: string | null;
@@ -121,9 +112,9 @@ export interface SystemCommentResponse {
  * @param apiKey        - The API key associated with the commander.
  * @param systemName    - The system name for which to set a comment.
  * @param comment       - The comment to set. Empty string to remove.
- * @param options       - Additional option.
+ * @param options       - Additional options.
  */
-export async function setSystemComment(commanderName: string, apiKey: string, systemName: string, comment: string, options?: SystemCommentOptions):
+export async function setSystemComment(commanderName: string, apiKey: string, systemName: string, comment: string, options?: SystemIdRequestOptions):
         Promise<SystemCommentResponse> {
     return await request("api-logs-v1/set-comment", { commanderName, apiKey, systemName, comment, ...options }) as SystemCommentResponse;
 }
@@ -134,14 +125,14 @@ export async function setSystemComment(commanderName: string, apiKey: string, sy
  * @param commanderName - The name of the commander as registered on EDSM.
  * @param apiKey        - The API key associated with the commander.
  * @param systemName    - The system name for which to return the comment.
- * @param options       - Additional option.
+ * @param options       - Additional options.
  */
-export async function getSystemComment(commanderName: string, apiKey: string, systemName: string, options?: SystemCommentOptions):
+export async function getSystemComment(commanderName: string, apiKey: string, systemName: string, options?: SystemIdRequestOptions):
         Promise<SystemCommentResponse> {
     return await request("api-logs-v1/get-comment", { commanderName, apiKey, systemName, ...options }) as SystemCommentResponse;
 }
 
-/** Result type of [[getComments]]. */
+/** Response of a {@link getSystemComments} request. */
 export interface SystemCommentsResponse {
     comments: Array<{
         system: string;
@@ -151,7 +142,7 @@ export interface SystemCommentsResponse {
     }>;
 }
 
-/** Options for [[getComments]]. */
+/** Options for {@link getSystemComments} request. */
 export interface SystemCommentsOptions {
     /**
      * If you only want to receive comments updated after a specific date & time, use this parameter.
