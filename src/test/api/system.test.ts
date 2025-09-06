@@ -3,7 +3,7 @@ import "@kayahr/vitest-matchers";
 import type { ValidateFunction } from "ajv";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
-import { getSystemBodies, getSystemEstimatedValue, getSystemMarket, getSystemShipyard, getSystemStations } from "../../main/api/system.js";
+import { getSystemBodies, getSystemEstimatedValue, getSystemMarket, getSystemOutfitting, getSystemShipyard, getSystemStations } from "../../main/api/system.js";
 import { ServerException } from "../../main/index.js";
 import { NotFoundException } from "../../main/util.js";
 import { createValidator, testJSON } from "../util.js";
@@ -192,6 +192,32 @@ describe("commander", () => {
         it("throws error when station name not found", async () => {
             await expect(getSystemShipyard("Shinrarta Dezhra", "Jameson")).rejects
                 .toThrowWithMessage(NotFoundException, "Shipyard for 'Jameson' in 'Shinrarta Dezhra' not found");
+        });
+    });
+
+    describe("getSystemOutfitting", () => {
+        let validator: ValidateFunction;
+        beforeAll(async () => {
+            validator = await createValidator("system-outfitting");
+        });
+        it("returns market data for station referenced by name", async () => {
+            const result = await getSystemOutfitting("Shinrarta Dezhra", "Jameson Memorial");
+            testJSON(validator, result);
+            expect(result.sName === "Jameson Memorial");
+            expect(result.outfitting.length > 0);
+        });
+        it("returns market data for station referenced by id", async () => {
+            const result = await getSystemOutfitting(128666762);
+            testJSON(validator, result);
+            expect(result.sName === "Jameson Memorial");
+            expect(result.outfitting.length > 0);
+        });
+        it("throws error when market id not found", async () => {
+            await expect(getSystemOutfitting(1234567890)).rejects.toThrowWithMessage(NotFoundException, "Market not found: 1234567890");
+        });
+        it("throws error when station name not found", async () => {
+            await expect(getSystemOutfitting("Shinrarta Dezhra", "Jameson")).rejects
+                .toThrowWithMessage(NotFoundException, "Station 'Jameson' in 'Shinrarta Dezhra' not found");
         });
     });
 });

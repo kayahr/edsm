@@ -35,6 +35,7 @@
         "build:schema:system-stations": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t SystemStations -o lib/system-stations.schema.json",
         "build:schema:system-market": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t SystemMarket -o lib/system-market.schema.json",
         "build:schema:system-shipyard": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t SystemShipyard -o lib/system-shipyard.schema.json",
+        "build:schema:system-outfitting": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t SystemOutfitting -o lib/system-outfitting.schema.json",
         "build:schema:elite-server-status": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t EliteServerStatus -o lib/elite-server-status.schema.json",
         "build:schema:flight-logs": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t FlightLogs -o lib/flight-logs.schema.json",
         "build:schema:commander-position": "ts-json-schema-generator --no-type-check -e all -f tsconfig.json -t CommanderPosition -o lib/commander-position.schema.json",

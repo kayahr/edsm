@@ -8643,3 +8643,3995 @@ export const jamesonMemorialShipyard = {
         }
     ]
 };
+
+export const jamesonMemorialOutfitting = {
+    id: 4345,
+    id64: 3932277478106,
+    name: "Shinrarta Dezhra",
+    marketId: 128666762,
+    sId: 65,
+    sName: "Jameson Memorial",
+    url: "https://www.edsm.net/en/system/stations/id/4345/name/Shinrarta+Dezhra/details/facility/outfitting/idS/65/nameS/Jameson+Memorial",
+    outfitting: [
+        {
+            id: "adder_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "adder_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "adder_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "adder_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "adder_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "anaconda_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "anaconda_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "anaconda_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "anaconda_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "anaconda_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "asp_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "asp_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "asp_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "asp_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "asp_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "asp_scout_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "asp_scout_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "asp_scout_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "asp_scout_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "asp_scout_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "belugaliner_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "belugaliner_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "belugaliner_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "belugaliner_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "belugaliner_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "cobramkiii_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "cobramkiii_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "cobramkiii_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "cobramkiii_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "cobramkiii_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "cobramkiv_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "cobramkiv_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "cobramkiv_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "cobramkiv_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "cobramkiv_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "cobramkv_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "cobramkv_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "cobramkv_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "cobramkv_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "cobramkv_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "corsair_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "corsair_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "corsair_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "corsair_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "corsair_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "cutter_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "cutter_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "cutter_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "cutter_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "cutter_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "diamondback_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "diamondback_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "diamondback_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "diamondback_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "diamondback_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "diamondbackxl_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "diamondbackxl_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "diamondbackxl_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "diamondbackxl_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "diamondbackxl_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "dolphin_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "dolphin_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "dolphin_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "dolphin_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "dolphin_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "eagle_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "eagle_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "eagle_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "eagle_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "eagle_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "empire_courier_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "empire_courier_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "empire_courier_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "empire_courier_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "empire_courier_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "empire_eagle_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "empire_eagle_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "empire_eagle_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "empire_eagle_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "empire_eagle_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "empire_trader_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "empire_trader_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "empire_trader_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "empire_trader_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "empire_trader_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "federation_corvette_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "federation_corvette_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "federation_corvette_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "federation_corvette_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "federation_corvette_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "federation_dropship_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "federation_dropship_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "federation_dropship_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "federation_dropship_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "federation_dropship_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "federation_dropship_mkii_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "federation_dropship_mkii_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "federation_dropship_mkii_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "federation_dropship_mkii_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "federation_dropship_mkii_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "federation_gunship_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "federation_gunship_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "federation_gunship_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "federation_gunship_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "federation_gunship_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "ferdelance_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "ferdelance_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "ferdelance_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "ferdelance_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "ferdelance_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "hauler_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "hauler_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "hauler_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "hauler_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "hauler_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "hpt_advancedtorppylon_fixed_large",
+            name: "3I Torpedo Pylon (Seeker, Fixed)"
+        },
+        {
+            id: "hpt_advancedtorppylon_fixed_medium",
+            name: "2I Torpedo Pylon (Seeker, Fixed)"
+        },
+        {
+            id: "hpt_advancedtorppylon_fixed_small",
+            name: "1I Torpedo Pylon (Seeker, Fixed)"
+        },
+        {
+            id: "hpt_antiunknownshutdown_tiny",
+            name: "0F Shutdown Field Neutraliser"
+        },
+        {
+            id: "hpt_antiunknownshutdown_tiny_v2",
+            name: "0E Thargoid Pulse Neutraliser"
+        },
+        {
+            id: "hpt_atdumbfiremissile_fixed_large",
+            name: "3A AX Missile Rack (Dumpfire, Fixed)"
+        },
+        {
+            id: "hpt_atdumbfiremissile_fixed_medium",
+            name: "2B AX Missile Rack (Dumpfire, Fixed)"
+        },
+        {
+            id: "hpt_atdumbfiremissile_turret_large",
+            name: "3A AX Missile Rack (Dumpfire, Turret)"
+        },
+        {
+            id: "hpt_atdumbfiremissile_turret_medium",
+            name: "2B AX Missile Rack (Dumpfire, Turret)"
+        },
+        {
+            id: "hpt_atmulticannon_fixed_large",
+            name: "3C AX Multi-Cannon (Fixed)"
+        },
+        {
+            id: "hpt_atmulticannon_fixed_large_v2",
+            name: "3B Enhanced AX Multi-Cannon (Fixed)"
+        },
+        {
+            id: "hpt_atmulticannon_fixed_medium",
+            name: "2E AX Multi-Cannon (Fixed)"
+        },
+        {
+            id: "hpt_atmulticannon_fixed_medium_v2",
+            name: "2D Enhanced AX Multi-Cannon (Fixed)"
+        },
+        {
+            id: "hpt_atmulticannon_gimbal_large",
+            name: "3C Enhanced AX Multi-Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_atmulticannon_gimbal_medium",
+            name: "2E Enhanced AX Multi-Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_atmulticannon_turret_large",
+            name: "3E AX Multi-Cannon (Turret)"
+        },
+        {
+            id: "hpt_atmulticannon_turret_large_v2",
+            name: "3D Enhanced AX Multi-Cannon (Turret)"
+        },
+        {
+            id: "hpt_atmulticannon_turret_medium",
+            name: "2F AX Multi-Cannon (Turret)"
+        },
+        {
+            id: "hpt_atmulticannon_turret_medium_v2",
+            name: "2E Enhanced AX Multi-Cannon (Turret)"
+        },
+        {
+            id: "hpt_atventdisruptorpylon_fixed_large",
+            name: "3I Guardian Nanite Torpedo Pylon"
+        },
+        {
+            id: "hpt_atventdisruptorpylon_fixed_medium",
+            name: "2I Guardian Nanite Torpedo Pylon"
+        },
+        {
+            id: "hpt_basicmissilerack_fixed_large",
+            name: "3A Missile Rack (Seeker, Fixed)"
+        },
+        {
+            id: "hpt_basicmissilerack_fixed_medium",
+            name: "2B Missile Rack (Seeker, Fixed)"
+        },
+        {
+            id: "hpt_basicmissilerack_fixed_small",
+            name: "1B Missile Rack (Seeker, Fixed)"
+        },
+        {
+            id: "hpt_beamlaser_fixed_huge",
+            name: "4A Beam Laser (Fixed)"
+        },
+        {
+            id: "hpt_beamlaser_fixed_large",
+            name: "3C Beam Laser (Fixed)"
+        },
+        {
+            id: "hpt_beamlaser_fixed_medium",
+            name: "2D Beam Laser (Fixed)"
+        },
+        {
+            id: "hpt_beamlaser_fixed_small",
+            name: "1E Beam Laser (Fixed)"
+        },
+        {
+            id: "hpt_beamlaser_gimbal_huge",
+            name: "4A Beam Laser (Gimbal)"
+        },
+        {
+            id: "hpt_beamlaser_gimbal_large",
+            name: "3C Beam Laser (Gimbal)"
+        },
+        {
+            id: "hpt_beamlaser_gimbal_medium",
+            name: "2D Beam Laser (Gimbal)"
+        },
+        {
+            id: "hpt_beamlaser_gimbal_small",
+            name: "1E Beam Laser (Gimbal)"
+        },
+        {
+            id: "hpt_beamlaser_turret_large",
+            name: "3D Beam Laser (Turret)"
+        },
+        {
+            id: "hpt_beamlaser_turret_medium",
+            name: "2E Beam Laser (Turret)"
+        },
+        {
+            id: "hpt_beamlaser_turret_small",
+            name: "1F Beam Laser (Turret)"
+        },
+        {
+            id: "hpt_cannon_fixed_huge",
+            name: "4B Cannon (Fixed)"
+        },
+        {
+            id: "hpt_cannon_fixed_large",
+            name: "3C Cannon (Fixed)"
+        },
+        {
+            id: "hpt_cannon_fixed_medium",
+            name: "2D Cannon (Fixed)"
+        },
+        {
+            id: "hpt_cannon_fixed_small",
+            name: "1D Cannon (Fixed)"
+        },
+        {
+            id: "hpt_cannon_gimbal_huge",
+            name: "4B Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_cannon_gimbal_large",
+            name: "3C Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_cannon_gimbal_medium",
+            name: "2D Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_cannon_gimbal_small",
+            name: "1E Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_cannon_turret_large",
+            name: "3D Cannon (Turret)"
+        },
+        {
+            id: "hpt_cannon_turret_medium",
+            name: "2E Cannon (Turret)"
+        },
+        {
+            id: "hpt_cannon_turret_small",
+            name: "1F Cannon (Turret)"
+        },
+        {
+            id: "hpt_cargoscanner_size0_class1",
+            name: "0E Cargo Scanner"
+        },
+        {
+            id: "hpt_cargoscanner_size0_class2",
+            name: "0D Cargo Scanner"
+        },
+        {
+            id: "hpt_cargoscanner_size0_class3",
+            name: "0C Cargo Scanner"
+        },
+        {
+            id: "hpt_cargoscanner_size0_class4",
+            name: "0B Cargo Scanner"
+        },
+        {
+            id: "hpt_cargoscanner_size0_class5",
+            name: "0A Cargo Scanner"
+        },
+        {
+            id: "hpt_chafflauncher_tiny",
+            name: "0I Chaff Launcher"
+        },
+        {
+            id: "hpt_cloudscanner_size0_class1",
+            name: "0E Frame Shift Wake Scanner"
+        },
+        {
+            id: "hpt_cloudscanner_size0_class2",
+            name: "0D Frame Shift Wake Scanner"
+        },
+        {
+            id: "hpt_cloudscanner_size0_class3",
+            name: "0C Frame Shift Wake Scanner"
+        },
+        {
+            id: "hpt_cloudscanner_size0_class4",
+            name: "0B Frame Shift Wake Scanner"
+        },
+        {
+            id: "hpt_cloudscanner_size0_class5",
+            name: "0A Frame Shift Wake Scanner"
+        },
+        {
+            id: "hpt_crimescanner_size0_class1",
+            name: "0E Kill Warrant Scanner"
+        },
+        {
+            id: "hpt_crimescanner_size0_class2",
+            name: "0D Kill Warrant Scanner"
+        },
+        {
+            id: "hpt_crimescanner_size0_class3",
+            name: "0C Kill Warrant Scanner"
+        },
+        {
+            id: "hpt_crimescanner_size0_class4",
+            name: "0B Kill Warrant Scanner"
+        },
+        {
+            id: "hpt_crimescanner_size0_class5",
+            name: "0A Kill Warrant Scanner"
+        },
+        {
+            id: "hpt_dumbfiremissilerack_fixed_large",
+            name: "3A Missile Rack (Dumpfire, Fixed)"
+        },
+        {
+            id: "hpt_dumbfiremissilerack_fixed_medium",
+            name: "2B Missile Rack (Dumpfire, Fixed)"
+        },
+        {
+            id: "hpt_dumbfiremissilerack_fixed_medium_advanced",
+            name: "2B ADV Missile Rack"
+        },
+        {
+            id: "hpt_dumbfiremissilerack_fixed_small",
+            name: "1B Missile Rack (Dumbfire, Fixed)"
+        },
+        {
+            id: "hpt_dumbfiremissilerack_fixed_small_advanced",
+            name: "1B ADV Missile Rack"
+        },
+        {
+            id: "hpt_electroniccountermeasure_tiny",
+            name: "0F Electronic Countermeasure"
+        },
+        {
+            id: "hpt_flakmortar_fixed_medium",
+            name: "2B Remote Release Flak Launcher (Fixed)"
+        },
+        {
+            id: "hpt_flakmortar_turret_medium",
+            name: "2B Remote Release Flak Launcher (Turret)"
+        },
+        {
+            id: "hpt_heatsinklauncher_turret_tiny",
+            name: "0I Heat Sink Launcher"
+        },
+        {
+            id: "hpt_minelauncher_fixed_medium",
+            name: "2I Mine Launcher (Fixed)"
+        },
+        {
+            id: "hpt_minelauncher_fixed_small",
+            name: "1I Mine Launcher (Fixed)"
+        },
+        {
+            id: "hpt_minelauncher_fixed_small_impulse",
+            name: "1I Shock Mine Launcher (Fixed)"
+        },
+        {
+            id: "hpt_mining_abrblstr_fixed_small",
+            name: "1D Abrasion Blaster (Fixed)"
+        },
+        {
+            id: "hpt_mining_abrblstr_turret_small",
+            name: "1D Abrasion Blaster (Turret)"
+        },
+        {
+            id: "hpt_mining_seismchrgwarhd_fixed_medium",
+            name: "2B Seismic Charge (Fixed)"
+        },
+        {
+            id: "hpt_mining_seismchrgwarhd_turret_medium",
+            name: "2B Seismic Charge (Turret)"
+        },
+        {
+            id: "hpt_mining_subsurfdispmisle_fixed_medium",
+            name: "2B Sub-Surface Displacement Missile (Fixed)"
+        },
+        {
+            id: "hpt_mining_subsurfdispmisle_fixed_small",
+            name: "1B Sub-Surface Displacement Missile (Fixed)"
+        },
+        {
+            id: "hpt_mining_subsurfdispmisle_turret_medium",
+            name: "2B Sub-Surface Displacement Missile (Turret)"
+        },
+        {
+            id: "hpt_mining_subsurfdispmisle_turret_small",
+            name: "1B Sub-Surface Displacement Missile (Turret)"
+        },
+        {
+            id: "hpt_mininglaser_fixed_medium",
+            name: "2D Mining Laser (Fixed)"
+        },
+        {
+            id: "hpt_mininglaser_fixed_small",
+            name: "1D Mining Laser (Fixed)"
+        },
+        {
+            id: "hpt_mininglaser_turret_medium",
+            name: "2D Mining Laser (Turret)"
+        },
+        {
+            id: "hpt_mininglaser_turret_small",
+            name: "1D Mining Laser (Turret)"
+        },
+        {
+            id: "hpt_mrascanner_size0_class1",
+            name: "0E Pulse Wave Analyser"
+        },
+        {
+            id: "hpt_mrascanner_size0_class2",
+            name: "0D Pulse Wave Analyser"
+        },
+        {
+            id: "hpt_mrascanner_size0_class3",
+            name: "0C Pulse Wave Analyser"
+        },
+        {
+            id: "hpt_mrascanner_size0_class4",
+            name: "0B Pulse Wave Analyser"
+        },
+        {
+            id: "hpt_mrascanner_size0_class5",
+            name: "0A Pulse Wave Analyser"
+        },
+        {
+            id: "hpt_multicannon_fixed_huge",
+            name: "4A Multi-Cannon (Fixed)"
+        },
+        {
+            id: "hpt_multicannon_fixed_large",
+            name: "3C Multi-Cannon (Fixed)"
+        },
+        {
+            id: "hpt_multicannon_fixed_medium",
+            name: "2E Multi-Cannon (Fixed)"
+        },
+        {
+            id: "hpt_multicannon_fixed_medium_advanced",
+            name: "2E Advanced Multi-cannon (Fixed)"
+        },
+        {
+            id: "hpt_multicannon_fixed_small",
+            name: "1F Multi-Cannon (Fixed)"
+        },
+        {
+            id: "hpt_multicannon_fixed_small_advanced",
+            name: "1F Advanced Multi-cannon (Fixed)"
+        },
+        {
+            id: "hpt_multicannon_gimbal_huge",
+            name: "4A Multi-Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_multicannon_gimbal_large",
+            name: "3C Multi-Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_multicannon_gimbal_medium",
+            name: "2F Multi-Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_multicannon_gimbal_small",
+            name: "1G Multi-Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_multicannon_turret_large",
+            name: "3E Multi-Cannon (Turret)"
+        },
+        {
+            id: "hpt_multicannon_turret_medium",
+            name: "2F Multi-Cannon (Turret)"
+        },
+        {
+            id: "hpt_multicannon_turret_small",
+            name: "1G Multi-Cannon (Turret)"
+        },
+        {
+            id: "hpt_plasmaaccelerator_fixed_huge",
+            name: "4A Plasma Accelerator (Fixed)"
+        },
+        {
+            id: "hpt_plasmaaccelerator_fixed_large",
+            name: "3B Plasma Accelerator (Fixed)"
+        },
+        {
+            id: "hpt_plasmaaccelerator_fixed_medium",
+            name: "2C Plasma Accelerator (Fixed)"
+        },
+        {
+            id: "hpt_plasmapointdefence_turret_tiny",
+            name: "0I Point Defence"
+        },
+        {
+            id: "hpt_pulselaser_fixed_huge",
+            name: "4A Pulse Laser (Fixed)"
+        },
+        {
+            id: "hpt_pulselaser_fixed_large",
+            name: "3D Pulse Laser (Fixed)"
+        },
+        {
+            id: "hpt_pulselaser_fixed_medium",
+            name: "2E Pulse Laser (Fixed)"
+        },
+        {
+            id: "hpt_pulselaser_fixed_small",
+            name: "1F Pulse Laser (Fixed)"
+        },
+        {
+            id: "hpt_pulselaser_gimbal_huge",
+            name: "4A Pulse Laser (Gimbal)"
+        },
+        {
+            id: "hpt_pulselaser_gimbal_large",
+            name: "3E Pulse Laser (Gimbal)"
+        },
+        {
+            id: "hpt_pulselaser_gimbal_medium",
+            name: "2F Pulse Laser (Gimbal)"
+        },
+        {
+            id: "hpt_pulselaser_gimbal_small",
+            name: "1G Pulse Laser (Gimbal)"
+        },
+        {
+            id: "hpt_pulselaser_turret_large",
+            name: "3F Pulse Laser (Turret)"
+        },
+        {
+            id: "hpt_pulselaser_turret_medium",
+            name: "2F Pulse Laser (Turret)"
+        },
+        {
+            id: "hpt_pulselaser_turret_small",
+            name: "1G Pulse Laser (Turret)"
+        },
+        {
+            id: "hpt_pulselaserburst_fixed_huge",
+            name: "4E Burst Laser (Fixed)"
+        },
+        {
+            id: "hpt_pulselaserburst_fixed_large",
+            name: "3D Burst Laser (Fixed)"
+        },
+        {
+            id: "hpt_pulselaserburst_fixed_medium",
+            name: "2E Burst Laser (Fixed)"
+        },
+        {
+            id: "hpt_pulselaserburst_fixed_small",
+            name: "1F Burst Laser (Fixed)"
+        },
+        {
+            id: "hpt_pulselaserburst_gimbal_huge",
+            name: "4E Burst Laser (Gimbal)"
+        },
+        {
+            id: "hpt_pulselaserburst_gimbal_large",
+            name: "3E Burst Laser (Gimbal)"
+        },
+        {
+            id: "hpt_pulselaserburst_gimbal_medium",
+            name: "2F Burst Laser (Gimbal)"
+        },
+        {
+            id: "hpt_pulselaserburst_gimbal_small",
+            name: "1G Burst Laser (Gimbal)"
+        },
+        {
+            id: "hpt_pulselaserburst_turret_large",
+            name: "3E Burst Laser (Turret)"
+        },
+        {
+            id: "hpt_pulselaserburst_turret_medium",
+            name: "2F Burst Laser (Turret)"
+        },
+        {
+            id: "hpt_pulselaserburst_turret_small",
+            name: "1G Burst Laser (Turret)"
+        },
+        {
+            id: "hpt_railgun_fixed_medium",
+            name: "2B Rail Gun (Fixed)"
+        },
+        {
+            id: "hpt_railgun_fixed_small",
+            name: "1D Rail Gun (Fixed)"
+        },
+        {
+            id: "hpt_shieldbooster_size0_class1",
+            name: "0E Shield Booster"
+        },
+        {
+            id: "hpt_shieldbooster_size0_class2",
+            name: "0D Shield Booster"
+        },
+        {
+            id: "hpt_shieldbooster_size0_class3",
+            name: "0C Shield Booster"
+        },
+        {
+            id: "hpt_shieldbooster_size0_class4",
+            name: "0B Shield Booster"
+        },
+        {
+            id: "hpt_shieldbooster_size0_class5",
+            name: "0A Shield Booster"
+        },
+        {
+            id: "hpt_slugshot_fixed_large",
+            name: "3C Fragment Cannon (Fixed)"
+        },
+        {
+            id: "hpt_slugshot_fixed_medium",
+            name: "2A Fragment Cannon (Fixed)"
+        },
+        {
+            id: "hpt_slugshot_fixed_small",
+            name: "1E Fragment Cannon (Fixed)"
+        },
+        {
+            id: "hpt_slugshot_gimbal_large",
+            name: "3C Fragment Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_slugshot_gimbal_medium",
+            name: "2D Fragment Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_slugshot_gimbal_small",
+            name: "1E Fragment Cannon (Gimbal)"
+        },
+        {
+            id: "hpt_slugshot_turret_large",
+            name: "3C Fragment Cannon (Turret)"
+        },
+        {
+            id: "hpt_slugshot_turret_medium",
+            name: "2D Fragment Cannon (Turret)"
+        },
+        {
+            id: "hpt_slugshot_turret_small",
+            name: "1E Fragment Cannon (Turret)"
+        },
+        {
+            id: "hpt_xenoscanner_advanced_tiny",
+            name: "0C Pulse Wave Xeno Scanner"
+        },
+        {
+            id: "hpt_xenoscanner_basic_tiny",
+            name: "0E Xeno Scanner"
+        },
+        {
+            id: "hpt_xenoscannermk2_basic_tiny",
+            name: "0C Enhanced Xeno Scanner"
+        },
+        {
+            id: "independant_trader_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "independant_trader_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "independant_trader_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "independant_trader_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "independant_trader_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "int_buggybay_size2_class1",
+            name: "2H Planetary Vehicle Hangar"
+        },
+        {
+            id: "int_buggybay_size2_class2",
+            name: "2G Planetary Vehicle Hangar"
+        },
+        {
+            id: "int_buggybay_size4_class1",
+            name: "4H Planetary Vehicle Hangar"
+        },
+        {
+            id: "int_buggybay_size4_class2",
+            name: "4G Planetary Vehicle Hangar"
+        },
+        {
+            id: "int_buggybay_size6_class1",
+            name: "6H Planetary Vehicle Hangar"
+        },
+        {
+            id: "int_buggybay_size6_class2",
+            name: "6G Planetary Vehicle Hangar"
+        },
+        {
+            id: "int_cargorack_size1_class1",
+            name: "1E Cargo Rack"
+        },
+        {
+            id: "int_cargorack_size2_class1",
+            name: "2E Cargo Rack"
+        },
+        {
+            id: "int_cargorack_size3_class1",
+            name: "3E Cargo Rack"
+        },
+        {
+            id: "int_cargorack_size4_class1",
+            name: "4E Cargo Rack"
+        },
+        {
+            id: "int_cargorack_size5_class1",
+            name: "5E Cargo Rack"
+        },
+        {
+            id: "int_cargorack_size6_class1",
+            name: "6E Cargo Rack"
+        },
+        {
+            id: "int_cargorack_size7_class1",
+            name: "7E Cargo Rack"
+        },
+        {
+            id: "int_cargorack_size8_class1",
+            name: "8E Cargo Rack"
+        },
+        {
+            id: "int_detailedsurfacescanner_tiny",
+            name: "1C Detailed Surface Scanner"
+        },
+        {
+            id: "int_dockingcomputer_advanced",
+            name: "1E Advanced Docking Computer"
+        },
+        {
+            id: "int_dockingcomputer_standard",
+            name: "1E Standard Docking Computer"
+        },
+        {
+            id: "int_dronecontrol_collection_size1_class1",
+            name: "1E Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size1_class2",
+            name: "1D Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size1_class3",
+            name: "1C Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size1_class4",
+            name: "1B Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size1_class5",
+            name: "1A Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size3_class1",
+            name: "3E Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size3_class2",
+            name: "3D Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size3_class3",
+            name: "3C Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size3_class4",
+            name: "3B Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size3_class5",
+            name: "3A Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size5_class1",
+            name: "5E Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size5_class2",
+            name: "5D Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size5_class3",
+            name: "5C Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size5_class4",
+            name: "5B Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size5_class5",
+            name: "5A Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size7_class1",
+            name: "7E Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size7_class2",
+            name: "7D Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size7_class3",
+            name: "7C Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size7_class4",
+            name: "7B Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_collection_size7_class5",
+            name: "7A Collector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_decontamination_size1_class1",
+            name: "1E Decontamination Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_decontamination_size3_class1",
+            name: "3E Decontamination Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_decontamination_size5_class1",
+            name: "5E Decontamination Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_decontamination_size7_class1",
+            name: "7E Decontamination Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size1_class1",
+            name: "1E Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size1_class2",
+            name: "1D Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size1_class3",
+            name: "1C Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size1_class4",
+            name: "1B Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size1_class5",
+            name: "1A Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size3_class1",
+            name: "3E Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size3_class2",
+            name: "3D Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size3_class3",
+            name: "3C Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size3_class4",
+            name: "3B Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size3_class5",
+            name: "3A Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size5_class1",
+            name: "5E Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size5_class2",
+            name: "5D Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size5_class3",
+            name: "5C Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size5_class4",
+            name: "5B Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size5_class5",
+            name: "5A Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size7_class1",
+            name: "7E Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size7_class2",
+            name: "7D Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size7_class3",
+            name: "7C Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size7_class4",
+            name: "7B Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_fueltransfer_size7_class5",
+            name: "7A Fuel Transfer Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size1_class1",
+            name: "1E Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size1_class2",
+            name: "1D Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size1_class3",
+            name: "1C Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size1_class4",
+            name: "1B Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size1_class5",
+            name: "1A Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size3_class1",
+            name: "3E Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size3_class2",
+            name: "3D Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size3_class3",
+            name: "3C Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size3_class4",
+            name: "3B Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size3_class5",
+            name: "3A Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size5_class1",
+            name: "5E Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size5_class2",
+            name: "5D Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size5_class3",
+            name: "5C Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size5_class4",
+            name: "5B Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size5_class5",
+            name: "5A Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size7_class1",
+            name: "7E Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size7_class2",
+            name: "7D Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size7_class3",
+            name: "7C Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size7_class4",
+            name: "7B Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_prospector_size7_class5",
+            name: "7A Prospector Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_recon_size1_class1",
+            name: "1E Recon Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_recon_size3_class1",
+            name: "3E Recon Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_recon_size5_class1",
+            name: "5E Recon Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_recon_size7_class1",
+            name: "7E Recon Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size1_class1",
+            name: "1E Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size1_class2",
+            name: "1D Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size1_class3",
+            name: "1C Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size1_class4",
+            name: "1B Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size1_class5",
+            name: "1A Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size3_class1",
+            name: "3E Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size3_class2",
+            name: "3D Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size3_class3",
+            name: "3C Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size3_class4",
+            name: "3B Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size3_class5",
+            name: "3A Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size5_class1",
+            name: "5E Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size5_class2",
+            name: "5D Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size5_class3",
+            name: "5C Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size5_class4",
+            name: "5B Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size5_class5",
+            name: "5A Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size7_class1",
+            name: "7E Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size7_class2",
+            name: "7D Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size7_class3",
+            name: "7C Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size7_class4",
+            name: "7B Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_repair_size7_class5",
+            name: "7A Repair Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size1_class1",
+            name: "1E Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size1_class2",
+            name: "1D Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size1_class3",
+            name: "1C Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size1_class4",
+            name: "1B Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size1_class5",
+            name: "1A Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size3_class1",
+            name: "3E Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size3_class2",
+            name: "3D Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size3_class3",
+            name: "3C Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size3_class4",
+            name: "3B Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size3_class5",
+            name: "3A Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size5_class1",
+            name: "5E Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size5_class2",
+            name: "5D Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size5_class3",
+            name: "5C Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size5_class4",
+            name: "5B Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size5_class5",
+            name: "5A Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size7_class1",
+            name: "7E Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size7_class2",
+            name: "7D Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size7_class3",
+            name: "7C Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size7_class4",
+            name: "7B Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_resourcesiphon_size7_class5",
+            name: "7A Hatch Breaker Limpet Controller"
+        },
+        {
+            id: "int_dronecontrol_unkvesselresearch",
+            name: "1E Research Limpet Controller"
+        },
+        {
+            id: "int_engine_size2_class1",
+            name: "2E Thrusters"
+        },
+        {
+            id: "int_engine_size2_class2",
+            name: "2D Thrusters"
+        },
+        {
+            id: "int_engine_size2_class3",
+            name: "2C Thrusters"
+        },
+        {
+            id: "int_engine_size2_class4",
+            name: "2B Thrusters"
+        },
+        {
+            id: "int_engine_size2_class5",
+            name: "2A Thrusters"
+        },
+        {
+            id: "int_engine_size3_class1",
+            name: "3E Thrusters"
+        },
+        {
+            id: "int_engine_size3_class2",
+            name: "3D Thrusters"
+        },
+        {
+            id: "int_engine_size3_class3",
+            name: "3C Thrusters"
+        },
+        {
+            id: "int_engine_size3_class4",
+            name: "3B Thrusters"
+        },
+        {
+            id: "int_engine_size3_class5",
+            name: "3A Thrusters"
+        },
+        {
+            id: "int_engine_size4_class1",
+            name: "4E Thrusters"
+        },
+        {
+            id: "int_engine_size4_class2",
+            name: "4D Thrusters"
+        },
+        {
+            id: "int_engine_size4_class3",
+            name: "4C Thrusters"
+        },
+        {
+            id: "int_engine_size4_class4",
+            name: "4B Thrusters"
+        },
+        {
+            id: "int_engine_size4_class5",
+            name: "4A Thrusters"
+        },
+        {
+            id: "int_engine_size5_class1",
+            name: "5E Thrusters"
+        },
+        {
+            id: "int_engine_size5_class2",
+            name: "5D Thrusters"
+        },
+        {
+            id: "int_engine_size5_class3",
+            name: "5C Thrusters"
+        },
+        {
+            id: "int_engine_size5_class4",
+            name: "5B Thrusters"
+        },
+        {
+            id: "int_engine_size5_class5",
+            name: "5A Thrusters"
+        },
+        {
+            id: "int_engine_size6_class1",
+            name: "6E Thrusters"
+        },
+        {
+            id: "int_engine_size6_class2",
+            name: "6D Thrusters"
+        },
+        {
+            id: "int_engine_size6_class3",
+            name: "6C Thrusters"
+        },
+        {
+            id: "int_engine_size6_class4",
+            name: "6B Thrusters"
+        },
+        {
+            id: "int_engine_size6_class5",
+            name: "6A Thrusters"
+        },
+        {
+            id: "int_engine_size7_class1",
+            name: "7E Thrusters"
+        },
+        {
+            id: "int_engine_size7_class2",
+            name: "7D Thrusters"
+        },
+        {
+            id: "int_engine_size7_class3",
+            name: "7C Thrusters"
+        },
+        {
+            id: "int_engine_size7_class4",
+            name: "7B Thrusters"
+        },
+        {
+            id: "int_engine_size7_class5",
+            name: "7A Thrusters"
+        },
+        {
+            id: "int_engine_size8_class1",
+            name: "8E Thrusters"
+        },
+        {
+            id: "int_engine_size8_class2",
+            name: "8D Thrusters"
+        },
+        {
+            id: "int_engine_size8_class3",
+            name: "8C Thrusters"
+        },
+        {
+            id: "int_engine_size8_class4",
+            name: "8B Thrusters"
+        },
+        {
+            id: "int_engine_size8_class5",
+            name: "8A Thrusters"
+        },
+        {
+            id: "int_expmodulestabiliser_size3_class3",
+            name: "3F Experimental Weapon Stabiliser"
+        },
+        {
+            id: "int_expmodulestabiliser_size5_class3",
+            name: "5F Experimental Weapon Stabiliser"
+        },
+        {
+            id: "int_fighterbay_size5_class1",
+            name: "5D Fighter Hangar"
+        },
+        {
+            id: "int_fighterbay_size6_class1",
+            name: "6D Fighter Hangar"
+        },
+        {
+            id: "int_fighterbay_size7_class1",
+            name: "7D Fighter Hangar"
+        },
+        {
+            id: "int_fsdinterdictor_size1_class1",
+            name: "1E Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size1_class2",
+            name: "1D Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size1_class3",
+            name: "1C Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size1_class4",
+            name: "1B Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size1_class5",
+            name: "1A Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size2_class1",
+            name: "2E Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size2_class2",
+            name: "2D Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size2_class3",
+            name: "2C Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size2_class4",
+            name: "2B Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size2_class5",
+            name: "2A Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size3_class1",
+            name: "3E Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size3_class2",
+            name: "3D Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size3_class3",
+            name: "3C Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size3_class4",
+            name: "3B Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size3_class5",
+            name: "3A Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size4_class1",
+            name: "4E Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size4_class2",
+            name: "4D Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size4_class3",
+            name: "4C Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size4_class4",
+            name: "4B Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fsdinterdictor_size4_class5",
+            name: "4A Frame Shift Drive Interdictor"
+        },
+        {
+            id: "int_fuelscoop_size1_class1",
+            name: "1E Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size1_class2",
+            name: "1D Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size1_class3",
+            name: "1C Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size1_class4",
+            name: "1B Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size1_class5",
+            name: "1A Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size2_class1",
+            name: "2E Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size2_class2",
+            name: "2D Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size2_class3",
+            name: "2C Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size2_class4",
+            name: "2B Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size2_class5",
+            name: "2A Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size3_class1",
+            name: "3E Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size3_class2",
+            name: "3D Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size3_class3",
+            name: "3C Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size3_class4",
+            name: "3B Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size3_class5",
+            name: "3A Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size4_class1",
+            name: "4E Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size4_class2",
+            name: "4D Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size4_class3",
+            name: "4C Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size4_class4",
+            name: "4B Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size4_class5",
+            name: "4A Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size5_class1",
+            name: "5E Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size5_class2",
+            name: "5D Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size5_class3",
+            name: "5C Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size5_class4",
+            name: "5B Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size5_class5",
+            name: "5A Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size6_class1",
+            name: "6E Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size6_class2",
+            name: "6D Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size6_class3",
+            name: "6C Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size6_class4",
+            name: "6B Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size6_class5",
+            name: "6A Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size7_class1",
+            name: "7E Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size7_class2",
+            name: "7D Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size7_class3",
+            name: "7C Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size7_class4",
+            name: "7B Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size7_class5",
+            name: "7A Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size8_class1",
+            name: "8E Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size8_class2",
+            name: "8D Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size8_class3",
+            name: "8C Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size8_class4",
+            name: "8B Fuel Scoop"
+        },
+        {
+            id: "int_fuelscoop_size8_class5",
+            name: "8A Fuel Scoop"
+        },
+        {
+            id: "int_fueltank_size1_class3",
+            name: "1C Fuel Tank"
+        },
+        {
+            id: "int_fueltank_size2_class3",
+            name: "2C Fuel Tank"
+        },
+        {
+            id: "int_fueltank_size3_class3",
+            name: "3C Fuel Tank"
+        },
+        {
+            id: "int_fueltank_size4_class3",
+            name: "4C Fuel Tank"
+        },
+        {
+            id: "int_fueltank_size5_class3",
+            name: "5C Fuel Tank"
+        },
+        {
+            id: "int_fueltank_size6_class3",
+            name: "6C Fuel Tank"
+        },
+        {
+            id: "int_fueltank_size7_class3",
+            name: "7C Fuel Tank"
+        },
+        {
+            id: "int_fueltank_size8_class3",
+            name: "8C Fuel Tank"
+        },
+        {
+            id: "int_hullreinforcement_size1_class1",
+            name: "1E Hull Reinforcement Package"
+        },
+        {
+            id: "int_hullreinforcement_size1_class2",
+            name: "1D Hull Reinforcement Package"
+        },
+        {
+            id: "int_hullreinforcement_size2_class1",
+            name: "2E Hull Reinforcement Package"
+        },
+        {
+            id: "int_hullreinforcement_size2_class2",
+            name: "2D Hull Reinforcement Package"
+        },
+        {
+            id: "int_hullreinforcement_size3_class1",
+            name: "3E Hull Reinforcement Package"
+        },
+        {
+            id: "int_hullreinforcement_size3_class2",
+            name: "3D Hull Reinforcement Package"
+        },
+        {
+            id: "int_hullreinforcement_size4_class1",
+            name: "4E Hull Reinforcement Package"
+        },
+        {
+            id: "int_hullreinforcement_size4_class2",
+            name: "4D Hull Reinforcement Package"
+        },
+        {
+            id: "int_hullreinforcement_size5_class1",
+            name: "5E Hull Reinforcement Package"
+        },
+        {
+            id: "int_hullreinforcement_size5_class2",
+            name: "5D Hull Reinforcement Package"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size2_class3",
+            name: "2C Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size2_class5",
+            name: "2A 3925"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size3_class2",
+            name: "3D Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size3_class3",
+            name: "3C Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size3_class5",
+            name: "3A Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size4_class2",
+            name: "4D Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size4_class3",
+            name: "4C Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size4_class5",
+            name: "4A Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size5_class2",
+            name: "5D Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size5_class3",
+            name: "5C Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size5_class4",
+            name: "5B Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size5_class5",
+            name: "5A Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size6_class2",
+            name: "6D Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size6_class3",
+            name: "6C Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size6_class4",
+            name: "6B Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size6_class5",
+            name: "6A Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size7_class2",
+            name: "7D Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size7_class3",
+            name: "7C Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_overcharge_size7_class5",
+            name: "7A Frame Shift Drive (SCO)"
+        },
+        {
+            id: "int_hyperdrive_size2_class1",
+            name: "2E Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size2_class2",
+            name: "2D Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size2_class3",
+            name: "2C Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size2_class4",
+            name: "2B Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size2_class5",
+            name: "2A Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size3_class1",
+            name: "3E Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size3_class2",
+            name: "3D Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size3_class3",
+            name: "3C Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size3_class4",
+            name: "3B Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size3_class5",
+            name: "3A Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size4_class1",
+            name: "4E Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size4_class2",
+            name: "4D Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size4_class3",
+            name: "4C Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size4_class4",
+            name: "4B Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size4_class5",
+            name: "4A Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size5_class1",
+            name: "5E Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size5_class2",
+            name: "5D Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size5_class3",
+            name: "5C Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size5_class4",
+            name: "5B Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size5_class5",
+            name: "5A Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size6_class1",
+            name: "6E Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size6_class2",
+            name: "6D Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size6_class3",
+            name: "6C Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size6_class4",
+            name: "6B Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size6_class5",
+            name: "6A Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size7_class1",
+            name: "7E Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size7_class2",
+            name: "7D Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size7_class3",
+            name: "7C Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size7_class4",
+            name: "7B Frame Shift Drive"
+        },
+        {
+            id: "int_hyperdrive_size7_class5",
+            name: "7A Frame Shift Drive"
+        },
+        {
+            id: "int_lifesupport_size1_class1",
+            name: "1E Life Support"
+        },
+        {
+            id: "int_lifesupport_size1_class2",
+            name: "1D Life Support"
+        },
+        {
+            id: "int_lifesupport_size1_class3",
+            name: "1C Life Support"
+        },
+        {
+            id: "int_lifesupport_size1_class4",
+            name: "1B Life Support"
+        },
+        {
+            id: "int_lifesupport_size1_class5",
+            name: "1A Life Support"
+        },
+        {
+            id: "int_lifesupport_size2_class1",
+            name: "2E Life Support"
+        },
+        {
+            id: "int_lifesupport_size2_class2",
+            name: "2D Life Support"
+        },
+        {
+            id: "int_lifesupport_size2_class3",
+            name: "2C Life Support"
+        },
+        {
+            id: "int_lifesupport_size2_class4",
+            name: "2B Life Support"
+        },
+        {
+            id: "int_lifesupport_size2_class5",
+            name: "2A Life Support"
+        },
+        {
+            id: "int_lifesupport_size3_class1",
+            name: "3E Life Support"
+        },
+        {
+            id: "int_lifesupport_size3_class2",
+            name: "3D Life Support"
+        },
+        {
+            id: "int_lifesupport_size3_class3",
+            name: "3C Life Support"
+        },
+        {
+            id: "int_lifesupport_size3_class4",
+            name: "3B Life Support"
+        },
+        {
+            id: "int_lifesupport_size3_class5",
+            name: "3A Life Support"
+        },
+        {
+            id: "int_lifesupport_size4_class1",
+            name: "4E Life Support"
+        },
+        {
+            id: "int_lifesupport_size4_class2",
+            name: "4D Life Support"
+        },
+        {
+            id: "int_lifesupport_size4_class3",
+            name: "4C Life Support"
+        },
+        {
+            id: "int_lifesupport_size4_class4",
+            name: "4B Life Support"
+        },
+        {
+            id: "int_lifesupport_size4_class5",
+            name: "4A Life Support"
+        },
+        {
+            id: "int_lifesupport_size5_class1",
+            name: "5E Life Support"
+        },
+        {
+            id: "int_lifesupport_size5_class2",
+            name: "5D Life Support"
+        },
+        {
+            id: "int_lifesupport_size5_class3",
+            name: "5C Life Support"
+        },
+        {
+            id: "int_lifesupport_size5_class4",
+            name: "5B Life Support"
+        },
+        {
+            id: "int_lifesupport_size5_class5",
+            name: "5A Life Support"
+        },
+        {
+            id: "int_lifesupport_size6_class1",
+            name: "6E Life Support"
+        },
+        {
+            id: "int_lifesupport_size6_class2",
+            name: "6D Life Support"
+        },
+        {
+            id: "int_lifesupport_size6_class3",
+            name: "6C Life Support"
+        },
+        {
+            id: "int_lifesupport_size6_class4",
+            name: "6B Life Support"
+        },
+        {
+            id: "int_lifesupport_size6_class5",
+            name: "6A Life Support"
+        },
+        {
+            id: "int_lifesupport_size7_class1",
+            name: "7E Life Support"
+        },
+        {
+            id: "int_lifesupport_size7_class2",
+            name: "7D Life Support"
+        },
+        {
+            id: "int_lifesupport_size7_class3",
+            name: "7C Life Support"
+        },
+        {
+            id: "int_lifesupport_size7_class4",
+            name: "7B Life Support"
+        },
+        {
+            id: "int_lifesupport_size7_class5",
+            name: "7A Life Support"
+        },
+        {
+            id: "int_lifesupport_size8_class1",
+            name: "8E Life Support"
+        },
+        {
+            id: "int_lifesupport_size8_class2",
+            name: "8D Life Support"
+        },
+        {
+            id: "int_lifesupport_size8_class3",
+            name: "8C Life Support"
+        },
+        {
+            id: "int_lifesupport_size8_class4",
+            name: "8B Life Support"
+        },
+        {
+            id: "int_lifesupport_size8_class5",
+            name: "8A Life Support"
+        },
+        {
+            id: "int_modulereinforcement_size1_class1",
+            name: "1E Module Reinforcement Package"
+        },
+        {
+            id: "int_modulereinforcement_size1_class2",
+            name: "1D Module Reinforcement Package"
+        },
+        {
+            id: "int_modulereinforcement_size2_class1",
+            name: "2E Module Reinforcement Package"
+        },
+        {
+            id: "int_modulereinforcement_size2_class2",
+            name: "2D Module Reinforcement Package"
+        },
+        {
+            id: "int_modulereinforcement_size3_class1",
+            name: "3E Module Reinforcement Package"
+        },
+        {
+            id: "int_modulereinforcement_size3_class2",
+            name: "3D Module Reinforcement Package"
+        },
+        {
+            id: "int_modulereinforcement_size4_class1",
+            name: "4E Module Reinforcement Package"
+        },
+        {
+            id: "int_modulereinforcement_size4_class2",
+            name: "4D Module Reinforcement Package"
+        },
+        {
+            id: "int_modulereinforcement_size5_class1",
+            name: "5E Module Reinforcement Package"
+        },
+        {
+            id: "int_modulereinforcement_size5_class2",
+            name: "5D Module Reinforcement Package"
+        },
+        {
+            id: "int_multidronecontrol_mining_size3_class1",
+            name: "3E Mining Multi Limpet Controller"
+        },
+        {
+            id: "int_multidronecontrol_mining_size3_class3",
+            name: "3C Mining Multi Limpet Controller"
+        },
+        {
+            id: "int_multidronecontrol_operations_size3_class3",
+            name: "3C Operations Multi Limpet Controller"
+        },
+        {
+            id: "int_multidronecontrol_operations_size3_class4",
+            name: "3B Operations Multi Limpet Controller"
+        },
+        {
+            id: "int_multidronecontrol_rescue_size3_class2",
+            name: "3D Rescue Multi Limpet Controller"
+        },
+        {
+            id: "int_multidronecontrol_rescue_size3_class3",
+            name: "3C Rescue Multi Limpet Controller"
+        },
+        {
+            id: "int_multidronecontrol_universal_size7_class3",
+            name: "7C Universal Multi Limpet Controller"
+        },
+        {
+            id: "int_multidronecontrol_universal_size7_class5",
+            name: "7A Universal Multi Limpet Controller"
+        },
+        {
+            id: "int_multidronecontrol_xeno_size3_class3",
+            name: "3C Xeno Multi Limpet Controller"
+        },
+        {
+            id: "int_multidronecontrol_xeno_size3_class4",
+            name: "3B Xeno Multi Limpet Controller"
+        },
+        {
+            id: "int_passengercabin_size2_class1",
+            name: "2E Economy Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size3_class1",
+            name: "3E Economy Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size3_class2",
+            name: "3D Business Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size4_class1",
+            name: "4E Economy Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size4_class2",
+            name: "4D Business Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size4_class3",
+            name: "4C First Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size5_class1",
+            name: "5E Economy Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size5_class2",
+            name: "5D Business Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size5_class3",
+            name: "5C First Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size5_class4",
+            name: "5B Luxury Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size6_class1",
+            name: "6E Economy Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size6_class2",
+            name: "6D Business Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size6_class3",
+            name: "6C First Class Passenger Cabin"
+        },
+        {
+            id: "int_passengercabin_size6_class4",
+            name: "6B Luxury Passenger Cabin"
+        },
+        {
+            id: "int_powerdistributor_size1_class1",
+            name: "1E Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size1_class2",
+            name: "1D Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size1_class3",
+            name: "1C Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size1_class4",
+            name: "1B Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size1_class5",
+            name: "1A Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size2_class1",
+            name: "2E Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size2_class2",
+            name: "2D Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size2_class3",
+            name: "2C Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size2_class4",
+            name: "2B Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size2_class5",
+            name: "2A Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size3_class1",
+            name: "3E Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size3_class2",
+            name: "3D Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size3_class3",
+            name: "3C Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size3_class4",
+            name: "3B Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size3_class5",
+            name: "3A Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size4_class1",
+            name: "4E Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size4_class2",
+            name: "4D Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size4_class3",
+            name: "4C Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size4_class4",
+            name: "4B Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size4_class5",
+            name: "4A Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size5_class1",
+            name: "5E Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size5_class2",
+            name: "5D Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size5_class3",
+            name: "5C Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size5_class4",
+            name: "5B Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size5_class5",
+            name: "5A Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size6_class1",
+            name: "6E Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size6_class2",
+            name: "6D Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size6_class3",
+            name: "6C Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size6_class4",
+            name: "6B Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size6_class5",
+            name: "6A Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size7_class1",
+            name: "7E Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size7_class2",
+            name: "7D Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size7_class3",
+            name: "7C Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size7_class4",
+            name: "7B Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size7_class5",
+            name: "7A Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size8_class1",
+            name: "8E Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size8_class2",
+            name: "8D Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size8_class3",
+            name: "8C Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size8_class4",
+            name: "8B Power Distributor"
+        },
+        {
+            id: "int_powerdistributor_size8_class5",
+            name: "8A Power Distributor"
+        },
+        {
+            id: "int_powerplant_size2_class1",
+            name: "2E Power Plant"
+        },
+        {
+            id: "int_powerplant_size2_class2",
+            name: "2D Power Plant"
+        },
+        {
+            id: "int_powerplant_size2_class3",
+            name: "2C Power Plant"
+        },
+        {
+            id: "int_powerplant_size2_class4",
+            name: "2B Power Plant"
+        },
+        {
+            id: "int_powerplant_size2_class5",
+            name: "2A Power Plant"
+        },
+        {
+            id: "int_powerplant_size3_class1",
+            name: "3E Power Plant"
+        },
+        {
+            id: "int_powerplant_size3_class2",
+            name: "3D Power Plant"
+        },
+        {
+            id: "int_powerplant_size3_class3",
+            name: "3C Power Plant"
+        },
+        {
+            id: "int_powerplant_size3_class4",
+            name: "3B Power Plant"
+        },
+        {
+            id: "int_powerplant_size3_class5",
+            name: "3A Power Plant"
+        },
+        {
+            id: "int_powerplant_size4_class1",
+            name: "4E Power Plant"
+        },
+        {
+            id: "int_powerplant_size4_class2",
+            name: "4D Power Plant"
+        },
+        {
+            id: "int_powerplant_size4_class3",
+            name: "4C Power Plant"
+        },
+        {
+            id: "int_powerplant_size4_class4",
+            name: "4B Power Plant"
+        },
+        {
+            id: "int_powerplant_size4_class5",
+            name: "4A Power Plant"
+        },
+        {
+            id: "int_powerplant_size5_class1",
+            name: "5E Power Plant"
+        },
+        {
+            id: "int_powerplant_size5_class2",
+            name: "5D Power Plant"
+        },
+        {
+            id: "int_powerplant_size5_class3",
+            name: "5C Power Plant"
+        },
+        {
+            id: "int_powerplant_size5_class4",
+            name: "5B Power Plant"
+        },
+        {
+            id: "int_powerplant_size5_class5",
+            name: "5A Power Plant"
+        },
+        {
+            id: "int_powerplant_size6_class1",
+            name: "6E Power Plant"
+        },
+        {
+            id: "int_powerplant_size6_class2",
+            name: "6D Power Plant"
+        },
+        {
+            id: "int_powerplant_size6_class3",
+            name: "6C Power Plant"
+        },
+        {
+            id: "int_powerplant_size6_class4",
+            name: "6B Power Plant"
+        },
+        {
+            id: "int_powerplant_size6_class5",
+            name: "6A Power Plant"
+        },
+        {
+            id: "int_powerplant_size7_class1",
+            name: "7E Power Plant"
+        },
+        {
+            id: "int_powerplant_size7_class2",
+            name: "7D Power Plant"
+        },
+        {
+            id: "int_powerplant_size7_class3",
+            name: "7C Power Plant"
+        },
+        {
+            id: "int_powerplant_size7_class4",
+            name: "7B Power Plant"
+        },
+        {
+            id: "int_powerplant_size7_class5",
+            name: "7A Power Plant"
+        },
+        {
+            id: "int_powerplant_size8_class1",
+            name: "8E Power Plant"
+        },
+        {
+            id: "int_powerplant_size8_class2",
+            name: "8D Power Plant"
+        },
+        {
+            id: "int_powerplant_size8_class3",
+            name: "8C Power Plant"
+        },
+        {
+            id: "int_powerplant_size8_class4",
+            name: "8B Power Plant"
+        },
+        {
+            id: "int_powerplant_size8_class5",
+            name: "8A Power Plant"
+        },
+        {
+            id: "int_refinery_size1_class1",
+            name: "1E Refinery"
+        },
+        {
+            id: "int_refinery_size1_class2",
+            name: "1D Refinery"
+        },
+        {
+            id: "int_refinery_size1_class3",
+            name: "1C Refinery"
+        },
+        {
+            id: "int_refinery_size1_class4",
+            name: "1B Refinery"
+        },
+        {
+            id: "int_refinery_size1_class5",
+            name: "1A Refinery"
+        },
+        {
+            id: "int_refinery_size2_class1",
+            name: "2E Refinery"
+        },
+        {
+            id: "int_refinery_size2_class2",
+            name: "2D Refinery"
+        },
+        {
+            id: "int_refinery_size2_class3",
+            name: "2C Refinery"
+        },
+        {
+            id: "int_refinery_size2_class4",
+            name: "2B Refinery"
+        },
+        {
+            id: "int_refinery_size2_class5",
+            name: "2A Refinery"
+        },
+        {
+            id: "int_refinery_size3_class1",
+            name: "3E Refinery"
+        },
+        {
+            id: "int_refinery_size3_class2",
+            name: "3D Refinery"
+        },
+        {
+            id: "int_refinery_size3_class3",
+            name: "3C Refinery"
+        },
+        {
+            id: "int_refinery_size3_class4",
+            name: "3B Refinery"
+        },
+        {
+            id: "int_refinery_size3_class5",
+            name: "3A Refinery"
+        },
+        {
+            id: "int_refinery_size4_class1",
+            name: "4E Refinery"
+        },
+        {
+            id: "int_refinery_size4_class2",
+            name: "4D Refinery"
+        },
+        {
+            id: "int_refinery_size4_class3",
+            name: "4C Refinery"
+        },
+        {
+            id: "int_refinery_size4_class4",
+            name: "4B Refinery"
+        },
+        {
+            id: "int_refinery_size4_class5",
+            name: "4A Refinery"
+        },
+        {
+            id: "int_repairer_size1_class1",
+            name: "1E Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size1_class2",
+            name: "1D Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size1_class3",
+            name: "1C Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size1_class4",
+            name: "1B Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size1_class5",
+            name: "1A Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size2_class1",
+            name: "2E Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size2_class2",
+            name: "2D Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size2_class3",
+            name: "2C Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size2_class4",
+            name: "2B Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size2_class5",
+            name: "2A Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size3_class1",
+            name: "3E Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size3_class2",
+            name: "3D Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size3_class3",
+            name: "3C Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size3_class4",
+            name: "3B Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size3_class5",
+            name: "3A Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size4_class1",
+            name: "4E Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size4_class2",
+            name: "4D Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size4_class3",
+            name: "4C Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size4_class4",
+            name: "4B Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size4_class5",
+            name: "4A Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size5_class1",
+            name: "5E Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size5_class2",
+            name: "5D Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size5_class3",
+            name: "5C Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size5_class4",
+            name: "5B Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size5_class5",
+            name: "5A Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size6_class1",
+            name: "6E Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size6_class2",
+            name: "6D Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size6_class3",
+            name: "6C Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size6_class4",
+            name: "6B Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size6_class5",
+            name: "6A Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size7_class1",
+            name: "7E Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size7_class2",
+            name: "7D Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size7_class3",
+            name: "7C Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size7_class4",
+            name: "7B Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size7_class5",
+            name: "7A Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size8_class1",
+            name: "8E Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size8_class2",
+            name: "8D Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size8_class3",
+            name: "8C Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size8_class4",
+            name: "8B Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_repairer_size8_class5",
+            name: "8A Auto Field-Maintenance Unit"
+        },
+        {
+            id: "int_sensors_size1_class1",
+            name: "1E Sensors"
+        },
+        {
+            id: "int_sensors_size1_class2",
+            name: "1D Sensors"
+        },
+        {
+            id: "int_sensors_size1_class3",
+            name: "1C Sensors"
+        },
+        {
+            id: "int_sensors_size1_class4",
+            name: "1B Sensors"
+        },
+        {
+            id: "int_sensors_size1_class5",
+            name: "1A Sensors"
+        },
+        {
+            id: "int_sensors_size2_class1",
+            name: "2E Sensors"
+        },
+        {
+            id: "int_sensors_size2_class2",
+            name: "2D Sensors"
+        },
+        {
+            id: "int_sensors_size2_class3",
+            name: "2C Sensors"
+        },
+        {
+            id: "int_sensors_size2_class4",
+            name: "2B Sensors"
+        },
+        {
+            id: "int_sensors_size2_class5",
+            name: "2A Sensors"
+        },
+        {
+            id: "int_sensors_size3_class1",
+            name: "3E Sensors"
+        },
+        {
+            id: "int_sensors_size3_class2",
+            name: "3D Sensors"
+        },
+        {
+            id: "int_sensors_size3_class3",
+            name: "3C Sensors"
+        },
+        {
+            id: "int_sensors_size3_class4",
+            name: "3B Sensors"
+        },
+        {
+            id: "int_sensors_size3_class5",
+            name: "3A Sensors"
+        },
+        {
+            id: "int_sensors_size4_class1",
+            name: "4E Sensors"
+        },
+        {
+            id: "int_sensors_size4_class2",
+            name: "4D Sensors"
+        },
+        {
+            id: "int_sensors_size4_class3",
+            name: "4C Sensors"
+        },
+        {
+            id: "int_sensors_size4_class4",
+            name: "4B Sensors"
+        },
+        {
+            id: "int_sensors_size4_class5",
+            name: "4A Sensors"
+        },
+        {
+            id: "int_sensors_size5_class1",
+            name: "5E Sensors"
+        },
+        {
+            id: "int_sensors_size5_class2",
+            name: "5D Sensors"
+        },
+        {
+            id: "int_sensors_size5_class3",
+            name: "5C Sensors"
+        },
+        {
+            id: "int_sensors_size5_class4",
+            name: "5B Sensors"
+        },
+        {
+            id: "int_sensors_size5_class5",
+            name: "5A Sensors"
+        },
+        {
+            id: "int_sensors_size6_class1",
+            name: "6E Sensors"
+        },
+        {
+            id: "int_sensors_size6_class2",
+            name: "6D Sensors"
+        },
+        {
+            id: "int_sensors_size6_class3",
+            name: "6C Sensors"
+        },
+        {
+            id: "int_sensors_size6_class4",
+            name: "6B Sensors"
+        },
+        {
+            id: "int_sensors_size6_class5",
+            name: "6A Sensors"
+        },
+        {
+            id: "int_sensors_size7_class1",
+            name: "7E Sensors"
+        },
+        {
+            id: "int_sensors_size7_class2",
+            name: "7D Sensors"
+        },
+        {
+            id: "int_sensors_size7_class3",
+            name: "7C Sensors"
+        },
+        {
+            id: "int_sensors_size7_class4",
+            name: "7B Sensors"
+        },
+        {
+            id: "int_sensors_size7_class5",
+            name: "7A Sensors"
+        },
+        {
+            id: "int_sensors_size8_class1",
+            name: "8E Sensors"
+        },
+        {
+            id: "int_sensors_size8_class2",
+            name: "8D Sensors"
+        },
+        {
+            id: "int_sensors_size8_class3",
+            name: "8C Sensors"
+        },
+        {
+            id: "int_sensors_size8_class4",
+            name: "8B Sensors"
+        },
+        {
+            id: "int_sensors_size8_class5",
+            name: "8A Sensors"
+        },
+        {
+            id: "int_shieldcellbank_size1_class1",
+            name: "1E Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size1_class2",
+            name: "1D Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size1_class3",
+            name: "1C Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size1_class4",
+            name: "1B Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size1_class5",
+            name: "1A Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size2_class1",
+            name: "2E Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size2_class2",
+            name: "2D Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size2_class3",
+            name: "2C Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size2_class4",
+            name: "2B Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size2_class5",
+            name: "2A Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size3_class1",
+            name: "3E Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size3_class2",
+            name: "3D Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size3_class3",
+            name: "3C Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size3_class4",
+            name: "3B Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size3_class5",
+            name: "3A Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size4_class1",
+            name: "4E Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size4_class2",
+            name: "4D Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size4_class3",
+            name: "4C Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size4_class4",
+            name: "4B Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size4_class5",
+            name: "4A Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size5_class1",
+            name: "5E Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size5_class2",
+            name: "5D Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size5_class3",
+            name: "5C Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size5_class4",
+            name: "5B Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size5_class5",
+            name: "5A Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size6_class1",
+            name: "6E Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size6_class2",
+            name: "6D Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size6_class3",
+            name: "6C Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size6_class4",
+            name: "6B Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size6_class5",
+            name: "6A Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size7_class1",
+            name: "7E Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size7_class2",
+            name: "7D Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size7_class3",
+            name: "7C Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size7_class4",
+            name: "7B Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size7_class5",
+            name: "7A Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size8_class1",
+            name: "8E Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size8_class2",
+            name: "8D Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size8_class3",
+            name: "8C Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size8_class4",
+            name: "8B Shield Cell Bank"
+        },
+        {
+            id: "int_shieldcellbank_size8_class5",
+            name: "8A Shield Cell Bank"
+        },
+        {
+            id: "int_shieldgenerator_size1_class3_fast",
+            name: "1C Bi-Weave Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size2_class1",
+            name: "2E Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size2_class2",
+            name: "2D Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size2_class3",
+            name: "2C Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size2_class3_fast",
+            name: "2C Bi-Weave Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size2_class4",
+            name: "2B Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size2_class5",
+            name: "2A Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size3_class1",
+            name: "3E Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size3_class2",
+            name: "3D Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size3_class3",
+            name: "3C Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size3_class3_fast",
+            name: "3C Bi-Weave Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size3_class4",
+            name: "3B Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size3_class5",
+            name: "3A Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size4_class1",
+            name: "4E Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size4_class2",
+            name: "4D Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size4_class3",
+            name: "4C Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size4_class3_fast",
+            name: "4C Bi-Weave Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size4_class4",
+            name: "4B Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size4_class5",
+            name: "4A Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size5_class1",
+            name: "5E Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size5_class2",
+            name: "5D Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size5_class3",
+            name: "5C Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size5_class3_fast",
+            name: "5C Bi-Weave Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size5_class4",
+            name: "5B Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size5_class5",
+            name: "5A Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size6_class1",
+            name: "6E Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size6_class2",
+            name: "6D Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size6_class3",
+            name: "6C Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size6_class3_fast",
+            name: "6C Bi-Weave Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size6_class4",
+            name: "6B Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size6_class5",
+            name: "6A Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size7_class1",
+            name: "7E Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size7_class2",
+            name: "7D Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size7_class3",
+            name: "7C Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size7_class3_fast",
+            name: "7C Bi-Weave Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size7_class4",
+            name: "7B Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size7_class5",
+            name: "7A Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size8_class1",
+            name: "8E Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size8_class2",
+            name: "8D Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size8_class3",
+            name: "8C Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size8_class3_fast",
+            name: "8C Bi-Weave Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size8_class4",
+            name: "8B Shield Generator"
+        },
+        {
+            id: "int_shieldgenerator_size8_class5",
+            name: "8A Shield Generator"
+        },
+        {
+            id: "int_supercruiseassist",
+            name: "1E Supercruise Assist"
+        },
+        {
+            id: "krait_light_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "krait_light_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "krait_light_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "krait_light_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "krait_light_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "krait_mkii_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "krait_mkii_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "krait_mkii_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "krait_mkii_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "krait_mkii_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "mamba_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "mamba_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "mamba_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "mamba_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "mamba_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "mandalay_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "mandalay_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "mandalay_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "mandalay_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "mandalay_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "orca_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "orca_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "orca_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "orca_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "orca_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "panthermkii_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "panthermkii_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "panthermkii_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "panthermkii_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "panthermkii_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "python_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "python_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "python_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "python_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "python_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "python_nx_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "python_nx_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "python_nx_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "python_nx_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "python_nx_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "sidewinder_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "sidewinder_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "sidewinder_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "sidewinder_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "sidewinder_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "type6_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "type6_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "type6_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "type6_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "type6_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "type7_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "type7_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "type7_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "type7_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "type7_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "type8_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "type8_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "type8_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "type8_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "type8_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "type9_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "type9_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "type9_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "type9_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "type9_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "type9_military_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "type9_military_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "type9_military_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "type9_military_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "type9_military_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "typex_2_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "typex_2_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "typex_2_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "typex_2_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "typex_2_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "typex_3_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "typex_3_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "typex_3_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "typex_3_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "typex_3_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "typex_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "typex_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "typex_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "typex_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "typex_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "viper_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "viper_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "viper_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "viper_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "viper_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "viper_mkiv_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "viper_mkiv_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "viper_mkiv_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "viper_mkiv_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "viper_mkiv_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        },
+        {
+            id: "vulture_armour_grade1",
+            name: "1I Lightweight Alloy"
+        },
+        {
+            id: "vulture_armour_grade2",
+            name: "1I Reinforced Alloy"
+        },
+        {
+            id: "vulture_armour_grade3",
+            name: "1I Military Grade Composite"
+        },
+        {
+            id: "vulture_armour_mirrored",
+            name: "1I Mirrored Surface Composite"
+        },
+        {
+            id: "vulture_armour_reactive",
+            name: "1I Reactive Surface Composite"
+        }
+    ]
+};

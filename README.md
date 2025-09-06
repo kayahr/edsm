@@ -72,6 +72,7 @@ Here is a list of all available API functions linked to their API documentation:
 * [getSystemStations]
 * [getSystemMarket]
 * [getSystemShipyard]
+* [getSystemOutfitting]
 
 
 Other utility functions
@@ -138,3 +139,4 @@ JSON Schemas
 [getSystemStations]: https://kayahr.github.io/edsm/functions/getSystemStations.html
 [getSystemMarket]: https://kayahr.github.io/edsm/functions/getSystemMarket.html
 [getSystemShipyard]: https://kayahr.github.io/edsm/functions/getSystemShipyard.html
+[getSystemOutfitting]: https://kayahr.github.io/edsm/functions/getSystemOutfitting.html

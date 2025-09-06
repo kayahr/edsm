@@ -14,8 +14,8 @@ import {
 } from "../main/api/logs.js";
 import { type EliteServerStatus, type EliteServerStatusType, getEliteServerStatus } from "../main/api/status.js";
 import {
-    type BodyScanValue, getSystemBodies, getSystemEstimatedValue, getSystemMarket, getSystemShipyard, getSystemStations, type IdParameters, type SystemBodies,
-    type SystemEstimatedValue, type SystemMarket, type SystemShipyard, type SystemStations
+    type BodyScanValue, getSystemBodies, getSystemEstimatedValue, getSystemMarket, getSystemOutfitting, getSystemShipyard, getSystemStations,
+    type IdParameters, type SystemBodies, type SystemEstimatedValue, type SystemMarket, type SystemOutfitting, type SystemShipyard, type SystemStations
 } from "../main/api/system.js";
 import {
     type Asteroids, type AtmosphereComposition, type Bodies, type Body, isPlanet, isStar, type Materials, parseBodiesJSON, type Planet, type SolidComposition,
@@ -59,6 +59,7 @@ describe("index", () => {
             getSystemStations,
             getSystemMarket,
             getSystemShipyard,
+            getSystemOutfitting,
             parseBodiesJSON,
             parseCodexJSON,
             toUTCString,
@@ -91,6 +92,7 @@ describe("index", () => {
         ((): SystemStations => (({} as exports.SystemStations)))();
         ((): SystemMarket => (({} as exports.SystemMarket)))();
         ((): SystemShipyard => (({} as exports.SystemShipyard)))();
+        ((): SystemOutfitting => (({} as exports.SystemOutfitting)))();
         ((): Commodity => (({} as exports.Commodity)))();
         ((): Asteroids => (({} as exports.Asteroids)))();
         ((): AtmosphereComposition => (({} as exports.AtmosphereComposition)))();

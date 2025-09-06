@@ -4,7 +4,9 @@ import { JSONStringify } from "json-with-bigint";
 
 import { edsmBaseUrl } from "../../main/api/common.js";
 import type { CreditsPeriod, InventoryType } from "../../main/index.js";
-import { berenices1, berenices2, colonia, jamesonMemorialMarket, jamesonMemorialShipyard, shinrartaDezhraStations } from "../data/mock-data.js";
+import {
+    berenices1, berenices2, colonia, jamesonMemorialMarket, jamesonMemorialOutfitting, jamesonMemorialShipyard, shinrartaDezhraStations
+} from "../data/mock-data.js";
 
 /**
  * Mocks the EDSM server for testing API calls.
@@ -28,6 +30,7 @@ export class EDSMMock {
             this.#mockRequest("api-system-v1/estimated-value", "POST", this.#getSystemEstimatedValue);
             this.#mockRequest("api-system-v1/stations/market", "POST", this.#getSystemStationsMarket);
             this.#mockRequest("api-system-v1/stations/shipyard", "POST", this.#getSystemStationsShipyard);
+            this.#mockRequest("api-system-v1/stations/outfitting", "POST", this.#getSystemStationsOutfitting);
             this.#mockRequest("api-system-v1/stations", "POST", this.#getSystemStations);
         }
     }
@@ -459,6 +462,22 @@ export class EDSMMock {
         let result;
         if ((systemName === "Shinrarta Dezhra" && stationName === "Jameson Memorial") || (marketId == 128666762)) {
             result = jamesonMemorialShipyard;
+        } else if (marketId != null && marketId < 0) {
+            return this.#createJSONResponse(500, {});
+        } else {
+            result = null;
+        }
+        if (result == null) {
+            return this.#createJSONResponse(200, {});
+        }
+        return this.#createJSONResponse(200, result);
+    }
+
+    #getSystemStationsOutfitting(callLog: CallLog): RouteResponse {
+        const { systemName, stationName, marketId } = this.#readJSONBody<{ systemName?: string, stationName?: string, marketId?: number }>(callLog);
+        let result;
+        if ((systemName === "Shinrarta Dezhra" && stationName === "Jameson Memorial") || (marketId == 128666762)) {
+            result = jamesonMemorialOutfitting;
         } else if (marketId != null && marketId < 0) {
             return this.#createJSONResponse(500, {});
         } else {

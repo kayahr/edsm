@@ -5,7 +5,7 @@
 
 import { type SystemBody } from "../bodies.js";
 import type { Id64 } from "../common.js";
-import { type Commodity, type Ship, type SystemStation } from "../stations.js";
+import { type Commodity, type Outfitting, type Ship, type SystemStation } from "../stations.js";
 import { NotFoundException } from "../util.js";
 import { edsmBaseUrl, request } from "./common.js";
 
@@ -86,6 +86,20 @@ export interface SystemShipyard {
     sName: string;
     url: string;
     ships: Ship[];
+}
+
+/**
+ * Response structure of the EDSM system stations outfitting request.
+ */
+export interface SystemOutfitting {
+    id: number;
+    id64: Id64;
+    name: string;
+    marketId: number;
+    sId: number;
+    sName: string;
+    url: string;
+    outfitting: Outfitting[];
 }
 
 /**
@@ -223,6 +237,46 @@ export async function getSystemShipyard(marketIdOrSystemName: number | string, s
             { systemName, stationName, ...params });
         if (market == null) {
             throw new NotFoundException(`Shipyard for '${stationName}' in '${systemName}' not found`);
+        }
+        return market;
+    }
+}
+
+/**
+ * Returns information about outfitting in a station.
+ *
+ * @param marketId - The market ID.
+ * @returns The information about outfitting in given station.
+ * @throws NotFoundException - When station was not found.
+ */
+export async function getSystemOutfitting(marketId: number): Promise<SystemOutfitting>;
+
+/**
+ * Returns information about outfitting in a station.
+ *
+ * @param systemName  - The system name.
+ * @param stationName - The station name.
+ * @param params      - Optional parameters.
+ * @returns The information about outfitting in given station.
+ * @throws NotFoundException - When station was not found.
+ */
+export async function getSystemOutfitting(systemName: string, stationName: string, params?: IdParameters): Promise<SystemOutfitting>;
+
+export async function getSystemOutfitting(marketIdOrSystemName: number | string, stationName?: string, params?: IdParameters):
+        Promise<SystemOutfitting> {
+    if (stationName == null) {
+        const marketId = marketIdOrSystemName;
+        const market = await request<SystemOutfitting>("api-system-v1/stations/outfitting", { marketId });
+        if (market == null) {
+            throw new NotFoundException("Market not found: " + marketId);
+        }
+        return market;
+    } else {
+        const systemName = marketIdOrSystemName;
+        const market = await request<SystemOutfitting>("api-system-v1/stations/outfitting",
+            { systemName, stationName, ...params });
+        if (market == null) {
+            throw new NotFoundException(`Station '${stationName}' in '${systemName}' not found`);
         }
         return market;
     }
