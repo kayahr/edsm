@@ -16,7 +16,7 @@ export abstract class EDSMException extends Error {
     public constructor(message: string, options?: ErrorOptions) {
         super(message, options);
         this.name = this.constructor.name;
-        Object.setPrototypeOf(this, this.constructor.prototype as Function);
+        Object.setPrototypeOf(this, new.target.prototype);
     }
 }
 

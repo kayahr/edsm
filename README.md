@@ -114,8 +114,8 @@ JSON Schemas
 * [body.schema.json](https://kayahr.github.io/edsm/schemas/body.schema.json)
 * [codex.schema.json](https://kayahr.github.io/edsm/schemas/codex.schema.json)
 * [powerplay.schema.json](https://kayahr.github.io/edsm/schemas/powerplay.schema.json)
-* [station.schema.json](https://kayahr.github.io/edsm/schemas/.schema.json)
-* [system.schema.json](https://kayahr.github.io/edsm/schemas/.schema.json)
+* [station.schema.json](https://kayahr.github.io/edsm/schemas/station.schema.json)
+* [system.schema.json](https://kayahr.github.io/edsm/schemas/system.schema.json)
 
 ### API
 
@@ -132,7 +132,7 @@ JSON Schemas
 * [system-deaths-response.schema.json](https://kayahr.github.io/edsm/schemas/system-deaths-response.schema.json)
 * [system-estimated-value-response.schema.json](https://kayahr.github.io/edsm/schemas/system-estimated-value-response.schema.json)
 * [system-factions-response.schema.json](https://kayahr.github.io/edsm/schemas/system-factions-response.schema.json)
-* [system-response.schema.json](https://kayahr.github.io/edsm/schemas/system-response.schema.schema.json)
+* [system-response.schema.json](https://kayahr.github.io/edsm/schemas/system-response.schema.json)
 * [system-stations-response.schema.json](https://kayahr.github.io/edsm/schemas/system-stations-response.schema.json)
 * [system-traffic-response.schema.json](https://kayahr.github.io/edsm/schemas/system-traffic-response.schema.json)
 

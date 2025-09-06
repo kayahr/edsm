@@ -642,10 +642,10 @@ export class EDSMMock {
     #sendEvents(callLog: CallLog): RouteResponse {
         const { message } = this.#readJSONBody<{ message: EDSMEvent | EDSMEvent[] }>(callLog);
         const result: EventResponse = { events: [] };
-        if (!(message instanceof Array)) {
-            result.events.push({ msgnum: 100, msg: "OK" });
-        } else {
+        if (Array.isArray(message)) {
             message.forEach(m => result.events.push({ msgnum: 100, msg: "OK" }));
+        } else {
+            result.events.push({ msgnum: 100, msg: "OK" });
         }
         return this.#createJSONResponse(200, result);
     }

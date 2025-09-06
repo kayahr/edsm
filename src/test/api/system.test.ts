@@ -150,14 +150,14 @@ describe("system", () => {
         it("returns market data for station referenced by name", async () => {
             const result = await getStationMarket("Shinrarta Dezhra", "Jameson Memorial");
             testJSON(validator, result);
-            expect(result.sName === "Jameson Memorial");
-            expect(result.commodities.length > 0);
+            expect(result.sName).toBe("Jameson Memorial");
+            expect(result.commodities.length).toBeGreaterThan(0);
         });
         it("returns market data for station referenced by id", async () => {
             const result = await getStationMarket(128666762);
             testJSON(validator, result);
-            expect(result.sName === "Jameson Memorial");
-            expect(result.commodities.length > 0);
+            expect(result.sName).toBe("Jameson Memorial");
+            expect(result.commodities.length).toBeGreaterThan(0);
         });
         it("throws error when market id not found", async () => {
             await expect(getStationMarket(1234567890)).rejects.toThrowWithMessage(NotFoundException, "Market not found: 1234567890");
@@ -180,14 +180,14 @@ describe("system", () => {
         it("returns shipyard data for station referenced by name", async () => {
             const result = await getStationShipyard("Shinrarta Dezhra", "Jameson Memorial");
             testJSON(validator, result);
-            expect(result.sName === "Jameson Memorial");
-            expect(result.ships.length > 0);
+            expect(result.sName).toBe("Jameson Memorial");
+            expect(result.ships.length).toBeGreaterThan(0);
         });
         it("returns shipyard data for station referenced by id", async () => {
             const result = await getStationShipyard(128666762);
             testJSON(validator, result);
-            expect(result.sName === "Jameson Memorial");
-            expect(result.ships.length > 0);
+            expect(result.sName).toBe("Jameson Memorial");
+            expect(result.ships.length).toBeGreaterThan(0);
         });
         it("throws error when market id not found", async () => {
             await expect(getStationShipyard(1234567890)).rejects.toThrowWithMessage(NotFoundException, "Market not found: 1234567890");
@@ -206,14 +206,14 @@ describe("system", () => {
         it("returns outfitting data for station referenced by name", async () => {
             const result = await getStationOutfitting("Shinrarta Dezhra", "Jameson Memorial");
             testJSON(validator, result);
-            expect(result.sName === "Jameson Memorial");
-            expect(result.outfitting.length > 0);
+            expect(result.sName).toBe("Jameson Memorial");
+            expect(result.outfitting.length).toBeGreaterThan(0);
         });
         it("returns outfitting data for station referenced by id", async () => {
             const result = await getStationOutfitting(128666762);
             testJSON(validator, result);
-            expect(result.sName === "Jameson Memorial");
-            expect(result.outfitting.length > 0);
+            expect(result.sName).toBe("Jameson Memorial");
+            expect(result.outfitting.length).toBeGreaterThan(0);
         });
         it("throws error when market id not found", async () => {
             await expect(getStationOutfitting(1234567890)).rejects.toThrowWithMessage(NotFoundException, "Market not found: 1234567890");

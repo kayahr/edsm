@@ -82,7 +82,7 @@ describe("systems", () => {
             });
             it("returns multiple systems around coordinate", async () => {
                 const result = await getSphereSystems({ x: 0, y: 0, z: 0 });
-                expect(result.length == 2);
+                expect(result.length).toBe(2);
                 expect(result[0].name).toBe("Shinrarta Dezhra");
                 expect(result[1].name).toBe("Sol");
                 testJSON(validator, result[0]);
@@ -90,7 +90,7 @@ describe("systems", () => {
             });
             it("returns multiple systems around specific system", async () => {
                 const result = await getSphereSystems("Sol");
-                expect(result.length == 2);
+                expect(result.length).toBe(2);
                 expect(result[0].name).toBe("Shinrarta Dezhra");
                 expect(result[1].name).toBe("Sol");
                 testJSON(validator, result[0]);
@@ -105,7 +105,7 @@ describe("systems", () => {
             });
             it("returns multiple systems around coordinate", async () => {
                 const result = await getCubeSystems({ x: 0, y: 0, z: 0 });
-                expect(result.length == 2);
+                expect(result.length).toBe(2);
                 expect(result[0].name).toBe("Shinrarta Dezhra");
                 expect(result[1].name).toBe("Sol");
                 testJSON(validator, result[0]);
@@ -113,7 +113,7 @@ describe("systems", () => {
             });
             it("returns multiple systems around specific system", async () => {
                 const result = await getCubeSystems("Sol");
-                expect(result.length == 2);
+                expect(result.length).toBe(2);
                 expect(result[0].name).toBe("Shinrarta Dezhra");
                 expect(result[1].name).toBe("Sol");
                 testJSON(validator, result[0]);

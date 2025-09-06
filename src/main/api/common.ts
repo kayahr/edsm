@@ -6,7 +6,7 @@
 import { JSONStringify } from "json-with-bigint";
 
 import type { Id64 } from "../common.js";
-import { EDSMException } from "../util.js";
+import { EDSMException, jsonReviver } from "../util.js";
 
 export const edsmBaseUrl = "https://www.edsm.net";
 
@@ -51,7 +51,7 @@ interface MessageResult {
  * @returns The JSON result. Null when result was an empty object which for EDSM means "not found".
  * @throws APIException - When request failed for some unknown reason.
  */
-export async function request<T>(url: string, params: object = {}): Promise<T | null> {
+export async function request<T>(url: string, params: Record<string, unknown> = {}): Promise<T | null> {
     const result = await fetch(`${edsmBaseUrl}/${url}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -60,7 +60,8 @@ export async function request<T>(url: string, params: object = {}): Promise<T | 
     if (result.status !== 200) {
         throw new ServerException(result.status, result.statusText);
     }
-    const json = await result.json() as (T & MessageResult);
+    const text = await result.text();
+    const json = JSON.parse(text, jsonReviver) as T & MessageResult;
     if (json.msgnum != null && json.msg != null) {
         if (json.msgnum < 100 || json.msgnum >= 200) {
             throw new APIException(json.msgnum, json.msg);

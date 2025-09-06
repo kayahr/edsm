@@ -150,8 +150,7 @@ export interface SystemsRequestOptions extends SystemRequestFlags {
  * Returns information about multiple systems.
  *
  * @param options - The request options.
- * @returns List of system information.
- * @throws NotFoundException - When system was not found.
+ * @returns List of system information. Empty if none.
  */
 export async function getSystems(options?: SystemsRequestOptions): Promise<SystemResponse[]> {
     const system = await request<SystemResponse[]>("api-v1/systems", { ...options });
@@ -173,8 +172,7 @@ export interface SphereSystemsRequestOptions extends SystemRequestFlags, SystemI
  * Returns information about multiple systems in a given sphere.
  *
  * @param options - The request options.
- * @returns List of system information in given sphere.
- * @throws NotFoundException - When system was not found.
+ * @returns List of system information in given sphere. Empty if none.
  */
 export async function getSphereSystems(systemNameOrCoords: string | Coordinates, options?: SphereSystemsRequestOptions): Promise<SystemResponse[]> {
     const center = typeof systemNameOrCoords === "string" ? { systemName: systemNameOrCoords } : systemNameOrCoords;
@@ -193,8 +191,7 @@ export interface CubeSystemsRequestOptions extends SystemRequestFlags, SystemIdR
  * Returns information about multiple systems in a given cube.
  *
  * @param options - The request options.
- * @returns List of system information in given cube.
- * @throws NotFoundException - When system was not found.
+ * @returns List of system information in given cube. Empty if none.
  */
 export async function getCubeSystems(systemNameOrCoords: string | Coordinates, options?: CubeSystemsRequestOptions): Promise<SystemResponse[]> {
     const center = typeof systemNameOrCoords === "string" ? { systemName: systemNameOrCoords } : systemNameOrCoords;
