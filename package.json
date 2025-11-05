@@ -57,7 +57,10 @@
         "test:apidoc": "typedoc --emit none",
         "test:spell": "cspell --no-progress --no-summary",
         "apidoc": "typedoc",
-        "site": "npm run apidoc && rm -rf site && copyfiles -V -u 2 'lib/apidoc/**/*' lib/site && copyfiles -V -u 1 'lib/*.schema.json' lib/site/schemas",
+        "site": "run apidoc site:*",
+        "site:clean": "rm -rf lib/site",
+        "site:apidoc": "cp -rf lib/apidoc lib/site ",
+        "site:schemas": "cp -f 'lib/*.schema.json' lib/site/schemas/",
         "prepare": "run clean build"
     },
     "devDependencies": {
