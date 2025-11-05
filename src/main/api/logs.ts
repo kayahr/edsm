@@ -3,8 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import { type Coordinates, type Id64 } from "../common.js";
-import { request, type SystemIdRequestOptions } from "./common.js";
+import type { Coordinates, Id64 } from "../common.ts";
+import { type SystemIdRequestOptions, request } from "./common.ts";
 
 export interface FlightLog {
     shipId: number | null;
@@ -50,7 +50,7 @@ export interface FlightLogFilter {
  * @returns The flight log entries.
  */
 export async function getFlightLogs(commanderName: string, apiKey: string, filter?: FlightLogFilter): Promise<FlightLogsResponse> {
-    return await request("api-logs-v1/get-logs", { commanderName, apiKey, ...filter }) as FlightLogsResponse;
+    return (await request("api-logs-v1/get-logs", { commanderName, apiKey, ...filter }))!;
 }
 
 /**
@@ -96,7 +96,7 @@ export interface CommanderPositionOptions {
  * @returns The last position.
  */
 export async function getCommanderPosition(commanderName: string, options?: CommanderPositionOptions): Promise<CommanderPositionResponse> {
-    return await request("api-logs-v1/get-position", { commanderName, ...options }) as CommanderPositionResponse;
+    return (await request("api-logs-v1/get-position", { commanderName, ...options }))!;
 }
 
 /** Response type of {@link setSystemComment} */
@@ -116,7 +116,7 @@ export interface SystemCommentResponse {
  */
 export async function setSystemComment(commanderName: string, apiKey: string, systemName: string, comment: string, options?: SystemIdRequestOptions):
         Promise<SystemCommentResponse> {
-    return await request("api-logs-v1/set-comment", { commanderName, apiKey, systemName, comment, ...options }) as SystemCommentResponse;
+    return (await request("api-logs-v1/set-comment", { commanderName, apiKey, systemName, comment, ...options }))!;
 }
 
 /**
@@ -129,7 +129,7 @@ export async function setSystemComment(commanderName: string, apiKey: string, sy
  */
 export async function getSystemComment(commanderName: string, apiKey: string, systemName: string, options?: SystemIdRequestOptions):
         Promise<SystemCommentResponse> {
-    return await request("api-logs-v1/get-comment", { commanderName, apiKey, systemName, ...options }) as SystemCommentResponse;
+    return (await request("api-logs-v1/get-comment", { commanderName, apiKey, systemName, ...options }))!;
 }
 
 /** Response of a {@link getSystemComments} request. */
@@ -162,5 +162,5 @@ export interface SystemCommentsOptions {
  * @param options       - Additional options.
  */
 export async function getSystemComments(commanderName: string, apiKey: string, options?: SystemCommentsOptions): Promise<SystemCommentsResponse> {
-    return await request("api-logs-v1/get-comments", { commanderName, apiKey, ...options }) as SystemCommentsResponse;
+    return (await request("api-logs-v1/get-comments", { commanderName, apiKey, ...options }))!;
 }

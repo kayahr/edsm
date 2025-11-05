@@ -3,8 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import type { Id64 } from "./common.js";
-import { parseJSONArray } from "./util.js";
+import type { Id64 } from "./common.ts";
+import { parseJSONArray } from "./util.ts";
 
 /**
  * EDSM data about asteroid ring/belt.
@@ -20,23 +20,16 @@ export interface Asteroids {
 /**
  * EDSM data about raw materials on a planet.
  */
-export interface Materials {
-    [ name: string ]: number;
-}
-
+export type Materials = Record<string, number>;
 /**
  * EDSM data about solid composition of a planet.
  */
-export interface SolidComposition {
-    [ name: string ]: number;
-}
+export type SolidComposition = Record<string, number>;
 
 /**
  * EDSM data about atmosphere composition of a planet.
  */
-export interface AtmosphereComposition {
-    [ name: string ]: number;
-}
+export type  AtmosphereComposition = Record<string, number>;
 
 /**
  * EDSM base body data shared by planets and stars.

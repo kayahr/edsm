@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { request } from "./common.js";
+import { request } from "./common.ts";
 
 /**
  * Commander ranks response returned by {@link getCommanderRanks} request.
@@ -89,7 +89,7 @@ export interface CommanderInventoryResponse {
  * @returns The commander ranks.
  */
 export async function getCommanderRanks(commanderName: string, apiKey?: string): Promise<CommanderRanksResponse> {
-    return await request<CommanderRanksResponse>("api-commander-v1/get-ranks", { commanderName, apiKey }) as CommanderRanksResponse;
+    return (await request<CommanderRanksResponse>("api-commander-v1/get-ranks", { commanderName, apiKey }))!;
 }
 
 /**
@@ -100,7 +100,7 @@ export async function getCommanderRanks(commanderName: string, apiKey?: string):
  * @returns The commander credits.
  */
 export async function getCommanderCredits(commanderName: string, apiKey: string, period?: CreditsPeriod): Promise<CommanderCreditsResponse> {
-    return await request("api-commander-v1/get-credits", { commanderName, apiKey, period }) as CommanderCreditsResponse;
+    return (await request("api-commander-v1/get-credits", { commanderName, apiKey, period }))!;
 }
 
 /**
@@ -112,5 +112,5 @@ export async function getCommanderCredits(commanderName: string, apiKey: string,
  * @returns The commander inventory.
  */
 export async function getCommanderInventory(commanderName: string, apiKey: string, type?: InventoryType): Promise<CommanderInventoryResponse> {
-    return await request("api-commander-v1/get-materials", { commanderName, apiKey, type }) as CommanderInventoryResponse;
+    return (await request("api-commander-v1/get-materials", { commanderName, apiKey, type }))!;
 }

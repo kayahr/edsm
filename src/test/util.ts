@@ -1,13 +1,10 @@
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 
 import { Ajv, type ValidateFunction } from "ajv";
 import { JSONStringify } from "json-with-bigint";
 
-const baseDir = join(__dirname, "../..");
-
 export async function createValidator(schemaName: string): Promise<ValidateFunction> {
-    const schemaJSON = JSON.parse(await readFile(join(baseDir, `lib/${schemaName}.schema.json`), "utf-8")) as object;
+    const schemaJSON = JSON.parse(await readFile(`lib/${schemaName}.schema.json`, "utf-8")) as object;
     return new Ajv({ allErrors: true, allowUnionTypes: true }).compile(schemaJSON);
 }
 
@@ -47,6 +44,6 @@ export function testJSON(validate: ValidateFunction, json: unknown): void {
     }
 }
 
-export function sleep(ms: number = 0): Promise<void> {
+export function sleep(ms = 0): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

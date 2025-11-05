@@ -1,20 +1,18 @@
-import type { CallLog, RouteMatcher, RouteResponse, UserRouteConfig } from "fetch-mock";
-import fetchMock from "fetch-mock";
 import { JSONParse, JSONStringify } from "json-with-bigint";
-
-import type { CreditsPeriod, InventoryType } from "../../main/api/commander.js";
-import { edsmBaseUrl } from "../../main/api/common.js";
-import type { EDSMEvent, EventResponse } from "../../main/api/journal.js";
-import type { SystemFactionsResponse } from "../../main/api/system.js";
+import fetchMock, { type CallLog, type RouteMatcher, type RouteResponse, type UserRouteConfig } from "fetch-mock";
+import type { CreditsPeriod, InventoryType } from "../../main/api/commander.ts";
+import { edsmBaseUrl } from "../../main/api/common.ts";
+import type { EDSMEvent, EventResponse } from "../../main/api/journal.ts";
+import type { SystemFactionsResponse } from "../../main/api/system.ts";
 import type {
     CubeSystemsRequestOptions, SphereSystemsRequestOptions, SystemRequestFlags, SystemRequestOptions, SystemResponse, SystemsRequestOptions
 } from "../../main/api/systems.js";
-import type { Coordinates } from "../../main/common.js";
+import type { Coordinates, Id64 } from "../../main/common.ts";
 import {
     berenices1, berenices2, colonia, jamesonMemorialMarket, jamesonMemorialOutfitting, jamesonMemorialShipyard,
     shinrartaDezhraFactions, shinrartaDezhraStations, shinrartaDezhraSystem, shinrartaDezhraTraffic,
     solSystem
-} from "../data/mock-data.js";
+} from "../data/mock-data.ts";
 
 /**
  * Mocks the EDSM server for testing API calls.
@@ -74,8 +72,8 @@ export class EDSMMock {
                         result = await result;
                     }
                     return result;
-                } catch (e) {
-                    const statusText = e instanceof Error ? e.message : String(e);
+                } catch (error) {
+                    const statusText = error instanceof Error ? error.message : String(error);
                     return ({
                         status: 500,
                         headers: {
@@ -461,7 +459,7 @@ export class EDSMMock {
     #getSystemStationsMarket(callLog: CallLog): RouteResponse {
         const { systemName, stationName, marketId } = this.#readJSONBody<{ systemName?: string, stationName?: string, marketId?: number }>(callLog);
         let result;
-        if ((systemName === "Shinrarta Dezhra" && stationName === "Jameson Memorial") || (marketId == 128666762)) {
+        if ((systemName === "Shinrarta Dezhra" && stationName === "Jameson Memorial") || (marketId === 128666762)) {
             result = jamesonMemorialMarket;
         } else if (marketId != null && marketId < 0) {
             return this.#createJSONResponse(500, {});
@@ -477,7 +475,7 @@ export class EDSMMock {
     #getSystemStationsShipyard(callLog: CallLog): RouteResponse {
         const { systemName, stationName, marketId } = this.#readJSONBody<{ systemName?: string, stationName?: string, marketId?: number }>(callLog);
         let result;
-        if ((systemName === "Shinrarta Dezhra" && stationName === "Jameson Memorial") || (marketId == 128666762)) {
+        if ((systemName === "Shinrarta Dezhra" && stationName === "Jameson Memorial") || (marketId === 128666762)) {
             result = jamesonMemorialShipyard;
         } else if (marketId != null && marketId < 0) {
             return this.#createJSONResponse(500, {});
@@ -493,7 +491,7 @@ export class EDSMMock {
     #getSystemStationsOutfitting(callLog: CallLog): RouteResponse {
         const { systemName, stationName, marketId } = this.#readJSONBody<{ systemName?: string, stationName?: string, marketId?: number }>(callLog);
         let result;
-        if ((systemName === "Shinrarta Dezhra" && stationName === "Jameson Memorial") || (marketId == 128666762)) {
+        if ((systemName === "Shinrarta Dezhra" && stationName === "Jameson Memorial") || (marketId === 128666762)) {
             result = jamesonMemorialOutfitting;
         } else if (marketId != null && marketId < 0) {
             return this.#createJSONResponse(500, {});
@@ -508,9 +506,9 @@ export class EDSMMock {
 
     #getSystemFactions(callLog: CallLog): RouteResponse {
         const { systemName, systemId64, systemId, showHistory }
-            = this.#readJSONBody<{ systemName: string, systemId64?: number, systemId?: number, showHistory?: number }>(callLog);
+            = this.#readJSONBody<{ systemName: string, systemId64?: Id64, systemId?: number, showHistory?: number }>(callLog);
         let result;
-        if (systemName === "Shinrarta Dezhra" || systemId == 4345 || systemId64 == 3932277478106) {
+        if (systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)) {
             result = shinrartaDezhraFactions;
         } else {
             result = null;
@@ -533,9 +531,9 @@ export class EDSMMock {
     }
 
     #getSystemTraffic(callLog: CallLog): RouteResponse {
-        const { systemName, systemId64, systemId } = this.#readJSONBody<{ systemName: string, systemId64?: number, systemId?: number }>(callLog);
+        const { systemName, systemId64, systemId } = this.#readJSONBody<{ systemName: string, systemId64?: Id64, systemId?: number }>(callLog);
         let result;
-        if (systemName === "Shinrarta Dezhra" || systemId == 4345 || systemId64 == 3932277478106) {
+        if (systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)) {
             result = shinrartaDezhraTraffic;
         } else {
             result = null;
@@ -547,9 +545,9 @@ export class EDSMMock {
     }
 
     #getSystemDeaths(callLog: CallLog): RouteResponse {
-        const { systemName, systemId64, systemId } = this.#readJSONBody<{ systemName: string, systemId64?: number, systemId?: number }>(callLog);
+        const { systemName, systemId64, systemId } = this.#readJSONBody<{ systemName: string, systemId64?: Id64, systemId?: number }>(callLog);
         let result;
-        if (systemName === "Shinrarta Dezhra" || systemId == 4345 || systemId64 == 3932277478106) {
+        if (systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)) {
             result = {
                 id: 4345,
                 id64: 3932277478106,
@@ -596,7 +594,7 @@ export class EDSMMock {
     #getSystem(callLog: CallLog): RouteResponse {
         const { systemName, systemId, systemId64, ...flags } = this.#readJSONBody<SystemRequestOptions & { systemName: string }>(callLog);
         let result: null | SystemResponse;
-        if (systemName === "Shinrarta Dezhra" || systemId == 4345 || systemId64 == 3932277478106) {
+        if (systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)) {
             result = shinrartaDezhraSystem;
         } else {
             result = null;

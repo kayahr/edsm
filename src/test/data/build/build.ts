@@ -1,10 +1,10 @@
 import { createReadStream } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { createInterface, type Interface } from "node:readline";
+import { type Interface, createInterface } from "node:readline";
 import { createGunzip } from "node:zlib";
 
-import { jsonReviver } from "../../../main/util.js";
+import { jsonReviver } from "../../../main/util.ts";
 
 const files = [
     "bodies7days.json.gz",
@@ -48,7 +48,7 @@ export function isUnique(value: unknown, seen: Set<string>, seenKeysSet: Map<str
         return addSignature(path, typeOf, seen);
     }
     if (value instanceof Array) {
-        path = path + "[]";
+        path += "[]";
         let result = false;
         for (const subValue of value) {
             if (isUnique(subValue, seen, seenKeysSet, optionalKeysSet, path)) {
@@ -72,7 +72,7 @@ export function isUnique(value: unknown, seen: Set<string>, seenKeysSet: Map<str
 
         for (const [ key, subValue ] of Object.entries(value)) {
             seenKeys.add(key);
-            const subPath = path + "." + key;
+            const subPath = `${path}.${key}`;
             if (isUnique(subValue, seen, seenKeysSet, optionalKeysSet, subPath)) {
                 result = true;
             }
@@ -88,7 +88,7 @@ export function isUnique(value: unknown, seen: Set<string>, seenKeysSet: Map<str
 
         return result;
     }
-    throw new Error("Unknown type: " + value);
+    throw new Error(`Unknown type: ${value}`);
 }
 
 const basedir = join(import.meta.dirname, "../../../../src/test/data/build");

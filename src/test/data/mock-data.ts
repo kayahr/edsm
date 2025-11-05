@@ -2,7 +2,7 @@ import type {
     StationMarketResponse, StationOutfittingResponse, StationShipyardResponse, SystemBodiesResponse, SystemFactionsResponse, SystemStationsResponse,
     SystemTrafficResponse
 } from "../../main/api/system.js";
-import type { SystemResponse } from "../../main/index.js";
+import type { SystemResponse } from "../../main/index.ts";
 
 export const colonia: SystemBodiesResponse = {
     id: 3384966,
@@ -88,7 +88,7 @@ export const colonia: SystemBodiesResponse = {
             terraformingState: "Not terraformable",
             orbitalPeriod: 1.2493519181481483,
             semiMajorAxis: 0.025971017411969086,
-            orbitalEccentricity: 1.0e-6,
+            orbitalEccentricity: 1e-6,
             orbitalInclination: -0.001146,
             argOfPeriapsis: 90.871507,
             rotationalPeriod: 1.2680229784722221,
@@ -2884,7 +2884,7 @@ export const berenices1: SystemBodiesResponse = {
             terraformingState: "Not terraformable",
             orbitalPeriod: 5.939108216099537,
             semiMajorAxis: 0.009428009631334278,
-            orbitalEccentricity: 1.0e-5,
+            orbitalEccentricity: 1e-5,
             orbitalInclination: -0.552709,
             argOfPeriapsis: 127.419832,
             rotationalPeriod: 5.939197949756944,

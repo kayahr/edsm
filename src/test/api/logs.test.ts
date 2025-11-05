@@ -1,23 +1,24 @@
 import type { ValidateFunction } from "ajv";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { after, before, describe, it } from "node:test";
 
-import { getCommanderPosition, getFlightLogs, getSystemComment, getSystemComments, setSystemComment } from "../../main/api/logs.js";
-import { createValidator, testJSON } from "../util.js";
-import { edsmAPIKey, edsmMock, edsmUser } from "./mock.js";
+import { getCommanderPosition, getFlightLogs, getSystemComment, getSystemComments, setSystemComment } from "../../main/api/logs.ts";
+import { createValidator, testJSON } from "../util.ts";
+import { edsmAPIKey, edsmMock, edsmUser } from "./mock.ts";
+import { assertDefined, assertSame, assertUndefined } from "@kayahr/assert";
 
 describe("logs", () => {
-    beforeAll(() => {
+    before(() => {
         edsmMock.start();
     });
 
-    afterAll(() => {
+    after(() => {
         edsmMock.stop();
     });
 
     describe("getFlightLogs", () => {
         let validator: ValidateFunction;
 
-        beforeAll(async () => {
+        before(async () => {
             validator = await createValidator("flight-logs-response");
         });
 
@@ -34,29 +35,29 @@ describe("logs", () => {
     describe("getCommanderPosition", () => {
         let validator: ValidateFunction;
 
-        beforeAll(async () => {
+        before(async () => {
             validator = await createValidator("commander-position-response");
         });
 
         it("returns last position (without ID and coords) which matches the schema", async () => {
             const result = await getCommanderPosition(edsmUser);
-            expect(result.coordinates).toBeUndefined();
-            expect(result.systemId).toBeUndefined();
-            expect(result.systemId64).toBeUndefined();
+            assertUndefined(result.coordinates);
+            assertUndefined(result.systemId);
+            assertUndefined(result.systemId64);
             testJSON(validator, result);
         });
         it("returns last position (with IDs) which matches the schema", async () => {
             const result = await getCommanderPosition(edsmUser, { apiKey: edsmAPIKey, showId: 1 });
-            expect(result.coordinates).toBeUndefined();
-            expect(result.systemId).toBeDefined();
-            expect(result.systemId64).toBeDefined();
+            assertUndefined(result.coordinates);
+            assertDefined(result.systemId);
+            assertDefined(result.systemId64);
             testJSON(validator, result);
         });
         it("returns last position (with coordinates) which matches the schema", async () => {
             const result = await getCommanderPosition(edsmUser, { apiKey: edsmAPIKey, showCoordinates: 1 });
-            expect(result.coordinates).toBeDefined();
-            expect(result.systemId).toBeUndefined();
-            expect(result.systemId64).toBeUndefined();
+            assertDefined(result.coordinates);
+            assertUndefined(result.systemId);
+            assertUndefined(result.systemId64);
             testJSON(validator, result);
         });
     });
@@ -69,23 +70,23 @@ describe("logs", () => {
 
             // Set Test comment
             const result1 = await setSystemComment(edsmUser, edsmAPIKey, system, "Test", { systemId, systemId64 });
-            expect(result1.comment).toBe("Test");
+            assertSame(result1.comment, "Test");
 
             // Get comment
             const result2 = await getSystemComment(edsmUser, edsmAPIKey, system, { systemId, systemId64 });
-            expect(result2.comment).toBe("Test");
+            assertSame(result2.comment, "Test");
 
             // Get all comments
             const allCommentsResult = await getSystemComments(edsmUser, edsmAPIKey);
-            expect(allCommentsResult.comments.some(comment => comment.system === system && comment.comment === "Test")).toBe(true);
+            assertSame(allCommentsResult.comments.some(comment => comment.system === system && comment.comment === "Test"), true);
 
             // Remove comment
             const result3 = await setSystemComment(edsmUser, edsmAPIKey, system, "");
-            expect(result3.comment).toBe(null);
+            assertSame(result3.comment, null);
 
             // Get now empty comment
             const result4 = await getSystemComment(edsmUser, edsmAPIKey, system);
-            expect(result4.comment).toBe(null);
+            assertSame(result4.comment, null);
         });
     });
 });

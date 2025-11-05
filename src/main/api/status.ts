@@ -3,7 +3,7 @@
  * See LICENSE.md for licensing information.
  */
 
-import { request } from "./common.js";
+import { request } from "./common.ts";
 
 export type EliteServerStatusType = "success" | "warning" | "danger";
 
@@ -20,5 +20,5 @@ export interface EliteServerStatusResponse {
  * @returns The elite server status.
  */
 export async function getEliteServerStatus(): Promise<EliteServerStatusResponse> {
-    return await request("api-status-v1/elite-server") as EliteServerStatusResponse;
+    return (await request("api-status-v1/elite-server"))!;
 }

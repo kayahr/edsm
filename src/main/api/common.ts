@@ -5,8 +5,8 @@
 
 import { JSONStringify } from "json-with-bigint";
 
-import type { Id64 } from "../common.js";
-import { EDSMException, jsonReviver } from "../util.js";
+import type { Id64 } from "../common.ts";
+import { EDSMException, jsonReviver } from "../util.ts";
 
 export const edsmBaseUrl = "https://www.edsm.net";
 

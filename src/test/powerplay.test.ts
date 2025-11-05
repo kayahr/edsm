@@ -1,21 +1,18 @@
-import "@kayahr/vitest-matchers";
 
 import { createReadStream } from "node:fs";
-import { join } from "node:path";
 
-import { type ValidateFunction } from "ajv";
-import { beforeAll, describe, it } from "vitest";
+import type { ValidateFunction } from "ajv";
+import { before, describe, it } from "node:test";
 
-import { parsePowerPlayJSON } from "../main/powerplay.js";
-import { createValidator, testJSON } from "./util.js";
+import { parsePowerPlayJSON } from "../main/powerplay.ts";
+import { createValidator, testJSON } from "./util.ts";
 
-const baseDir = join(__dirname, "../..");
-const powerPlayFile = join(baseDir, "src/test/data/powerPlay.json");
+const powerPlayFile = "src/test/data/powerPlay.json";
 
 describe("powerplay", () => {
     let validator: ValidateFunction;
 
-    beforeAll(async () => {
+    before(async () => {
         validator = await createValidator("powerplay");
     });
 

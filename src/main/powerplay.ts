@@ -3,8 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import { type Coordinates, type Id64 } from "./common.js";
-import { parseJSONArray } from "./util.js";
+import type { Coordinates, Id64 } from "./common.ts";
+import { parseJSONArray } from "./util.ts";
 
 /** Single EDSM power play information. */
 export interface PowerPlay {

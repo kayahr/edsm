@@ -1,51 +1,51 @@
-import "@kayahr/vitest-matchers";
 
-import { describe, expect, it } from "vitest";
+import { describe, it } from "node:test";
 
 import {
-    type CommanderCreditsResponse, type CommanderInventoryResponse, type CommanderRanksResponse, type CreditsPeriod, getCommanderCredits, getCommanderInventory,
-    getCommanderRanks, type InventoryType
-} from "../main/api/commander.js";
-import { APIException, ServerException, type SystemIdRequestOptions } from "../main/api/common.js";
-import { type EDSMEvent, type EventResponse, getDiscardEvents, sendEvents } from "../main/api/journal.js";
+    type CommanderCreditsResponse, type CommanderInventoryResponse, type CommanderRanksResponse, type CreditsPeriod, type InventoryType, getCommanderCredits,
+    getCommanderInventory, getCommanderRanks
+} from "../main/api/commander.ts";
+import { APIException, ServerException, type SystemIdRequestOptions } from "../main/api/common.ts";
+import { type EDSMEvent, type EventResponse, getDiscardEvents, sendEvents } from "../main/api/journal.ts";
 import {
-    type CommanderPositionOptions, type CommanderPositionResponse, type FlightLog, type FlightLogFilter, type FlightLogsResponse, getCommanderPosition,
-    getFlightLogs, getSystemComment, getSystemComments, setSystemComment, type SystemCommentResponse, type SystemCommentsOptions,
-    type SystemCommentsResponse
-} from "../main/api/logs.js";
-import { type EliteServerStatusResponse, type EliteServerStatusType, getEliteServerStatus } from "../main/api/status.js";
+    type CommanderPositionOptions, type CommanderPositionResponse, type FlightLog, type FlightLogFilter, type FlightLogsResponse, type SystemCommentResponse,
+    type SystemCommentsOptions, type SystemCommentsResponse, getCommanderPosition, getFlightLogs, getSystemComment, getSystemComments,
+    setSystemComment
+} from "../main/api/logs.ts";
+import { type EliteServerStatusResponse, type EliteServerStatusType, getEliteServerStatus } from "../main/api/status.ts";
 import {
-    type BodyScanValue, getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemDeaths, getSystemEstimatedValue,
-    getSystemFactions, getSystemStations, getSystemTraffic, type ShortSystemFaction, type StationMarketResponse, type StationOutfittingResponse,
-    type StationShipyardResponse, type SystemBodiesResponse, type SystemDeathsResponse, type SystemEstimatedValueResponse, type SystemFaction,
-    type SystemFactionsOptions, type SystemFactionsResponse, type SystemStationsResponse, type SystemTrafficResponse
-} from "../main/api/system.js";
+    type BodyScanValue, type ShortSystemFaction, type StationMarketResponse, type StationOutfittingResponse, type StationShipyardResponse,
+    type SystemBodiesResponse, type SystemDeathsResponse, type SystemEstimatedValueResponse, type SystemFaction, type SystemFactionsOptions,
+    type SystemFactionsResponse, type SystemStationsResponse, type SystemTrafficResponse,
+    getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemDeaths,
+    getSystemEstimatedValue, getSystemFactions, getSystemStations, getSystemTraffic
+} from "../main/api/system.ts";
 import {
-    type CubeSystemsRequestOptions, getCubeSystems, getSphereSystems, getSystem, getSystems, type SphereSystemsRequestOptions, type SystemRequestFlags,
-    type SystemRequestOptions, type SystemResponse, type SystemsRequestOptions
-} from "../main/api/systems.js";
+    type CubeSystemsRequestOptions, type SphereSystemsRequestOptions, type SystemRequestFlags, type SystemRequestOptions, type SystemResponse,
+    type SystemsRequestOptions, getCubeSystems, getSphereSystems, getSystem, getSystems
+} from "../main/api/systems.ts";
 import {
-    type Asteroids, type AtmosphereComposition, type Bodies, type Body, isPlanet, isStar, type Materials, parseBodiesJSON, type Planet, type SolidComposition,
-    type Star, type SystemBody, type SystemPlanet, type SystemStar
-} from "../main/bodies.js";
-import { type Codex, type Codices, parseCodexJSON } from "../main/codex.js";
-import { type Coordinates, type Id64, toUTCString } from "../main/common.js";
-import * as exports from "../main/index.js";
-import { parsePowerPlayJSON, type PowerPlay, type PowerPlays } from "../main/powerplay.js";
+    type Asteroids, type AtmosphereComposition, type Bodies, type Body, type Materials, type Planet, type SolidComposition, type Star, type SystemBody,
+    type SystemPlanet, type SystemStar, isPlanet, isStar, parseBodiesJSON
+} from "../main/bodies.ts";
+import { type Codex, type Codices, parseCodexJSON } from "../main/codex.ts";
+import { type Coordinates, type Id64, toUTCString } from "../main/common.ts";
+import * as exports from "../main/index.ts";
+import { type PowerPlay, type PowerPlays, parsePowerPlayJSON } from "../main/powerplay.ts";
 import {
-    type Commodity, type Outfitting, parseStationsJSON, type Ship, type Station, type StationBody, type StationControllingFaction, type Stations,
-    type StationUpdateTime, type SystemStation
-} from "../main/stations.js";
+    type Commodity, type Outfitting, type Ship, type Station, type StationBody, type StationControllingFaction, type StationUpdateTime, type Stations,
+    type SystemStation, parseStationsJSON
+} from "../main/stations.ts";
 import {
-    type ControllingFaction, type EstimatedCoordinates, type Faction, parseSystemsJSON, type State, type System, type Systems, type TrendState
-} from "../main/systems.js";
-import { IllegalStateException } from "../main/util.js";
-import { NotFoundException } from "../main/util.js";
+    type ControllingFaction, type EstimatedCoordinates, type Faction, type State, type System, type Systems, type TrendState, parseSystemsJSON
+} from "../main/systems.ts";
+import { IllegalStateException, NotFoundException } from "../main/util.ts";
+import { assertEquals } from "@kayahr/assert";
 
 describe("index", () => {
     it("exports relevant types and functions and nothing more", () => {
         // Checks if runtime includes the expected exports and nothing else
-        expect({ ...exports }).toEqual({
+        assertEquals({ ...exports }, {
             getCommanderCredits,
             getCommanderInventory,
             getCommanderRanks,

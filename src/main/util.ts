@@ -30,7 +30,7 @@ export class NotFoundException extends EDSMException {}
  * Helper function to iterate over the lines of a data stream.
  *
  * @param stream - The input stream.
- * @returns The created iterable for iterating over the lines of the stream.
+ * @yields The created iterable for iterating over the lines of the stream.
  */
 async function *parseLines(stream: AsyncIterable<Uint8Array>): AsyncIterable<string> {
     let line = "";
@@ -58,7 +58,7 @@ async function *parseLines(stream: AsyncIterable<Uint8Array>): AsyncIterable<str
  * file but wrapped in an array and with comma character suffixes.
  *
  * @param stream    - The JSON input as an async iterable.
- * @returns The created iterable for iterating over the array entries of the JSON stream.
+ * @yields The created iterable for iterating over the array entries of the JSON stream.
  */
 export async function *parseJSONArray<T>(stream: AsyncIterable<Uint8Array>): AsyncIterable<T> {
     let inData = false;
@@ -67,7 +67,7 @@ export async function *parseJSONArray<T>(stream: AsyncIterable<Uint8Array>): Asy
             if (line === "[") {
                 inData = true;
             } else {
-                throw new IllegalStateException("Expected array start but got: " + line);
+                throw new IllegalStateException(`Expected array start but got: ${line}`);
             }
         } else {
             if (line === "]") {

@@ -1,24 +1,24 @@
-import "@kayahr/vitest-matchers";
 
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { after, before, describe, it } from "node:test";
 
-import { getDiscardEvents, sendEvents } from "../../main/index.js";
-import { edsmAPIKey, edsmLiveTest, edsmMock, edsmUser } from "./mock.js";
+import { getDiscardEvents, sendEvents } from "../../main/index.ts";
+import { edsmAPIKey, edsmLiveTest, edsmMock, edsmUser } from "./mock.ts";
+import { assertGreaterThan, assertSame } from "@kayahr/assert";
 
 describe("journal", () => {
-    beforeAll(() => {
+    before(() => {
         edsmMock.start();
     });
 
-    afterAll(() => {
+    after(() => {
         edsmMock.stop();
     });
 
     describe("getDiscardEvents", () => {
         it("return event names to be discarded", async () => {
             const result = await getDiscardEvents();
-            expect(result.length).toBeGreaterThan(0);
-            expect(typeof result[0]).toBe("string");
+            assertGreaterThan(result.length, 0);
+            assertSame(typeof result[0], "string");
         });
     });
 
@@ -28,16 +28,16 @@ describe("journal", () => {
             it("sends a single event", async () => {
                 const event = { event: "FSDJump" };
                 const result = await sendEvents(edsmUser, edsmAPIKey, "@kayahr/edsm", "1.0.0", "4.2.0.2", "r318329/r0 ", event);
-                expect(result.events.length).toBe(1);
-                expect(result.events[0].msgnum).toBe(100);
+                assertSame(result.events.length, 1);
+                assertSame(result.events[0].msgnum, 100);
             });
             it("sends multiple events", async () => {
                 const event1 = { event: "FSDJump" };
                 const event2 = { event: "Location" };
                 const result = await sendEvents(edsmUser, edsmAPIKey, "@kayahr/edsm", "1.0.0", "4.2.0.2", "r318329/r0 ", [ event1, event2 ]);
-                expect(result.events.length).toBe(2);
-                expect(result.events[0].msgnum).toBe(100);
-                expect(result.events[1].msgnum).toBe(100);
+                assertSame(result.events.length, 2);
+                assertSame(result.events[0].msgnum, 100);
+                assertSame(result.events[1].msgnum, 100);
             });
         });
     }

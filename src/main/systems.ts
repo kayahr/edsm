@@ -3,10 +3,10 @@
  * See LICENSE.md for licensing information.
  */
 
-import { type SystemBody } from "./bodies.js";
-import { type Coordinates, type Id64 } from "./common.js";
-import { type SystemStation } from "./stations.js";
-import { parseJSONArray } from "./util.js";
+import type { SystemBody } from "./bodies.ts";
+import type { Coordinates, Id64 } from "./common.ts";
+import type { SystemStation } from "./stations.ts";
+import { parseJSONArray } from "./util.ts";
 
 export interface EstimatedCoordinates extends Coordinates {
     precision: number;

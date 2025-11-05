@@ -3,11 +3,11 @@
  * See LICENSE.md for licensing information.
  */
 
-import { type SystemBody } from "../bodies.js";
-import type { Id64 } from "../common.js";
-import { type Commodity, type Outfitting, type Ship, type SystemStation } from "../stations.js";
-import { NotFoundException } from "../util.js";
-import { request, type SystemIdRequestOptions } from "./common.js";
+import type { SystemBody } from "../bodies.ts";
+import type { Id64 } from "../common.ts";
+import type { Commodity, Outfitting, Ship, SystemStation } from "../stations.ts";
+import { NotFoundException } from "../util.ts";
+import { type SystemIdRequestOptions, request } from "./common.ts";
 
 export interface BodyScanValue {
     bodyId: number;
@@ -105,7 +105,7 @@ export interface StationOutfittingResponse {
 export async function getSystemBodies(systemName: string, ids?: { systemId?: number, systemId64?: Id64 }): Promise<SystemBodiesResponse> {
     const response = await request<SystemBodiesResponse>("api-system-v1/bodies", { systemName, ...ids });
     if (response == null) {
-        throw new NotFoundException("System not found: " + systemName);
+        throw new NotFoundException(`System not found: ${systemName}`);
     }
     return response;
 }
@@ -121,7 +121,7 @@ export async function getSystemBodies(systemName: string, ids?: { systemId?: num
 export async function getSystemEstimatedValue(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemEstimatedValueResponse> {
     const response = await request<SystemEstimatedValueResponse>("api-system-v1/estimated-value", { systemName, ...ids });
     if (response == null) {
-        throw new NotFoundException("System not found: " + systemName);
+        throw new NotFoundException(`System not found: ${systemName}`);
     }
     return response;
 }
@@ -137,29 +137,28 @@ export async function getSystemEstimatedValue(systemName: string, ids?: SystemId
 export async function getSystemStations(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemStationsResponse> {
     const response = await request<SystemStationsResponse>("api-system-v1/stations", { systemName, ...ids });
     if (response == null) {
-        throw new NotFoundException("System not found: " + systemName);
+        throw new NotFoundException(`System not found: ${systemName}`);
     }
     return response;
 }
 
-async function getStationDetails<T>(detail: string, marketIdOrSystemName: number | string, stationName?: string, params?: SystemIdRequestOptions):
-        Promise<T> {
+async function getStationDetails<T>(detail: string, marketIdOrSystemName: number | string, stationName?: string, params?: SystemIdRequestOptions): Promise<T> {
     const url = `api-system-v1/stations/${detail}`;
+    let data: T | null;
     if (stationName == null) {
         const marketId = marketIdOrSystemName;
-        const data = await request<T>(url, { marketId });
+        data = await request<T>(url, { marketId });
         if (data == null) {
-            throw new NotFoundException("Market not found: " + marketId);
+            throw new NotFoundException(`Market not found: ${marketId}`);
         }
-        return data;
     } else {
         const systemName = marketIdOrSystemName;
-        const data = await request<T>(url, { systemName, stationName, ...params });
+        data = await request<T>(url, { systemName, stationName, ...params });
         if (data == null) {
             throw new NotFoundException(`Station '${stationName}' in '${systemName}' not found`);
         }
-        return data;
     }
+    return data;
 }
 
 /**
@@ -289,7 +288,7 @@ export interface SystemFactionsResponse {
 export async function getSystemFactions(systemName: string, options?: SystemFactionsOptions): Promise<SystemFactionsResponse> {
     const response = await request<SystemFactionsResponse>("api-system-v1/factions", { systemName, ...options });
     if (response == null) {
-        throw new NotFoundException("System not found: " + systemName);
+        throw new NotFoundException(`System not found: ${systemName}`);
     }
     return response;
 }
@@ -325,7 +324,7 @@ export interface SystemTrafficResponse {
 export async function getSystemTraffic(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemTrafficResponse> {
     const response = await request<SystemTrafficResponse>("api-system-v1/traffic", { systemName, ...ids });
     if (response == null) {
-        throw new NotFoundException("System not found: " + systemName);
+        throw new NotFoundException(`System not found: ${systemName}`);
     }
     return response;
 }
@@ -356,7 +355,7 @@ export interface SystemDeathsResponse {
 export async function getSystemDeaths(systemName: string, ids?: SystemIdRequestOptions): Promise<SystemDeathsResponse> {
     const response = await request<SystemDeathsResponse>("api-system-v1/deaths", { systemName, ...ids });
     if (response == null) {
-        throw new NotFoundException("System not found: " + systemName);
+        throw new NotFoundException(`System not found: ${systemName}`);
     }
     return response;
 }

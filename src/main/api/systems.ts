@@ -3,9 +3,9 @@
  * See LICENSE.md for licensing information.
  */
 
-import type { Coordinates, Id64 } from "../common.js";
-import { NotFoundException } from "../util.js";
-import { request, type SystemIdRequestOptions } from "./common.js";
+import type { Coordinates, Id64 } from "../common.ts";
+import { NotFoundException } from "../util.ts";
+import { type SystemIdRequestOptions, request } from "./common.ts";
 
 /**
  * Response of a {@link getSystem} request.
@@ -113,7 +113,7 @@ export interface SystemRequestOptions extends SystemIdRequestOptions, SystemRequ
 export async function getSystem(systemName: string, options?: SystemRequestOptions): Promise<SystemResponse> {
     const system = await request<SystemResponse>("api-v1/system", { systemName, ...options });
     if (system == null) {
-        throw new NotFoundException("System not found: " + systemName);
+        throw new NotFoundException(`System not found: ${systemName}`);
     }
     return system;
 }
@@ -176,7 +176,7 @@ export interface SphereSystemsRequestOptions extends SystemRequestFlags, SystemI
  */
 export async function getSphereSystems(systemNameOrCoords: string | Coordinates, options?: SphereSystemsRequestOptions): Promise<SystemResponse[]> {
     const center = typeof systemNameOrCoords === "string" ? { systemName: systemNameOrCoords } : systemNameOrCoords;
-    return await request("api-v1/sphere-systems", { ...center, ...options }) as SystemResponse[];
+    return (await request("api-v1/sphere-systems", { ...center, ...options }))!;
 }
 
 /**
@@ -195,5 +195,5 @@ export interface CubeSystemsRequestOptions extends SystemRequestFlags, SystemIdR
  */
 export async function getCubeSystems(systemNameOrCoords: string | Coordinates, options?: CubeSystemsRequestOptions): Promise<SystemResponse[]> {
     const center = typeof systemNameOrCoords === "string" ? { systemName: systemNameOrCoords } : systemNameOrCoords;
-    return await request("api-v1/cube-systems", { ...center, ...options }) as SystemResponse[];
+    return (await request("api-v1/cube-systems", { ...center, ...options }))!;
 }

@@ -1,21 +1,18 @@
-import "@kayahr/vitest-matchers";
 
 import { createReadStream } from "node:fs";
-import { join } from "node:path";
 
-import { type ValidateFunction } from "ajv";
-import { beforeAll, describe, it } from "vitest";
+import type { ValidateFunction } from "ajv";
+import { before, describe, it } from "node:test";
 
-import { parseCodexJSON } from "../main/codex.js";
-import { createValidator, testJSON } from "./util.js";
+import { parseCodexJSON } from "../main/codex.ts";
+import { createValidator, testJSON } from "./util.ts";
 
-const baseDir = join(__dirname, "../..");
-const codexFile = join(baseDir, "src/test/data/codex.json");
+const codexFile = "src/test/data/codex.json";
 
 describe("codex", () => {
     let validator: ValidateFunction;
 
-    beforeAll(async () => {
+    before(async () => {
         validator = await createValidator("codex");
     });
 

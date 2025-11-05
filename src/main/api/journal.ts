@@ -3,8 +3,8 @@
  * See LICENSE.md for licensing information.
  */
 
-import type { Coordinates, Id64 } from "../common.js";
-import { request } from "./common.js";
+import type { Coordinates, Id64 } from "../common.ts";
+import { request } from "./common.ts";
 
 /**
  * Response of a {@link sendEvents} request.
@@ -56,14 +56,14 @@ export interface EDSMEvent {
  */
 export async function sendEvents(commanderName: string, apiKey: string, fromSoftware: string, fromSoftwareVersion: string, fromGameVersion: string,
         fromGameBuild: string, message: EDSMEvent | EDSMEvent[]): Promise<EventResponse> {
-    return await request("api-journal-v1", {
+    return (await request("api-journal-v1", {
         apiKey,
         fromSoftware,
         fromSoftwareVersion,
         fromGameVersion,
         fromGameBuild,
         message
-    }) as EventResponse;
+    }))!;
 }
 
 /**
@@ -72,5 +72,5 @@ export async function sendEvents(commanderName: string, apiKey: string, fromSoft
  * @returns The list of event names to be discarded.
  */
 export async function getDiscardEvents(): Promise<string[]> {
-    return await request("api-journal-v1/discard") as string[];
+    return (await request("api-journal-v1/discard"))!;
 }
