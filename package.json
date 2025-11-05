@@ -1,7 +1,7 @@
 {
     "$schema": "http://json.schemastore.org/package",
     "name": "@kayahr/edsm",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "type": "module",
     "description": "Typescript types and utility functions for the Elite Dangerous Star Map (EDSM) API",
     "keywords": [
