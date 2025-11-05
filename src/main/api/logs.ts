@@ -60,7 +60,7 @@ export interface CommanderPositionResponse {
     system: string | null;
     systemId?: number;
     systemId64?: Id64;
-    firstDiscover: false | null;
+    firstDiscover: boolean | null;
     date: string | null;
     coordinates?: Coordinates;
     isDocked?: boolean;
@@ -69,7 +69,7 @@ export interface CommanderPositionResponse {
     dateDocked?: string;
     shipId?: number;
     shipType?: string;
-    shipFuel: number | null;
+    shipFuel?: number | null;
     dateLastActivity?: string;
     url?: string;
 }

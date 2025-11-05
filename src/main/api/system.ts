@@ -255,10 +255,10 @@ export interface SystemFaction extends ShortSystemFaction {
     stateHistory?: Record<string, string> | [];
     activeStates: Array<{ state: string }>;
     activeStatesHistory?: Record<string, Array<{ state: string }>> | [];
-    recoveringStates: Array<{ state: string, trend: number }>;
-    recoveringStatesHistory?: Record<string, Array<{ state: string, trend: number }>> | [];
-    pendingStates: Array<{ state: string, trend: number }>;
-    pendingStatesHistory?: Record<string, Array<{ state: string, trend: number }>> | [];
+    recoveringStates: Array<{ state: string, trend?: number }>;
+    recoveringStatesHistory?: Record<string, Array<{ state: string, trend?: number }>> | [];
+    pendingStates: Array<{ state: string, trend?: number }>;
+    pendingStatesHistory?: Record<string, Array<{ state: string, trend?: number }>> | [];
     happiness: string;
     happinessHistory?: Record<string, string> | [];
     isPlayer: boolean;
