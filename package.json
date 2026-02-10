@@ -71,7 +71,7 @@
         "@kayahr/oxlint-config": "1.19.0",
         "@kayahr/ts-json-schema-generator": "2.4.0-bundle.2",
         "@kayahr/typedoc": "0.28.14-bundle.3",
-        "@types/node": "25.2.0",
+        "@types/node": "25.2.2",
         "ajv": "8.17.1",
         "fetch-mock": "12.6.0",
         "signal-polyfill": "0.2.2",
