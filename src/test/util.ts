@@ -45,5 +45,5 @@ export function testJSON(validate: ValidateFunction, json: unknown): void {
 }
 
 export function sleep(ms = 0): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise(resolve => { setTimeout(resolve, ms) });
 }

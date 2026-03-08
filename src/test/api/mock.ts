@@ -87,7 +87,7 @@ export class EDSMMock {
         fetchMock.route(match(url), catchError(handler.bind(this)), { method, ...options });
     }
 
-    #createJSONResponse<T>(status: number, data: T, headers: Record<string, string> = {}): RouteResponse {
+    #createJSONResponse(status: number, data: unknown, headers: Record<string, string> = {}): RouteResponse {
         return {
             status,
             headers: {
@@ -99,8 +99,8 @@ export class EDSMMock {
         };
     }
 
-    #readJSONBody<T>(callLog: CallLog): T {
-        return JSON.parse(callLog.options?.body as string) as T;
+    #readJSONBody(callLog: CallLog): unknown {
+        return JSON.parse(callLog.options?.body as string);
     }
 
     #getEliteServerStatus(callLog: CallLog): RouteResponse {
@@ -115,7 +115,7 @@ export class EDSMMock {
     }
 
     #getCommanderRanks(callLog: CallLog): RouteResponse {
-        const { commanderName } = this.#readJSONBody<{ commanderName: string }>(callLog);
+        const { commanderName } = this.#readJSONBody(callLog) as { commanderName: string };
         if (commanderName !== "MockUser") {
             return this.#createJSONResponse(200, { msgnum: 203, msg: "Commander name/API Key not found" });
         }
@@ -158,14 +158,13 @@ export class EDSMMock {
     }
 
     #getCommanderCredits(callLog: CallLog): RouteResponse {
-        const { commanderName, period } = this.#readJSONBody<{ commanderName: string, period?: CreditsPeriod }>(callLog);
+        const { commanderName, period } = this.#readJSONBody(callLog) as { commanderName: string, period?: CreditsPeriod };
         if (commanderName !== "MockUser") {
             return this.#createJSONResponse(200, { msgnum: 203, msg: "Commander name/API Key not found" });
         }
-        if (period == null) {
-            return this.#createJSONResponse(200, { msgnum: 100, msg: "OK", credits: [ { balance: 10, loan: 1, date: "2025-09-05 15:54:41" } ] });
-        } else {
-            return this.#createJSONResponse(200, {
+        return period == null
+            ? this.#createJSONResponse(200, { msgnum: 100, msg: "OK", credits: [ { balance: 10, loan: 1, date: "2025-09-05 15:54:41" } ] })
+            : this.#createJSONResponse(200, {
                 msgnum: 100,
                 msg: "OK",
                 credits: [
@@ -175,11 +174,10 @@ export class EDSMMock {
                 ],
                 period
             });
-        }
     }
 
     #getCommanderMaterials(callLog: CallLog): RouteResponse {
-        const { commanderName, type } = this.#readJSONBody<{ commanderName: string, type?: InventoryType }>(callLog);
+        const { commanderName, type } = this.#readJSONBody(callLog) as { commanderName: string, type?: InventoryType };
         if (commanderName !== "MockUser") {
             return this.#createJSONResponse(200, { msgnum: 203, msg: "Commander name/API Key not found" });
         }
@@ -238,7 +236,7 @@ export class EDSMMock {
     }
 
     #getPosition(callLog: CallLog): RouteResponse {
-        const { commanderName, showId, showCoordinates } = this.#readJSONBody<{ commanderName: string, showId?: number, showCoordinates?: number }>(callLog);
+        const { commanderName, showId, showCoordinates } = this.#readJSONBody(callLog) as { commanderName: string, showId?: number, showCoordinates?: number };
         if (commanderName !== "MockUser") {
             return this.#createJSONResponse(200, { msgnum: 203, msg: "Commander name/API Key not found" });
         }
@@ -256,11 +254,11 @@ export class EDSMMock {
             url: "https://www.edsm.net/en/user/profile/id/11120/cmdr/Kayahr"
         };
         if (showId === 1) {
-            response["systemId"] = 46319102;
-            response["systemId64"] = 9463826621993;
+            response.systemId = 46319102;
+            response.systemId64 = 9463826621993;
         }
         if (showCoordinates === 1) {
-            response["coordinates"] = {
+            response.coordinates = {
                 x: -225.1875,
                 y: 103.125,
                 z: 322.25
@@ -270,7 +268,7 @@ export class EDSMMock {
     }
 
     #getLogs(callLog: CallLog): RouteResponse {
-        const { commanderName, showId } = this.#readJSONBody<{ commanderName: string, showId?: number }>(callLog);
+        const { commanderName, showId } = this.#readJSONBody(callLog) as { commanderName: string, showId?: number };
         if (commanderName !== "MockUser") {
             return this.#createJSONResponse(200, { msgnum: 203, msg: "Commander name/API Key not found" });
         }
@@ -308,7 +306,7 @@ export class EDSMMock {
     }
 
     #setComment(callLog: CallLog): RouteResponse {
-        const { commanderName, systemName, comment } = this.#readJSONBody<{ commanderName: string, systemName: string, comment: string }>(callLog);
+        const { commanderName, systemName, comment } = this.#readJSONBody(callLog) as { commanderName: string, systemName: string, comment: string };
         if (commanderName !== "MockUser") {
             return this.#createJSONResponse(200, { msgnum: 203, msg: "Commander name/API Key not found" });
         }
@@ -321,7 +319,7 @@ export class EDSMMock {
     }
 
     #getComment(callLog: CallLog): RouteResponse {
-        const { commanderName, systemName } = this.#readJSONBody<{ commanderName: string, systemName: string }>(callLog);
+        const { commanderName, systemName } = this.#readJSONBody(callLog) as { commanderName: string, systemName: string };
         if (commanderName !== "MockUser") {
             return this.#createJSONResponse(200, { msgnum: 203, msg: "Commander name/API Key not found" });
         }
@@ -335,7 +333,7 @@ export class EDSMMock {
     }
 
     #getComments(callLog: CallLog): RouteResponse {
-        const { commanderName } = this.#readJSONBody<{ commanderName: string }>(callLog);
+        const { commanderName } = this.#readJSONBody(callLog) as { commanderName: string };
         if (commanderName !== "MockUser") {
             return this.#createJSONResponse(200, { msgnum: 203, msg: "Commander name/API Key not found" });
         }
@@ -348,16 +346,12 @@ export class EDSMMock {
     }
 
     #getSystemBodies(callLog: CallLog): RouteResponse {
-        const { systemName, systemId64, systemId } = this.#readJSONBody<{ systemName: string, systemId64?: number, systemId?: number }>(callLog);
+        const { systemName, systemId64, systemId } = this.#readJSONBody(callLog) as { systemName: string, systemId64?: number, systemId?: number };
         let result;
         if (systemName === "Colonia") {
             result = colonia;
         } else if (systemName === "24 Comae Berenices") {
-            if (systemId === 5410650 || systemId64 === 84054348506) {
-                result = berenices1;
-            } else {
-                result = berenices2;
-            }
+            result = systemId === 5410650 || systemId64 === 84054348506 ? berenices1 : berenices2;
         } else {
             result = null;
         }
@@ -368,7 +362,7 @@ export class EDSMMock {
     }
 
     #getSystemEstimatedValue(callLog: CallLog): RouteResponse {
-        const { systemName, systemId64, systemId } = this.#readJSONBody<{ systemName: string, systemId64?: number, systemId?: number }>(callLog);
+        const { systemName, systemId64, systemId } = this.#readJSONBody(callLog) as { systemName: string, systemId64?: number, systemId?: number };
         let result;
         if (systemName === "Sol") {
             result = {
@@ -394,8 +388,8 @@ export class EDSMMock {
                 ]
             };
         } else if (systemName === "24 Comae Berenices") {
-            if (systemId === 5410650 || systemId64 === 84054348506) {
-                result = {
+            result = systemId === 5410650 || systemId64 === 84054348506
+                ? {
                     id: 5410650,
                     id64: 84054348506,
                     name: "24 Comae Berenices",
@@ -403,9 +397,7 @@ export class EDSMMock {
                     estimatedValue: 46999,
                     estimatedValueMapped: 126209,
                     valuableBodies: []
-                };
-            } else {
-                result = {
+                } : {
                     id: 53494504,
                     id64: 1323435196,
                     name: "24 Comae Berenices",
@@ -414,7 +406,6 @@ export class EDSMMock {
                     estimatedValueMapped: 76027,
                     valuableBodies: []
                 };
-            }
         } else {
             result = null;
         }
@@ -425,28 +416,25 @@ export class EDSMMock {
     }
 
     #getSystemStations(callLog: CallLog): RouteResponse {
-        const { systemName, systemId64, systemId } = this.#readJSONBody<{ systemName: string, systemId64?: number, systemId?: number }>(callLog);
+        const { systemName, systemId64, systemId } = this.#readJSONBody(callLog) as { systemName: string, systemId64?: number, systemId?: number };
         let result;
         if (systemName === "Shinrarta Dezhra") {
             result = shinrartaDezhraStations;
         } else if (systemName === "24 Comae Berenices") {
-            if (systemId === 5410650 || systemId64 === 84054348506) {
-                result = {
+            result = systemId === 5410650 || systemId64 === 84054348506
+                ? {
                     id: 5410650,
                     id64: 84054348506,
                     name: "24 Comae Berenices",
                     url: "https://www.edsm.net/en/system/stations/id/5410650/name/24+Comae+Berenices",
                     stations: []
-                };
-            } else {
-                result = {
+                } : {
                     id: 53494504,
                     id64: 1323435196,
                     name: "24 Comae Berenices",
                     url: "https://www.edsm.net/en/system/stations/id/53494504/name/24+Comae+Berenices",
                     stations: []
                 };
-            }
         } else {
             result = null;
         }
@@ -457,7 +445,7 @@ export class EDSMMock {
     }
 
     #getSystemStationsMarket(callLog: CallLog): RouteResponse {
-        const { systemName, stationName, marketId } = this.#readJSONBody<{ systemName?: string, stationName?: string, marketId?: number }>(callLog);
+        const { systemName, stationName, marketId } = this.#readJSONBody(callLog) as { systemName?: string, stationName?: string, marketId?: number };
         let result;
         if ((systemName === "Shinrarta Dezhra" && stationName === "Jameson Memorial") || (marketId === 128666762)) {
             result = jamesonMemorialMarket;
@@ -473,7 +461,7 @@ export class EDSMMock {
     }
 
     #getSystemStationsShipyard(callLog: CallLog): RouteResponse {
-        const { systemName, stationName, marketId } = this.#readJSONBody<{ systemName?: string, stationName?: string, marketId?: number }>(callLog);
+        const { systemName, stationName, marketId } = this.#readJSONBody(callLog) as { systemName?: string, stationName?: string, marketId?: number };
         let result;
         if ((systemName === "Shinrarta Dezhra" && stationName === "Jameson Memorial") || (marketId === 128666762)) {
             result = jamesonMemorialShipyard;
@@ -489,7 +477,7 @@ export class EDSMMock {
     }
 
     #getSystemStationsOutfitting(callLog: CallLog): RouteResponse {
-        const { systemName, stationName, marketId } = this.#readJSONBody<{ systemName?: string, stationName?: string, marketId?: number }>(callLog);
+        const { systemName, stationName, marketId } = this.#readJSONBody(callLog) as { systemName?: string, stationName?: string, marketId?: number };
         let result;
         if ((systemName === "Shinrarta Dezhra" && stationName === "Jameson Memorial") || (marketId === 128666762)) {
             result = jamesonMemorialOutfitting;
@@ -506,13 +494,10 @@ export class EDSMMock {
 
     #getSystemFactions(callLog: CallLog): RouteResponse {
         const { systemName, systemId64, systemId, showHistory }
-            = this.#readJSONBody<{ systemName: string, systemId64?: Id64, systemId?: number, showHistory?: number }>(callLog);
-        let result;
-        if (systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)) {
-            result = shinrartaDezhraFactions;
-        } else {
-            result = null;
-        }
+            = this.#readJSONBody(callLog) as { systemName: string, systemId64?: Id64, systemId?: number, showHistory?: number };
+        let result = systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)
+            ? shinrartaDezhraFactions
+            : null;
         if (result == null) {
             return this.#createJSONResponse(200, {});
         }
@@ -531,13 +516,10 @@ export class EDSMMock {
     }
 
     #getSystemTraffic(callLog: CallLog): RouteResponse {
-        const { systemName, systemId64, systemId } = this.#readJSONBody<{ systemName: string, systemId64?: Id64, systemId?: number }>(callLog);
-        let result;
-        if (systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)) {
-            result = shinrartaDezhraTraffic;
-        } else {
-            result = null;
-        }
+        const { systemName, systemId64, systemId } = this.#readJSONBody(callLog) as { systemName: string, systemId64?: Id64, systemId?: number };
+        const result = systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)
+            ? shinrartaDezhraTraffic
+            : null;
         if (result == null) {
             return this.#createJSONResponse(200, {});
         }
@@ -545,10 +527,9 @@ export class EDSMMock {
     }
 
     #getSystemDeaths(callLog: CallLog): RouteResponse {
-        const { systemName, systemId64, systemId } = this.#readJSONBody<{ systemName: string, systemId64?: Id64, systemId?: number }>(callLog);
-        let result;
-        if (systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)) {
-            result = {
+        const { systemName, systemId64, systemId } = this.#readJSONBody(callLog) as { systemName: string, systemId64?: Id64, systemId?: number };
+        const result = systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)
+            ? {
                 id: 4345,
                 id64: 3932277478106,
                 name: "Shinrarta Dezhra",
@@ -558,10 +539,8 @@ export class EDSMMock {
                     week: 22,
                     day: 1
                 }
-            };
-        } else {
-            result = null;
-        }
+            }
+            : null;
         if (result == null) {
             return this.#createJSONResponse(200, {});
         }
@@ -592,13 +571,10 @@ export class EDSMMock {
     }
 
     #getSystem(callLog: CallLog): RouteResponse {
-        const { systemName, systemId, systemId64, ...flags } = this.#readJSONBody<SystemRequestOptions & { systemName: string }>(callLog);
-        let result: null | SystemResponse;
-        if (systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)) {
-            result = shinrartaDezhraSystem;
-        } else {
-            result = null;
-        }
+        const { systemName, systemId, systemId64, ...flags } = this.#readJSONBody(callLog) as SystemRequestOptions & { systemName: string };
+        const result = systemName === "Shinrarta Dezhra" || systemId === 4345 || (systemId64 === 3932277478106 || systemId64 === 3932277478106n)
+            ? shinrartaDezhraSystem
+            : null;
         if (result == null) {
             return this.#createJSONResponse(200, {});
         }
@@ -606,7 +582,7 @@ export class EDSMMock {
     }
 
     #getSystems(callLog: CallLog): RouteResponse {
-        const { systemName, ...flags } = this.#readJSONBody<SystemsRequestOptions>(callLog);
+        const { systemName, ...flags } = this.#readJSONBody(callLog) as SystemsRequestOptions;
         const result = [ shinrartaDezhraSystem, solSystem ].filter(system => {
             if (systemName == null) {
                 return true;
@@ -620,14 +596,14 @@ export class EDSMMock {
     }
 
     #getSphereSystems(callLog: CallLog): RouteResponse {
-        const { ...flags } = this.#readJSONBody<SphereSystemsRequestOptions & { systemNameOrCoords: string | Coordinates }>(callLog);
+        const { ...flags } = this.#readJSONBody(callLog) as SphereSystemsRequestOptions & { systemNameOrCoords: string | Coordinates };
         // Not filtering anything yet, just returning systems
         const result = [ shinrartaDezhraSystem, solSystem ].map(system => this.#filterSystem(system, flags));
         return this.#createJSONResponse(200, result);
     }
 
     #getCubeSystems(callLog: CallLog): RouteResponse {
-        const { ...flags } = this.#readJSONBody<CubeSystemsRequestOptions & { systemNameOrCoords: string | Coordinates }>(callLog);
+        const { ...flags } = this.#readJSONBody(callLog) as CubeSystemsRequestOptions & { systemNameOrCoords: string | Coordinates };
         // Not filtering anything yet, just returning systems
         const result = [ shinrartaDezhraSystem, solSystem ].map(system => this.#filterSystem(system, flags));
         return this.#createJSONResponse(200, result);
@@ -638,10 +614,10 @@ export class EDSMMock {
     }
 
     #sendEvents(callLog: CallLog): RouteResponse {
-        const { message } = this.#readJSONBody<{ message: EDSMEvent | EDSMEvent[] }>(callLog);
+        const { message } = this.#readJSONBody(callLog) as { message: EDSMEvent | EDSMEvent[] };
         const result: EventResponse = { events: [] };
         if (Array.isArray(message)) {
-            message.forEach(m => result.events.push({ msgnum: 100, msg: "OK" }));
+            message.forEach(m => { result.events.push({ msgnum: 100, msg: "OK" }) });
         } else {
             result.events.push({ msgnum: 100, msg: "OK" });
         }
@@ -653,11 +629,11 @@ function throwError(message: string): never {
     throw new Error(message);
 }
 
-export const edsmLiveTest = process.env["EDSM_LIVE_TEST"] != null;
+export const edsmLiveTest = process.env.EDSM_LIVE_TEST != null;
 export const edsmAPIKey = edsmLiveTest
-    ? process.env["EDSM_API_KEY"] ?? throwError("For EDSM live testing the environment variable EDSM_API_KEY must be set to your own API key")
+    ? process.env.EDSM_API_KEY ?? throwError("For EDSM live testing the environment variable EDSM_API_KEY must be set to your own API key")
     : "0123456789abcdef0123456789abcdef01234567";
 export const edsmUser = edsmLiveTest
-    ? process.env["EDSM_USER"] ?? throwError("For EDSM live testing the environment variable EDSM_USER must be set to your own username with a public profile")
+    ? process.env.EDSM_USER ?? throwError("For EDSM live testing the environment variable EDSM_USER must be set to your own username with a public profile")
     : "MockUser";
 export const edsmMock = new EDSMMock();
