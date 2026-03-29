@@ -4,7 +4,7 @@
  */
 
 import type { Coordinates, Id64 } from "../common.ts";
-import { NotFoundException } from "../util.ts";
+import { NotFoundError } from "../util.ts";
 import { type SystemIdRequestOptions, request } from "./common.ts";
 
 /**
@@ -113,7 +113,7 @@ export interface SystemRequestOptions extends SystemIdRequestOptions, SystemRequ
 export async function getSystem(systemName: string, options?: SystemRequestOptions): Promise<SystemResponse> {
     const system = await request<SystemResponse>("api-v1/system", { systemName, ...options });
     if (system == null) {
-        throw new NotFoundException(`System not found: ${systemName}`);
+        throw new NotFoundError(`System not found: ${systemName}`);
     }
     return system;
 }

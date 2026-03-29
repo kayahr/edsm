@@ -3,7 +3,7 @@ import type { ValidateFunction } from "ajv";
 import { after, before, describe, it } from "node:test";
 
 import { getCubeSystems, getSphereSystems, getSystem, getSystems } from "../../main/api/systems.ts";
-import { NotFoundException } from "../../main/util.ts";
+import { NotFoundError } from "../../main/util.ts";
 import { createValidator, testJSON } from "../util.ts";
 import { edsmLiveTest, edsmMock } from "./mock.ts";
 import { assertSame, assertThrowWithMessage } from "@kayahr/assert";
@@ -40,7 +40,7 @@ describe("systems", () => {
             testJSON(validator, result);
         });
         it("throws error when system not found", async () => {
-            await assertThrowWithMessage(() => getSystem("Raxxla"), NotFoundException, "System not found: Raxxla");
+            await assertThrowWithMessage(() => getSystem("Raxxla"), NotFoundError, "System not found: Raxxla");
         });
     });
 

@@ -5,7 +5,7 @@ import {
     type CommanderCreditsResponse, type CommanderInventoryResponse, type CommanderRanksResponse, type CreditsPeriod, type InventoryType, getCommanderCredits,
     getCommanderInventory, getCommanderRanks
 } from "../main/api/commander.ts";
-import { APIException, ServerException, type SystemIdRequestOptions } from "../main/api/common.ts";
+import { APIError, ServerError, type SystemIdRequestOptions } from "../main/api/common.ts";
 import { type EDSMEvent, type EventResponse, getDiscardEvents, sendEvents } from "../main/api/journal.ts";
 import {
     type CommanderPositionOptions, type CommanderPositionResponse, type FlightLog, type FlightLogFilter, type FlightLogsResponse, type SystemCommentResponse,
@@ -39,7 +39,7 @@ import {
 import {
     type ControllingFaction, type EstimatedCoordinates, type Faction, type State, type System, type Systems, type TrendState, parseSystemsJSON
 } from "../main/systems.ts";
-import { IllegalStateException, NotFoundException } from "../main/util.ts";
+import { IllegalStateError, NotFoundError } from "../main/util.ts";
 import { assertEquals } from "@kayahr/assert";
 
 describe("index", () => {
@@ -49,10 +49,10 @@ describe("index", () => {
             getCommanderCredits,
             getCommanderInventory,
             getCommanderRanks,
-            APIException,
-            ServerException,
-            NotFoundException,
-            IllegalStateException,
+            APIError,
+            ServerError,
+            NotFoundError,
+            IllegalStateError,
             getSystem,
             getSystems,
             getSphereSystems,

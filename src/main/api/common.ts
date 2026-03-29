@@ -6,7 +6,7 @@
 import { JSONStringify } from "json-with-bigint";
 
 import type { Id64 } from "../common.ts";
-import { EDSMException, jsonReviver } from "../util.ts";
+import { EDSMError, jsonReviver } from "../util.ts";
 
 export const edsmBaseUrl = "https://www.edsm.net";
 
@@ -21,20 +21,22 @@ export interface SystemIdRequestOptions {
     systemId64?: Id64;
 }
 
-export class ServerException extends EDSMException {
+export class ServerError extends EDSMError {
     public readonly status: number;
 
     public constructor(status: number, message: string) {
         super(message);
+        this.name = "ServerError";
         this.status = status;
     }
 }
 
-export class APIException extends EDSMException {
+export class APIError extends EDSMError {
     public readonly status: number;
 
     public constructor(status: number, message: string) {
         super(message);
+        this.name = "APIError";
         this.status = status;
     }
 }
@@ -58,13 +60,13 @@ export async function request<T>(url: string, params: Record<string, unknown> = 
         body: JSONStringify(params)
     });
     if (result.status !== 200) {
-        throw new ServerException(result.status, result.statusText);
+        throw new ServerError(result.status, result.statusText);
     }
     const text = await result.text();
     const json = JSON.parse(text, jsonReviver) as T & MessageResult;
     if (json.msgnum != null && json.msg != null) {
         if (json.msgnum < 100 || json.msgnum >= 200) {
-            throw new APIException(json.msgnum, json.msg);
+            throw new APIError(json.msgnum, json.msg);
         } else {
             delete json.msgnum;
             delete json.msg;

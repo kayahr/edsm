@@ -7,7 +7,7 @@ export {
     type CommanderCreditsResponse, type CommanderInventoryResponse, type CommanderRanksResponse, type CreditsPeriod, getCommanderCredits, getCommanderInventory,
     getCommanderRanks, type InventoryType
 } from "./api/commander.ts";
-export { APIException, ServerException, type SystemIdRequestOptions } from "./api/common.ts";
+export { APIError, ServerError, type SystemIdRequestOptions } from "./api/common.ts";
 export { type EDSMEvent, type EventResponse, getDiscardEvents, sendEvents } from "./api/journal.ts";
 export {
 type CommanderPositionOptions, type CommanderPositionResponse, type FlightLog, type FlightLogFilter, type FlightLogsResponse, getCommanderPosition,
@@ -39,4 +39,4 @@ export {
 export {
     type ControllingFaction, type EstimatedCoordinates, type Faction, parseSystemsJSON, type State, type System, type Systems, type TrendState
 } from "./systems.ts";
-export { IllegalStateException, NotFoundException } from "./util.ts";
+export { IllegalStateError, NotFoundError } from "./util.ts";

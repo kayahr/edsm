@@ -6,8 +6,8 @@ import {
     getStationMarket, getStationOutfitting, getStationShipyard, getSystemBodies, getSystemDeaths, getSystemEstimatedValue, getSystemFactions, getSystemStations,
     getSystemTraffic
 } from "../../main/api/system.ts";
-import { ServerException } from "../../main/index.ts";
-import { NotFoundException } from "../../main/util.ts";
+import { ServerError } from "../../main/api/common.ts";
+import { NotFoundError } from "../../main/util.ts";
 import { createValidator, testJSON } from "../util.ts";
 import { edsmMock } from "./mock.ts";
 import { assertDefined, assertGreaterThan, assertSame, assertThrowWithMessage, assertUndefined } from "@kayahr/assert";
@@ -58,7 +58,7 @@ describe("system", () => {
                 await getSystemBodies("Raxxla");
                 throw new Error("Did not throw exception");
             } catch (error) {
-                assertThrowWithMessage(() => { throw error; }, NotFoundException, "System not found: Raxxla");
+                assertThrowWithMessage(() => { throw error; }, NotFoundError, "System not found: Raxxla");
             }
         });
     });
@@ -100,7 +100,7 @@ describe("system", () => {
                 await getSystemEstimatedValue("Raxxla");
                 throw new Error("Did not throw exception");
             } catch (error) {
-                assertThrowWithMessage(() => { throw error; }, NotFoundException, "System not found: Raxxla");
+                assertThrowWithMessage(() => { throw error; }, NotFoundError, "System not found: Raxxla");
             }
         });
     });
@@ -138,7 +138,7 @@ describe("system", () => {
             testJSON(validator, result2);
         });
         it("throws error when system not found", async () => {
-            await assertThrowWithMessage(() => getSystemStations("Raxxla"), NotFoundException, "System not found: Raxxla");
+            await assertThrowWithMessage(() => getSystemStations("Raxxla"), NotFoundError, "System not found: Raxxla");
         });
     });
 
@@ -160,14 +160,14 @@ describe("system", () => {
             assertGreaterThan(result.commodities.length, 0);
         });
         it("throws error when market id not found", async () => {
-            await assertThrowWithMessage(() => getStationMarket(1234567890), NotFoundException, "Market not found: 1234567890");
+            await assertThrowWithMessage(() => getStationMarket(1234567890), NotFoundError, "Market not found: 1234567890");
         });
         it("throws error when station name not found", async () => {
-            await assertThrowWithMessage(() => getStationMarket("Shinrarta Dezhra", "Jameson"), NotFoundException,
+            await assertThrowWithMessage(() => getStationMarket("Shinrarta Dezhra", "Jameson"), NotFoundError,
                 "Station 'Jameson' in 'Shinrarta Dezhra' not found");
         });
         it("throws server error when market id is negative", async () => {
-            await assertThrowWithMessage(() => getStationMarket(-1), ServerException, "Internal Server Error");
+            await assertThrowWithMessage(() => getStationMarket(-1), ServerError, "Internal Server Error");
         });
     });
 
@@ -189,10 +189,10 @@ describe("system", () => {
             assertGreaterThan(result.ships.length, 0);
         });
         it("throws error when market id not found", async () => {
-            await assertThrowWithMessage(() => getStationShipyard(1234567890), NotFoundException, "Market not found: 1234567890");
+            await assertThrowWithMessage(() => getStationShipyard(1234567890), NotFoundError, "Market not found: 1234567890");
         });
         it("throws error when station name not found", async () => {
-            await assertThrowWithMessage(() => getStationShipyard("Shinrarta Dezhra", "Jameson"), NotFoundException,
+            await assertThrowWithMessage(() => getStationShipyard("Shinrarta Dezhra", "Jameson"), NotFoundError,
                 "Station 'Jameson' in 'Shinrarta Dezhra' not found");
         });
     });
@@ -215,10 +215,10 @@ describe("system", () => {
             assertGreaterThan(result.outfitting.length, 0);
         });
         it("throws error when market id not found", async () => {
-            await assertThrowWithMessage(() => getStationOutfitting(1234567890), NotFoundException, "Market not found: 1234567890");
+            await assertThrowWithMessage(() => getStationOutfitting(1234567890), NotFoundError, "Market not found: 1234567890");
         });
         it("throws error when station name not found", async () => {
-            await assertThrowWithMessage(() => getStationOutfitting("Shinrarta Dezhra", "Jameson"), NotFoundException,
+            await assertThrowWithMessage(() => getStationOutfitting("Shinrarta Dezhra", "Jameson"), NotFoundError,
                 "Station 'Jameson' in 'Shinrarta Dezhra' not found");
         });
     });
@@ -268,7 +268,7 @@ describe("system", () => {
             testJSON(validator, result);
         });
         it("throws error when system not found", async () => {
-            await assertThrowWithMessage(() => getSystemFactions("Raxxla"), NotFoundException, "System not found: Raxxla");
+            await assertThrowWithMessage(() => getSystemFactions("Raxxla"), NotFoundError, "System not found: Raxxla");
         });
     });
 
@@ -299,7 +299,7 @@ describe("system", () => {
             testJSON(validator, result);
         });
         it("throws error when system not found", async () => {
-            await assertThrowWithMessage(() => getSystemTraffic("Raxxla"), NotFoundException, "System not found: Raxxla");
+            await assertThrowWithMessage(() => getSystemTraffic("Raxxla"), NotFoundError, "System not found: Raxxla");
         });
     });
 
@@ -330,7 +330,7 @@ describe("system", () => {
             testJSON(validator, result);
         });
         it("throws error when system not found", async () => {
-            await assertThrowWithMessage(() => getSystemDeaths("Raxxla"), NotFoundException, "System not found: Raxxla");
+            await assertThrowWithMessage(() => getSystemDeaths("Raxxla"), NotFoundError, "System not found: Raxxla");
         });
     });
 });

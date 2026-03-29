@@ -3,7 +3,7 @@ import type { ValidateFunction } from "ajv";
 import { after, before, describe, it } from "node:test";
 import { assertDefined, assertSame, assertThrowWithMessage, assertUndefined } from "@kayahr/assert";
 import { getCommanderCredits, getCommanderInventory, getCommanderRanks } from "../../main/api/commander.ts";
-import { APIException } from "../../main/index.ts";
+import { APIError } from "../../main/api/common.ts";
 import { createValidator, testJSON } from "../util.ts";
 import { edsmAPIKey, edsmMock, edsmUser } from "./mock.ts";
 
@@ -30,7 +30,7 @@ describe("commander", () => {
             testJSON(validator, result);
         });
         it("throws APIException when commander not found", async () => {
-            await assertThrowWithMessage(() => getCommanderRanks(crypto.randomUUID()), APIException, "Commander name/API Key not found");
+            await assertThrowWithMessage(() => getCommanderRanks(crypto.randomUUID()), APIError, "Commander name/API Key not found");
         });
     });
 

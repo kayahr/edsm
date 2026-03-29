@@ -1,7 +1,7 @@
 
 import { describe, it } from "node:test";
 
-import { IllegalStateException, jsonReviver, parseJSONArray } from "../main/util.ts";
+import { IllegalStateError, jsonReviver, parseJSONArray } from "../main/util.ts";
 import { assertEquals, assertSame, assertThrowWithMessage } from "@kayahr/assert";
 
 async function *stream(data: unknown[], terminator = "\n"): AsyncIterable<Uint8Array> {
@@ -48,7 +48,7 @@ describe("util", () => {
                 for await (const object of parseJSONArray(stream(expected, "\nX"))) {
                     actual.push(object);
                 }
-            }, IllegalStateException, "Expected array start but got: X");
+            }, IllegalStateError, "Expected array start but got: X");
         });
     });
 
@@ -73,7 +73,7 @@ describe("util", () => {
         });
         it("throws error when detecting an unhandled 64 bit precision loss", () => {
             // oxlint-disable-next-line no-loss-of-precision
-            assertThrowWithMessage(() => jsonReviver("id", 9007199254740993, { source: "9007199254740993" }), IllegalStateException,
+            assertThrowWithMessage(() => jsonReviver("id", 9007199254740993, { source: "9007199254740993" }), IllegalStateError,
                 "Value of property 'id' looks like a bigint (9007199254740993) but was parsed as an imprecise number (9007199254740992)");
         });
     });

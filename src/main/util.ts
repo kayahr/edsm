@@ -6,7 +6,10 @@
 /**
  * Base class for all exceptions. Automatically corrects its prototype and name.
  */
-export abstract class EDSMException extends Error {
+export abstract class EDSMError extends Error {
+    /** @inheritdoc */
+    public override name = "EDSMError";
+
     /**
      * Creates a new exception.
      *
@@ -15,16 +18,21 @@ export abstract class EDSMException extends Error {
      */
     public constructor(message: string, options?: ErrorOptions) {
         super(message, options);
-        this.name = this.constructor.name;
         Object.setPrototypeOf(this, new.target.prototype);
     }
 }
 
 /** Thrown when state is illegal. */
-export class IllegalStateException extends EDSMException {}
+export class IllegalStateError extends EDSMError {
+    /** @inheritdoc */
+    public override name = "IllegalStateError";
+}
 
 /** Thrown when some resource was not found. */
-export class NotFoundException extends EDSMException {}
+export class NotFoundError extends EDSMError {
+    /** @inheritdoc */
+    public override name = "NotFoundError";
+}
 
 /**
  * Helper function to iterate over the lines of a data stream.
@@ -67,7 +75,7 @@ export async function *parseJSONArray<T>(stream: AsyncIterable<Uint8Array>): Asy
             if (line === "[") {
                 inData = true;
             } else {
-                throw new IllegalStateException(`Expected array start but got: ${line}`);
+                throw new IllegalStateError(`Expected array start but got: ${line}`);
             }
         } else {
             if (line === "]") {
@@ -96,7 +104,7 @@ export function jsonReviver(key: string, value: unknown, context?: { source: str
         if (key === "id64" || key === "systemId64") {
             return BigInt(source);
         } else if (String(value) !== source && /^[-+]?\d+$/.test(source)) {
-            throw new IllegalStateException(`Value of property '${key}' looks like a bigint (${source}) but was parsed as an imprecise number (${value})`);
+            throw new IllegalStateError(`Value of property '${key}' looks like a bigint (${source}) but was parsed as an imprecise number (${value})`);
         }
     }
     return value;
