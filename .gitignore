@@ -4,3 +4,4 @@
 sandbox/
 /*.tgz
 /src/test/data/build/*.json.gz
+/.codex
