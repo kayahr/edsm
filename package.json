@@ -74,7 +74,7 @@
         "@types/node": "26.2.0",
         "ajv": "8.20.0",
         "fetch-mock": "12.6.0",
-        "signal-polyfill": "0.2.2",
+        "signal-polyfill": "0.2.3",
         "typescript": "7.0.2"
     },
     "dependencies": {
